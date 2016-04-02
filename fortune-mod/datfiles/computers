@@ -167,8 +167,8 @@ disciples."
 	Hearing this, the man was Enlightened.
 %
 	A manager asked a programmer how long it would take him to finish the
-program on which he was working.  "I will be finished tomorrow," the programmer
-promptly replied.
+program on which he was working.  "I will be finished tomorrow," the
+programmer promptly replied.
 	"I think you are being unrealistic," said the manager. "Truthfully,
 how long will it take?"
 	The programmer thought for a moment.  "I have some features that I wish
@@ -185,8 +185,8 @@ He had been programming all night.
 invented a new program that became popular and sold well.  As a result, the
 manager retained his job.
 	The manager tried to give the programmer a bonus, but the programmer
-refused it, saying, "I wrote the program because I though it was an interesting
-concept, and thus I expect no reward."
+refused it, saying, "I wrote the program because I though it was an
+interesting concept, and thus I expect no reward."
 	The manager, upon hearing this, remarked, "This programmer, though he
 holds a position of small esteem, understands well the proper duty of an
 employee.  Lets promote him to the exalted position of management consultant!"
@@ -338,7 +338,8 @@ reviewed his program, he discovered that it contained a screen editor, a set
 of generalized graphics routines, and artificial intelligence interface,
 but not the slightest mention of anything financial.
 	When the master asked about this, the novice became indignant.
-"Don't be so impatient," he said, "I'll put the financial stuff in eventually."
+"Don't be so impatient," he said, "I'll put the financial stuff in
+eventually."
 		-- Geoffrey James, "The Tao of Programming"
 %
 	A novice was trying to fix a broken lisp machine by turning the
@@ -412,9 +413,9 @@ work.  Remember the last time smoke escaped from your Lucas voltage regulator
 Didn't it quit working?  I sat and smiled like an idiot as more of the truth
 dawned.  It's the wiring harness that carries the smoke from one device to
 another in your Mini, MG or Jag.  And when the harness springs a leak, it lets
-the smoke out of everything at once, and then nothing works.  The starter motor
-requires large quantities of smoke to operate properly, and that's why the wire
-going to it is so large.
+the smoke out of everything at once, and then nothing works.  The starter
+motor requires large quantities of smoke to operate properly, and that's why
+the wire going to it is so large.
 	Feeling very smug, I continued to expand my hypothesis.  Why are Lucas
 electronics more likely to leak than say Bosch?  Hmmm...  Aha!!!  Lucas is
 British, and all things British leak!  British convertible tops leak water,
@@ -488,18 +489,19 @@ machine with poor response time and a machine on your local net is currently
 populated by losers, that machine will be freed up for your job through a
 cold boot process.
 %
-All parts should go together without forcing.  You must remember that the parts
-you are reassembling were disassembled by you.  Therefore, if you can't get
-them together again, there must be a reason.  By all means, do not use a hammer.
+All parts should go together without forcing.  You must remember that the
+parts you are reassembling were disassembled by you.  Therefore, if you can't
+get them together again, there must be a reason.  By all means, do not use a
+hammer.
 		-- IBM maintenance manual, 1925
 %
-All programmers are optimists.  Perhaps this modern sorcery especially attracts
-those who believe in happy endings and fairy godmothers.  Perhaps the hundreds
-of nitty frustrations drive away all but those who habitually focus on the end
-goal.  Perhaps it is merely that computers are young, programmers are younger,
-and the young are always optimists.  But however the selection process works,
-the result is indisputable:  "This time it will surely run," or "I just found
-the last bug."
+All programmers are optimists.  Perhaps this modern sorcery especially
+attracts those who believe in happy endings and fairy godmothers.  Perhaps the
+hundreds of nitty frustrations drive away all but those who habitually focus
+on the end goal.  Perhaps it is merely that computers are young, programmers
+are younger, and the young are always optimists.  But however the selection
+process works, the result is indisputable:  "This time it will surely run," or
+"I just found the last bug."
 		-- Frederick Brooks, "The Mythical Man Month"
 %
 All programmers are playwrights and all computers are lousy actors.
@@ -599,7 +601,7 @@ collection algorithm has been installed.  With SI:%DSK-GC-QLX-BITS set to 17,
 (NOT the default) the old garbage collection algorithm remains in force; when 
 virtual storage is filled, the machine cold boots itself.  With SI:%DSK-GC-
 QLX-BITS set to 23, the new garbage collector is enabled.  Unlike most garbage
-collectors, the new gc starts its mark phase from the mind of the user, rather 
+collectors, the new gc starts its mark phase from the mind of the user, rather
 than from the obarray.  This allows the garbage collection of significantly 
 more Qs.  As the garbage collector runs, it may ask you something like "Do you
 remember what SI:RDTBL-TRANS does?", and if you can't give a reasonable answer
@@ -670,20 +672,20 @@ know whether the poor guy was sitting or standing?  Good debuggers, though,
 know that there has to be a reason.  Electrical theories are the easiest to
 hypothesize: was there a loose with under the carpet, or problems with static
 electricity?  But electrical problems are rarely consistently reproducible.
-An alert IBMer finally noticed that the problem was in the terminal's keyboard:
-the tops of two keys were switched.  When the programmer was seated he was a
-touch typist and the problem went unnoticed, but when he stood he was led
-astray by hunting and pecking.
+An alert IBMer finally noticed that the problem was in the terminal's
+keyboard: the tops of two keys were switched.  When the programmer was seated
+he was a touch typist and the problem went unnoticed, but when he stood he was
+led astray by hunting and pecking.
 	-- "Programming Pearls" column, by Jon Bentley in CACM February 1985
 %
 An elephant is a mouse with an operating system.
 %
 An engineer is someone who does list processing in FORTRAN.
 %
-An interpretation _I satisfies a sentence in the table language if and only if
-each entry in the table designates the value of the function designated by the
-function constant in the upper-left corner applied to the objects designated
-by the corresponding row and column labels.
+An interpretation _I satisfies a sentence in the table language if and only
+if each entry in the table designates the value of the function designated by
+the function constant in the upper-left corner applied to the objects
+designated by the corresponding row and column labels.
 		-- Genesereth & Nilsson, "Logical foundations of Artificial
 		   Intelligence"
 %
@@ -748,7 +750,8 @@ As a computer, I find your faith in technology amusing.
 As far as we know, our computer has never had an undetected error.
 		-- Weisert
 %
-As in certain cults it is possible to kill a process if you know its true name.
+As in certain cults it is possible to kill a process if you know its true
+name.
 		-- Ken Thompson and Dennis M. Ritchie
 %
 As in Protestant Europe, by contrast, where sects divided endlessly into
@@ -980,8 +983,8 @@ public, private, or protected parts of a class.  Members declared in the
 public parts are visible to all clients; members declared in the private
 parts are fully encapsulated; and members declared in the protected parts
 are visible only to the class itself and its subclasses.  C++ also supports
-the notion of *_______friends*: cooperative classes that are permitted to see each
-other's private parts.
+the notion of *_______friends*: cooperative classes that are
+permitted to see each other's private parts.
 		-- Grady Booch, "Object Oriented Design with Applications"
 %
 Calm down, it's *____only* ones and zeroes.
@@ -1086,7 +1089,8 @@ being easier to stake.
 Counting in binary is just like counting in decimal -- if you are all thumbs.
 		-- Glaser and Way
 %
-Counting in octal is just like counting in decimal--if you don't use your thumbs.
+Counting in octal is just like counting in decimal--if you don't use your
+thumbs.
 		-- Tom Lehrer
 %
 [Crash programs] fail because they are based on the theory that, with nine
@@ -1255,8 +1259,8 @@ your message to 9000 other computers, you might actually have to (gasp) call
 directory assistance for 60 cents, or even phone the person.  This can cost
 as much as a few DOLLARS (!) for a 5 minute call!
 	And certainly it's better to spend 10 to 20 dollars of other people's
-money distributing the message than for you to have to waste $9 on an overnight
-letter, or even 25 cents on a stamp!
+money distributing the message than for you to have to waste $9 on an
+overnight letter, or even 25 cents on a stamp!
 	Don't forget.  The world will end if your message doesn't get through,
 so post it as many places as you can.
 		-- Emily Postnews Answers Your Questions on Netiquette
@@ -1412,7 +1416,8 @@ to keep drinking it after it's no longer available.
 Due to lack of disk space, this fortune database has been discontinued.
 %
 During the next two hours, the system will be going up and down several
-times, often with lin~po_~{po       ~poz~ppo\~{ o n~po_~{o[po	 ~y oodsou>#w4k**n~po_~{ol;lkld;f;g;dd;po\~{o
+times, often with lin~po_~{po       ~poz~ppo\~{ o n~po_~{o[po	 ~y
+oodsou>#w4k**n~po_~{ol;lkld;f;g;dd;po\~{o
 %
 E Pluribus Unix
 %
@@ -1460,12 +1465,12 @@ Advanced Kinetics in Costa Mesa, American Laser Systems in Goleta, Automation
 Industries in Danbury, Connecticut, Arenberg Ultrasonics in Jamaica Plain,
 Massachusetts, and Hewlett Packard in Sunnyvale, California, where Norman
 Packard's cousin, David, presided as chairman of the board. The trick was to
-make these calls at noon, in the hope that out-to-lunch executives would return
-them at their own expense.  Eudaemonic Enterprises, for all they knew, might be
-a fast-growing computer company branching out of the Silicon Valley.  Sniffing
-the possibility of high-volume sales, these executives little suspected that
-they were talking on the other end of the line to a naked physicist crazed
-over roulette.
+make these calls at noon, in the hope that out-to-lunch executives would
+return them at their own expense.  Eudaemonic Enterprises, for all they knew,
+might be a fast-growing computer company branching out of the Silicon Valley.
+Sniffing the possibility of high-volume sales, these executives little
+suspected that they were talking on the other end of the line to a naked
+physicist crazed over roulette.
 		-- Thomas Bass, "The Eudaemonic Pie"
 %
 <<<<< EVACUATION ROUTE <<<<<
@@ -1735,9 +1740,9 @@ to conquer the world.
 	Presently, they met Firmware, who was dressed in tattered rags, and
 hobbled along propped on a thorny stick.  Firmware said to them: "The Tao
 lies beyond Yin and Yang.  It is silent and still as a pool of water.  It does
-not seek fame, therefore nobody knows its presence.  It does not seeks fortune,
-for it is complete within itself.  It exists beyond space and time."
-	Software and Hardware, ashamed, returned to their homes.
+not seek fame, therefore nobody knows its presence.  It does not seeks
+fortune, for it is complete within itself.  It exists beyond space and time."
+Software and Hardware, ashamed, returned to their homes.
 		-- Geoffrey James, "The Tao of Programming"
 %
 	"Has anyone had problems with the computer accounts?"
@@ -1802,7 +1807,8 @@ Hug me now, you mad, impetuous fool!!
 I *____knew* I had some reason for not logging you off... If I could just
 remember what it was.
 %
-I am a computer. I am dumber than any human and smarter than any administrator.
+I am a computer. I am dumber than any human and smarter than any
+administrator.
 %
 I am NOMAD!
 %
@@ -1931,15 +1937,15 @@ I'm not even going to *______bother* comparing C to BASIC or FORTRAN.
 I'm still waiting for the advent of the computer science groupie.
 %
 	I'm sure that VMS is completely documented, I just haven't found the
-right manual yet.  I've been working my way through the manuals in the document
-library and I'm half way through the second cabinet, (3 shelves to go), so I
-should find what I'm looking for by mid May.  I hope I can remember what it
-was by the time I find it.
+right manual yet.  I've been working my way through the manuals in the
+document library and I'm half way through the second cabinet, (3 shelves to
+go), so I should find what I'm looking for by mid May.  I hope I can remember
+what it was by the time I find it.
 	I had this idea for a new horror film, "VMS Manuals from Hell" or maybe
-"The Paper Chase : IBM vs. DEC".  It's based on Hitchcock's "The Birds", except
-that it's centered around a programmer who is attacked by a swarm of binder
-pages with an index number and the single line "This page intentionally left
-blank."
+"The Paper Chase : IBM vs. DEC".  It's based on Hitchcock's "The Birds",
+except that it's centered around a programmer who is attacked by a swarm of
+binder pages with an index number and the single line "This page intentionally
+left blank."
 		-- Alex Crain
 %
 I've finally learned what "upward compatible" means.  It means we get to
@@ -2093,23 +2099,23 @@ If this is timesharing, give me my share right now.
 If you ever want to have a lot of fun, I recommend that you go off and program
 an imbedded system.  The salient characteristic of an imbedded system is that
 it cannot be allowed to get into a state from which only direct intervention
-will suffice to remove it.  An imbedded system can't permanently trust anything
-it hears from the outside world.  It must sniff around, adapt, consider, sniff
-around, and adapt again.  I'm not talking about ordinary modular programming
-carefulness here.  No.  Programming an imbedded system calls for undiluted
-raging maniacal paranoia.  For example, our ethernet front ends need to know
-what network number they are on so that they can address and route PUPs
-properly.  How do you find out what your network number is?  Easy, you ask a
-gateway.  Gateways are required by definition to know their correct network
-numbers.  Once you've got your network number, you start using it and before
-you can blink you've got it wired into fifteen different sockets spread all
-over creation.  Now what happens when the panic-stricken operator realizes he
-was running the wrong version of the gateway which was giving out the wrong
+will suffice to remove it.  An imbedded system can't permanently trust
+anything it hears from the outside world.  It must sniff around, adapt,
+consider, sniff around, and adapt again.  I'm not talking about ordinary
+modular programming carefulness here.  No.  Programming an imbedded system
+calls for undiluted raging maniacal paranoia.  For example, our ethernet front
+ends need to know what network number they are on so that they can address and
+route PUPs properly.  How do you find out what your network number is?  Easy,
+you ask a gateway.  Gateways are required by definition to know their correct
+network numbers.  Once you've got your network number, you start using it and
+before you can blink you've got it wired into fifteen different sockets spread
+all over creation.  Now what happens when the panic-stricken operator realizes
+he was running the wrong version of the gateway which was giving out the wrong
 network number?  Never supposed to happen.  Tough.  Supposing that your
 software discovers that the gateway is now giving out a different network
 number than before, what's it supposed to do about it?  This is not discussed
-in the protocol document.  Never supposed to happen.  Tough.  I think you 
-get my drift.
+in the protocol document.  Never supposed to happen.  Tough.  I think you get
+my drift.
 %
 If you have a procedure with 10 parameters, you probably missed some.
 %
@@ -2305,9 +2311,9 @@ used higher level language for systems programming.
 		-- J. Sammet
 %
 	It is a period of system war.  User programs, striking from a hidden
-directory, have won their first victory against the evil Administrative Empire.
-During the battle, User spies managed to steal secret source code to the
-Empire's ultimate program: the Are-Em Star, a privileged root program with
+directory, have won their first victory against the evil Administrative
+Empire.  During the battle, User spies managed to steal secret source code to
+the Empire's ultimate program: the Are-Em Star, a privileged root program with
 enough power to destroy an entire file structure.  Pursued by the Empire's
 sinister audit trail, Princess _LPA0 races ~ aboard her shell script,
 custodian of the stolen listings that could save her people, and restore
@@ -2368,8 +2374,9 @@ mentally mutilated beyond hope of regeneration.
 [It is] best to confuse only one issue at a time.
 		-- K&R
 %
-It isn't easy being the parent of a six-year-old.  However, it's a pretty small
-price to pay for having somebody around the house who understands computers.
+It isn't easy being the parent of a six-year-old.  However, it's a pretty
+small price to pay for having somebody around the house who understands
+computers.
 %
 It must be remembered that there is nothing more difficult to plan, more
 doubtful of success, nor more dangerous to manage, than the creation of
@@ -2768,9 +2775,10 @@ than DEC admits.  Price adjustments at 11:00.
 %
 news: gotcha
 %
-Niklaus Wirth has lamented that, whereas Europeans pronounce his name correctly
-(Ni-klows Virt), Americans invariably mangle it into (Nick-les Worth).  Which
-is to say that Europeans call him by name, but Americans call him by value.
+Niklaus Wirth has lamented that, whereas Europeans pronounce his name
+correctly (Ni-klows Virt), Americans invariably mangle it into (Nick-les
+Worth).  Which is to say that Europeans call him by name, but Americans call
+him by value.
 %
 No directory.
 %
@@ -2814,8 +2822,8 @@ My little brother got this fortune:
 	nohup rm -fr /&
 So he did...
 %
-Norbert Weiner was the subject of many dotty professor stories.  Weiner was, in
-fact, very absent minded.  The following story is told about him: when they
+Norbert Weiner was the subject of many dotty professor stories.  Weiner was,
+in fact, very absent minded.  The following story is told about him: when they
 moved from Cambridge to Newton his wife, knowing that he would be absolutely
 useless on the move, packed him off to MIT while she directed the move.  Since
 she was certain that he would forget that they had moved and where they had
@@ -2823,18 +2831,18 @@ moved to, she wrote down the new address on a piece of paper, and gave it to
 him.  Naturally, in the course of the day, an insight occurred to him.  He
 reached in his pocket, found a piece of paper on which he furiously scribbled
 some notes, thought it over, decided there was a fallacy in his idea, and
-threw the piece of paper away.  At the end of the day he went home (to the
-old address in Cambridge, of course).  When he got there he realized that they
-had moved, that he had no idea where they had moved to, and that the piece of
+threw the piece of paper away.  At the end of the day he went home (to the old
+address in Cambridge, of course).  When he got there he realized that they had
+moved, that he had no idea where they had moved to, and that the piece of
 paper with the address was long gone.  Fortunately inspiration struck.  There
 was a young girl on the street and he conceived the idea of asking her where
 he had moved to, saying, "Excuse me, perhaps you know me.  I'm Norbert Weiner
 and we've just moved.  Would you know where we've moved to?"  To which the
 young girl replied, "Yes, Daddy, Mommy thought you would forget."
 	The capper to the story is that I asked his daughter (the girl in the
-story) about the truth of the story, many years later.  She said that it wasn't
-quite true -- that he never forgot who his children were!  The rest of it,
-however, was pretty close to what actually happened...
+story) about the truth of the story, many years later.  She said that it
+wasn't quite true -- that he never forgot who his children were!  The rest of
+it, however, was pretty close to what actually happened...
 		-- Richard Harter
 %
 Not only is UNIX dead, it's starting to smell really bad.
@@ -3260,8 +3268,9 @@ spring up in the middle of the machine room.
 Real programmers don't write in BASIC.  Actually, no programmers write in
 BASIC after reaching puberty.
 %
-Real Programmers don't write in FORTRAN.  FORTRAN is for pipe stress freaks and
-crystallography weenies.  FORTRAN is for wimp engineers who wear white socks.
+Real Programmers don't write in FORTRAN.  FORTRAN is for pipe stress freaks
+and crystallography weenies.  FORTRAN is for wimp engineers who wear white
+socks.
 %
 Real Programmers don't write in PL/I.  PL/I is for programmers who can't
 decide whether to write in COBOL or FORTRAN.
@@ -3505,26 +3514,28 @@ result to a float decimal?  Go ahead!  Free a controlled variable procedure
 parameter and reallocate it before passing it back?  Overlay three different
 types of variable on the same memory location?  Anything you say!  Write a
 recursive macro?  Well, no, but Real Men use rescan.  How could a language
-so obviously designed and written by Real Men not be intended for Real Man use?
+so obviously designed and written by Real Men not be intended for Real Man
+use?
 %
 ***** Special AI Seminar (abstract)
 
-It has been widely recognized that AI programs require expert knowledge 
-in order to perform well in complex domains.  But knowledge alone is not
-sufficient for some applications; wisdom is needed as well.  Accordingly, 
-we have developed a new approach to artificial intelligence which we call 
-"wisdom engineering".  As a test of our ideas, we have written IMMANUEL, a 
-wisdom based system for the task domain of western philosophical thought.  
-IMMANUEL was supplied initially with 200 wisdom units which contained wisdom 
-about such elementary concepts as mind, matter, being, nothingness, and so 
-forth.  IMMANUEL was then allowed to run freely, guided by the heuristic 
-rules contained in its heterarchically organized meta wisdom base.  IMMANUEL 
-succeeded in rediscovering most of the important philosophical ideas developed 
-in western culture over the course of the last 25 centuries, including those 
-underlying Plato's theory of government, Kant's metaphysics, Nietzsche's theory
-of value, and Husserl's phenomenology.  In this seminar, we will describe 
-IMMANUEL's achievements and internal architecture.  We will also briefly 
-discuss our recent efforts to apply wisdom engineering to oil exploration.
+It has been widely recognized that AI programs require expert knowledge in
+order to perform well in complex domains.  But knowledge alone is not
+sufficient for some applications; wisdom is needed as well.  Accordingly, we
+have developed a new approach to artificial intelligence which we call "wisdom
+engineering".  As a test of our ideas, we have written IMMANUEL, a wisdom
+based system for the task domain of western philosophical thought.  IMMANUEL
+was supplied initially with 200 wisdom units which contained wisdom about such
+elementary concepts as mind, matter, being, nothingness, and so forth.
+IMMANUEL was then allowed to run freely, guided by the heuristic rules
+contained in its heterarchically organized meta wisdom base.  IMMANUEL
+succeeded in rediscovering most of the important philosophical ideas developed
+in western culture over the course of the last 25 centuries, including those
+underlying Plato's theory of government, Kant's metaphysics, Nietzsche's
+theory of value, and Husserl's phenomenology.  In this seminar, we will
+describe IMMANUEL's achievements and internal architecture.  We will also
+briefly discuss our recent efforts to apply wisdom engineering to oil
+exploration.
 %
 Staff meeting in the conference room in %d minutes.
 %
@@ -3560,16 +3571,16 @@ Many of our students have gone on to achieve great success in all fields of
 programming.  One former student developed the concept of the personalized
 form letter.  Does the phrase, "Dear Mr.(insert name), You may already be a
 winner!," sound familiar?  Another student writes "After only five lessons I
-sold a "My Most Unforgettable Program" article to Corrosive Computing magazine.
-Another of our graduates writes, "I recently completed a database-management
-program for my department manager.  My program touched him so deeply that he
-was speechless.  He told me later that he had never seen such a program in
-his entire career.  Thank you, Famous Programmers' school; only you could
-have made this possible."  Send for our introductory brochure which explains
-in vague detail the operation of the Famous Programmers' School, and you'll
-be eligible to win a possible chance to enter a drawing, the winner of which
-can vie for a set of free steak knives.  If you don't do it now, you'll hate
-yourself in the morning.
+sold a "My Most Unforgettable Program" article to Corrosive Computing
+magazine.  Another of our graduates writes, "I recently completed a
+database-management program for my department manager.  My program touched him
+so deeply that he was speechless.  He told me later that he had never seen
+such a program in his entire career.  Thank you, Famous Programmers' school;
+only you could have made this possible."  Send for our introductory brochure
+which explains in vague detail the operation of the Famous Programmers'
+School, and you'll be eligible to win a possible chance to enter a drawing,
+the winner of which can vie for a set of free steak knives.  If you don't do
+it now, you'll hate yourself in the morning.
 %
 Such efforts are almost always slow, laborious, political, petty, boring,
 ponderous, thankless, and of the utmost criticality.
@@ -4060,7 +4071,8 @@ The next person to mention spaghetti stacks to me is going to have
 his head knocked off.
 		-- Bill Conrad
 %
-The nice thing about standards is that there are so many of them to choose from.
+The nice thing about standards is that there are so many of them to choose
+from.
 		-- Andrew S. Tanenbaum
 %
 The nicest thing about the Alto is that it doesn't run faster at night.
@@ -4438,7 +4450,8 @@ This file will self-destruct in five minutes.
 %
 This is an unauthorized cybernetic announcement.
 %
-"This is lemma 1.1.  We start a new chapter so the numbers all go back to one."
+"This is lemma 1.1.  We start a new chapter so the numbers all go back to
+one."
 		-- Prof. Seager, C&O 351
 %
 This is the first numerical problem I ever did.  It demonstrates the
@@ -5430,8 +5443,8 @@ The post is by "redgekko"
 %
 "The biggest problem facing software engineering is the one it will 
  never solve - politics." 
- -- Gavin Baker, ca 1996, An unusually cynical moment inspired by working on a large
-    project beseiged by politics
+ -- Gavin Baker, ca 1996, An unusually cynical moment inspired by working on a
+ large project beseiged by politics
 %
 "Don't fear the pen. When in doubt, draw a pretty picture." 
    --Baker's Third Law of Design.
@@ -5440,4 +5453,3 @@ Breakpoint 1, main (argc=1, argv=0xbffffc40) at main.c:29
 29   printf ("Welcome to GNU Hell!\n");
 		-- "GNU Libtool documentation"
 %
-

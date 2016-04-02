@@ -21,9 +21,9 @@ check:
 				echo "Fortune cookie file does not end in a single %" ; \
 				exit 1; \
 			fi;\
-			if egrep -q ".{72}." $$i ; then \
+			if egrep -q ".{81}" $$i ; then \
 				echo " failed length check"; \
-				echo "Fortune cookie file contains a line longer than 72 characters"; \
+				echo "Fortune cookie file contains a line longer than 78 characters"; \
 				exit 1; \
 			fi; \
 			echo " passed " ;\

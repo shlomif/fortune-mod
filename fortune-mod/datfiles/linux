@@ -434,7 +434,8 @@ The only "intuitive" interface is the nipple.  After that, it's all learned.
 After watching my newly-retired dad spend two weeks learning how to make a new
 folder, it became obvious that "intuitive" mostly means "what the writer or
 speaker of intuitive likes".
-	-- Bruce Ediger, bediger@teal.csn.org, on X the intuitiveness of a Mac interface
+    -- Bruce Ediger, bediger@teal.csn.org, on X the intuitiveness of a Mac
+    interface
 %
 Now I know someone out there is going to claim, "Well then, UNIX is intuitive,
 because you only need to learn 5000 commands, and then everything else follows
@@ -514,7 +515,8 @@ People disagree with me.  I just ignore them.
 	-- Linus Torvalds, regarding the use of C++ for the Linux kernel
 %
 It's now the GNU Emacs of all terminal emulators.
-	-- Linus Torvalds, regarding the fact that Linux started off as a terminal emulator
+    -- Linus Torvalds, regarding the fact that Linux started off as a terminal
+    emulator
 %
 Audience: What will become of Linux when the Hurd is ready?
 Eric Youngdale: Err... is Richard Stallman here?
@@ -649,7 +651,8 @@ Monthy Python.  You'd better start practicing.
 	-- Linus Torvalds, announcing another kernel patch
 %
 How do you power off this machine?
-	-- Linus, when upgrading linux.cs.helsinki.fi, and after using the machine for several months
+    -- Linus, when upgrading linux.cs.helsinki.fi, and after using the machine
+    for several months
 %
 Excusing bad programming is a shooting offence, no matter _what_ the
 circumstances.
@@ -1150,7 +1153,8 @@ A feature is nothing more than a bug with seniority.
 	-- Unknown source
 %
 Winnuke in one line?  No problem:
-perl -MIO::Socket -e 'IO::Socket::INET->new(PeerAddr=>"bad.dude.com:139")->send("bye",MSG_OOB)'
+perl -MIO::Socket -e \
+'IO::Socket::INET->new(PeerAddr=>"bad.dude.com:139")->send("bye",MSG_OOB)'
 
 And formatted so it's a little easier to read:
 
@@ -1203,7 +1207,8 @@ Sorry.  I just realized this sentance makes no sense :)
 Netscape is not a newsreader, and probably never shall be.
 	-- Tom Christiansen
 %
-Stopping Apache webserver...sleeping...starting again...apache: dl-version.c:189:
+Stopping Apache webserver...sleeping...starting again...
+apache: dl-version.c:189:
  _dl_check_map_versions: Assertion `needed != ((void *)0)' failed
 noooooooooooooooooooooooooooo
 	-- netgod on #Debian at LISC
@@ -1214,7 +1219,8 @@ Make it idiot-proof, and someone will breed a better idiot.
 #Debian makes me feel all warm and fuzzy inside. :)
 	-- HippieGuy on #Debian
 %
-<Myxie> I know. Unless htere is a cookie monster somewhere between us tat muches the amil.
+<Myxie> I know. Unless htere is a cookie monster somewhere between us tat
+muches the amil.
 <Myxie> amil/mail
 <Myxie> muches/munches tat/that htere/there
 <HippieGuy> heheh
@@ -1307,7 +1313,8 @@ No I didnt.  Someone else wrote that.  Please keep attributions
 straight.
 	-- From linux-kernel
 %
-Do people like check the Debian website every 5 minutes to check it hasn't morphed into another one?
+Do people like check the Debian website every 5 minutes to check it hasn't
+morphed into another one?
 Not that I'm one to talk, but some people seriously need to get a life
 	-- james on #Debian
 %
@@ -1315,12 +1322,19 @@ Not that I'm one to talk, but some people seriously need to get a life
 Sozialismus der besseren Art ...
 	-- Christian Seel in der Berliner Morgenpost v. 9.3.1997
 %
-* james would be more impressed if netgod's magic powers could stop the splits in the first place...
+* james would be more impressed if netgod's magic powers could stop the splits
+in the first place...
 * netgod notes debian developers are notoriously hard to impress
 	-- Seen on #Debian
 %
    * In anticipation of 2.10.02 release, updated to patchlevel
-     +ircu2.10.01+.config6-7.config7-8.lgline3.iwho.limit.glibc.motdcache2.trace.whois1-2.config8-9.statsw.sprintf2-3.msgtree2.memleak1-2+.msgtree2-3.gline8-9.gline9-10.invite2.rbr.stats.numclients.whisper.whisper1-2.stats1-2.nokick1-2.chroot.config9-11.snomask7-8.limi+t1-3.userip1-3.userip3-4.config11-12.config12-13.umode2-3.akillsbt.who4-5.kn.kn1-2.freebsdcore2.msgtree3-5.y2k.glibc1-2.rmfunc.msgf+lags2.who5-6.nickchange2.glibc2-3.modeless3
+     +ircu2.10.01+.config6-7.config7-8.lgline3.iwho.limit.glibc.motdcache2.
+     trace.whois1-2.config8-9.statsw.sprintf2-3.msgtree2.memleak1-2+.
+     msgtree2-3.gline8-9.gline9-10.invite2.rbr.stats.numclients.whisper.
+     whisper1-2.stats1-2.nokick1-2.chroot.config9-11.snomask7-8.limi+t1-3.
+     userip1-3.userip3-4.config11-12.config12-13.umode2-3.akillsbt.who4-5.
+     kn.kn1-2.freebsdcore2.msgtree3-5.y2k.glibc1-2.rmfunc.msgf+lags2.
+     who5-6.nickchange2.glibc2-3.modeless3
 	-- From the annoucement of ircd 2.10.01-3 for Debian GNU/Linux
 %
 * Joey should not write changelog entries at 5:30am
@@ -1362,7 +1376,8 @@ no biffin output does it show
 so poor wee biff is gonna go.
 	-- John Spence <jspence@lynx.net.au> on debian-user
 %
-Real Men don't make backups.  They upload it via ftp and let the world mirror it.
+Real Men don't make backups.  They upload it via ftp and let the world mirror
+it.
 	-- Linus Torvalds
 %
 One tree to rule them all,
@@ -1417,7 +1432,8 @@ I want to recompile it.
 <dark> Turn all your xterms to black-on-white :)  Plenty of light that way.
 	-- Seen on #Debian
 %
-| |-sshd---tcsh-+-dpkg-buildpacka---rules---sh---make---make---sh---make---sh---make---sh---make---sh---make---sh---make
+| |-sshd---tcsh-+-dpkg-buildpacka---rules---sh---make---make---sh
+---make---sh---make---sh---make---sh---make---sh---make
 	-- While packaging XFree86 for Debian GNU/Linux
 %
 /*
@@ -1564,7 +1580,8 @@ The problem here (as someon else stated) is that when multiple dists
 use the same package format it only gives a "false sense of compatibility".
 	-- Stephen Carpenter <sjc@delphi.com>
 %
-*** Rince is wagner@schizo.DAINet.de (We have Joey, we have Fun, we have Linux on a Sun)
+*** Rince is wagner@schizo.DAINet.de (We have Joey, we have Fun, we have Linux
+on a Sun)
 	-- Seen on #Debian
 %
 ... Linux und seine Programme sind damit
@@ -1702,8 +1719,10 @@ E
   have to run Red Hat, just to keep the power balance :)
 	-- #Debian
 %
-<\\swing> and if we're playing old distributions... whatever happened to Yggdrasil? :)
-<joost> \\swing: everybody who tried to pronounce it got their tongue in a knot and choked
+<\\swing> and if we're playing old distributions... whatever happened to
+Yggdrasil? :)
+<joost> \\swing: everybody who tried to pronounce it got their tongue in a knot
+and choked
 	-- #Debian
 %
 I'm telling you that the kernel is stable not because it's a kernel,
@@ -1742,7 +1761,8 @@ irgendwo die passende Algebra zu der Rechnung?
 	-- #Debian
 %
 * LG loves czech girls.
-<vincent> LG: do they have additional interesting "features" other girls don't have? ;)
+<vincent> LG: do they have additional interesting "features" other girls don't
+have? ;)
 	-- #Debian
 %
 The first is to ensure your partner understands that nature has root
