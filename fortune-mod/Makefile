@@ -88,6 +88,10 @@ CC=gcc
 
 SUBDIRS=fortune util datfiles
 
+DATFILES_MAKE = $(MAKE) COOKIEDIR=$(COOKIEDIR) \
+		    OCOOKIEDIR=$(OCOOKIEDIR) WCOOKIEDIR=$(WCOOKIEDIR) \
+		    OFFENSIVE=$(OFFENSIVE) WEB=$(WEB)
+
 .PHONY: all debug fortune-bin fortune-debug util-bin randstr rot \
 	util-debug cookies cookies-z install install-fortune \
 	install-util install-man install-fman install-uman \
@@ -129,9 +133,7 @@ cookies:
 	$(MAKE) cookies-z
 
 cookies-z: util-bin
-	cd datfiles && $(MAKE) COOKIEDIR=$(COOKIEDIR) \
-		    OCOOKIEDIR=$(OCOOKIEDIR) WCOOKIEDIR=$(WCOOKIEDIR) \
-		    OFFENSIVE=$(OFFENSIVE) WEB=$(WEB)
+	cd datfiles && $(DATFILES_MAKE)
 
 # Install everything
 install: install-fortune install-util install-man install-cookie
@@ -177,9 +179,12 @@ install-uman:
 
 # Install the fortune cookie files
 install-cookie: cookies-z
-	cd datfiles && $(MAKE) COOKIEDIR=$(COOKIEDIR) \
-		    OCOOKIEDIR=$(OCOOKIEDIR) WCOOKIEDIR=$(WCOOKIEDIR) \
-		    OFFENSIVE=$(OFFENSIVE) WEB=$(WEB) install
+	cd datfiles && $(DATFILES_MAKE) install
+
+datfiles-check: cookies-z
+	cd datfiles && $(DATFILES_MAKE) check
+
+check: datfiles-check
 
 clean:
 	for i in $(SUBDIRS) ; do (cd $$i && $(MAKE) clean); done
