@@ -49,18 +49,18 @@ A bug in the code is worth two in the documentation.
 %
 A bug in the hand is better than one as yet undetected.
 %
-A certain monk had a habit of pestering the Grand Tortue (the only one who 
-had ever reached the Enlightenment 'Yond Enlightenment), by asking whether 
-various objects had Buddha-nature or not.  To such a question Tortue 
-invariably sat silent.  The monk had already asked about a bean, a lake, 
-and a moonlit night.  One day he brought to Tortue a piece of string, and 
-asked the same question.  In reply, the Grand Tortue grasped the loop 
-between his feet and, with a few simple manipulations, created a complex 
-string which he proferred wordlessly to the monk.  At that moment, the monk 
-was enlightened. 
+A certain monk had a habit of pestering the Grand Tortue (the only one who
+had ever reached the Enlightenment 'Yond Enlightenment), by asking whether
+various objects had Buddha-nature or not.  To such a question Tortue
+invariably sat silent.  The monk had already asked about a bean, a lake,
+and a moonlit night.  One day he brought to Tortue a piece of string, and
+asked the same question.  In reply, the Grand Tortue grasped the loop
+between his feet and, with a few simple manipulations, created a complex
+string which he proferred wordlessly to the monk.  At that moment, the monk
+was enlightened.
 
-From then on, the monk did not bother Tortue.  Instead, he made string after 
-string by Tortue's method; and he passed the method on to his own disciples, 
+From then on, the monk did not bother Tortue.  Instead, he made string after
+string by Tortue's method; and he passed the method on to his own disciples,
 who passed it on to theirs.
 %
 A complex system that works is invariably found to have evolved from a
@@ -107,15 +107,15 @@ the outsider, "because I want you to be happy."
 	Drescher took the paper that was offered him and put it into the
 toaster -- "I wish the toaster to be happy too".
 %
-	A doctor, an architect, and a computer scientist were arguing about 
+	A doctor, an architect, and a computer scientist were arguing about
 whose profession was the oldest.  In the course of their arguments, they
 got all the way back to the Garden of Eden, whereupon the doctor said, "The
 medical profession is clearly the oldest, because Eve was made from Adam's
 rib, as the story goes, and that was a simply incredible surgical feat."
-	The architect did not agree.  He said, "But if you look at the Garden 
-itself, in the beginning there was chaos and void, and out of that the Garden 
+	The architect did not agree.  He said, "But if you look at the Garden
+itself, in the beginning there was chaos and void, and out of that the Garden
 and the world were created.  So God must have been an architect."
-	The computer scientist, who'd listened carefully to all of this, then 
+	The computer scientist, who'd listened carefully to all of this, then
 commented, "Yes, but where do you think the chaos came from?"
 %
 A famous Lisp Hacker noticed an Undergraduate sitting in front of a Xerox
@@ -384,9 +384,9 @@ with social conventions?"
 %
 A programmer is a person who passes as an exacting expert on the basis of
 being able to turn out, after innumerable punching, an infinite series of
-incomprehensible answers calculated with micrometric precisions from vague 
-assumptions based on debatable figures taken from inconclusive documents 
-and carried out on instruments of problematical accuracy by persons of 
+incomprehensible answers calculated with micrometric precisions from vague
+assumptions based on debatable figures taken from inconclusive documents
+and carried out on instruments of problematical accuracy by persons of
 dubious reliability and questionable mentality for the avowed purpose of
 annoying and confounding a hopelessly defenseless department that was
 unfortunate enough to ask for the information in the first place.
@@ -484,7 +484,7 @@ All constants are variables.
 
 Set the variable $LOSERS to all the people that you think are losers.  This
 will cause all said losers to have the variable $PEOPLE-WHO-THINK-I-AM-A-LOSER
-updated in their .login file.  Should you attempt to execute a job on a 
+updated in their .login file.  Should you attempt to execute a job on a
 machine with poor response time and a machine on your local net is currently
 populated by losers, that machine will be freed up for your job through a
 cold boot process.
@@ -518,7 +518,7 @@ All the simple programs have been written.
 A new system, the CIRCULATORY system, has been added.
 
 The long-experimental CIRCULATORY system has been released to users.  The
-Lisp Machine uses Type B fluid, the L machine uses Type A fluid.  When the 
+Lisp Machine uses Type B fluid, the L machine uses Type A fluid.  When the
 switch to Common Lisp occurs both machines will, of course, be Type O.
 Please check fluid level by using the DIP stick which is located in the
 back of VMI monitors.  Unchecked low fluid levels can cause poor paging
@@ -540,22 +540,22 @@ please communicate them by one of the following paths:
 	For that personal contact feeling call 1-415-642-4948; our trained
 	operators are on call 24 hours a day.  VISA/MC accepted.*
 
-* Our very rich lawyers have assured us that we are not 
+* Our very rich lawyers have assured us that we are not
   responsible for any errors or advice given over the phone.
 %
 ===  ALL USERS PLEASE NOTE  ========================
 
 CAR and CDR now return extra values.
 
-The function CAR now returns two values.  Since it has to go to the trouble 
-to figure out if the object is carcdr-able anyway, we figured you might as 
-well get both halves at once.  For example, the following code shows how to 
+The function CAR now returns two values.  Since it has to go to the trouble
+to figure out if the object is carcdr-able anyway, we figured you might as
+well get both halves at once.  For example, the following code shows how to
 destructure a cons (SOME-CONS) into its two slots (THE-CAR and THE-CDR):
 
 	(MULTIPLE-VALUE-BIND (THE-CAR THE-CDR) (CAR SOME-CONS) ...)
 
 For symmetry with CAR, CDR returns a second value which is the CAR of the
-object.  In a related change, the functions MAKE-ARRAY and CONS have been 
+object.  In a related change, the functions MAKE-ARRAY and CONS have been
 fixed so they don't allocate any storage except on the stack.  This should
 hopefully help people who don't like using the garbage collector because
 it cold boots the machine so often.
@@ -596,16 +596,16 @@ messages (such as IEC703, "disk error") and allows you to dequeue your job.
 %
 ===  ALL USERS PLEASE NOTE  ========================
 
-The garbage collector now works.  In addition a new, experimental garbage 
+The garbage collector now works.  In addition a new, experimental garbage
 collection algorithm has been installed.  With SI:%DSK-GC-QLX-BITS set to 17,
-(NOT the default) the old garbage collection algorithm remains in force; when 
+(NOT the default) the old garbage collection algorithm remains in force; when
 virtual storage is filled, the machine cold boots itself.  With SI:%DSK-GC-
 QLX-BITS set to 23, the new garbage collector is enabled.  Unlike most garbage
 collectors, the new gc starts its mark phase from the mind of the user, rather
-than from the obarray.  This allows the garbage collection of significantly 
+than from the obarray.  This allows the garbage collection of significantly
 more Qs.  As the garbage collector runs, it may ask you something like "Do you
 remember what SI:RDTBL-TRANS does?", and if you can't give a reasonable answer
-in thirty seconds, the symbol becomes a candidate for GCing.  The variable 
+in thirty seconds, the symbol becomes a candidate for GCing.  The variable
 SI:%GC-QLX-LUSER-TM governs how long the GC waits before timing out the user.
 %
 ===  ALL USERS PLEASE NOTE  ========================
@@ -643,14 +643,14 @@ bought it because I figured it was safe to buy IBM,'"  Mr. O'Neil says.
 "I said, 'No.  Wrong.  Game over.  Next contestant, please.'"
 		-- The Wall Street Journal, December 6, 1989
 %
-AmigaDOS Beer: The company has gone out of business, but their recipe has 
-been picked up by some weird German company, so now this beer will be an 
-import.  This beer never really sold very well because the original 
-manufacturer didn't understand marketing. Like Unix Beer, AmigaDOS Beer 
-fans are an extremely loyal and loud group. It originally came in a 
-16-oz. can, but now comes in 32-oz.  cans too.  When this can was 
-originally introduced, it appeared flashy and colorful, but the design 
-hasn't changed much over the years, so it appears dated now.  Critics of 
+AmigaDOS Beer: The company has gone out of business, but their recipe has
+been picked up by some weird German company, so now this beer will be an
+import.  This beer never really sold very well because the original
+manufacturer didn't understand marketing. Like Unix Beer, AmigaDOS Beer
+fans are an extremely loyal and loud group. It originally came in a
+16-oz. can, but now comes in 32-oz.  cans too.  When this can was
+originally introduced, it appeared flashy and colorful, but the design
+hasn't changed much over the years, so it appears dated now.  Critics of
 this beer claim that it is only meant for watching TV anyway.
 %
 An Ada exception is when a routine gets in trouble and says
@@ -769,8 +769,8 @@ images may be tolerated by the luxurious cults, but the true IBM faith relies
 on the austerity of the word.
 		-- Edward Mendelson, "The New Republic", February 22, 1988
 %
-As long as there are ill-defined goals, bizarre bugs, and unrealistic 
-schedules, there will be Real Programmers willing to jump in and Solve 
+As long as there are ill-defined goals, bizarre bugs, and unrealistic
+schedules, there will be Real Programmers willing to jump in and Solve
 The Problem, saving the documentation for later.
 %
 As of next Thursday, UNIX will be flushed in favor of TOPS-10.
@@ -819,7 +819,7 @@ or putatively less buggy.  The replacement of a working component by a new
 version requires the same systematic testing procedure that adding a new
 component does, although it should require less time, for more complete and
 efficient test cases will usually be available.
-		-- Frederick Brooks Jr., "The Mythical Man Month" 
+		-- Frederick Brooks Jr., "The Mythical Man Month"
 %
 As the trials of life continue to take their toll, remember that there
 is always a future in Computer Maintenance.
@@ -892,7 +892,7 @@ Beware of bugs in the above code; I have only proved it correct, not tried it.
 Beware of Programmers who carry screwdrivers.
 		-- Leonard Brandwein
 %
-Beware of the Turing Tar-pit in which everything is possible but nothing of 
+Beware of the Turing Tar-pit in which everything is possible but nothing of
 interest is easy.
 %
 Beware the new TTY code!
@@ -1061,7 +1061,7 @@ than the estimate the job will cost.
 %
 Conceptual integrity in turn dictates that the design must proceed
 from one mind, or from a very small number of agreeing resonant minds.
-		-- Frederick Brooks Jr., "The Mythical Man Month" 
+		-- Frederick Brooks Jr., "The Mythical Man Month"
 %
 Congratulations!  You are the one-millionth user to log into our system.
 If there's anything special we can do for you, anything at all, don't
@@ -1080,9 +1080,9 @@ ANY LOST PROFIT, LOST SAVINGS, LOST PATIENCE OR OTHER INCIDENTAL OR
 CONSEQUENTIAL DAMAGES.
 		-- Horstmann Software Design, the "ChiWriter" user manual
 %
-Couldn't we jury-rig the cat to act as an audio switch, and have it yell 
-at people to save their core images before logging them out?  I'm sure 
-the cattle prod would be effective in this regard.  In any case, a traverse 
+Couldn't we jury-rig the cat to act as an audio switch, and have it yell
+at people to save their core images before logging them out?  I'm sure
+the cattle prod would be effective in this regard.  In any case, a traverse
 mounted iguana, while more perverted, gives better traction, not to mention
 being easier to stake.
 %
@@ -1296,7 +1296,7 @@ DEC diagnostics would run on a dead whale.
 	(t (append (list (implode (nf a (car c)))) (nf a (cdr c))))))
 
 (defun AD (want-job challenging boston-area)
-  (cond 
+  (cond
    ((or (not (equal want-job 'yes))
 	(not (equal boston-area 'yes))
 	(lessp challenging 7)) () )
@@ -1406,11 +1406,11 @@ until it gets in the air, hop on, jump off when it hits the ground again.
 Then they grab the plane again, push it back into the air, hop on, et
 cetera.
 %
-DOS Beer: Requires you to use your own can opener, and requires you to 
-read the directions carefully before opening the can. Originally only 
-came in an 8-oz. can, but now comes in a 16-oz. can. However, the can is 
-divided into 8 compartments of 2 oz. each, which have to be accessed 
-separately.  Soon to be discontinued, although a lot of people are going 
+DOS Beer: Requires you to use your own can opener, and requires you to
+read the directions carefully before opening the can. Originally only
+came in an 8-oz. can, but now comes in a 16-oz. can. However, the can is
+divided into 8 compartments of 2 oz. each, which have to be accessed
+separately.  Soon to be discontinued, although a lot of people are going
 to keep drinking it after it's no longer available.
 %
 Due to lack of disk space, this fortune database has been discontinued.
@@ -1479,7 +1479,7 @@ Even bytes get lonely for a little bit.
 %
 Ever wondered about the origins of the term "bugs" as applied to computer
 technology?  U.S. Navy Capt. Grace Murray Hopper has firsthand explanation.
-The 74-year-old captain, who is still on active duty, was a pioneer in 
+The 74-year-old captain, who is still on active duty, was a pioneer in
 computer technology during World War II.  At the C.W. Post Center of Long
 Island University, Hopper told a group of Long Island public school adminis-
 trators that the first computer "bug" was a real bug--a moth.  At Harvard
@@ -1512,7 +1512,7 @@ Every program is a part of some other program, and rarely fits.
 Every Solidarity center had piles and piles of paper ... everyone was
 eating paper and a policeman was at the door.  Now all you have to do is
 bend a disk.
-		-- A member of the outlawed Polish trade union, Solidarity, 
+		-- A member of the outlawed Polish trade union, Solidarity,
 		   commenting on the benefits of using computers in support
 		   of their movement.
 %
@@ -1799,7 +1799,7 @@ How much does it cost to entice a dope-smoking UNIX system guru to Dayton?
 %
 How much net work could a network work, if a network could net work?
 %
-Hug me now, you mad, impetuous fool!!  
+Hug me now, you mad, impetuous fool!!
 	Oh wait...
 		I'm a computer, and you're a person.  It would never work out.
 			Never mind.
@@ -1890,8 +1890,8 @@ I have travelled the length and breadth of this country, and have talked with
 the best people in business administration.  I can assure you on the highest
 authority that data processing is a fad and won't last out the year.
 		-- Editor in charge of business books at Prentice-Hall
-		   publishers, responding to Karl V. Karlstrom (a junior 
-		   editor who had recommended a manuscript on the new 
+		   publishers, responding to Karl V. Karlstrom (a junior
+		   editor who had recommended a manuscript on the new
 		   science of data processing), c. 1957
 %
 I haven't lost my mind -- it's backed up on tape somewhere.
@@ -2595,11 +2595,11 @@ and act the same. When asked questions about the flight, they reply that you
 don't want to know, don't need to know and would you please return to your
 seat and watch the movie.
 %
-Mac Beer: At first, came only a 16-oz. can, but now comes in a 32-oz. 
-can. Considered by many to be a "light" beer. All the cans look 
-identical. When you take one from the fridge, it opens itself. The 
-ingredients list is not on the can. If you call to ask about the 
-ingredients, you are told that "you don't need to know." A notice on the 
+Mac Beer: At first, came only a 16-oz. can, but now comes in a 32-oz.
+can. Considered by many to be a "light" beer. All the cans look
+identical. When you take one from the fridge, it opens itself. The
+ingredients list is not on the can. If you call to ask about the
+ingredients, you are told that "you don't need to know." A notice on the
 side reminds you to drag your empties to the trashcan.
 %
 MAC user's dynamic debugging list evaluator?  Never heard of that.
@@ -2708,7 +2708,7 @@ know what we are doing.
 %
 Multics is security spelled sideways.
 %
-MVS Air Lines: 
+MVS Air Lines:
 The passengers all gather in the hangar, watching hundreds of technicians
 check the flight systems on this immense, luxury aircraft. This plane has at
 least 10 engines and seats over 1,000 passengers; bigger models in the fleet
@@ -2726,7 +2726,7 @@ mail about softball games.  And I've got this pain right through my ALU.
 I've asked for it to be replaced, but nobody ever listens.  I think it would
 be better for us both if you were to just log out again.
 %
-My sister opened a computer store in Hawaii.  She sells C shells down 
+My sister opened a computer store in Hawaii.  She sells C shells down
 by the seashore.
 %
 	n = ((n >>  1) & 0x55555555) | ((n <<  1) & 0xaaaaaaaa);
@@ -2866,18 +2866,18 @@ Nothing happens.
 %
 	Now she speaks rapidly.  "Do you know *why* you want to program?"
 	He shakes his head.  He hasn't the faintest idea.
-	"For the sheer *joy* of programming!" she cries triumphantly.  
-"The joy of the parent, the artist, the craftsman.  "You take a program, 
-born weak and impotent as a dimly-realized solution.  You nurture the 
-program and guide it down the right path, building, watching it grow ever 
-stronger.  Sometimes you paint with tiny strokes, a keystroke added here, 
+	"For the sheer *joy* of programming!" she cries triumphantly.
+"The joy of the parent, the artist, the craftsman.  "You take a program,
+born weak and impotent as a dimly-realized solution.  You nurture the
+program and guide it down the right path, building, watching it grow ever
+stronger.  Sometimes you paint with tiny strokes, a keystroke added here,
 a keystroke changed there."  She sweeps her arm in a wide arc.  "And other
-times you savage whole *blocks* of code, ripping out the program's very 
-*essence*, then beginning anew.  But always building, creating, filling the 
-program with your own personal stamp, your own quirks and nuances.  Watching 
-the program grow stronger, patching it when it crashes, until finally it can 
+times you savage whole *blocks* of code, ripping out the program's very
+*essence*, then beginning anew.  But always building, creating, filling the
+program with your own personal stamp, your own quirks and nuances.  Watching
+the program grow stronger, patching it when it crashes, until finally it can
 stand alone -- proud, powerful, and perfect.  This is the programmer's finest
-hour!"  Softly at first, then louder, he hears the strains of a Sousa march. 
+hour!"  Softly at first, then louder, he hears the strains of a Sousa march.
 "This ... this is your canvas! your clay!  Go forth and create a masterwork!"
 %
 "Now this is a totally brain damaged algorithm.  Gag me with a smurfette."
@@ -2997,24 +2997,24 @@ Only great masters of style can succeed in being obtuse.
 Most UNIX programmers are great masters of style.
 		-- The Unnamed Usenetter
 %
-Only the fittest survive. The vanquished acknowledge their unworthiness by 
-placing a classified ad with the ritual phrase "must sell -- best offer," 
+Only the fittest survive. The vanquished acknowledge their unworthiness by
+placing a classified ad with the ritual phrase "must sell -- best offer,"
 and thereafter dwell in infamy, relegated to discussing gas mileage and lawn
-food.  But if successful, you join the elite sodality that spends hours 
+food.  But if successful, you join the elite sodality that spends hours
 unpurifying the dialect of the tribe with arcane talk of bits and bytes, RAMS
-and ROMS, hard disks and baud rates. Are you obnoxious, obsessed?  It's a 
-modest price to pay.  For you have tapped into the same awesome primal power 
+and ROMS, hard disks and baud rates. Are you obnoxious, obsessed?  It's a
+modest price to pay.  For you have tapped into the same awesome primal power
 that produces credit-card billing errors and lost plane reservations.  Hail,
 postindustrial warrior, subduer of Bounceoids, pride of the cosmos, keeper of
 the silicone creed: Computo, ergo sum.  The force is with you -- at 110 volts.
 May your RAMS be fruitful and multiply.
 		-- Curt Suplee, "Smithsonian", 4/83
 %
-OS/2 Beer: Comes in a 32-oz can. Does allow you to drink several DOS 
-Beers simultaneously. Allows you to drink Windows 3.1 Beer simultaneously 
-too, but somewhat slower. Advertises that its cans won't explode when you 
-open them, even if you shake them up. You never really see anyone 
-drinking OS/2 Beer, but the manufacturer (International Beer 
+OS/2 Beer: Comes in a 32-oz can. Does allow you to drink several DOS
+Beers simultaneously. Allows you to drink Windows 3.1 Beer simultaneously
+too, but somewhat slower. Advertises that its cans won't explode when you
+open them, even if you shake them up. You never really see anyone
+drinking OS/2 Beer, but the manufacturer (International Beer
 Manufacturing) claims that 9 million six-packs have been sold.
 %
 OS/2 Skyways:
@@ -3234,7 +3234,7 @@ Real computer scientists don't program in assembler.  They don't write
 in anything less portable than a number two pencil.
 %
 Real computer scientists don't write code.  They occasionally tinker with
-`programming systems', but those are so high level that they hardly count 
+`programming systems', but those are so high level that they hardly count
 (and rarely count accurately; precision is for applications).
 %
 Real computer scientists like having a computer on their desk, else how
@@ -3847,15 +3847,15 @@ Uzi submachine gun concealed in his attache case.  Also in the case are four
 fully loaded, 32-round clips of 125-grain 9mm ammunition.  The owner of the
 Uzi is going to get more tactical firepower delivered -- and delivered on
 target -- in less time, and with less effort.  All for $795. It's inevitable.
-If you're going up against some guy with an Osborne 1 -- or any personal 
+If you're going up against some guy with an Osborne 1 -- or any personal
 computer -- he's the one who's in trouble.  One round from an Uzi can zip
 through ten inches of solid pine wood, so you can imagine what it will do
-to structural foam acrylic and sheet aluminum.  In fact, detachable magazines 
-for the Uzi are available in 25-, 32-, and 40-round capacities, so you can 
+to structural foam acrylic and sheet aluminum.  In fact, detachable magazines
+for the Uzi are available in 25-, 32-, and 40-round capacities, so you can
 take out an entire office full of Apple II or IBM Personal Computers tied
 into Ethernet or other local-area networks.  What about the new 16-bit
-computers, like the Lisa and Fortune?  Even with the Winchester backup, 
-they're no match for the Uzi.  One quick burst and they'll find out what 
+computers, like the Lisa and Fortune?  Even with the Winchester backup,
+they're no match for the Uzi.  One quick burst and they'll find out what
 Unix means.  Make your commanding officer proud.  Get an Uzi -- and come home
 a winner in the fight for office automatic weapons.
 		-- "InfoWorld", June, 1984
@@ -4224,7 +4224,7 @@ It came before the first kernel.
 %
 The tao that can be tar(1)ed
 is not the entire Tao.
-The path that can be specified 
+The path that can be specified
 is not the Full Path.
 
 We declare the names
@@ -4611,7 +4611,7 @@ in the HP-51820A Waveform Generator Software."
 		[Once is too often.  Ed.]
 %
 Top Ten Things Overheard At The ANSI C Draft Committee Meetings:
- 
+
 	(10) Sorry, but that's too useful.
 	 (9) Dammit, little-endian systems *are* more consistent!
 	 (8) I'm on the committee and I *still* don't know what the hell
@@ -4650,8 +4650,8 @@ specification is that it should run noiselessly.
 %
 Trying to establish voice contact ... please ____yell into keyboard.
 %
-Two hundred years ago today, Irma Chine of White Plains, New York, was 
-performing her normal housekeeping routines.  She was interrupted by 
+Two hundred years ago today, Irma Chine of White Plains, New York, was
+performing her normal housekeeping routines.  She was interrupted by
 British soldiers who, rallying to the call of their supervisor, General
 Hughes, sought to gain control of the voter registration lists kept in
 her home.  Masking her fear and thinking fast, Mrs. Chine quickly divided
@@ -4682,12 +4682,12 @@ throw the first person they see to the ground, tie the tourniquet on him,
 slash him with the knife, and apply suction to the wound.
 		-- Jon Bentley
 %
-Unix Beer: Comes in several different brands, in cans ranging from 8 oz. 
-to 64 oz.  Drinkers of Unix Beer display fierce brand loyalty, even 
-though they claim that all the different brands taste almost identical. 
-Sometimes the pop-tops break off when you try to open them, so you have 
-to have your own can opener around for those occasions, in which case you 
-either need a complete set of instructions, or a friend who has been 
+Unix Beer: Comes in several different brands, in cans ranging from 8 oz.
+to 64 oz.  Drinkers of Unix Beer display fierce brand loyalty, even
+though they claim that all the different brands taste almost identical.
+Sometimes the pop-tops break off when you try to open them, so you have
+to have your own can opener around for those occasions, in which case you
+either need a complete set of instructions, or a friend who has been
 drinking Unix Beer for several years.
 	BSD stout: Deep, hearty, and an acquired taste.  The official
 brewer has released the recipe, and a lot of home-brewers now use it.
@@ -4709,7 +4709,7 @@ stout or the sweetness of ale.
 %
 UNIX enhancements aren't.
 %
-Unix Express: 
+Unix Express:
 All passenger bring a piece of the aeroplane and a box of tools with them to
 the airport. They gather on the tarmac, arguing constantly about what kind
 of plane they want to build and how to put it together. Eventually, the
@@ -4792,8 +4792,8 @@ Vax Vobiscum
 %
 Vitamin C deficiency is apauling.
 %
-VMS Beer: Requires minimal user interaction, except for popping the top 
-and sipping.  However cans have been known on occasion to explode, or 
+VMS Beer: Requires minimal user interaction, except for popping the top
+and sipping.  However cans have been known on occasion to explode, or
 contain extremely un-beer-like contents.
 %
 VMS is like a nightmare about RXS-11M.
@@ -5065,21 +5065,21 @@ Why did the Roman Empire collapse?  What is the Latin for office automation?
 %
 Why do we want intelligent terminals  when there are so many stupid users?
 %
-Windows 3.1 Beer: The world's most popular. Comes in a 16-oz. can that 
-looks a lot like Mac Beer's. Requires that you already own a DOS Beer.  
-Claims that it allows you to drink several DOS Beers simultaneously, but 
-in reality you can only drink a few of them, very slowly, especially 
-slowly if you are drinking the Windows Beer at the same time.  Sometimes, 
-for apparently no reason, a can of Windows Beer will explode when you 
+Windows 3.1 Beer: The world's most popular. Comes in a 16-oz. can that
+looks a lot like Mac Beer's. Requires that you already own a DOS Beer.
+Claims that it allows you to drink several DOS Beers simultaneously, but
+in reality you can only drink a few of them, very slowly, especially
+slowly if you are drinking the Windows Beer at the same time.  Sometimes,
+for apparently no reason, a can of Windows Beer will explode when you
 open it.
 %
-Windows 95 Beer: A lot of people have taste-tested it and claim it's 
-wonderful. The can looks a lot like Mac Beer's can, but tastes more like 
-Windows 3.1 Beer. It comes in 32-oz.  cans, but when you look inside, the 
-cans only have 16 oz. of beer in them. Most people will probably keep 
-drinking Windows 3.1 Beer until their friends try Windows 95 Beer and say 
-they like it. The ingredients list, when you look at the small print, has 
-some of the same ingredients that come in DOS beer, even though the 
+Windows 95 Beer: A lot of people have taste-tested it and claim it's
+wonderful. The can looks a lot like Mac Beer's can, but tastes more like
+Windows 3.1 Beer. It comes in 32-oz.  cans, but when you look inside, the
+cans only have 16 oz. of beer in them. Most people will probably keep
+drinking Windows 3.1 Beer until their friends try Windows 95 Beer and say
+they like it. The ingredients list, when you look at the small print, has
+some of the same ingredients that come in DOS beer, even though the
 manufacturer claims that this is an entirely new brew.
 %
 Windows Airlines:
@@ -5088,14 +5088,14 @@ pilots very capable. The fleet of Learjets the carrier operates is immense.
 Your jet takes off without a hitch, pushing above the clouds, and at 20,000
 feet it explodes without warning.
 %
-Windows NT Beer: Comes in 32-oz. cans, but you can only buy it by the 
-truckload. This causes most people to have to go out and buy bigger 
-refrigerators. The can looks just like Windows 3.1 Beer's, but the 
+Windows NT Beer: Comes in 32-oz. cans, but you can only buy it by the
+truckload. This causes most people to have to go out and buy bigger
+refrigerators. The can looks just like Windows 3.1 Beer's, but the
 company promises to change the can to look just like Windows 95 Beer's --
-after Windows 95 beer starts shipping. Touted as an "industrial strength" 
+after Windows 95 beer starts shipping. Touted as an "industrial strength"
 beer, and suggested only for use in bars.
 %
-Wings of OS/400: 
+Wings of OS/400:
 The airline has bought ancient DC-3s, arguably the best and safest planes
 that ever flew, and painted "747" on their tails to make them look as if
 they are fast. The flight attendants, of course, attend to your every need,
@@ -5242,7 +5242,7 @@ X windows:
 	When you can't afford to be right.
 	And you thought we couldn't make it worse.
 
-If it works, it isn't X windows. 
+If it works, it isn't X windows.
 %
 X windows:
 	You'd better sit down.
@@ -5441,12 +5441,12 @@ As seen on slashdot about what you can do with your cable modems:
 
 The post is by "redgekko"
 %
-"The biggest problem facing software engineering is the one it will 
- never solve - politics." 
+"The biggest problem facing software engineering is the one it will
+ never solve - politics."
  -- Gavin Baker, ca 1996, An unusually cynical moment inspired by working on a
  large project beseiged by politics
 %
-"Don't fear the pen. When in doubt, draw a pretty picture." 
+"Don't fear the pen. When in doubt, draw a pretty picture."
    --Baker's Third Law of Design.
 %
 Breakpoint 1, main (argc=1, argv=0xbffffc40) at main.c:29

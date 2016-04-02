@@ -15,7 +15,7 @@ all: cookies o-cookies w-cookies
 check:
 	for i in $(COOKIES) ; \
 		do \
-			echo -n "Testing $$i..."; \
+			echo -n "Testing $$i ..."; \
 			if ! tail -n 1 $$i | grep -q ^%$  ; then \
 			        echo " failed % check" ; \
 				echo "Fortune cookie file does not end in a single %" ; \
@@ -29,6 +29,11 @@ check:
 			if egrep -q "`printf "\\r"`" $$i ; then \
 				echo " failed lack of carriage-return check"; \
 				echo "Fortune cookie file contains a CR"; \
+				exit 1; \
+			fi; \
+			if egrep -q "[ `printf "\\t"`]\$$" $$i ; then \
+				echo " failed lack of trailing space check"; \
+				echo "Fortune cookie file contains trailing whitespace"; \
 				exit 1; \
 			fi; \
 			echo " passed " ;\

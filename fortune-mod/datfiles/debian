@@ -1,12 +1,12 @@
-I think it's a little fantastic to try to form a picture in people's 
-minds of the Debian archive administration team huddled over their 
-terminals, their faces lit only by a CRT with a little root shell 
-prompt and the command 
-"/project/org/ftp.debian.org/cabal/s3kr1t/nuke-non-free.pl" all keyed 
-in and ready to go, their fingers poised over the enter key, a sweat of 
+I think it's a little fantastic to try to form a picture in people's
+minds of the Debian archive administration team huddled over their
+terminals, their faces lit only by a CRT with a little root shell
+prompt and the command
+"/project/org/ftp.debian.org/cabal/s3kr1t/nuke-non-free.pl" all keyed
+in and ready to go, their fingers poised over the enter key, a sweat of
 lustful anticipated beading on their upper lips."
-		-- Branden Robinson in 
-		   <20031104211846.GK13131@deadbeast.net> discussing 
+		-- Branden Robinson in
+		   <20031104211846.GK13131@deadbeast.net> discussing
 		   his draft Social Contract amendment
 %
 If you are going to run a rinky-dink distro made by a couple of
@@ -49,11 +49,11 @@ rename the distro from "stable" to "wobbly".
 < nickr> ^_^
 		-- in #debian-devel
 %
-< sam> /.ing an issue is like asking an infinite number of monkeys for 
+< sam> /.ing an issue is like asking an infinite number of monkeys for
        advice
 		-- in #debian-devel
 %
-< DanielS> still, throne of blood sounds like a movie about overfiend 
+< DanielS> still, throne of blood sounds like a movie about overfiend
            and virgins or some crap
 		-- in #debian-devel
 %

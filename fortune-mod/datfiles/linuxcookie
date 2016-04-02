@@ -43,7 +43,7 @@ get the background colors right, you'll know who to thank."
 (A follow-up by alovell@kerberos.demon.co.uk, Anthony Lovell, to Linus's
 remarks about porting)
 %
-Anyone who thinks UNIX is intuitive should be forced to write 5000 lines of 
+Anyone who thinks UNIX is intuitive should be forced to write 5000 lines of
 code using nothing but vi or emacs. AAAAACK!
 (Discussion in comp.os.linux.misc on the intuitiveness of commands, especially
 Emacs.)
@@ -78,7 +78,7 @@ sliced bread."
  * terminate things with extreme prejudice.
 */
 die_if_kernel("Oops", regs, error_code);
-(From linux/arch/i386/mm/fault.c)				   
+(From linux/arch/i386/mm/fault.c)
 %
 "...Deep Hack Mode--that mysterious and frightening state of
 consciousness where Mortal Users fear to tread."
@@ -491,6 +491,6 @@ for some of the brain-damages of minix.
 %
 I've heard a Jew and a Muslim argue in a Damascus cafe with less passion
 than the emacs wars."
-		-- Ronald Florence <ron@18james.com> in 
+		-- Ronald Florence <ron@18james.com> in
 		   <ueu1c4mbrc.fsf@auda.18james.com>
 %
