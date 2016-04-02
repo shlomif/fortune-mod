@@ -97,7 +97,7 @@ SUBDIRS=fortune util datfiles
 all: fortune-bin util-bin cookies-z
 
 # Create debugging versions
-debug: fortune-debug util-debug cookies-z 
+debug: fortune-debug util-debug cookies-z
 
 # Just create the fortune binary
 fortune-bin:
@@ -210,7 +210,7 @@ help:
 	@echo "  install-uman:		Just the strfile/unstr man page"
 	@echo
 	@echo "clean:	Remove object files and binaries"
-	@echo 
+	@echo
 	@echo "help:	This screen"
 	@echo
 	@echo "love:	What a *good* idea!  Let's!"
