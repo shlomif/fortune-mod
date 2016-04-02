@@ -1,0 +1,53 @@
+.\"
+.\" Randstr: grab a random text string from a specified text file
+.\" Amy A. Lewis, October, 1995
+.\"
+.TH RANDSTR 1 "October 1995" "Linux hackery"
+.SH NAME
+randstr \- fetch a random text string from a specified file
+.SH SYNOPIS
+.BI "randstr " filename
+.SH DESCRIPTION
+In essence, 
+.B randstr
+is a stripped-down, minimalist version of the popular
+.BR fortune (6)
+program.
+.PP
+It reads files with the same structure as the fortunes databases, and
+displays a random string.
+.SS Usage
+.B randstr
+might be used, with a database of signatures created with a text editor
+and the 
+.BR strfile "(8) and " unstr (8)
+utilities, to randomly change the 
+.I $HOME/.signature
+file.  To do so, create the necessary database as, for example,
+.IR signatures " and " signatures.dat
+in the home directory, and add the following line to
+.IR .profile " or " .login :
+.RS
+.BI "randstr " signatures
+.RI > .signature
+.RE
+.PP
+As superuser, a similar sort of thing could be placed in the
+.BR Pnews "(1) or " Rnmail (1)
+scripts, although it should certainly test to be certain that the files
+exist, and creating the files of signatures might require a good deal of
+help for a lot of users.
+.PP
+Also as superuser, one might use 
+.B randstr
+with a shell or
+.B Perl
+script to read the 
+.I etc/passwd
+database and create a 
+.I strfile
+type database, and use this database to run a monthly lottery.
+.SH BUGS
+None known.
+.SH SEE ALSO
+.BR fortune "(6), " strfile (1)

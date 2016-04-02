@@ -1,0 +1,15 @@
+* Replace current Makefiles with an autoconf setup (maybe use
+  automake?) (Do we even need this?)
+
+* Split-off properly offensive fortune file generation (and provide a
+  fake offensive fortune for when it's not installed)
+
+* .fortunerc and /etc/fortunerc support
+
+* More fortunes!
+
+* Properly format all fortunes! (See notes for details)
+
+* Localised -a and -o fortune display
+
+-- Pascal Hakim <pasc@redellipse.net>

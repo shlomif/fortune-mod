@@ -1,0 +1,212 @@
+This is a list of the data files included with this distribution, and
+what they contain.
+
+In an ideal world, someone would maintain the fortune databases, having
+an email address and a web page where new fortunes could be submitted.
+I'd do it myself, except that I'm going to lose this account, and the
+account doesn't permit CGI scripts.  If you want to set up such a
+service, have CGI access, but don't have the skills to set up an HTML
+form for submissions, drop me a line and maybe I can work something up
+for you.
+
+Offensive fortunes are installed by default.  To *not* install them,
+change the "OFFENSIVE" variable in the makefile from 1 to 0 (or delete
+the directory of offensive fortunes, if you wish.
+
+At the end of this file is another listing of the filenames, without
+descriptions, in order of size as size is understood by the fortune
+program--that is, number of text strings (as reported by strfile on
+October 19, 1995, just before tarring this mess for upload--sizes may be
+slightly off, since I'll try to check for duplicates at least once more).
+
+./datfiles/	: the directory for inoffensive fortunes
+
+art		: Broadly construed; it includes television and celebrities.
+ascii-art	: each one worth a thousand words, I guess.
+computers	: various fortunes that are computer-related.  This includes
+		  the 'joke' fortunes that are supposed to emulate system
+		  error messages, as well as some neat stuff.
+cookie		: Cookie file from Karl Lehenbauer's postings to alt.sources
+definitions	: It ought to be all the 'definitions,' but what it really
+		  is, is all the definitions that have a first line ending
+		  with a colon.
+drugs		: Alcohol and cigarettes, mostly.  Legal chemicals.
+education	: Schools, teachers, and scholarship, mostly not complimentary.
+ethnic		: Jokes that are about groups of people, but aren't making
+		  fun of them.  Laughing with instead of at.
+food		: Recipes, diets, and more about food.
+fortunes	: Yes, the old file name, but this contains predictions,
+		  evaluations of character, and the kind of stuff that you
+		  actually expect to get when you want to know your fortune.
+goedel		: Meta-fortunes.  Incomplete, of course.  :-)
+humorists	: Stand-up comedians, and people like Dave Barry.  Especially
+		  stuff that doesn't fit into another category (almost anything
+		  that Steven Wright says doesn't fit a category).
+kids		: Real advice and cynical observations on children, parenting,
+		  and family life.
+law		: Stupid laws, stupider lawyers.  *No* joke about a lawyer
+		  is *ever* offensive (except to lawyers, and who cares?).
+linuxcookie	: From the collection at ftp.icce.rug.nl.  Linux-related.
+		  It probably ought to go in with 'computers,' but it's
+		  archived separately, so I'm keeping it separate.
+literature	: Mostly classic authors; a few newbies.  And Bulwer-Lytton.
+		  It should contain more on writing and by writers, but a lot
+		  of that somehow got into art.
+love		: What no one gets enough of, I guess.
+magic		: Abracadabra.
+medicine	: Doctors and cures.  And other contradictory juxtapositions.
+		  Exercise.
+men-women	: And the relations between them.
+miscellaneous	: Whatever's left over.
+news		: On journalism, and the unintentionally amusing bits of 
+		  journalism.
+people		: You know, humans.  Personality, appearance, relationships,
+		  and all the other evilness of which humans are capable.
+		  It should probably be several smaller files (personality,
+		  appearance, relationships ...)
+pets		: Mostly cats and dogs, with some goldfish.  And penguins.
+		  And a rubber duck.
+platitudes	: The meaning of life, and of other things, including all those
+		  stupid little sayings, and variants on them.
+politics	: Comments on man as a political animal.  Also police,
+		  soldiers, and other criminals.
+riddles		: Not really riddles, necessarily, but mostly Q: A:
+science		: Largely math and engineering, but some other interesting
+		  and amusing sorts of science-related apothegms.  Also
+		  technology.
+songs-poems	: Stuff with meter, at least, and usually with rhymes.
+sports		: You know.  Like on television.  ;-)
+startrek	: Apparently quotes from Star Trek Classic.  Plus a bit.
+translate-me	: A small file containing non-English quotes without
+		  translations.
+wisdom		: Zen, the True Meaning of Life, and other stupid lies.
+work		: Really about the business world, and the pains of being a
+		  part of it.  The desperate problems of the wealthy.  Like
+		  that.
+zippy		: Quotes from the comic Zippy the Pinhead.
+
+
+./datfiles/off/	: the directory for offensive fortunes, already rot13'd.
+		  they aren't distributed.  All the offensive fortunes,
+		  unrotated, are found in the subdirectory:
+./datfiles/off/unrotated/	: unrotated, offensive fortunes*
+
+atheism		: Wayne Aiken's atheism cookie file, from:
+                  http://www4.ncsu.edu/~aiken/
+astrology	: Like in the daily newspapers, except nastier.  More would
+		  be nice.  A few comments *about* astrology.
+black-humor	: Death, violence-as-humor, and the like.  Really sick stuff.
+definitions	: Like the inoffensive; first line ends with a colon and
+		  it looks sorta like a definition.
+drugs		: Various references to illegal herbs and chemicals.
+ethnic		: Nasty slams at particular ethnic groups.  'Ethnic' actually
+		  includes regionalist jokes in America.
+hphobia		: Slams at gays and lesbians.
+limerick	: There once was a file named limerick, / the contents of
+		  which were pretty slick. / Each fortune five lines, /
+		  with execrable rhymes, / And contents t'offend the fanatick.
+misandry	: Anti-man stuff.  Smaller than 'misogyny.'  Wotta surprise.
+miscellaneous	: It has everything that doesn't fit in other categories.
+misogyny	: Jokes that women encounter as real attitudes daily.  Real
+		  attitudes that women have to pretend are jokes daily.
+politics	: The great wonder about the offensive political file is 
+		  that it mostly contains direct quotes by politicians
+		  who *weren't* trying to be funny.
+privates	: No, not promoted recruits.  The naughty bits, that people
+		  aren't supposed to talk about.  Body parts and functions.
+		  (Note that "size" has nothing to do with sex, so size
+		  jokes are all in here).
+racism		: Racism.  I suppose it's funny to *someone*.  I hope I
+		  never meet him.
+religion	: Stuff that might offend religious people, mostly Christians.
+riddles		: Not really riddles, but usually the question format,
+		  some Q&A and some just leading/rhetorical questions.
+sex		: Uhh.  Well, you see, son, there are, umm, birds, and bees...
+		  This ranges from outrageously frank to moderately suggestive.
+songs-poems	: Filthy, bawdy, naughty songs and poems!  Licentious, I tell
+		  tell you!  The programmer must be spanked!  First the
+		  spanking ....
+vulgarity	: Jokes in which the 'humor' is bad language, plus some
+		  genuinely funny things that happen to contain bad language.
+
+./datfiles/html/	: the directory for fortune files with HTML tags.
+			  Currently empty, but I'll get a round tuit.
+
+The intention throughout has been to create something a bit more
+manageable and maintainable, without notable success in most cases.  A
+more rational division of the fortunes would be preferred, but you do
+what comes naturally.
+
+If you prefer to have all the fortunes in one humongous file, that's fine:
+cat 'em all together and run strfile.  That's easy; breaking them apart
+again isn't.  Keep in mind that the "-o" infix format is not supported in
+this version of fortune, so keep the offensive files in a separate
+directory.
+
+*If any of these files are not to your taste, do the easy thing: rm
+filename.dat.  That leaves the fortunes there, but without the pointer
+file, inaccessible.  Or rm filename, which gets rid of the text strings.
+
+There are over 15,000 'fortunes' here, in the various files.  Here's the
+breakdown, by file and directory.
+
+Total	       16422
+--------------------
+
+Inoffensive    12209
+-----------
+people		1231
+definitions	1105
+computers	1021
+songs-poems	 719
+politics	 692
+miscellaneous	 643
+work		 630
+science		 622
+men-women	 582
+zippy		 548
+platitudes	 497
+art		 460
+fortunes	 433
+wisdom		 402
+literature	 256
+startrek	 225
+drugs		 208
+education	 203
+law		 202
+food		 198
+humorists	 196
+ethnic		 163
+love		 151
+kids		 150
+sports		 147
+riddles		 135
+linuxcookie	 102
+medicine	  72
+goedel		  54
+news		  53
+pets		  51
+magic		  29
+translate-me	  19
+ascii-art	  10
+
+Offensive	4213
+---------
+limerick	1001
+sex		 805
+politics	 349
+definitions	 332
+black-humor	 270
+riddles		 267
+religion	 226
+songs-poems	 206
+vulgarity	 194
+privates	 132
+ethnic		 126
+drugs		  73
+miscellaneous	  64
+misogyny	  60
+astrology	  42
+hphobia		  40
+misandry	  23
+racism		   3

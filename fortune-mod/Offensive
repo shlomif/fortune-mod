@@ -1,0 +1,54 @@
+An attempt has been made to restructure the fortune database.  This has
+included, of necessity, a concatenation and redivision of the offensive
+and inoffensive fortunes.  In the process, some fortunes may have gotten
+lost, and others may have moved from one category to another (or from
+both categories to one or the other, more commonly).
+
+The following were the criteria I used to make the division:
+	Anything about sex is offensive.  Welcome to America.  *sigh*
+	Insults based on religion or ethnicity are offensive.
+	Generally, any criticism of anybody's religion is offensive.
+	"He really said that?" quotes from politicians are offensive.
+	Political bias is offensive.
+	Limericks are offensive even if they aren't.
+	Tastelessness is offensive (q.v. "The Snack").
+	Misogyny and misandry for the sake of themselves are offensive.
+	Vulgarity is offensive.
+	Violence for the sake of humor is offensive.
+
+Surprisingly, given this rather broad definition, there are still more
+inoffensive quotations, quips, and quozzits than offensive ones.  A
+peculiar, back-handed compliment to human nature (it surprised me).
+
+In another file in this directory (Notes), the original author(s) of the
+fortune distribution state that "racist, mysogynist [sic] (sexist), or
+homophobic ideas" should never be included in the fortune database.
+
+This was not the case when the database came into my possession, and I
+began attempting to divide it thematically.  Misogyny and homophobia are
+both pretty well-represented; it is thus only a minor relief that racism
+isn't (nonetheless, it *is* a relief).  Faced with two unpalatable
+alternatives, of including material that really deserves no wider
+publication or of acting the censor, I choose to pass on the
+responsibility, though I have attempted to make maintenance easier.
+Misogyny is sequestered in the file "misogyny," homophobia in "hphobia,"
+and racism in "racism" (see the file 'cookie-files' in this directory for
+a discussion of the contents of the various files), all in the offensive
+directory.  Those who respect women, gays, and people of color may prefer
+to either remove the .dat file (which keeps the strings, but makes them
+inaccessible via the fortune program), or to delete these files altogether.
+
+I admit that I was strongly tempted to simply remove these fortunes, an
+action that I might have justified by pointing to the Notes of the
+original authors.  However, it appears that over the course of time there
+have been those who find these sorts of prejudice amusing, and in
+America, at least, even Nazi rhetoric is a protected form of speech.  So
+I include them, and leave the decision to individual system administrators.
+
+I will add, as a final note, that reading through the offensive fortunes
+(I have been forced to read and reread every fortune in the database
+several times, in order to assign things to their proper places) has left
+me far less amused by fortune -o than previously.  It is easy to overdose
+on insult.
+
+Amy Lewis	alewis@email.unc.edu	September-October 1995.

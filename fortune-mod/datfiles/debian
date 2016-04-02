@@ -1,0 +1,79 @@
+I think it's a little fantastic to try to form a picture in people's 
+minds of the Debian archive administration team huddled over their 
+terminals, their faces lit only by a CRT with a little root shell 
+prompt and the command 
+"/project/org/ftp.debian.org/cabal/s3kr1t/nuke-non-free.pl" all keyed 
+in and ready to go, their fingers poised over the enter key, a sweat of 
+lustful anticipated beading on their upper lips."
+		-- Branden Robinson in 
+		   <20031104211846.GK13131@deadbeast.net> discussing 
+		   his draft Social Contract amendment
+%
+If you are going to run a rinky-dink distro made by a couple of
+volunteers, why not run a rinky-dink distro made by a lot of volunteers?
+		-- Jaldhar H. Vyas on debian-devel
+%
+Packages should build-depend on what they should build-depend.
+		-- Santiago Vila on debian-devel
+%
+There are 3 types of guys -- the ones who hate nerds (all nerds, that
+is; girls aren't let off the hook); the ones who are scared off by girls
+who are slightly more intelligent than average; and the guys who are
+also somewhat more intelligent than average, but are so shy that they
+can't put 2 words together when they're within 20 feet of a girl.
+		-- Vikki Roemer on debian-curiosa
+%
+Debian is the Jedi operating system: "Always two there are, a master and
+an apprentice".
+		-- Simon Richter on debian-devel
+%
+This is Unix we're talking about, remember.  It's not supposed to be
+nice for the applications programmer.
+		-- Matthew Danish on debian-devel
+%
+... but hey, this is Linux, isn't it meant to do infinite loops in 5
+seconds?
+		-- Jonathan Oxer in the apt-cacher ChangeLog
+%
+I'm personally quite happy with one stable release every two years, and
+am of the opinion that trying to release more will mean we'll have to
+rename the distro from "stable" to "wobbly".
+		-- Scott James Remnant on debian-devel
+%
+< Keybuk> Perl 6 scares me
+< doogie> you can name your operators anything.  the name here is the
+          string '~|_|~'
+* Lo-lan-2 runs away screaming
+< Keybuk> it looks like a diagram of a canal lock :)
+< jaybonci> japanese smiley operators?
+< nickr> ^_^
+		-- in #debian-devel
+%
+< sam> /.ing an issue is like asking an infinite number of monkeys for 
+       advice
+		-- in #debian-devel
+%
+< DanielS> still, throne of blood sounds like a movie about overfiend 
+           and virgins or some crap
+		-- in #debian-devel
+%
+< jaybonci> actually d-i stands for "divine intervention" ;)
+		-- in #debian-devel
+%
+< doogie> asuffield: how do you think dpkg was originally written?  :|
+< asuffield> by letting iwj get dangerously near a computer
+		-- in #debian-devel
+%
+< asuffield> a workstation is anything you can stick on somebodies desk
+             and con them into using
+		-- in #debian-devel
+%
+<joshk> joshk@influx:/etc/logrotate.d> sh -n *
+<joshk> apache: line 14: syntax error near unexpected token `}'
+<joshk> apache: line 14: `}'
+<joshk> the plot thickens
+<asuffield> those aren't shell scripts
+<erich> this wasn't chicken.
+		-- in #debian-devel
+%
+

@@ -1,0 +1,47 @@
+randstr is a simple utility that implements the minimal functionality of
+the fortune program.  Give it the name of a strfile text or data
+(pointer) file, and it will randomly select and print one text string.
+
+It isn't intended to do a lot; it's supposed to be a sample
+implementation of a minimal strfile type random text retrieval function,
+such as might be used to generate random .signature files.
+
+For example:
+
+  Create a file of signatures in strfile format (none more than four lines
+  long, please!).  Call it signatures, for ease of understanding.
+  
+  Run it through strfile to create the pointer file; put both files in a
+  safe place--your home directory, for instance.
+  
+  In your .login or .profile, add the line:
+  randstr $HOME/signatures >.signature
+  
+  Each time you log in, your signature will change randomly to one of those
+  in the file signatures.  If you change the file, be sure to update the
+  pointers file!  (use strfile)
+
+  If you happen to have root privileges, you might be able to hack Pnews
+  to change the sig randomly whenever you post.  The solution is left as
+  an exercise for the student (gee, I *always* wanted to say that!).
+  
+Another example:
+
+  As root, create a shell or Perl script to read /etc/passwd and create
+  a strfile text file containing login name (line one) and GECOS (line
+  two).
+  
+  Add an entry to crontab.root that runs that script once a month, then
+  uses strfile to create the data file, and randstr to select one entry
+  at random.
+  
+  Give valuable prizes to the winning login.  The script can also auto-mail
+  to the user, with Cc: root.
+  
+  Any other 'lottery'-style function could be implemented the same way.
+
+Both of these examples are more easily implemented with randstr (which
+doesn't care where the files are, and accepts no parameters) than with
+fortune, which expects files to be in a place specified at compile-time.
+
+Amy A. Lewis	alewis@email.unc.edu

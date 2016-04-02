@@ -1,0 +1,199 @@
+.\"     $NetBSD: strfile.8,v 1.3 1995/03/23 08:28:45 cgd Exp $
+.\"
+.\" Copyright (c) 1989, 1991, 1993
+.\"     The Regents of the University of California.  All rights reserved.
+.\"
+.\" 
+.\" This code is derived from software contributed to Berkeley by
+.\" Ken Arnold.
+.\"
+.\" Redistribution and use in source and binary forms, with or without
+.\" modification, are permitted provided that the following conditions
+.\" are met:
+.\" 1. Redistributions of source code must retain the above copyright
+.\"    notice, this list of conditions and the following disclaimer.
+.\" 2. Redistributions in binary form must reproduce the above copyright
+.\"    notice, this list of conditions and the following disclaimer in the
+.\"    documentation and/or other materials provided with the distribution.
+.\" 3. All advertising materials mentioning features or use of this software
+.\"    must display the following acknowledgement:
+.\"     This product includes software developed by the University of
+.\"     California, Berkeley and its contributors.
+.\" 4. Neither the name of the University nor the names of its contributors
+.\"    may be used to endorse or promote products derived from this software
+.\"    without specific prior written permission.
+.\"
+.\" THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+.\" ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+.\" IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+.\" ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+.\" FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+.\" DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+.\" OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+.\" HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+.\" LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+.\" OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+.\" SUCH DAMAGE.
+.\"
+.\"     @(#)strfile.8   8.1 (Berkeley) 6/9/93
+.\"
+.\" This man page has been heavily modified, like the files it refers
+.\" to, by Amy Lewis.  Changes to command line, and a different style of
+.\" macros for Linux systems.
+.\"
+.TH STRFILE 1 "June 9, 1993 [Apr. '97]" "4th Berkeley Distribution" "UNIX System Manager's Manual"
+.SH NAME
+strfile \- create a random access file for storing strings
+.br
+unstr \- dump strings in pointer order
+.SH SYNOPSIS
+.BR strfile " [" -iorsx "] [" -c
+.IR char "] " sourcefile " [" outputfile ]
+.br
+.BR unstr " [" -c
+.IR char "] " datafile [ .ext ]
+.RI [ outputfile ]
+.SH DESCRIPTION
+.B strfile
+reads a file containing groups of lines separated by a line containing
+a single percent `%' sign (or other specified delimiter character) and
+creates a data file which contains a header structure and a table of
+file offsets for each group of lines. This allows random access of the
+strings.
+.PP
+The output file, if not specified on the command line, is named 
+.IR sourcefile.dat .
+.PP
+The purpose of 
+.B unstr 
+is to undo the work of
+.BR strfile .
+It prints out the strings contained in the sourcefile, which is
+.I datafile.ext
+without its extension, or
+.I datafile
+if no extension is specified (in this case, the extension 
+.I .dat
+is added to the name of the datafile) in the order
+that they are listed in the header file
+.IR datafile .
+If no
+.I outputfile 
+is specified, it prints to standard output; otherwise it prints
+to the file specified.
+.B unstr
+can also universally change the delimiter character in a strings file.
+It is possible to create sorted versions of input files by using
+.B strfile -o 
+and then using 
+.B unstr 
+to dump them out in the table order.
+.SS Options
+The options are as follows:
+.TP
+.BI "-c " char
+Change the delimiting character from the percent sign to 
+.IR char .
+This option is available for both
+.BR strfile " and " unstr .
+.TP
+.B -i
+Ignore case when ordering the strings.
+.TP
+.B -o
+Order the strings in alphabetical order.  The offset table will be
+sorted in the alphabetical order of the groups of lines referenced.
+Any initial non-alphanumeric characters are ignored. This option
+causes the STR_ORDERED bit in the header 
+.I str_flags 
+field to be set. (It also now really does sort! It didn't used to).
+.TP
+.B -r
+Randomize access to the strings.  Entries in the offset table will be
+randomly ordered.  This option causes the STR_RANDOM bit in the header 
+.I str_flags 
+field to be set. (And really does randomize)
+.TP
+.B -s
+Run silently; don't give a summary message when finished.
+.TP
+.B -x
+Note that each alphabetic character in the groups of lines is rotated
+13 positions in a simple caesar cypher.  This option causes the
+STR_ROTATED bit in the header 
+.I str_flags 
+field to be set. Note that it 
+.B does not
+rotate the strings--that operation must be performed separately.
+.SS Header
+The format of the header is:
+.PP
+#define VERSION 1
+.br
+unsigned long str_version;  /* version number */
+.br
+unsigned long str_numstr;   /* # of strings in the file */
+.br
+unsigned long str_longlen;  /* length of longest string */
+.br
+unsigned long str_shortlen; /* shortest string length */
+.br
+#define STR_RANDOM    0x1   /* randomized pointers */
+.br
+#define STR_ORDERED   0x2   /* ordered pointers */
+.br
+#define STR_ROTATED   0x4   /* rot-13'd text */
+.br
+unsigned long str_flags;    /* bit field for flags */
+.br
+char str_delim;             /* delimiting character */
+.PP
+All fields are written in network byte order.
+.SH BUGS
+Fewer now, one hopes.  However, fortunes (text strings) beginning with a
+blank line appear to be sorted between random letters.  This includes
+ASCII art that contains no letters, and first lines that are solely
+non-alphanumeric, apparently.  I've no idea why this should be.
+.SH OTHER USES
+What can you do with this besides printing sarcastic and obscene messages
+to the screens of lusers at login or logout?
+.PP
+There
+.B are
+some other possibilities.  Source code for a sample program,
+.BR randstr ,
+is included with this distribution: randstr splits the difference between
+.BR unstr " and " fortune .
+It reads a single, specified file, and randomly selects a single text
+string.
+.IP 1
+Include
+.I strfile.h
+into a news reading/posting program, to generate random signatures.
+.BR Tin (1)
+does something similar, in a much more complex manner.
+.IP 2
+Include it in a game.  While strfile doesn't support 'fields' or
+\&'records', there's no reason that the text strings can't be consistent:
+first line, a die roll; second line, a score; third and subsequent lines,
+a text message.
+.IP 3
+Use it to store your address book.  Hell, some of the guys I know
+would be as well off using it to decide who to call on Friday nights (and
+for some, it wouldn't matter whether there were phone numbers in it or not).
+.IP 4
+Use it in 'lottery' situations.  If you're an ISP, write a script to
+store login names and GECOS from
+.I /etc/passwd
+in strfile format, write another to send 'congratulations, you've won'
+to the lucky login selected.  The prize might be a month's free service,
+or if you're AOL, a month free on a real service provider.
+.SH SEE ALSO
+.BR byteorder "(3), " fortune (6)
+.SH HISTORY
+The
+.B strfile
+utility first appeared in 4.4BSD. This version was heavily modified,
+much of it in ways peculiar to Linux.  Work has since been done to make
+the code more generic, and has so far been tested to work with SunOS
+4.x.  More platforms are expected to be supported as work continues.
