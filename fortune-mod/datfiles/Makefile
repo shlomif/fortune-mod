@@ -26,6 +26,11 @@ check:
 				echo "Fortune cookie file contains a line longer than 78 characters"; \
 				exit 1; \
 			fi; \
+			if egrep -q "`printf "\\r"`" $$i ; then \
+				echo " failed lack of carriage-return check"; \
+				echo "Fortune cookie file contains a CR"; \
+				exit 1; \
+			fi; \
 			echo " passed " ;\
 		done;
 
