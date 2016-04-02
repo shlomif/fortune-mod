@@ -43,10 +43,6 @@ cookies-stamp:
 	rm -f *.dat
 	for i in $(COOKIES) ; \
 	    do \
-	        if [ ! -f $$i.old ] ; then \
-	        	cp $$i $$i.old; \
-		fi; \
-	        recode latin1..u8 $$i ; \
 		$(STRFILE) $$i ; \
 		ln -s $$i $$i.u8 || exit $? ; \
 	    done
@@ -66,8 +62,3 @@ clean:
 	rm -f *.u8
 	cd off && $(MAKE) clean
 	cd html && $(MAKE) clean
-	for i in $(COOKIES) ; do \
-		if [ -f $$i.old ] ; then \
-			mv $$i.old $$i; \
-		fi; \
-	done
