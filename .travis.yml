@@ -2,7 +2,7 @@ os: linux
 dist: trusty
 before_install:
     - sudo apt-get update -qq
-    - sudo apt-get install -y ack-grep cpanminus gcc libperl-dev perl make
+    - sudo apt-get install -y ack-grep cpanminus gcc libperl-dev librecode-dev perl make
     - sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
     - sudo cpanm File::Find::Object IO::All
 script: "cd fortune-mod/ && make check"
