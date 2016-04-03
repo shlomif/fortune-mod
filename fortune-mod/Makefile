@@ -187,7 +187,9 @@ datfiles-check: cookies-z
 root-check:
 	perl tests/trailing-space-and-CRs.pl
 
-check: datfiles-check root-check
+check-deps: all
+
+check: check-deps datfiles-check root-check
 
 clean:
 	for i in $(SUBDIRS) ; do (cd $$i && $(MAKE) clean); done
