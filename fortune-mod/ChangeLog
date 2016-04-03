@@ -4,15 +4,15 @@ order, which is The Right Thing for ChangeLogs - DLC)
 March 05, 2004 (fortune-mod-1.99.1)
 
 	Most of the changes have occured at some point in time in the last
-	5 years. 
+	5 years.
 
 	A high number of spelling, punctuation, formatting and grammar
 	fixes.
 
 	Internationalisation support.
 
-	New -c option to see which file a fortune came from.	
-	
+	New -c option to see which file a fortune came from.
+
 August 29, 1997
 
   Incorporated a couple of minor changes made in the (old) Debian
@@ -111,7 +111,7 @@ Late October 1995
   of fortune, and then see how difficult it would be to add termcap/terminfo
   enhancements to fortune itself--I don't anticipate serious problems, but
   I'd rather go ahead and get this on the net.
-  
+
   A last-minute change was made to the way that percentages are displayed
   with -f; it is now in the format nnn.nn%.  The reason for this is that
   with the multiplication of small files, fortune -af displayed a large
@@ -127,7 +127,7 @@ Amy A. Lewis	alewis@email.unc.edu
 Mid-October '95
   Another utility, ansify, now compiles; it has not been tested at all, so
   it may not work even slightly.
-  
+
   Ansify is a rather stupid program, all things considered, but the work on
   it does raise an interesting possibility for an enhanced fortune.  At
   present, the fortune databases contain x^Hy sequences for underline and
@@ -149,9 +149,9 @@ Added (early October 95):
 
   A new parameter to fortune, -n, which permits you to specify the length
   at which to break between long (-l) and short (-s) fortunes.
-  
+
   fortune -f now shows probabilities.
-  
+
   A bug: fortune -a nn% filename filename ... now fails without an error
   message, if the filename named following the percentage exists in both
   the inoffensive and the offensive directories (that is, if you have two
@@ -163,12 +163,12 @@ Added (early October 95):
   a percentage with -a and inoffensive/offensive files that share a name.
   Temporary workaround: rename one or the other of the files (*sigh*  I
   don't like that as a solution).
-  
+
   The man pages have been updated.  The old man pages are also available,
   but are not installed unless you do it yourself (the new ones are).  The
-  new man pages have the extension .man; the old ones have numeric 
+  new man pages have the extension .man; the old ones have numeric
   extensions.
-  
+
   A place has been created for fortune files containing HTML tags (the
   reason I started playing with this mess was because I wanted to be
   able to format fortunes nicely for the web without having to run an
@@ -211,7 +211,7 @@ More minor fixes:
   if stderr is redirected into the file, you end up with filenames marking
   the separation between files (as before), but they are now valid text
   strings (which should probably, therefore, be deleted).
-  
+
   In other words, if you don't care what files the original text came from,
   and want a new file containing (let us say), quotes from Mark Twain,
   you might do:
@@ -223,43 +223,43 @@ More minor fixes:
   fortune -am '-- Mark Twain' &>twain
     or
   fortune -am '-- Mark Twain' >twain 2>&1
-  
+
   [The above is now in the man page, more or less]
-  
+
 Late September, 1995
   Too many changes to mention, really.  Look at the source code for
   comments on individual files.  LINUX.DIF has been removed.
-  
+
   It is worth noting that strfile was completely broken as distributed,
   and fortune had code to make it report a different file list than the
   one it used to retrieve fortunes.  There's some rather strong language
   on the subject in strfile.c; if it offends you, tough.
-  
+
   Bugs were fixed, and some enhancements were added.  Unstr, in
   particular, has had its command line considerably enhanced.  Strfile
   now *really does* sort, instead of merely setting the 'sorted' flag.
   Ditto for randomizing.
-  
+
   Noteworthy: the way to distinguish between offensive and non-offensive
   files has changed for fortune.  A second directory (which may be a
   subdirectory of the main fortune directory; the program doesn't
-  add files recursively down a directory tree) has been added to 
+  add files recursively down a directory tree) has been added to
   pathnames.h.  Offensive files should be placed there.  There is no
   longer any need to add the -o suffix to file names, and the problems
   with finding files (especially offensive ones) seem to have
   disappeared in the process.
-  
+
   Currently, I'm working on breaking the fortune files themselves into
   smaller, more manageable pieces, checking spelling, punctuation, and
-  grammar, and trying to reduce redundancy.  The eventual goal, after 
+  grammar, and trying to reduce redundancy.  The eventual goal, after
   the files are cleaned up, is another set of files carrying HTML tags,
   which would then massively simplify a CGI script that calls fortune.
 
   New Makefiles.
-  
+
   A 'randstr' (I want to call it 'lottery,' but I won't) utility, which
   amounts to a poor woman's stripped-down fortune, to illustrate some
   other possible uses of strfile-type random-access strings files.
-  
+
   Amy A. Lewis   alewis@email.unc.edu
 

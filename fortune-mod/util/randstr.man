@@ -8,7 +8,7 @@ randstr \- fetch a random text string from a specified file
 .SH SYNOPIS
 .BI "randstr " filename
 .SH DESCRIPTION
-In essence, 
+In essence,
 .B randstr
 is a stripped-down, minimalist version of the popular
 .BR fortune (6)
@@ -19,9 +19,9 @@ displays a random string.
 .SS Usage
 .B randstr
 might be used, with a database of signatures created with a text editor
-and the 
+and the
 .BR strfile "(8) and " unstr (8)
-utilities, to randomly change the 
+utilities, to randomly change the
 .I $HOME/.signature
 file.  To do so, create the necessary database as, for example,
 .IR signatures " and " signatures.dat
@@ -38,13 +38,13 @@ scripts, although it should certainly test to be certain that the files
 exist, and creating the files of signatures might require a good deal of
 help for a lot of users.
 .PP
-Also as superuser, one might use 
+Also as superuser, one might use
 .B randstr
 with a shell or
 .B Perl
-script to read the 
+script to read the
 .I etc/passwd
-database and create a 
+database and create a
 .I strfile
 type database, and use this database to run a monthly lottery.
 .SH BUGS

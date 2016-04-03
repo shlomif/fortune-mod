@@ -20,6 +20,7 @@ my %do_not_check =
 );
 
 my @cr_results;
+my @trailing_whitespace_results;
 while (my $r = $tree->next_obj())
 {
     if ($r->is_file)
@@ -41,15 +42,25 @@ while (my $r = $tree->next_obj())
             {
                 push @cr_results, $fn;
             }
+            elsif ($contents =~ /[ \t]$/ms)
+            {
+                push @trailing_whitespace_results, $fn;
+            }
         }
     }
 }
 
-if (@cr_results)
+if (@cr_results or @trailing_whitespace_results)
 {
     print "The following files contain carriage returns:\n\n";
 
     foreach my $r (@cr_results)
+    {
+        print "$r\n";
+    }
+    print "The following files contain trailing whitespace:\n\n";
+
+    foreach my $r (@trailing_whitespace_results)
     {
         print "$r\n";
     }

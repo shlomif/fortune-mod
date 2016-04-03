@@ -24,7 +24,7 @@ database, then "fort.dat" is the data file which describes it.  See
 strfile(8) for more information on creating the data files.
 	Fortunes are split into potentially offensive and not potentially
 offensive parts.  The offensive version of a file has the same name as the
-non-offensive version but exists in the offensive fortunes directory 
+non-offensive version but exists in the offensive fortunes directory
 (/usr/local/share/games/fortune/off by default).  The fortune program
 automatically assumes that any file in the offensive fortune directory
 is potentially offensive, and should therefore only be displayed if

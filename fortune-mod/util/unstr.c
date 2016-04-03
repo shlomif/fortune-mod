@@ -71,10 +71,10 @@ static char sccsid[] = "@(#)unstr.c	8.1 (Berkeley) 5/31/93";
  * the datafile has '.dat' added, and the strings file is the filename.
  * The only problem with this is if you happen to have a strings file
  * with a dot in it--in that case, specify the dat file fully.
- * 
+ *
  * The program also now accepts an optional second filename, which is the
  * name of the output file; if not specified, it dumps to stdout.
- * 
+ *
  * It can also take one parameter, which defines a new separator character.
  * This was added chiefly in order to avoid having to run sed over a
  * strings file; unstr *can* do it easily, so it should.

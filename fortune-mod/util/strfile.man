@@ -3,7 +3,7 @@
 .\" Copyright (c) 1989, 1991, 1993
 .\"     The Regents of the University of California.  All rights reserved.
 .\"
-.\" 
+.\"
 .\" This code is derived from software contributed to Berkeley by
 .\" Ken Arnold.
 .\"
@@ -61,38 +61,38 @@ creates a data file which contains a header structure and a table of
 file offsets for each group of lines. This allows random access of the
 strings.
 .PP
-The output file, if not specified on the command line, is named 
+The output file, if not specified on the command line, is named
 .IR sourcefile.dat .
 .PP
-The purpose of 
-.B unstr 
+The purpose of
+.B unstr
 is to undo the work of
 .BR strfile .
 It prints out the strings contained in the sourcefile, which is
 .I datafile.ext
 without its extension, or
 .I datafile
-if no extension is specified (in this case, the extension 
+if no extension is specified (in this case, the extension
 .I .dat
 is added to the name of the datafile) in the order
 that they are listed in the header file
 .IR datafile .
 If no
-.I outputfile 
+.I outputfile
 is specified, it prints to standard output; otherwise it prints
 to the file specified.
 .B unstr
 can also universally change the delimiter character in a strings file.
 It is possible to create sorted versions of input files by using
-.B strfile -o 
-and then using 
-.B unstr 
+.B strfile -o
+and then using
+.B unstr
 to dump them out in the table order.
 .SS Options
 The options are as follows:
 .TP
 .BI "-c " char
-Change the delimiting character from the percent sign to 
+Change the delimiting character from the percent sign to
 .IR char .
 This option is available for both
 .BR strfile " and " unstr .
@@ -104,14 +104,14 @@ Ignore case when ordering the strings.
 Order the strings in alphabetical order.  The offset table will be
 sorted in the alphabetical order of the groups of lines referenced.
 Any initial non-alphanumeric characters are ignored. This option
-causes the STR_ORDERED bit in the header 
-.I str_flags 
+causes the STR_ORDERED bit in the header
+.I str_flags
 field to be set. (It also now really does sort! It didn't used to).
 .TP
 .B -r
 Randomize access to the strings.  Entries in the offset table will be
-randomly ordered.  This option causes the STR_RANDOM bit in the header 
-.I str_flags 
+randomly ordered.  This option causes the STR_RANDOM bit in the header
+.I str_flags
 field to be set. (And really does randomize)
 .TP
 .B -s
@@ -120,9 +120,9 @@ Run silently; don't give a summary message when finished.
 .B -x
 Note that each alphabetic character in the groups of lines is rotated
 13 positions in a simple caesar cypher.  This option causes the
-STR_ROTATED bit in the header 
-.I str_flags 
-field to be set. Note that it 
+STR_ROTATED bit in the header
+.I str_flags
+field to be set. Note that it
 .B does not
 rotate the strings--that operation must be performed separately.
 .SS Header

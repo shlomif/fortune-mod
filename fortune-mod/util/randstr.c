@@ -11,7 +11,7 @@
  * fit.  Or, to paraphrase the old saw about how the British built ships,
  * it's coded by the mile and cut off to order.  In that analogy, this
  * program's about an inch--and separated with an axe.
- * 
+ *
  * Axe murderess programming.  Wotta concept!
  *
  * Use at your own peril, especially as a pattern (kludge, kludge!). This
@@ -21,7 +21,7 @@
  * editing on a fortune file that way, by redirecting the output of unstr
  * before it had an outputfile option, trying to skip over the mv x.sorted
  * x step.  Axe murderess redirection, in that case).
- * 
+ *
  * Blame Amy A. Lewis.  September, 1995.  alewis@email.unc.edu
  */
 
@@ -66,18 +66,18 @@
  * one or the other, not both -- generates a random number, and displays
  * the text string indexed.  No provision is made for any other command
  * line switches.  At all.
- * 
+ *
  * Usage:
- * 
+ *
  * randstr filename[.ext]
- * 
- * Example: run sed or Perl over your /etc/passwd, and kick out a 
+ *
+ * Example: run sed or Perl over your /etc/passwd, and kick out a
  * strfile-format file containing lognames on the first line and full
  * names on the second.  Write a script called 'lottery' which is
  * called once a month from crontab; it in turn calls randstr lusers,
  * and the winning luser gets a prize notification sent by email from
  * the lottery script.  Living up to promises is optional.
- * 
+ *
  * Note: if you're a sysadmin who regularly reads _Mein Kampf_ for the
  * deep truths buried in it, and believe in Truth, Justice, and the
  * American Family, you could use this to replace fortune, by pointing

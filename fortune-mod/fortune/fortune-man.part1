@@ -50,9 +50,9 @@
 .SH NAME
 fortune \- print a random, hopefully interesting, adage
 .SH SYNOPSIS
-.BR fortune " [" -acefilosw "] [" -n 
+.BR fortune " [" -acefilosw "] [" -n
 .IR length "] ["
-.B -m 
+.B -m
 .IR pattern "] [[" n% "] " file/dir/all ]
 .SH DESCRIPTION
 When
@@ -65,7 +65,7 @@ The options are as follows:
 .TP
 .B -a
 Choose from all lists of maxims, both offensive and not.  (See the
-.B -o 
+.B -o
 option for more information on offensive fortunes.)
 .TP
 .B -c
@@ -80,7 +80,7 @@ Print out the list of files which would be searched, but don't
 print a fortune.
 .TP
 .B -l
-Long dictums only.  See 
+Long dictums only.  See
 .B -n
 on how ``long'' is defined in this sense.
 .TP
@@ -96,12 +96,12 @@ but it should nevertheless be similar to the syntax used in
 The fortunes are output to standard output, while the names of the file
 from which each fortune comes are printed to standard error.  Either or
 both can be redirected; if standard output is redirected to a file, the
-result is a valid fortunes database file.  If standard error is 
+result is a valid fortunes database file.  If standard error is
 .I also
-redirected to this file, the result is 
+redirected to this file, the result is
 .IR "still valid" ,
 .B but there will be ``bogus''
-.BR fortunes , 
+.BR fortunes ,
 i.e. the filenames themselves, in parentheses.  This can be useful if you
 wish to remove the gathered matches from their original files, since each
 filename-record will precede the records from the file it names.
@@ -143,7 +143,7 @@ Short apothegms only.  See
 on which fortunes are considered ``short''.
 .TP
 .B -i
-Ignore case for 
+Ignore case for
 .IR -m
 patterns.
 .TP
@@ -154,14 +154,14 @@ as part of the logout procedure to guarantee that the message can be
 read before the screen is cleared.
 .PP
 The user may specify alternate sayings.  You can specify a specific
-file, a directory which contains one or more files, or the special word 
+file, a directory which contains one or more files, or the special word
 .I all
 which says to use all the standard databases.  Any of these may be
-preceded by a percentage, which is a number 
+preceded by a percentage, which is a number
 .I n
-between 0 and 100 inclusive, followed by a 
+between 0 and 100 inclusive, followed by a
 .IR % .
-If it is, there will be a 
+If it is, there will be a
 .I n
 percent probability that an adage will be picked from that file or
 directory. If the percentages do not sum to 100, and there are
@@ -169,7 +169,7 @@ specifications without percentages, the remaining percent will apply
 to those files and/or directories, in which case the probability of
 selecting from one of them will be based on their relative sizes.
 .PP
-As an example, given two databases 
+As an example, given two databases
 .IR funny " and " not-funny ", with " funny
 twice as big (in number of fortunes, not raw file size), saying
 .RS
@@ -178,7 +178,7 @@ twice as big (in number of fortunes, not raw file size), saying
 .I funny not-funny
 .sp
 .RE
-will get you fortunes out of 
+will get you fortunes out of
 .I funny
 two-thirds of the time.  The command
 .RS
@@ -187,11 +187,11 @@ two-thirds of the time.  The command
 .RI "90% " funny " 10% " not-funny
 .sp
 .RE
-will pick out 90% of its fortunes from 
+will pick out 90% of its fortunes from
 .I funny
 (the ``10% not-funny'' is unnecessary, since 10% is all that's left).
 .PP
-The 
+The
 .B -e
 option says to consider all files equal; thus
 .RS

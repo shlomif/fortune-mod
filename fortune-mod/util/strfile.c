@@ -39,28 +39,28 @@
 /*
  * Changes, September 1995, to make the damn thing actually sort instead
  * of just pretending.  Amy A. Lewis
- * 
+ *
  * And lots more.
- * 
+ *
  * Fixed the special cases of %^J% (an empty fortune), no 'separator' at
  * the end of the file, and a trailing newline at the end of the file, all
  * of which produced total ballsup at one point or another.
- * 
+ *
  * This included adding a routine to go back and write over the last pointer
  * written or stored, for the case of an empty fortune.
- * 
+ *
  * unstr also had to be modified (well, for *lots* of reasons, but this was
  * one) to be certain to put the delimiters in the right places.
  */
 
 /*
- * 
+ *
  #ifndef lint
  static char copyright[] =
  "@(#) Copyright (c) 1989, 1993\n\
  The Regents of the University of California.  All rights reserved.\n";
  #endif / * not lint * /
- 
+
  #ifndef lint
  #if 0
  static char sccsid[] = "@(#)strfile.c  8.1 (Berkeley) 5/31/93";
@@ -69,7 +69,7 @@
  #endif
  #endif / * not lint * /
  *
- *I haven't the faintest flipping idea what all that is, so kill the warnings 
+ *I haven't the faintest flipping idea what all that is, so kill the warnings
  */
 
 #include	<stdlib.h>
@@ -99,19 +99,19 @@
  *      s - Silent.  Give no summary of data processed at the end of
  *          the run.
  *      o - order the strings in alphabetic order
- *      i - if ordering, ignore case 
+ *      i - if ordering, ignore case
  *      r - randomize the order of the strings
  *      x - set rotated bit
  *
  *              Ken Arnold      Sept. 7, 1978 --
  *
  *      Added ordering options.
- * 
+ *
  * Made ordering options do more than set the bloody flag, September 95 A. Lewis
- * 
+ *
  * Always make sure that your loop control variables aren't set to bloody
  * *zero* before distributing the bloody code, all right?
- * 
+ *
  */
 
 #define	TRUE	1
@@ -513,7 +513,7 @@ int main(int ac, char **av)
 		puts("There was 1 string");
 	    else
 		printf("There were %ld strings\n", Num_pts - 1);
-	    printf("Longest string: %lu byte%s\n", Tbl.str_longlen, 
+	    printf("Longest string: %lu byte%s\n", Tbl.str_longlen,
 		Tbl.str_longlen == 1 ? "" : "s");
 	    printf("Shortest string: %lu byte%s\n", Tbl.str_shortlen,
 		Tbl.str_shortlen == 1 ? "" : "s");

@@ -4,7 +4,7 @@ If a particular set of fortunes is particularly unwanted, there is an
 easy solution: delete the associated
 .I .dat
 file.  This leaves the data intact, should the file later be wanted, but
-since 
+since
 .B fortune
 no longer finds the pointers file, it ignores the text file.
 .SH BUGS
