@@ -1,5 +1,7 @@
 # fortune-mod Maintenance Version and Ongoing Development
 
+[![Build Status](https://travis-ci.org/shlomif/fortune-mod.svg?branch=master)](https://travis-ci.org/shlomif/fortune-mod)
+
 This GitHub repository maintains the sources for fortune-mod, a
 version of
 [the UNIX fortune command](http://en.wikipedia.org/wiki/Fortune_%28Unix%29)
