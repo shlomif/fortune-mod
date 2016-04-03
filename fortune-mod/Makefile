@@ -184,7 +184,10 @@ install-cookie: cookies-z
 datfiles-check: cookies-z
 	cd datfiles && $(DATFILES_MAKE) check
 
-check: datfiles-check
+root-check:
+	perl tests/trailing-space-and-CRs.pl
+
+check: datfiles-check root-check
 
 clean:
 	for i in $(SUBDIRS) ; do (cd $$i && $(MAKE) clean); done
