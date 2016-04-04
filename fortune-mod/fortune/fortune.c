@@ -1536,9 +1536,12 @@ void matches_in_list(FILEDESC * list)
         open_fp(fp);
         sp = Fortbuf;
         in_file = FALSE;
-        while (fgets(sp, Fort_len, fp->inf) != NULL)
+        while (fgets((char *)sp, Fort_len, fp->inf) != NULL)
+        {
             if (!STR_ENDSTRING(sp, fp->tbl))
-                sp += strlen(sp);
+            {
+                sp += strlen((const char *)sp);
+            }
             else
             {
                 *sp = '\0';
@@ -1546,15 +1549,17 @@ void matches_in_list(FILEDESC * list)
 
                 if (fp->utf8_charset)
                 {
-                    output = recode_string (request, Fortbuf);
-                } else {
-                    output = Fortbuf;
+                    output = recode_string (request, (const char *)Fortbuf);
+                }
+                else
+                {
+                    output = (char *)Fortbuf;
                 }
                 /* Should maybe rot13 Fortbuf -allover */
 
                 if(fp->tbl.str_flags & STR_ROTATED)
                 {
-                    for (p = output; (ch = *p); ++p)
+                    for (p = (unsigned char *)output; (ch = *p); ++p)
                     {
                         if (isupper(ch) && isascii(ch))
                             *p = 'A' + (ch - 'A' + 13) % 26;
@@ -1583,6 +1588,7 @@ void matches_in_list(FILEDESC * list)
 
                 sp = Fortbuf;
             }
+        }
     }
 }
 
@@ -1613,12 +1619,12 @@ void display(FILEDESC * fp)
     fseek(fp->inf, (long) Seekpts[0], 0);
     if (Show_filename)
         printf ("(%s)\n%%\n", fp->name);
-    for (Fort_len = 0; fgets(line, sizeof line, fp->inf) != NULL &&
+    for (Fort_len = 0; fgets((char *)line, sizeof line, fp->inf) != NULL &&
          !STR_ENDSTRING(line, fp->tbl); Fort_len++)
     {
         if (fp->tbl.str_flags & STR_ROTATED)
         {
-            for (p = line; (ch = *p); ++p)
+            for (p = (char *)line; (ch = *p); ++p)
             {
                 if (isupper(ch) && isascii(ch))
                     *p = 'A' + (ch - 'A' + 13) % 26;
@@ -1628,12 +1634,12 @@ void display(FILEDESC * fp)
         }
         if(fp->utf8_charset) {
             char *output;
-            output = recode_string (request, line);
+            output = recode_string (request, (const char *)line);
             fputs(output, stdout);
             free(output);
         }
         else
-            fputs(line, stdout);
+            fputs((char *)line, stdout);
     }
     fflush(stdout);
 
@@ -1649,7 +1655,7 @@ void display(FILEDESC * fp)
 int fortlen(void)
 {
     register int nchar;
-    unsigned char line[BUFSIZ];
+    char line[BUFSIZ];
 
     if (!(Fortfile->tbl.str_flags & (STR_RANDOM | STR_ORDERED)))
         nchar = (Seekpts[1] - Seekpts[0]) - 2;  /* for %^J delimiter */
