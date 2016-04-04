@@ -2,7 +2,7 @@
 
 /*-
  * Copyright (c) 1986, 1993
- *	The Regents of the University of California.  All rights reserved.
+ *      The Regents of the University of California.  All rights reserved.
  *
  * This code is derived from software contributed to Berkeley by
  * Ken Arnold.
@@ -17,8 +17,8 @@
  *    documentation and/or other materials provided with the distribution.
  * 3. All advertising materials mentioning features or use of this software
  *    must display the following acknowledgement:
- *	This product includes software developed by the University of
- *	California, Berkeley and its contributors.
+ *      This product includes software developed by the University of
+ *      California, Berkeley and its contributors.
  * 4. Neither the name of the University nor the names of its contributors
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
@@ -77,17 +77,17 @@
  * Added to debian by Alastair McKinstry, <mckinstry@computer.org>, 2002-07-31
  */
 
-#if 0				/* comment out the stuff here, and get rid of silly warnings */
+#if 0                           /* comment out the stuff here, and get rid of silly warnings */
 #ifndef lint
 static char copyright[] =
 "@(#) Copyright (c) 1986, 1993\n\
-	The Regents of the University of California.  All rights reserved.\n";
+        The Regents of the University of California.  All rights reserved.\n";
 
 #endif /* not lint */
 
 #ifndef lint
 #if 0
-static char sccsid[] = "@(#)fortune.c	8.1 (Berkeley) 5/31/93";
+static char sccsid[] = "@(#)fortune.c   8.1 (Berkeley) 5/31/93";
 
 #else
 static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
@@ -96,8 +96,8 @@ static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
 #endif /* not lint */
 #endif /* killing warnings */
 
-#define		PROGRAM_NAME		"fortune-mod"
-#define		PROGRAM_VERSION		"9708"
+#define         PROGRAM_NAME            "fortune-mod"
+#define         PROGRAM_VERSION         "9708"
 
 #ifdef HAVE_STDBOOL_H
 #include <stdbool.h>
@@ -114,68 +114,68 @@ typedef enum
   } bool;
 
 /* The names `true' and `false' must also be made available as macros.  */
-#define false	false
-#define true	true
+#define false   false
+#define true    true
 
 /* Signal that all the definitions are present.  */
-#define __bool_true_false_are_defined	1
+#define __bool_true_false_are_defined   1
 
 #endif /* HAVE_STDBOOL_H */
 
-#include	<sys/types.h>
-#include	<sys/time.h>
-#include	<sys/param.h>
-#include	<sys/stat.h>
-#include	<netinet/in.h>
+#include        <sys/types.h>
+#include        <sys/time.h>
+#include        <sys/param.h>
+#include        <sys/stat.h>
+#include        <netinet/in.h>
 
-#include	<time.h>
-#include	<dirent.h>
-#include	<fcntl.h>
-#include	<assert.h>
-#include	<unistd.h>
-#include	<stdio.h>
-#include	<ctype.h>
-#include	<stdlib.h>
-#include	<string.h>
-#include	<errno.h>
-#include	<locale.h>
-#include	<langinfo.h>
-#include 	<recode.h>
+#include        <time.h>
+#include        <dirent.h>
+#include        <fcntl.h>
+#include        <assert.h>
+#include        <unistd.h>
+#include        <stdio.h>
+#include        <ctype.h>
+#include        <stdlib.h>
+#include        <string.h>
+#include        <errno.h>
+#include        <locale.h>
+#include        <langinfo.h>
+#include        <recode.h>
 
 
 /* This makes GNU libc to prototype the BSD regex functions */
 #ifdef BSD_REGEX
-#define	_REGEX_RE_COMP
+#define _REGEX_RE_COMP
 #endif
 
 #ifdef HAVE_REGEX_H
-#include	<regex.h>
+#include        <regex.h>
 #endif
 #ifdef HAVE_REGEXP_H
-#include	<regexp.h>
+#include        <regexp.h>
 #endif
 #ifdef HAVE_RX_H
-#include	<rx.h>
+#include        <rx.h>
 #endif
 
-#include	"strfile.h"
+#include        "strfile.h"
 
-#define	TRUE	1
-#define	FALSE	0
-#define	bool	short
+#define TRUE    1
+#define FALSE   0
+#define bool    short
 
-#define	MINW	6		/* minimum wait if desired */
-#define	CPERS	20		/* # of chars for each sec */
+#define MINW    6               /* minimum wait if desired */
+#define CPERS   20              /* # of chars for each sec */
 
-#define	POS_UNKNOWN	((int32_t) -1)	/* pos for file unknown */
-#define	NO_PROB		(-1)	/* no prob specified for file */
+#define POS_UNKNOWN     ((int32_t) -1)  /* pos for file unknown */
+#define NO_PROB         (-1)    /* no prob specified for file */
 
 #ifdef DEBUG
-#define	DPRINTF(l,x)	if (Debug >= l) fprintf x;
-#undef		NDEBUG
+#define DPRINTF(l,x)    if (Debug >= l) fprintf x;
+#undef          NDEBUG
 #else
-#define	DPRINTF(l,x)
-#define	NDEBUG	1
+#define DPRINTF(l,x)
+#define NDEBUG  1
 #endif
 
 typedef struct fd
@@ -197,53 +197,53 @@ typedef struct fd
 }
 FILEDESC;
 
-bool Found_one;			/* did we find a match? */
-bool Find_files = FALSE;	/* just find a list of proper fortune files */
-bool Wait = FALSE;		/* wait desired after fortune */
-bool Short_only = FALSE;	/* short fortune desired */
-bool Long_only = FALSE;		/* long fortune desired */
-bool Offend = FALSE;		/* offensive fortunes only */
-bool All_forts = FALSE;		/* any fortune allowed */
-bool Equal_probs = FALSE;	/* scatter un-allocated prob equally */
+bool Found_one;                 /* did we find a match? */
+bool Find_files = FALSE;        /* just find a list of proper fortune files */
+bool Wait = FALSE;              /* wait desired after fortune */
+bool Short_only = FALSE;        /* short fortune desired */
+bool Long_only = FALSE;         /* long fortune desired */
+bool Offend = FALSE;            /* offensive fortunes only */
+bool All_forts = FALSE;         /* any fortune allowed */
+bool Equal_probs = FALSE;       /* scatter un-allocated prob equally */
 bool Show_filename = FALSE;
 
-bool ErrorMessage = FALSE;	/* Set to true if an error message has been displayed */
+bool ErrorMessage = FALSE;      /* Set to true if an error message has been displayed */
 
 #ifndef NO_REGEX
-bool Match = FALSE;		/* dump fortunes matching a pattern */
+bool Match = FALSE;             /* dump fortunes matching a pattern */
 
 #endif
 #ifdef DEBUG
-bool Debug = FALSE;		/* print debug messages */
+bool Debug = FALSE;             /* print debug messages */
 
 #endif
 
-unsigned char *Fortbuf = NULL;	/* fortune buffer for -m */
+unsigned char *Fortbuf = NULL;  /* fortune buffer for -m */
 
-int Fort_len = 0, Spec_prob = 0,	/* total prob specified on cmd line */
-  Num_files, Num_kids,		/* totals of files and children. */
-  SLEN = 160;			/* max. characters in a "short" fortune */
+int Fort_len = 0, Spec_prob = 0,        /* total prob specified on cmd line */
+  Num_files, Num_kids,          /* totals of files and children. */
+  SLEN = 160;                   /* max. characters in a "short" fortune */
 
-int32_t Seekpts[2];		/* seek pointers to fortunes */
+int32_t Seekpts[2];             /* seek pointers to fortunes */
 
-FILEDESC *File_list = NULL,	/* Head of file list */
- *File_tail = NULL;		/* Tail of file list */
-FILEDESC *Fortfile;		/* Fortune file to use */
+FILEDESC *File_list = NULL,     /* Head of file list */
+ *File_tail = NULL;             /* Tail of file list */
+FILEDESC *Fortfile;             /* Fortune file to use */
 
-STRFILE Noprob_tbl;		/* sum of data for all no prob files */
+STRFILE Noprob_tbl;             /* sum of data for all no prob files */
 
 #ifdef BSD_REGEX
 
-#define	RE_COMP(p)	re_comp(p)
-#define	BAD_COMP(f)	((f) != NULL)
-#define	RE_EXEC(p)	re_exec(p)
+#define RE_COMP(p)      re_comp(p)
+#define BAD_COMP(f)     ((f) != NULL)
+#define RE_EXEC(p)      re_exec(p)
 
 #else
 
 #ifdef POSIX_REGEX
-#define	RE_COMP(p)	regcomp(&Re_pat, (p), REG_NOSUB)
-#define	BAD_COMP(f)	((f) != 0)
-#define	RE_EXEC(p)	(regexec(&Re_pat, (p), 0, NULL, 0) == 0)
+#define RE_COMP(p)      regcomp(&Re_pat, (p), REG_NOSUB)
+#define BAD_COMP(f)     ((f) != 0)
+#define RE_EXEC(p)      (regexec(&Re_pat, (p), 0, NULL, 0) == 0)
 
 regex_t Re_pat;
 #else
@@ -268,22 +268,22 @@ void usage(void)
 {
     (void) fprintf(stderr, "%s\n",program_version());
     (void) fprintf(stderr, "fortune [-a");
-#ifdef	DEBUG
+#ifdef  DEBUG
     (void) fprintf(stderr, "D");
 #endif /* DEBUG */
     (void) fprintf(stderr, "f");
-#ifndef	NO_REGEX
+#ifndef NO_REGEX
     (void) fprintf(stderr, "i");
 #endif /* NO_REGEX */
     (void) fprintf(stderr, "losw]");
-#ifndef	NO_REGEX
+#ifndef NO_REGEX
     (void) fprintf(stderr, " [-m pattern]");
 #endif /* NO_REGEX */
     (void) fprintf(stderr, " [-n number] [ [#%%] file/directory/all]\n");
     exit(1);
 }
 
-#define	STR(str)	((str) == NULL ? "NULL" : (str))
+#define STR(str)        ((str) == NULL ? "NULL" : (str))
 
 
 /*
@@ -299,9 +299,9 @@ void calc_equal_probs(void)
     fiddlylist = File_list;
     while (fiddlylist != NULL)
     {
-	Num_files++;
-	Num_kids += fiddlylist->num_children;
-	fiddlylist = fiddlylist->next;
+        Num_files++;
+        Num_kids += fiddlylist->num_children;
+        fiddlylist = fiddlylist->next;
     }
 }
 
@@ -313,30 +313,30 @@ void print_list(register FILEDESC * list, int lev)
 {
     while (list != NULL)
     {
-	fprintf(stderr, "%*s", lev * 4, "");
-	if (list->percent == NO_PROB)
-	    if (!Equal_probs)
+        fprintf(stderr, "%*s", lev * 4, "");
+        if (list->percent == NO_PROB)
+            if (!Equal_probs)
 /* This, with some changes elsewhere, gives proper percentages for every case
  * fprintf(stderr, "___%%"); */
-		fprintf(stderr, "%5.2f%%", (100.0 - Spec_prob) *
-			list->tbl.str_numstr / Noprob_tbl.str_numstr);
-	    else if (lev == 0)
-		fprintf(stderr, "%5.2f%%", 100.0 / Num_files);
-	    else
-		fprintf(stderr, "%5.2f%%", 100.0 / Num_kids);
-	else
-	    fprintf(stderr, "%5.2f%%", 1.0 * list->percent);
-	fprintf(stderr, " %s", STR(list->name));
-	DPRINTF(1, (stderr, " (%s, %s, %s)\n", STR(list->path),
-		    STR(list->datfile), STR(list->posfile)));
-	putc('\n', stderr);
-	if (list->child != NULL)
-	    print_list(list->child, lev + 1);
-	list = list->next;
+                fprintf(stderr, "%5.2f%%", (100.0 - Spec_prob) *
+                        list->tbl.str_numstr / Noprob_tbl.str_numstr);
+            else if (lev == 0)
+                fprintf(stderr, "%5.2f%%", 100.0 / Num_files);
+            else
+                fprintf(stderr, "%5.2f%%", 100.0 / Num_kids);
+        else
+            fprintf(stderr, "%5.2f%%", 1.0 * list->percent);
+        fprintf(stderr, " %s", STR(list->name));
+        DPRINTF(1, (stderr, " (%s, %s, %s)\n", STR(list->path),
+                    STR(list->datfile), STR(list->posfile)));
+        putc('\n', stderr);
+        if (list->child != NULL)
+            print_list(list->child, lev + 1);
+        list = list->next;
     }
 }
 
-#ifndef	NO_REGEX
+#ifndef NO_REGEX
 /*
  * conv_pat:
  *      Convert the pattern to an ignore-case equivalent.
@@ -347,36 +347,36 @@ char *conv_pat(register char *orig)
     register unsigned int cnt;
     register char *new;
 
-    cnt = 1;			/* allow for '\0' */
+    cnt = 1;                    /* allow for '\0' */
     for (sp = orig; *sp != '\0'; sp++)
-	if (isalpha(*sp))
-	    cnt += 4;
-	else
-	    cnt++;
+        if (isalpha(*sp))
+            cnt += 4;
+        else
+            cnt++;
     if ((new = malloc(cnt)) == NULL)
     {
-	fprintf(stderr, "pattern too long for ignoring case\n");
-	exit(1);
+        fprintf(stderr, "pattern too long for ignoring case\n");
+        exit(1);
     }
 
     for (sp = new; *orig != '\0'; orig++)
     {
-	if (islower(*orig))
-	{
-	    *sp++ = '[';
-	    *sp++ = *orig;
-	    *sp++ = toupper(*orig);
-	    *sp++ = ']';
-	}
-	else if (isupper(*orig))
-	{
-	    *sp++ = '[';
-	    *sp++ = *orig;
-	    *sp++ = tolower(*orig);
-	    *sp++ = ']';
-	}
-	else
-	    *sp++ = *orig;
+        if (islower(*orig))
+        {
+            *sp++ = '[';
+            *sp++ = *orig;
+            *sp++ = toupper(*orig);
+            *sp++ = ']';
+        }
+        else if (isupper(*orig))
+        {
+            *sp++ = '[';
+            *sp++ = *orig;
+            *sp++ = tolower(*orig);
+            *sp++ = ']';
+        }
+        else
+            *sp++ = *orig;
     }
     *sp = '\0';
     return new;
@@ -393,8 +393,8 @@ void *do_malloc(unsigned int size)
 
     if ((new = malloc(size)) == NULL)
     {
-	(void) fprintf(stderr, "fortune: out of memory.\n");
-	exit(1);
+        (void) fprintf(stderr, "fortune: out of memory.\n");
+        exit(1);
     }
     return new;
 }
@@ -406,7 +406,7 @@ void *do_malloc(unsigned int size)
 void do_free(void *ptr)
 {
     if (ptr != NULL)
-	free(ptr);
+        free(ptr);
 }
 
 /*
@@ -421,7 +421,7 @@ char *copy(char *str, unsigned int len)
     sp = new;
     do
     {
-	*sp++ = *str;
+        *sp++ = *str;
     }
     while (*str++);
     return new;
@@ -469,28 +469,28 @@ int is_dir(char *file)
     auto struct stat sbuf;
 
     if (stat(file, &sbuf) < 0)
-	return FALSE;
+        return FALSE;
     return (sbuf.st_mode & S_IFDIR);
 }
 
 /*
  * is_existant:
- * 	Return TRUE if the file exists, FALSE otherwise.
+ *      Return TRUE if the file exists, FALSE otherwise.
  */
 int is_existant(char *file)
 {
     struct stat staat;
 
     if (stat(file, &staat) == 0)
-	return TRUE;
+        return TRUE;
     switch(errno)
     {
-	case ENOENT:
-	case ENOTDIR:
-	    return FALSE;
-	default:
-	    perror("fortune: bad juju in is_existant");
-	    exit(1);
+        case ENOENT:
+        case ENOTDIR:
+            return FALSE;
+        default:
+            perror("fortune: bad juju in is_existant");
+            exit(1);
     }
 }
 
@@ -507,47 +507,47 @@ int is_fortfile(char *file, char **datp, char **posp)
     register char *sp;
     register char *datfile;
     static char *suflist[] =
-    {				/* list of "illegal" suffixes" */
-	"dat", "pos", "c", "h", "p", "i", "f",
-	"pas", "ftn", "ins.c", "ins,pas",
-	"ins.ftn", "sml",
-	NULL
+    {                           /* list of "illegal" suffixes" */
+        "dat", "pos", "c", "h", "p", "i", "f",
+        "pas", "ftn", "ins.c", "ins,pas",
+        "ins.ftn", "sml",
+        NULL
     };
 
     DPRINTF(2, (stderr, "is_fortfile(%s) returns ", file));
 
     if ((sp = strrchr(file, '/')) == NULL)
-	sp = file;
+        sp = file;
     else
-	sp++;
+        sp++;
     if (*sp == '.')
     {
-	DPRINTF(2, (stderr, "FALSE (file starts with '.')\n"));
-	return FALSE;
+        DPRINTF(2, (stderr, "FALSE (file starts with '.')\n"));
+        return FALSE;
     }
     if ((sp = strrchr(sp, '.')) != NULL)
     {
-	sp++;
-	for (i = 0; suflist[i] != NULL; i++)
-	    if (strcmp(sp, suflist[i]) == 0)
-	    {
-		DPRINTF(2, (stderr, "FALSE (file has suffix \".%s\")\n", sp));
-		return FALSE;
-	    }
+        sp++;
+        for (i = 0; suflist[i] != NULL; i++)
+            if (strcmp(sp, suflist[i]) == 0)
+            {
+                DPRINTF(2, (stderr, "FALSE (file has suffix \".%s\")\n", sp));
+                return FALSE;
+            }
     }
 
-    datfile = copy(file, (unsigned int) (strlen(file) + 4));	/* +4 for ".dat" */
+    datfile = copy(file, (unsigned int) (strlen(file) + 4));    /* +4 for ".dat" */
     strcat(datfile, ".dat");
     if (access(datfile, R_OK) < 0)
     {
-	free(datfile);
-	DPRINTF(2, (stderr, "FALSE (no \".dat\" file)\n"));
-	return FALSE;
+        free(datfile);
+        DPRINTF(2, (stderr, "FALSE (no \".dat\" file)\n"));
+        return FALSE;
     }
     if (datp != NULL)
-	*datp = datfile;
+        *datp = datfile;
     else
-	free(datfile);
+        free(datfile);
     DPRINTF(2, (stderr, "TRUE\n"));
     return TRUE;
 }
@@ -557,7 +557,7 @@ int is_fortfile(char *file, char **datp, char **posp)
  *      Add a file to the file list.
  */
 int add_file(int percent, register char *file, char *dir,
-	     FILEDESC ** head, FILEDESC ** tail, FILEDESC * parent)
+             FILEDESC ** head, FILEDESC ** tail, FILEDESC * parent)
 {
     register FILEDESC *fp;
     register int fd;
@@ -570,95 +570,95 @@ int add_file(int percent, register char *file, char *dir,
 
     if (dir == NULL)
     {
-	path = file;
-	was_malloc = FALSE;
+        path = file;
+        was_malloc = FALSE;
     }
     else
     {
-	path = do_malloc((unsigned int) (strlen(dir) + strlen(file) + 2));
-	(void) strcat(strcat(strcpy(path, dir), "/"), file);
-	was_malloc = TRUE;
+        path = do_malloc((unsigned int) (strlen(dir) + strlen(file) + 2));
+        (void) strcat(strcat(strcpy(path, dir), "/"), file);
+        was_malloc = TRUE;
     }
-    if (*path == '/' && !is_existant(path))	/* If doesn't exist, don't do anything. */
+    if (*path == '/' && !is_existant(path))     /* If doesn't exist, don't do anything. */
     {
-	if (was_malloc)
-	    free(path);
-	return FALSE;
+        if (was_malloc)
+            free(path);
+        return FALSE;
     }
     if ((isdir = is_dir(path)) && parent != NULL)
     {
-	if (was_malloc)
-	    free(path);
-	return FALSE;		/* don't recurse */
+        if (was_malloc)
+            free(path);
+        return FALSE;           /* don't recurse */
     }
 
     DPRINTF(1, (stderr, "trying to add file \"%s\"\n", path));
     if ((fd = open(path, O_RDONLY)) < 0 || *path != '/')
     {
       found = FALSE;
-	if (dir == NULL && (strchr(file,'/') == NULL))
-	{
-	    if ( ((sp = strrchr(file,'-')) != NULL) && (strcmp(sp,"-o") == 0) )
-	    {
-		/* BSD-style '-o' offensive file suffix */
-		*sp = '\0';
-		found = (add_file(percent, file, LOCOFFDIR, head, tail, parent))
-			 || add_file(percent, file, OFFDIR, head, tail, parent);
-		/* put the suffix back in for better identification later */
-		*sp = '-';
-	    }
-	    else if (All_forts)
-		found = (add_file(percent, file, LOCFORTDIR, head, tail, parent)
-			 || add_file(percent, file, LOCOFFDIR, head, tail, parent)
-		       	 || add_file(percent, file, FORTDIR, head, tail, parent)
-			 || add_file(percent, file, OFFDIR, head, tail, parent));
-	    else if (Offend)
-		found = (add_file(percent, file, LOCOFFDIR, head, tail, parent)
-			 || add_file(percent, file, OFFDIR, head, tail, parent));
-	    else
-		found = (add_file(percent, file, LOCFORTDIR, head, tail, parent)
-			 || add_file(percent, file, FORTDIR, head, tail, parent));
-	}
-	if (!found && parent == NULL && dir == NULL)
+        if (dir == NULL && (strchr(file,'/') == NULL))
+        {
+            if ( ((sp = strrchr(file,'-')) != NULL) && (strcmp(sp,"-o") == 0) )
+            {
+                /* BSD-style '-o' offensive file suffix */
+                *sp = '\0';
+                found = (add_file(percent, file, LOCOFFDIR, head, tail, parent))
+                         || add_file(percent, file, OFFDIR, head, tail, parent);
+                /* put the suffix back in for better identification later */
+                *sp = '-';
+            }
+            else if (All_forts)
+                found = (add_file(percent, file, LOCFORTDIR, head, tail, parent)
+                         || add_file(percent, file, LOCOFFDIR, head, tail, parent)
+                         || add_file(percent, file, FORTDIR, head, tail, parent)
+                         || add_file(percent, file, OFFDIR, head, tail, parent));
+            else if (Offend)
+                found = (add_file(percent, file, LOCOFFDIR, head, tail, parent)
+                         || add_file(percent, file, OFFDIR, head, tail, parent));
+            else
+                found = (add_file(percent, file, LOCFORTDIR, head, tail, parent)
+                         || add_file(percent, file, FORTDIR, head, tail, parent));
+        }
+        if (!found && parent == NULL && dir == NULL)
         { /* don't display an error when trying language specific files */
-	  char *lang;
+          char *lang;
 
-	  lang=getenv("LC_ALL");
-	  if (!lang) lang=getenv("LC_MESSAGES");
-	  if (!lang) lang=getenv("LANGUAGE");
-	  if (!lang) lang=getenv("LANG");
-	  if (lang) {
-	    char llang[512];
-	    char langdir[512];
-	    int ret=0;
-	    char *p;
+          lang=getenv("LC_ALL");
+          if (!lang) lang=getenv("LC_MESSAGES");
+          if (!lang) lang=getenv("LANGUAGE");
+          if (!lang) lang=getenv("LANG");
+          if (lang) {
+            char llang[512];
+            char langdir[512];
+            int ret=0;
+            char *p;
 
-	    strncpy(llang,lang,sizeof(llang));
-	    lang=llang;
+            strncpy(llang,lang,sizeof(llang));
+            lang=llang;
 
-	    /* the language string can be like "es:fr_BE:ga" */
-	    while (!ret && lang && (*lang)) {
-	      p=strchr(lang,':');
-	      if (p) *p++='\0';
-	      snprintf(langdir,sizeof(langdir),"%s/%s",
-		       FORTDIR,lang);
+            /* the language string can be like "es:fr_BE:ga" */
+            while (!ret && lang && (*lang)) {
+              p=strchr(lang,':');
+              if (p) *p++='\0';
+              snprintf(langdir,sizeof(langdir),"%s/%s",
+                       FORTDIR,lang);
 
-	      if (strncmp(path,lang,2) == 0)
-		ret=1;
-	      else if (strncmp(path,langdir,strlen(FORTDIR)+3) == 0)
-		ret=1;
-	      lang=p;
-	    }
-	    if (!ret)
-	      perror(path);
-	  } else {
-	    perror(path);
-	  }
-	}
+              if (strncmp(path,lang,2) == 0)
+                ret=1;
+              else if (strncmp(path,langdir,strlen(FORTDIR)+3) == 0)
+                ret=1;
+              lang=p;
+            }
+            if (!ret)
+              perror(path);
+          } else {
+            perror(path);
+          }
+        }
 
-	if (was_malloc)
-	    free(path);
-	return found;
+        if (was_malloc)
+            free(path);
+        return found;
     }
 
     DPRINTF(2, (stderr, "path = \"%s\"\n", path));
@@ -679,55 +679,55 @@ int add_file(int percent, register char *file, char *dir,
     sprintf(testpath, "%s.u8", path);
 //    fprintf(stderr, "State mal: %s\n", testpath);
     if(stat(testpath, &statbuf) == 0)
-	fp->utf8_charset = TRUE;
-//    fprintf(stderr, "Is utf8?: %i\n",	fp->utf8_charset );
+        fp->utf8_charset = TRUE;
+//    fprintf(stderr, "Is utf8?: %i\n", fp->utf8_charset );
 
     fp->parent = parent;
 
     if ((isdir && !add_dir(fp)) ||
-	(!isdir &&
-	 !is_fortfile(path, &fp->datfile, &fp->posfile)))
+        (!isdir &&
+         !is_fortfile(path, &fp->datfile, &fp->posfile)))
     {
-	if (parent == NULL)
-	    fprintf(stderr,
-		    "fortune:%s not a fortune file or directory\n",
-		    path);
-	if (was_malloc)
-	    free(path);
-	do_free(fp->datfile);
-	do_free(fp->posfile);
-	if (fp->fd >= 0) close(fp->fd);
-	free(fp);
-	return FALSE;
+        if (parent == NULL)
+            fprintf(stderr,
+                    "fortune:%s not a fortune file or directory\n",
+                    path);
+        if (was_malloc)
+            free(path);
+        do_free(fp->datfile);
+        do_free(fp->posfile);
+        if (fp->fd >= 0) close(fp->fd);
+        free(fp);
+        return FALSE;
     }
 
     /* This is a hack to come around another hack - add_dir returns success
      * if the directory is allowed to be empty, but we can not handle an
      * empty directory... */
     if (isdir && fp->num_children == 0) {
-	if (was_malloc)
-	    free(path);
-	do_free(fp->datfile);
-	do_free(fp->posfile);
-	if(fp->fd >= 0) close(fp->fd);
-	free(fp);
-	return TRUE;
+        if (was_malloc)
+            free(path);
+        do_free(fp->datfile);
+        do_free(fp->posfile);
+        if(fp->fd >= 0) close(fp->fd);
+        free(fp);
+        return TRUE;
     }
     /* End hack. */
 
     if (*head == NULL)
-	*head = *tail = fp;
+        *head = *tail = fp;
     else if (fp->percent == NO_PROB)
     {
-	(*tail)->next = fp;
-	fp->prev = *tail;
-	*tail = fp;
+        (*tail)->next = fp;
+        fp->prev = *tail;
+        *tail = fp;
     }
     else
     {
-	(*head)->prev = fp;
-	fp->next = *head;
-	*head = fp;
+        (*head)->prev = fp;
+        fp->next = *head;
+        *head = fp;
     }
 
     return TRUE;
@@ -748,36 +748,36 @@ int add_dir(register FILEDESC * fp)
     fp->fd = -1;
     if ((dir = opendir(fp->path)) == NULL)
     {
-	perror(fp->path);
-	return FALSE;
+        perror(fp->path);
+        return FALSE;
     }
     tailp = NULL;
     DPRINTF(1, (stderr, "adding dir \"%s\"\n", fp->path));
     fp->num_children = 0;
     while ((dirent = readdir(dir)) != NULL)
     {
-	if (dirent->d_name[0] == 0)
-	    continue;
-	name = strdup(dirent->d_name);
-	if (add_file(NO_PROB, name, fp->path, &fp->child, &tailp, fp))
-	    fp->num_children++;
-	else
-	    free(name);
+        if (dirent->d_name[0] == 0)
+            continue;
+        name = strdup(dirent->d_name);
+        if (add_file(NO_PROB, name, fp->path, &fp->child, &tailp, fp))
+            fp->num_children++;
+        else
+            free(name);
     }
     if (fp->num_children == 0)
     {
-	/*
-	 * Only the local fortune dir and the local offensive dir are
-	 * allowed to be empty.
-	 *  - Brian Bassett (brianb@debian.org) 1999/07/31
-	 */
-	if (strcmp(LOCFORTDIR, fp->path) == 0 || strcmp(LOCOFFDIR, fp->path) == 0)
-	{
-	    return TRUE;
-	}
-	fprintf(stderr,
-		"fortune: %s: No fortune files in directory.\n", fp->path);
-	return FALSE;
+        /*
+         * Only the local fortune dir and the local offensive dir are
+         * allowed to be empty.
+         *  - Brian Bassett (brianb@debian.org) 1999/07/31
+         */
+        if (strcmp(LOCFORTDIR, fp->path) == 0 || strcmp(LOCOFFDIR, fp->path) == 0)
+        {
+            return TRUE;
+        }
+        fprintf(stderr,
+                "fortune: %s: No fortune files in directory.\n", fp->path);
+        return FALSE;
     }
     return TRUE;
 }
@@ -796,201 +796,201 @@ int form_file_list(register char **files, register int file_cnt)
 
     if (file_cnt == 0)
     {
-	if (All_forts)
-	    return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
-			     &File_tail, NULL)
-		    | add_file(NO_PROB, LOCOFFDIR, NULL, &File_list,
-			       &File_tail, NULL)
-		    | add_file(NO_PROB, FORTDIR, NULL, &File_list,
-			       &File_tail, NULL)
-		    | add_file(NO_PROB, OFFDIR, NULL, &File_list,
-			       &File_tail, NULL));
-	else if (Offend)
-	    return (add_file(NO_PROB, LOCOFFDIR, NULL, &File_list,
-			     &File_tail, NULL)
-		    | add_file(NO_PROB, OFFDIR, NULL, &File_list,
-			       &File_tail, NULL));
-	else {
-	    char *lang=NULL;
+        if (All_forts)
+            return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
+                             &File_tail, NULL)
+                    | add_file(NO_PROB, LOCOFFDIR, NULL, &File_list,
+                               &File_tail, NULL)
+                    | add_file(NO_PROB, FORTDIR, NULL, &File_list,
+                               &File_tail, NULL)
+                    | add_file(NO_PROB, OFFDIR, NULL, &File_list,
+                               &File_tail, NULL));
+        else if (Offend)
+            return (add_file(NO_PROB, LOCOFFDIR, NULL, &File_list,
+                             &File_tail, NULL)
+                    | add_file(NO_PROB, OFFDIR, NULL, &File_list,
+                               &File_tail, NULL));
+        else {
+            char *lang=NULL;
 
             lang=getenv("LC_ALL");
             if (!lang) lang=getenv("LC_MESSAGES");
             if (!lang) lang=getenv("LANGUAGE");
-	    if (!lang) lang=getenv("LANG");
-	    if (lang) {
-		char llang[512];
-		int ret=0;
-		char *p;
+            if (!lang) lang=getenv("LANG");
+            if (lang) {
+                char llang[512];
+                int ret=0;
+                char *p;
 
-		strncpy(llang,lang,sizeof(llang));
-		lang=llang;
+                strncpy(llang,lang,sizeof(llang));
+                lang=llang;
 
-		/* the language string can be like "es:fr_BE:ga" */
-		while ( lang && (*lang)) {
-			p=strchr(lang,':');
-			if (p) *p++='\0';
+                /* the language string can be like "es:fr_BE:ga" */
+                while ( lang && (*lang)) {
+                        p=strchr(lang,':');
+                        if (p) *p++='\0';
 
-			/* first try full locale */
-			ret=add_file(NO_PROB, lang, NULL, &File_list,
-				&File_tail, NULL);
+                        /* first try full locale */
+                        ret=add_file(NO_PROB, lang, NULL, &File_list,
+                                &File_tail, NULL);
 
-			/* if not try language name only (two first chars) */
-			if (!ret) {
-			  char ll[3];
+                        /* if not try language name only (two first chars) */
+                        if (!ret) {
+                          char ll[3];
 
-			  strncpy(ll,lang,2);
-			  ll[2]='\0';
-			  ret=add_file(NO_PROB, ll, NULL,
-				       &File_list, &File_tail, NULL);
-			}
+                          strncpy(ll,lang,2);
+                          ll[2]='\0';
+                          ret=add_file(NO_PROB, ll, NULL,
+                                       &File_list, &File_tail, NULL);
+                        }
 
-			/* if we have found one we have finished */
-			if (ret)
-			  return ret;
-			lang=p;
-		}
-		/* default */
-		return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
-				 &File_tail, NULL)
-			| add_file(NO_PROB, FORTDIR, NULL, &File_list,
-				   &File_tail, NULL));
+                        /* if we have found one we have finished */
+                        if (ret)
+                          return ret;
+                        lang=p;
+                }
+                /* default */
+                return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
+                                 &File_tail, NULL)
+                        | add_file(NO_PROB, FORTDIR, NULL, &File_list,
+                                   &File_tail, NULL));
 
             }
-	    else
-	      /* no locales available, use default */
-	      return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
-			       &File_tail, NULL)
-		      | add_file(NO_PROB, FORTDIR, NULL, &File_list,
-				 &File_tail, NULL));
+            else
+              /* no locales available, use default */
+              return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
+                               &File_tail, NULL)
+                      | add_file(NO_PROB, FORTDIR, NULL, &File_list,
+                                 &File_tail, NULL));
 
-	}
+        }
     }
 
     for (i = 0; i < file_cnt; i++)
     {
-	percent = NO_PROB;
-	if (!isdigit(files[i][0]))
-	    sp = files[i];
-	else
-	{
-	    percent = 0;
-	    for (sp = files[i]; isdigit(*sp); sp++)
-		percent = percent * 10 + *sp - '0';
-	    if (percent > 100)
-	    {
-		fprintf(stderr, "percentages must be <= 100\n");
-		ErrorMessage = TRUE;
-		return FALSE;
-	    }
-	    if (*sp == '.')
-	    {
-		fprintf(stderr, "percentages must be integers\n");
-		ErrorMessage = TRUE;
-		return FALSE;
-	    }
-	    /*
-	     * If the number isn't followed by a '%', then
-	     * it was not a percentage, just the first part
-	     * of a file name which starts with digits.
-	     */
-	    if (*sp != '%')
-	    {
-		percent = NO_PROB;
-		sp = files[i];
-	    }
-	    else if (*++sp == '\0')
-	    {
-		if (++i >= file_cnt)
-		{
-		    fprintf(stderr, "percentages must precede files\n");
-		    ErrorMessage = TRUE;
-		    return FALSE;
-		}
-		sp = files[i];
-	    }
-	}
-	if (strcmp(sp, "all") == 0)
-	{
-	  snprintf(fullpathname,sizeof(fullpathname),"%s",FORTDIR);
-	  snprintf(locpathname,sizeof(locpathname),"%s",LOCFORTDIR);
-	}
-	/* if it isn't an absolute path or relative to . or ..
-	   make it an absolute path relative to FORTDIR */
-	else
-	{
-	    if (strncmp(sp,"/",1)!=0 && strncmp(sp,"./",2)!=0 &&
-		    strncmp(sp,"../",3)!=0)
-	    {
-		snprintf(fullpathname,sizeof(fullpathname),
-			"%s/%s",FORTDIR,sp);
-		snprintf(locpathname,sizeof(locpathname),
-			"%s/%s",LOCFORTDIR,sp);
-	    }
-	    else
-	    {
-		snprintf(fullpathname,sizeof(fullpathname),"%s",sp);
-		snprintf(locpathname,sizeof(locpathname),"%s",sp);
-	    }
-	}
+        percent = NO_PROB;
+        if (!isdigit(files[i][0]))
+            sp = files[i];
+        else
+        {
+            percent = 0;
+            for (sp = files[i]; isdigit(*sp); sp++)
+                percent = percent * 10 + *sp - '0';
+            if (percent > 100)
+            {
+                fprintf(stderr, "percentages must be <= 100\n");
+                ErrorMessage = TRUE;
+                return FALSE;
+            }
+            if (*sp == '.')
+            {
+                fprintf(stderr, "percentages must be integers\n");
+                ErrorMessage = TRUE;
+                return FALSE;
+            }
+            /*
+             * If the number isn't followed by a '%', then
+             * it was not a percentage, just the first part
+             * of a file name which starts with digits.
+             */
+            if (*sp != '%')
+            {
+                percent = NO_PROB;
+                sp = files[i];
+            }
+            else if (*++sp == '\0')
+            {
+                if (++i >= file_cnt)
+                {
+                    fprintf(stderr, "percentages must precede files\n");
+                    ErrorMessage = TRUE;
+                    return FALSE;
+                }
+                sp = files[i];
+            }
+        }
+        if (strcmp(sp, "all") == 0)
+        {
+          snprintf(fullpathname,sizeof(fullpathname),"%s",FORTDIR);
+          snprintf(locpathname,sizeof(locpathname),"%s",LOCFORTDIR);
+        }
+        /* if it isn't an absolute path or relative to . or ..
+           make it an absolute path relative to FORTDIR */
+        else
+        {
+            if (strncmp(sp,"/",1)!=0 && strncmp(sp,"./",2)!=0 &&
+                    strncmp(sp,"../",3)!=0)
+            {
+                snprintf(fullpathname,sizeof(fullpathname),
+                        "%s/%s",FORTDIR,sp);
+                snprintf(locpathname,sizeof(locpathname),
+                        "%s/%s",LOCFORTDIR,sp);
+            }
+            else
+            {
+                snprintf(fullpathname,sizeof(fullpathname),"%s",sp);
+                snprintf(locpathname,sizeof(locpathname),"%s",sp);
+            }
+        }
 
-	lang=getenv("LC_ALL");
-	if (!lang) lang=getenv("LC_MESSAGES");
-	if (!lang) lang=getenv("LANGUAGE");
-	if (!lang) lang=getenv("LANG");
-	if (lang) {
-	  char llang[512];
-	  int ret=0;
-	  char *p;
+        lang=getenv("LC_ALL");
+        if (!lang) lang=getenv("LC_MESSAGES");
+        if (!lang) lang=getenv("LANGUAGE");
+        if (!lang) lang=getenv("LANG");
+        if (lang) {
+          char llang[512];
+          int ret=0;
+          char *p;
 
-	  strncpy(llang,lang,sizeof(llang));
-	  lang=llang;
+          strncpy(llang,lang,sizeof(llang));
+          lang=llang;
 
-	  /* the language string can be like "es:fr_BE:ga" */
-	  while (!ret && lang && (*lang)) {
-	    p=strchr(lang,':');
-	    if (p) *p++='\0';
+          /* the language string can be like "es:fr_BE:ga" */
+          while (!ret && lang && (*lang)) {
+            p=strchr(lang,':');
+            if (p) *p++='\0';
 
-	    /* first try full locale */
-	    snprintf(langdir,sizeof(langdir),"%s/%s/%s",
-		     FORTDIR, lang, sp);
-	    ret=add_file(percent, langdir, NULL, &File_list,
-			 &File_tail, NULL);
+            /* first try full locale */
+            snprintf(langdir,sizeof(langdir),"%s/%s/%s",
+                     FORTDIR, lang, sp);
+            ret=add_file(percent, langdir, NULL, &File_list,
+                         &File_tail, NULL);
 
-	    /* if not try language name only (two first chars) */
-	    if (!ret) {
-	      char ll[3];
+            /* if not try language name only (two first chars) */
+            if (!ret) {
+              char ll[3];
 
-	      strncpy(ll,lang,2);
-	      ll[2]='\0';
-	      snprintf(langdir,sizeof(langdir),
-		       "%s/%s/%s", FORTDIR, ll, sp);
-	      ret=add_file(percent, langdir, NULL,
-			   &File_list, &File_tail, NULL);
-	    }
+              strncpy(ll,lang,2);
+              ll[2]='\0';
+              snprintf(langdir,sizeof(langdir),
+                       "%s/%s/%s", FORTDIR, ll, sp);
+              ret=add_file(percent, langdir, NULL,
+                           &File_list, &File_tail, NULL);
+            }
 
-	    lang=p;
-	  }
-	  /* default */
-	  if (!ret)
-	    ret=add_file(percent, fullpathname, NULL, &File_list,
-			 &File_tail, NULL);
-	  if ( (!ret && fullpathname != locpathname) || strcmp(sp, "all") == 0 )
-	    ret=add_file(percent, locpathname, NULL, &File_list,
-		         &File_tail, NULL);
+            lang=p;
+          }
+          /* default */
+          if (!ret)
+            ret=add_file(percent, fullpathname, NULL, &File_list,
+                         &File_tail, NULL);
+          if ( (!ret && fullpathname != locpathname) || strcmp(sp, "all") == 0 )
+            ret=add_file(percent, locpathname, NULL, &File_list,
+                         &File_tail, NULL);
 
-	  if (!ret){
-		  snprintf (locpathname, sizeof (locpathname), "%s/%s", getenv ("PWD"), sp);
+          if (!ret){
+                  snprintf (locpathname, sizeof (locpathname), "%s/%s", getenv ("PWD"), sp);
 
-		  ret=add_file (percent, locpathname, NULL, &File_list, &File_tail, NULL);
-	  }
-	  if (!ret)
-	    return FALSE;
+                  ret=add_file (percent, locpathname, NULL, &File_list, &File_tail, NULL);
+          }
+          if (!ret)
+            return FALSE;
 
-	}
-	else
-	  if (!add_file(percent, fullpathname, NULL, &File_list,
-			&File_tail, NULL))
-	    return FALSE;
+        }
+        else
+          if (!add_file(percent, fullpathname, NULL, &File_list,
+                        &File_tail, NULL))
+            return FALSE;
     }
     return TRUE;
 }
@@ -1017,71 +1017,71 @@ void getargs(int argc, char **argv)
 #else
     while ((ch = getopt(argc, argv, "acefilm:n:osvw")) != EOF)
 #endif /* DEBUG */
-	switch (ch)
-	  {
-	  case 'a':		/* any fortune */
-	      All_forts++;
-	      break;
+        switch (ch)
+          {
+          case 'a':             /* any fortune */
+              All_forts++;
+              break;
 #ifdef DEBUG
-	  case 'D':
-	      Debug++;
-	      break;
+          case 'D':
+              Debug++;
+              break;
 #endif /* DEBUG */
-	  case 'e':
-	      Equal_probs++;	/* scatter un-allocted prob equally */
-	      break;
-	  case 'f':		/* find fortune files */
-	      Find_files++;
-	      break;
-	  case 'l':		/* long ones only */
-	      Long_only++;
-	      Short_only = FALSE;
-	      break;
-	  case 'n':
-	      SLEN = atoi(optarg);
-	      break;
-	  case 'o':		/* offensive ones only */
-	      Offend++;
-	      break;
-	  case 's':		/* short ones only */
-	      Short_only++;
-	      Long_only = FALSE;
-	      break;
-	  case 'w':		/* give time to read */
-	      Wait++;
-	      break;
-#ifdef	NO_REGEX
-	  case 'i':		/* case-insensitive match */
-	  case 'm':		/* dump out the fortunes */
-	      (void) fprintf(stderr,
-		  "fortune: can't match fortunes on this system (Sorry)\n");
-	      exit(0);
+          case 'e':
+              Equal_probs++;    /* scatter un-allocted prob equally */
+              break;
+          case 'f':             /* find fortune files */
+              Find_files++;
+              break;
+          case 'l':             /* long ones only */
+              Long_only++;
+              Short_only = FALSE;
+              break;
+          case 'n':
+              SLEN = atoi(optarg);
+              break;
+          case 'o':             /* offensive ones only */
+              Offend++;
+              break;
+          case 's':             /* short ones only */
+              Short_only++;
+              Long_only = FALSE;
+              break;
+          case 'w':             /* give time to read */
+              Wait++;
+              break;
+#ifdef  NO_REGEX
+          case 'i':             /* case-insensitive match */
+          case 'm':             /* dump out the fortunes */
+              (void) fprintf(stderr,
+                  "fortune: can't match fortunes on this system (Sorry)\n");
+              exit(0);
 #else /* NO_REGEX */
-	  case 'm':		/* dump out the fortunes */
-	      Match++;
-	      pat = optarg;
-	      break;
-	  case 'i':		/* case-insensitive match */
-	      ignore_case++;
-	      break;
+          case 'm':             /* dump out the fortunes */
+              Match++;
+              pat = optarg;
+              break;
+          case 'i':             /* case-insensitive match */
+              ignore_case++;
+              break;
 #endif /* NO_REGEX */
-	  case 'v':
-	      (void) printf("%s\n", program_version());
-	      exit(0);
-	  case 'c':
-	      Show_filename++;
-	      break;
-	  case '?':
-	  default:
-	      usage();
-	  }
+          case 'v':
+              (void) printf("%s\n", program_version());
+              exit(0);
+          case 'c':
+              Show_filename++;
+              break;
+          case '?':
+          default:
+              usage();
+          }
     argc -= optind;
     argv += optind;
 
     if (!form_file_list(argv, argc))
     {
-	if (!ErrorMessage) fprintf (stderr, "No fortunes found\n");
-	exit(1);		/* errors printed through form_file_list() */
+        if (!ErrorMessage) fprintf (stderr, "No fortunes found\n");
+        exit(1);                /* errors printed through form_file_list() */
     }
 #ifdef DEBUG
 /*      if (Debug >= 1)
@@ -1091,13 +1091,13 @@ void getargs(int argc, char **argv)
 #ifndef NO_REGEX
     if (pat != NULL)
     {
-	if (ignore_case)
-	    pat = conv_pat(pat);
-	if (BAD_COMP(RE_COMP(pat)))
-	{
-	    fprintf(stderr, "bad pattern: %s\n", pat);
-	    exit (1);
-	}
+        if (ignore_case)
+            pat = conv_pat(pat);
+        if (BAD_COMP(RE_COMP(pat)))
+        {
+            fprintf(stderr, "bad pattern: %s\n", pat);
+            exit (1);
+        }
     }
 #endif /* NO_REGEX */
 }
@@ -1121,61 +1121,61 @@ void init_prob(void)
     num_noprob = 0;
     last = NULL;
     for (fp = File_tail; fp != NULL; fp = fp->prev)
-	if (fp->percent == NO_PROB)
-	{
-	    num_noprob++;
-	    if (Equal_probs)
-		last = fp;
-	}
-	else
-	    percent += fp->percent;
+        if (fp->percent == NO_PROB)
+        {
+            num_noprob++;
+            if (Equal_probs)
+                last = fp;
+        }
+        else
+            percent += fp->percent;
     DPRINTF(1, (stderr, "summing probabilities:%d%% with %d NO_PROB's\n",
-		percent, num_noprob));
+                percent, num_noprob));
     if (percent > 100)
     {
-	fprintf(stderr,
-		"fortune: probabilities sum to %d%%!\n", percent);
-	exit(1);
+        fprintf(stderr,
+                "fortune: probabilities sum to %d%%!\n", percent);
+        exit(1);
     }
     else if (percent < 100 && num_noprob == 0)
     {
-	fprintf(stderr,
-		"fortune: no place to put residual probability (%d%%)\n",
-		percent);
-	exit(1);
+        fprintf(stderr,
+                "fortune: no place to put residual probability (%d%%)\n",
+                percent);
+        exit(1);
     }
     else if (percent == 100 && num_noprob != 0)
     {
-	fprintf(stderr,
-		"fortune: no probability left to put in residual files\n");
-	exit(1);
+        fprintf(stderr,
+                "fortune: no probability left to put in residual files\n");
+        exit(1);
     }
-    Spec_prob = percent;	/* this is for -f when % is specified on cmd line */
+    Spec_prob = percent;        /* this is for -f when % is specified on cmd line */
     percent = 100 - percent;
     if (Equal_probs)
     {
-	if (num_noprob != 0)
-	{
-	    if (num_noprob > 1)
-	    {
-		frac = percent / num_noprob;
-		DPRINTF(1, (stderr, ", frac = %d%%", frac));
-		for (fp = File_tail; fp != last; fp = fp->prev)
-		    if (fp->percent == NO_PROB)
-		    {
-			fp->percent = frac;
-			percent -= frac;
-		    }
-	    }
-	    last->percent = percent;
-	    DPRINTF(1, (stderr, ", residual = %d%%", percent));
-	}
-	else
-	{
-	    DPRINTF(1, (stderr,
-			", %d%% distributed over remaining fortunes\n",
-			percent));
-	}
+        if (num_noprob != 0)
+        {
+            if (num_noprob > 1)
+            {
+                frac = percent / num_noprob;
+                DPRINTF(1, (stderr, ", frac = %d%%", frac));
+                for (fp = File_tail; fp != last; fp = fp->prev)
+                    if (fp->percent == NO_PROB)
+                    {
+                        fp->percent = frac;
+                        percent -= frac;
+                    }
+            }
+            last->percent = percent;
+            DPRINTF(1, (stderr, ", residual = %d%%", percent));
+        }
+        else
+        {
+            DPRINTF(1, (stderr,
+                        ", %d%% distributed over remaining fortunes\n",
+                        percent));
+        }
     }
     DPRINTF(1, (stderr, "\n"));
 
@@ -1204,9 +1204,9 @@ void sum_tbl(register STRFILE * t1, register STRFILE * t2)
 {
     t1->str_numstr += t2->str_numstr;
     if (t1->str_longlen < t2->str_longlen)
-	t1->str_longlen = t2->str_longlen;
+        t1->str_longlen = t2->str_longlen;
     if (t1->str_shortlen > t2->str_shortlen)
-	t1->str_shortlen = t2->str_shortlen;
+        t1->str_shortlen = t2->str_shortlen;
 }
 
 /*
@@ -1219,89 +1219,89 @@ void get_tbl(FILEDESC * fp)
     register FILEDESC *child;
 
     if (fp->read_tbl)
-	return;
+        return;
     if (fp->child == NULL)
     {
 #if 0
         /* This should not be needed anymore since add_file takes care of
          * empty directories now (Torsten Landschoff <torsten@debian.org>)
-	 */
+         */
 
-	/*
-	 * Only the local fortune dir and the local offensive dir are
-	 * allowed to be empty.  Don't try and fetch their tables if
-	 * they have no children (i.e. are empty).
-	 *  - Brian Bassett (brianb@debian.org) 1999/07/31
-	 */
-	if (strcmp(LOCFORTDIR, fp->path) == 0 || strcmp(LOCOFFDIR, fp->path) == 0)
-	{
-	    fp->read_tbl = TRUE;	/* Make it look like we've read it. */
-	    return;
-	}
-	/* End */
+        /*
+         * Only the local fortune dir and the local offensive dir are
+         * allowed to be empty.  Don't try and fetch their tables if
+         * they have no children (i.e. are empty).
+         *  - Brian Bassett (brianb@debian.org) 1999/07/31
+         */
+        if (strcmp(LOCFORTDIR, fp->path) == 0 || strcmp(LOCOFFDIR, fp->path) == 0)
+        {
+            fp->read_tbl = TRUE;        /* Make it look like we've read it. */
+            return;
+        }
+        /* End */
 #endif
-	if ((fd = open(fp->datfile, O_RDONLY)) < 0)
-	{
-	    perror(fp->datfile);
-	    exit(1);
-	}
-	if (read(fd, &fp->tbl.str_version, sizeof fp->tbl.str_version) !=
-		sizeof fp->tbl.str_version)
-	{
-	    fprintf(stderr,
-		    "fortune: %s corrupted\n", fp->path);
-	    exit(1);
-	}
-	if (read(fd, &fp->tbl.str_numstr, sizeof fp->tbl.str_numstr) !=
-		sizeof fp->tbl.str_numstr)
-	{
-	    fprintf(stderr,
-		    "fortune: %s corrupted\n", fp->path);
-	    exit(1);
-	}
-	if (read(fd, &fp->tbl.str_longlen, sizeof fp->tbl.str_longlen) !=
-		sizeof fp->tbl.str_longlen)
-	{
-	    fprintf(stderr,
-		    "fortune: %s corrupted\n", fp->path);
-	    exit(1);
-	}
-	if (read(fd, &fp->tbl.str_shortlen, sizeof fp->tbl.str_shortlen) !=
-		sizeof fp->tbl.str_shortlen)
-	{
-	    fprintf(stderr,
-		    "fortune: %s corrupted\n", fp->path);
-	    exit(1);
-	}
-	if (read(fd, &fp->tbl.str_flags, sizeof fp->tbl.str_flags) !=
-		sizeof fp->tbl.str_flags)
-	{
-	    fprintf(stderr,
-		    "fortune: %s corrupted\n", fp->path);
-	    exit(1);
-	}
-	if (read(fd, &fp->tbl.stuff, sizeof fp->tbl.stuff) !=
-		sizeof fp->tbl.stuff)
-	{
-	    fprintf(stderr,
-		    "fortune: %s corrupted\n", fp->path);
-	    exit(1);
-	}
-	fp->tbl.str_version = ntohl(fp->tbl.str_version);
-	fp->tbl.str_numstr = ntohl(fp->tbl.str_numstr);
-	fp->tbl.str_longlen = ntohl(fp->tbl.str_longlen);
-	fp->tbl.str_shortlen = ntohl(fp->tbl.str_shortlen);
-	fp->tbl.str_flags = ntohl(fp->tbl.str_flags);
-	close(fd);
+        if ((fd = open(fp->datfile, O_RDONLY)) < 0)
+        {
+            perror(fp->datfile);
+            exit(1);
+        }
+        if (read(fd, &fp->tbl.str_version, sizeof fp->tbl.str_version) !=
+                sizeof fp->tbl.str_version)
+        {
+            fprintf(stderr,
+                    "fortune: %s corrupted\n", fp->path);
+            exit(1);
+        }
+        if (read(fd, &fp->tbl.str_numstr, sizeof fp->tbl.str_numstr) !=
+                sizeof fp->tbl.str_numstr)
+        {
+            fprintf(stderr,
+                    "fortune: %s corrupted\n", fp->path);
+            exit(1);
+        }
+        if (read(fd, &fp->tbl.str_longlen, sizeof fp->tbl.str_longlen) !=
+                sizeof fp->tbl.str_longlen)
+        {
+            fprintf(stderr,
+                    "fortune: %s corrupted\n", fp->path);
+            exit(1);
+        }
+        if (read(fd, &fp->tbl.str_shortlen, sizeof fp->tbl.str_shortlen) !=
+                sizeof fp->tbl.str_shortlen)
+        {
+            fprintf(stderr,
+                    "fortune: %s corrupted\n", fp->path);
+            exit(1);
+        }
+        if (read(fd, &fp->tbl.str_flags, sizeof fp->tbl.str_flags) !=
+                sizeof fp->tbl.str_flags)
+        {
+            fprintf(stderr,
+                    "fortune: %s corrupted\n", fp->path);
+            exit(1);
+        }
+        if (read(fd, &fp->tbl.stuff, sizeof fp->tbl.stuff) !=
+                sizeof fp->tbl.stuff)
+        {
+            fprintf(stderr,
+                    "fortune: %s corrupted\n", fp->path);
+            exit(1);
+        }
+        fp->tbl.str_version = ntohl(fp->tbl.str_version);
+        fp->tbl.str_numstr = ntohl(fp->tbl.str_numstr);
+        fp->tbl.str_longlen = ntohl(fp->tbl.str_longlen);
+        fp->tbl.str_shortlen = ntohl(fp->tbl.str_shortlen);
+        fp->tbl.str_flags = ntohl(fp->tbl.str_flags);
+        close(fd);
     }
     else
     {
-	zero_tbl(&fp->tbl);
-	for (child = fp->child; child != NULL; child = child->next)
-	{
-	    get_tbl(child);
-	    sum_tbl(&fp->tbl, &child->tbl);
-	}
+        zero_tbl(&fp->tbl);
+        for (child = fp->child; child != NULL; child = child->next)
+        {
+            get_tbl(child);
+            sum_tbl(&fp->tbl, &child->tbl);
+        }
     }
     fp->read_tbl = TRUE;
 }
@@ -1315,16 +1315,16 @@ void sum_noprobs(register FILEDESC * fp)
     static bool did_noprobs = FALSE;
 
     if (did_noprobs)
-	return;
+        return;
     zero_tbl(&Noprob_tbl);
     while (fp != NULL)
     {
-	get_tbl(fp);
-	/* This conditional should help us return correct values for -f
-	 * when a percentage is specified */
-	if (fp->percent == NO_PROB)
-	    sum_tbl(&Noprob_tbl, &fp->tbl);
-	fp = fp->next;
+        get_tbl(fp);
+        /* This conditional should help us return correct values for -f
+         * when a percentage is specified */
+        if (fp->percent == NO_PROB)
+            sum_tbl(&Noprob_tbl, &fp->tbl);
+        fp = fp->next;
     }
     did_noprobs = TRUE;
 }
@@ -1340,30 +1340,30 @@ FILEDESC *pick_child(FILEDESC * parent)
 
     if (Equal_probs)
     {
-	choice = random() % parent->num_children;
-	DPRINTF(1, (stderr, "    choice = %d (of %d)\n",
-		    choice, parent->num_children));
-	for (fp = parent->child; choice--; fp = fp->next)
-	    continue;
-	DPRINTF(1, (stderr, "    using %s\n", fp->name));
-	return fp;
+        choice = random() % parent->num_children;
+        DPRINTF(1, (stderr, "    choice = %d (of %d)\n",
+                    choice, parent->num_children));
+        for (fp = parent->child; choice--; fp = fp->next)
+            continue;
+        DPRINTF(1, (stderr, "    using %s\n", fp->name));
+        return fp;
     }
     else
     {
-	get_tbl(parent);
-	choice = random() % parent->tbl.str_numstr;
-	DPRINTF(1, (stderr, "    choice = %d (of %ld)\n",
-		    choice, parent->tbl.str_numstr));
-	for (fp = parent->child; choice >= fp->tbl.str_numstr;
-	     fp = fp->next)
-	{
-	    choice -= fp->tbl.str_numstr;
-	    DPRINTF(1, (stderr, "\tskip %s, %ld (choice = %d)\n",
-			fp->name, fp->tbl.str_numstr, choice));
-	}
-	DPRINTF(1, (stderr, "    using %s, %ld\n", fp->name,
-		    fp->tbl.str_numstr));
-	return fp;
+        get_tbl(parent);
+        choice = random() % parent->tbl.str_numstr;
+        DPRINTF(1, (stderr, "    choice = %d (of %ld)\n",
+                    choice, parent->tbl.str_numstr));
+        for (fp = parent->child; choice >= fp->tbl.str_numstr;
+             fp = fp->next)
+        {
+            choice -= fp->tbl.str_numstr;
+            DPRINTF(1, (stderr, "\tskip %s, %ld (choice = %d)\n",
+                        fp->name, fp->tbl.str_numstr, choice));
+        }
+        DPRINTF(1, (stderr, "    using %s, %ld\n", fp->name,
+                    fp->tbl.str_numstr));
+        return fp;
     }
 }
 
@@ -1375,8 +1375,8 @@ void open_dat(FILEDESC * fp)
 {
     if (fp->datfd < 0 && (fp->datfd = open(fp->datfile, O_RDONLY)) < 0)
     {
-	perror(fp->datfile);
-	exit(1);
+        perror(fp->datfile);
+        exit(1);
     }
 }
 
@@ -1390,10 +1390,10 @@ void get_pos(FILEDESC * fp)
     assert(fp->read_tbl);
     if (fp->pos == POS_UNKNOWN)
     {
-	fp->pos = random() % fp->tbl.str_numstr;
+        fp->pos = random() % fp->tbl.str_numstr;
     }
     if (++(fp->pos) >= fp->tbl.str_numstr)
-	fp->pos -= fp->tbl.str_numstr;
+        fp->pos -= fp->tbl.str_numstr;
     DPRINTF(1, (stderr, "pos for %s is %ld\n", fp->name, fp->pos));
 }
 
@@ -1407,48 +1407,48 @@ void get_fort(void)
     register int choice;
 
     if (File_list->next == NULL || File_list->percent == NO_PROB)
-	fp = File_list;
+        fp = File_list;
     else
     {
-	choice = random() % 100;
-	DPRINTF(1, (stderr, "choice = %d\n", choice));
-	for (fp = File_list; fp->percent != NO_PROB; fp = fp->next)
-	    if (choice < fp->percent)
-		break;
-	    else
-	    {
-		choice -= fp->percent;
-		DPRINTF(1, (stderr,
-			    "    skip \"%s\", %d%% (choice = %d)\n",
-			    fp->name, fp->percent, choice));
-	    }
-	DPRINTF(1, (stderr,
-		    "using \"%s\", %d%% (choice = %d)\n",
-		    fp->name, fp->percent, choice));
+        choice = random() % 100;
+        DPRINTF(1, (stderr, "choice = %d\n", choice));
+        for (fp = File_list; fp->percent != NO_PROB; fp = fp->next)
+            if (choice < fp->percent)
+                break;
+            else
+            {
+                choice -= fp->percent;
+                DPRINTF(1, (stderr,
+                            "    skip \"%s\", %d%% (choice = %d)\n",
+                            fp->name, fp->percent, choice));
+            }
+        DPRINTF(1, (stderr,
+                    "using \"%s\", %d%% (choice = %d)\n",
+                    fp->name, fp->percent, choice));
     }
     if (fp->percent != NO_PROB)
-	get_tbl(fp);
+        get_tbl(fp);
     else
     {
-	if (fp->next != NULL)
-	{
-	    sum_noprobs(fp);
-	    choice = random() % Noprob_tbl.str_numstr;
-	    DPRINTF(1, (stderr, "choice = %d (of %ld) \n", choice,
-			Noprob_tbl.str_numstr));
-	    while (choice >= fp->tbl.str_numstr)
-	    {
-		choice -= fp->tbl.str_numstr;
-		fp = fp->next;
-		DPRINTF(1, (stderr,
-			    "    skip \"%s\", %ld (choice = %d)\n",
-			    fp->name, fp->tbl.str_numstr,
-			    choice));
-	    }
-	    DPRINTF(1, (stderr, "using \"%s\", %ld\n", fp->name,
-			fp->tbl.str_numstr));
-	}
-	get_tbl(fp);
+        if (fp->next != NULL)
+        {
+            sum_noprobs(fp);
+            choice = random() % Noprob_tbl.str_numstr;
+            DPRINTF(1, (stderr, "choice = %d (of %ld) \n", choice,
+                        Noprob_tbl.str_numstr));
+            while (choice >= fp->tbl.str_numstr)
+            {
+                choice -= fp->tbl.str_numstr;
+                fp = fp->next;
+                DPRINTF(1, (stderr,
+                            "    skip \"%s\", %ld (choice = %d)\n",
+                            fp->name, fp->tbl.str_numstr,
+                            choice));
+            }
+            DPRINTF(1, (stderr, "using \"%s\", %ld\n", fp->name,
+                        fp->tbl.str_numstr));
+        }
+        get_tbl(fp);
     }
     if (fp->tbl.str_numstr == 0)
     {
@@ -1457,14 +1457,14 @@ void get_fort(void)
     }
     if (fp->child != NULL)
     {
-	DPRINTF(1, (stderr, "picking child\n"));
-	fp = pick_child(fp);
+        DPRINTF(1, (stderr, "picking child\n"));
+        fp = pick_child(fp);
     }
     Fortfile = fp;
     get_pos(fp);
     open_dat(fp);
     lseek(fp->datfd,
-	  (off_t) (sizeof fp->tbl + fp->pos * sizeof Seekpts[0]), 0);
+          (off_t) (sizeof fp->tbl + fp->pos * sizeof Seekpts[0]), 0);
     read(fp->datfd, &Seekpts[0], sizeof Seekpts[0]);
     read(fp->datfd, &Seekpts[1], sizeof Seekpts[1]);
     Seekpts[0] = ntohl(Seekpts[0]);
@@ -1479,12 +1479,12 @@ void open_fp(FILEDESC * fp)
 {
     if (fp->inf == NULL && (fp->inf = fdopen(fp->fd, "r")) == NULL)
     {
-	perror(fp->path);
-	exit(1);
+        perror(fp->path);
+        exit(1);
     }
 }
 
-#ifndef	NO_REGEX
+#ifndef NO_REGEX
 /*
  * maxlen_in_list
  *      Return the maximum fortune len in the file list.
@@ -1497,17 +1497,17 @@ int maxlen_in_list(FILEDESC * list)
     maxlen = 0;
     for (fp = list; fp != NULL; fp = fp->next)
     {
-	if (fp->child != NULL)
-	{
-	    if ((len = maxlen_in_list(fp->child)) > maxlen)
-		maxlen = len;
-	}
-	else
-	{
-	    get_tbl(fp);
-	    if (fp->tbl.str_longlen > maxlen)
-		maxlen = fp->tbl.str_longlen;
-	}
+        if (fp->child != NULL)
+        {
+            if ((len = maxlen_in_list(fp->child)) > maxlen)
+                maxlen = len;
+        }
+        else
+        {
+            get_tbl(fp);
+            if (fp->tbl.str_longlen > maxlen)
+                maxlen = fp->tbl.str_longlen;
+        }
     }
     return maxlen;
 }
@@ -1527,62 +1527,62 @@ void matches_in_list(FILEDESC * list)
 
     for (fp = list; fp != NULL; fp = fp->next)
     {
-	if (fp->child != NULL)
-	{
-	    matches_in_list(fp->child);
-	    continue;
-	}
-	DPRINTF(1, (stderr, "searching in %s\n", fp->path));
-	open_fp(fp);
-	sp = Fortbuf;
-	in_file = FALSE;
-	while (fgets(sp, Fort_len, fp->inf) != NULL)
-	    if (!STR_ENDSTRING(sp, fp->tbl))
-		sp += strlen(sp);
-	    else
-	    {
-		*sp = '\0';
-		nchar = sp - Fortbuf;
+        if (fp->child != NULL)
+        {
+            matches_in_list(fp->child);
+            continue;
+        }
+        DPRINTF(1, (stderr, "searching in %s\n", fp->path));
+        open_fp(fp);
+        sp = Fortbuf;
+        in_file = FALSE;
+        while (fgets(sp, Fort_len, fp->inf) != NULL)
+            if (!STR_ENDSTRING(sp, fp->tbl))
+                sp += strlen(sp);
+            else
+            {
+                *sp = '\0';
+                nchar = sp - Fortbuf;
 
-		if (fp->utf8_charset)
-		{
-		    output = recode_string (request, Fortbuf);
-		} else {
-		    output = Fortbuf;
-		}
-		/* Should maybe rot13 Fortbuf -allover */
+                if (fp->utf8_charset)
+                {
+                    output = recode_string (request, Fortbuf);
+                } else {
+                    output = Fortbuf;
+                }
+                /* Should maybe rot13 Fortbuf -allover */
 
                 if(fp->tbl.str_flags & STR_ROTATED)
-		{
+                {
                     for (p = output; (ch = *p); ++p)
-		    {
+                    {
                         if (isupper(ch) && isascii(ch))
                             *p = 'A' + (ch - 'A' + 13) % 26;
                         else if (islower(ch) && isascii(ch))
                             *p = 'a' + (ch - 'a' + 13) % 26;
-		    }
-		}
+                    }
+                }
 
-		DPRINTF(1, (stdout, "nchar = %d\n", nchar));
-		if ( (nchar < SLEN || !Short_only) &&
-			(nchar > SLEN || !Long_only) &&
-			RE_EXEC(output) )
-		{
-		    if (!in_file)
-		    {
-			fprintf(stderr, "(%s)\n%c\n", fp->name, fp->tbl.str_delim);
-			Found_one = TRUE;
-			in_file = TRUE;
-		    }
-		    fputs (output, stdout);
-		    printf("%c\n", fp->tbl.str_delim);
-		}
+                DPRINTF(1, (stdout, "nchar = %d\n", nchar));
+                if ( (nchar < SLEN || !Short_only) &&
+                        (nchar > SLEN || !Long_only) &&
+                        RE_EXEC(output) )
+                {
+                    if (!in_file)
+                    {
+                        fprintf(stderr, "(%s)\n%c\n", fp->name, fp->tbl.str_delim);
+                        Found_one = TRUE;
+                        in_file = TRUE;
+                    }
+                    fputs (output, stdout);
+                    printf("%c\n", fp->tbl.str_delim);
+                }
 
-		if (fp->utf8_charset)
-		  free (output);
+                if (fp->utf8_charset)
+                  free (output);
 
-		sp = Fortbuf;
-	    }
+                sp = Fortbuf;
+            }
     }
 }
 
@@ -1612,33 +1612,33 @@ void display(FILEDESC * fp)
     open_fp(fp);
     fseek(fp->inf, (long) Seekpts[0], 0);
     if (Show_filename)
-	printf ("(%s)\n%%\n", fp->name);
+        printf ("(%s)\n%%\n", fp->name);
     for (Fort_len = 0; fgets(line, sizeof line, fp->inf) != NULL &&
-	 !STR_ENDSTRING(line, fp->tbl); Fort_len++)
+         !STR_ENDSTRING(line, fp->tbl); Fort_len++)
     {
-	if (fp->tbl.str_flags & STR_ROTATED)
-	{
-	    for (p = line; (ch = *p); ++p)
-	    {
-		if (isupper(ch) && isascii(ch))
-		    *p = 'A' + (ch - 'A' + 13) % 26;
-		else if (islower(ch) && isascii (ch))
-		    *p = 'a' + (ch - 'a' + 13) % 26;
-	    }
-	}
-	if(fp->utf8_charset) {
-	    char *output;
-	    output = recode_string (request, line);
-	    fputs(output, stdout);
-	    free(output);
-	}
-	else
-	    fputs(line, stdout);
+        if (fp->tbl.str_flags & STR_ROTATED)
+        {
+            for (p = line; (ch = *p); ++p)
+            {
+                if (isupper(ch) && isascii(ch))
+                    *p = 'A' + (ch - 'A' + 13) % 26;
+                else if (islower(ch) && isascii (ch))
+                    *p = 'a' + (ch - 'a' + 13) % 26;
+            }
+        }
+        if(fp->utf8_charset) {
+            char *output;
+            output = recode_string (request, line);
+            fputs(output, stdout);
+            free(output);
+        }
+        else
+            fputs(line, stdout);
     }
     fflush(stdout);
 
     if(fp->utf8_charset) {
-	recode_delete_request(request);
+        recode_delete_request(request);
     }
 }
 
@@ -1652,15 +1652,15 @@ int fortlen(void)
     unsigned char line[BUFSIZ];
 
     if (!(Fortfile->tbl.str_flags & (STR_RANDOM | STR_ORDERED)))
-	nchar = (Seekpts[1] - Seekpts[0]) - 2;	/* for %^J delimiter */
+        nchar = (Seekpts[1] - Seekpts[0]) - 2;  /* for %^J delimiter */
     else
     {
-	open_fp(Fortfile);
-	fseek(Fortfile->inf, (long) Seekpts[0], 0);
-	nchar = 0;
-	while (fgets(line, sizeof line, Fortfile->inf) != NULL &&
-	       !STR_ENDSTRING(line, Fortfile->tbl))
-	    nchar += strlen(line);
+        open_fp(Fortfile);
+        fseek(Fortfile->inf, (long) Seekpts[0], 0);
+        nchar = 0;
+        while (fgets(line, sizeof line, Fortfile->inf) != NULL &&
+               !STR_ENDSTRING(line, Fortfile->tbl))
+            nchar += strlen(line);
     }
     Fort_len = nchar;
     return nchar;
@@ -1691,31 +1691,31 @@ int main(int ac, char *av[])
 
 #ifndef NO_REGEX
     if (Match)
-	exit(find_matches() != 0);
+        exit(find_matches() != 0);
 #endif
     init_prob();
     if (Find_files)
     {
-	sum_noprobs(File_list);
-	if (Equal_probs)
-	    calc_equal_probs();
-	print_list(File_list, 0);
-	exit(0);
+        sum_noprobs(File_list);
+        if (Equal_probs)
+            calc_equal_probs();
+        print_list(File_list, 0);
+        exit(0);
     }
     srandom((int) (time((time_t *) NULL) + getpid()));
     do
     {
-	get_fort();
+        get_fort();
     }
     while ((Short_only && fortlen() > SLEN) ||
-	   (Long_only && fortlen() <= SLEN));
+           (Long_only && fortlen() <= SLEN));
 
     display(Fortfile);
 
     if (Wait)
     {
         fortlen();
-	sleep((unsigned int) max(Fort_len / CPERS, MINW));
+        sleep((unsigned int) max(Fort_len / CPERS, MINW));
     }
     exit(0);
     /* NOTREACHED */
