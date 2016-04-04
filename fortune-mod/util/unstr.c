@@ -95,6 +95,7 @@ static char sccsid[] = "@(#)unstr.c	8.1 (Berkeley) 5/31/93";
 #include	<stdio.h>
 #include	<ctype.h>
 #include	<string.h>
+#include	<stdlib.h>
 #include	<unistd.h>
 
 #ifndef MAXPATHLEN
@@ -174,7 +175,7 @@ void order_unstr(tbl)
      register STRFILE *tbl;
 {
     register int i;
-    register unsigned char *sp;
+    register char *sp;
     auto int32_t pos;
     char buf[BUFSIZ];
     int printedsome;
