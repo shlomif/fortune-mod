@@ -4,8 +4,9 @@
 
 This GitHub repository maintains the sources for fortune-mod, a
 version of
-[the UNIX fortune command](http://en.wikipedia.org/wiki/Fortune_%28Unix%29)
-to display a random quote from a collection of quotes, on the command line.
+[the UNIX fortune command](http://en.wikipedia.org/wiki/Fortune_%28Unix%29).
+`fortune` is a command-line utility which displays a random quotation from a
+collection of quotes.
 
 For more information about it you can contact
 [Shlomi Fish](http://www.shlomifish.org/) .
@@ -13,7 +14,7 @@ For more information about it you can contact
 # What was already done.
 
 1. fortune-mod-1.99.1 was imported into the repository from the Mageia tarball
-as the tag.
+as the tag <code>fortune-mod-1.99.1</code>.
 
 2. Cleaned up the build process a little.
 
@@ -27,7 +28,7 @@ as the tag.
 
 7. Fixed some typos.
 
-8. Add [Travis-CI](https://travis-ci.org/) support.
+8. Added [Travis-CI](https://travis-ci.org/) support.
 
 # What remains to be done.
 
