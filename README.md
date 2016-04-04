@@ -8,8 +8,36 @@ version of
 `fortune` is a command-line utility which displays a random quotation from a
 collection of quotes.
 
+The canonical repository for the time being is:
+https://github.com/shlomif/fortune-mod . In the future, we may create a GitHub
+organization for it and move the sources there.
+
 For more information about it you can contact
 [Shlomi Fish](http://www.shlomifish.org/) .
+
+## Sample usage
+
+```
+$ fortune
+Enthusiasm is one of the most important
+ingredients a volunteer project runs on.
+                -- Andreas Schuldei
+$
+```
+
+## History
+
+I believe fortune-mod was originally forked from the NetBSD version of
+fortune, and ported to run on Linux systems. For some time it was maintained
+at the currently offline redellipse-dot-net inside a
+[GNU Arch](http://en.wikipedia.org/wiki/GNU_arch) (= an old and now mostly
+unused version control system) repository, and version 1.99.1 was released as
+a tarball.
+
+This maintenance version was initiated by Shlomi Fish, who decided to maintain
+it out of being a fan of the fortune command. It started by importing the
+unpacked source of the fortune-mod-1.99.1.tar tarball from the Mageia Linux
+.src.rpm into an empty git repository and continuing from there.
 
 # What was already done.
 
