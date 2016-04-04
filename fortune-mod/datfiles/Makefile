@@ -13,13 +13,18 @@ STRFILE=../util/strfile
 
 all: cookies o-cookies w-cookies
 
-check:
+check: local-check o-check
+
+local-check:
 	for i in $(COOKIES) ; \
 		do \
 			if ! sh $(TOP)/tests/scripts/check-fortune-file.sh "$$i" ; then \
 				exit 1; \
 			fi ; \
 		done;
+
+o-check:
+	cd off && $(MAKE) OCOOKIEDIR=$(OCOOKIEDIR) check
 
 cookies: cookies-stamp
 

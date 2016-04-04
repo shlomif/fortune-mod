@@ -1,3 +1,4 @@
+TOP = ../..
 
 OCOOKIES_UNROTATED=drugs misandry privates sex astrology ethnic \
 	miscellaneous racism songs-poems black-humor hphobia misogyny \
@@ -8,8 +9,8 @@ OCOOKIES_ROTATED=
 
 OCOOKIES=$(OCOOKIES_UNROTATED) $(OCOOKIES_ROTATED)
 
-STRFILE=../../util/strfile
-ROT=../../util/rot
+STRFILE=$(TOP)/util/strfile
+ROT=$(TOP)/util/rot
 
 
 all:	ocookies-stamp
@@ -24,6 +25,13 @@ rotated-stamp:
 	    do $(ROT) < unrotated/$$i > rotated/$$i || exit $$? ; (cd rotated && ln -s $$i $$i.u8) ; done
 	touch rotated-stamp
 
+check: all
+	for i in $(OCOOKIES) ; \
+		do \
+			if ! sh $(TOP)/tests/scripts/check-fortune-file.sh "unrotated/$$i" ; then \
+				exit 1; \
+			fi ; \
+		done;
 install:
 	install -m 0755 -d $(OCOOKIEDIR)
 	for i in $(OCOOKIES) ; \
