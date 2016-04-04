@@ -2,7 +2,7 @@
 
 /*-
  * Copyright (c) 1989, 1993
- *	The Regents of the University of California.  All rights reserved.
+ *      The Regents of the University of California.  All rights reserved.
  *
  * This code is derived from software contributed to Berkeley by
  * Ken Arnold.
@@ -17,8 +17,8 @@
  *    documentation and/or other materials provided with the distribution.
  * 3. All advertising materials mentioning features or use of this software
  *    must display the following acknowledgement:
- *	This product includes software developed by the University of
- *	California, Berkeley and its contributors.
+ *      This product includes software developed by the University of
+ *      California, Berkeley and its contributors.
  * 4. Neither the name of the University nor the names of its contributors
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
@@ -72,17 +72,17 @@
  *I haven't the faintest flipping idea what all that is, so kill the warnings
  */
 
-#include	<stdlib.h>
-#include	<unistd.h>
-#include	<netinet/in.h>
-#include	<sys/param.h>
-#include	<stdio.h>
-#include	<ctype.h>
-#include	<string.h>
-#include	"strfile.h"
+#include        <stdlib.h>
+#include        <unistd.h>
+#include        <netinet/in.h>
+#include        <sys/param.h>
+#include        <stdio.h>
+#include        <ctype.h>
+#include        <string.h>
+#include        "strfile.h"
 
 #ifndef MAXPATHLEN
-#define	MAXPATHLEN	1024
+#define MAXPATHLEN      1024
 #endif /* MAXPATHLEN */
 
 /*
@@ -114,23 +114,23 @@
  *
  */
 
-#define	TRUE	1
-#define	FALSE	0
+#define TRUE    1
+#define FALSE   0
 
-#define	STORING_PTRS	(Oflag || Rflag)
-#define	CHUNKSIZE	512
+#define STORING_PTRS    (Oflag || Rflag)
+#define CHUNKSIZE       512
 
-#define	ALWAYS	1
-#define	ALLOC(ptr,sz)	if (ALWAYS) { \
-			if (ptr == NULL) \
-				ptr = malloc((unsigned int) (CHUNKSIZE * sizeof *ptr)); \
-			else if (((sz) + 1) % CHUNKSIZE == 0) \
-				ptr = realloc((void *) ptr, ((unsigned int) ((sz) + CHUNKSIZE) * sizeof *ptr)); \
-			if (ptr == NULL) { \
-				fprintf(stderr, "out of space\n"); \
-				exit(1); \
-			} \
-		}
+#define ALWAYS  1
+#define ALLOC(ptr,sz)   if (ALWAYS) { \
+                        if (ptr == NULL) \
+                                ptr = malloc((unsigned int) (CHUNKSIZE * sizeof *ptr)); \
+                        else if (((sz) + 1) % CHUNKSIZE == 0) \
+                                ptr = realloc((void *) ptr, ((unsigned int) ((sz) + CHUNKSIZE) * sizeof *ptr)); \
+                        if (ptr == NULL) { \
+                                fprintf(stderr, "out of space\n"); \
+                                exit(1); \
+                        } \
+                }
 
 typedef struct
 {
@@ -139,29 +139,29 @@ typedef struct
 }
 STR;
 
-char *Infile = NULL,		/* input file name */
-  Outfile[MAXPATHLEN] = "",	/* output file name */
-  Delimch = '%';		/* delimiting character */
+char *Infile = NULL,            /* input file name */
+  Outfile[MAXPATHLEN] = "",     /* output file name */
+  Delimch = '%';                /* delimiting character */
 
-int Sflag = FALSE;		/* silent run flag */
-int Oflag = FALSE;		/* ordering flag */
-int Iflag = FALSE;		/* ignore case flag */
-int Rflag = FALSE;		/* randomize order flag */
-int Xflag = FALSE;		/* set rotated bit */
-long Num_pts = 0;		/* number of pointers/strings */
+int Sflag = FALSE;              /* silent run flag */
+int Oflag = FALSE;              /* ordering flag */
+int Iflag = FALSE;              /* ignore case flag */
+int Rflag = FALSE;              /* randomize order flag */
+int Xflag = FALSE;              /* set rotated bit */
+long Num_pts = 0;               /* number of pointers/strings */
 
 int32_t *Seekpts;
 
-FILE *Sort_1, *Sort_2;		/* pointers for sorting */
+FILE *Sort_1, *Sort_2;          /* pointers for sorting */
 
-STRFILE Tbl;			/* statistics table */
+STRFILE Tbl;                    /* statistics table */
 
-STR *Firstch;			/* first chars of each string */
+STR *Firstch;                   /* first chars of each string */
 
 void usage(void)
 {
     fprintf(stderr,
-	    "strfile [-iorsx] [-c char] sourcefile [datafile]\n");
+            "strfile [-iorsx] [-c char] sourcefile [datafile]\n");
     exit(1);
 }
 
@@ -175,52 +175,52 @@ void getargs(int argc, char **argv)
     int ch;
 
     while ((ch = getopt(argc, argv, "c:iorsx")) != EOF)
-	switch (ch)
-	  {
-	  case 'c':		/* new delimiting char */
-	      Delimch = *optarg;
-	      if (!isascii(Delimch))
-	      {
-		  printf("bad delimiting character: '\\%o\n'",
-			 Delimch);
-	      }
-	      break;
-	  case 'i':		/* ignore case in ordering */
-	      Iflag++;
-	      break;
-	  case 'o':		/* order strings */
-	      Oflag++;
-	      break;
-	  case 'r':		/* randomize pointers */
-	      Rflag++;
-	      break;
-	  case 's':		/* silent */
-	      Sflag++;
-	      break;
-	  case 'x':		/* set the rotated bit */
-	      Xflag++;
-	      break;
-	  case '?':
-	  default:
-	      usage();
-	  }
+        switch (ch)
+          {
+          case 'c':             /* new delimiting char */
+              Delimch = *optarg;
+              if (!isascii(Delimch))
+              {
+                  printf("bad delimiting character: '\\%o\n'",
+                         Delimch);
+              }
+              break;
+          case 'i':             /* ignore case in ordering */
+              Iflag++;
+              break;
+          case 'o':             /* order strings */
+              Oflag++;
+              break;
+          case 'r':             /* randomize pointers */
+              Rflag++;
+              break;
+          case 's':             /* silent */
+              Sflag++;
+              break;
+          case 'x':             /* set the rotated bit */
+              Xflag++;
+              break;
+          case '?':
+          default:
+              usage();
+          }
     argv += optind;
 
     if (*argv)
     {
-	Infile = *argv;
-	if (*++argv)
-	    (void) strcpy(Outfile, *argv);
+        Infile = *argv;
+        if (*++argv)
+            (void) strcpy(Outfile, *argv);
     }
     if (!Infile)
     {
-	puts("No input file name");
-	usage();
+        puts("No input file name");
+        usage();
     }
     if (*Outfile == '\0')
     {
-	strcpy(Outfile, Infile);
-	strcat(Outfile, ".dat");
+        strcpy(Outfile, Infile);
+        strcat(Outfile, ".dat");
     }
 }
 
@@ -234,13 +234,13 @@ void add_offset(FILE * fp, int32_t off)
 
     if (!STORING_PTRS)
     {
-	net = htonl(off);
-	fwrite(&net, 1, sizeof net, fp);
+        net = htonl(off);
+        fwrite(&net, 1, sizeof net, fp);
     }
     else
     {
-	ALLOC(Seekpts, Num_pts + 1);
-	Seekpts[Num_pts] = off;
+        ALLOC(Seekpts, Num_pts + 1);
+        Seekpts[Num_pts] = off;
     }
     Num_pts++;
 }
@@ -255,12 +255,12 @@ void fix_last_offset(FILE * fp, int32_t off)
 
     if (!STORING_PTRS)
     {
-	net = htonl(off);
-	fseek(fp, -(sizeof net), SEEK_CUR);
-	fwrite(&net, 1, sizeof net, fp);
+        net = htonl(off);
+        fseek(fp, -(sizeof net), SEEK_CUR);
+        fwrite(&net, 1, sizeof net, fp);
     }
     else
-	Seekpts[Num_pts - 1] = off;
+        Seekpts[Num_pts - 1] = off;
 }
 
 /*
@@ -273,15 +273,15 @@ int cmp_str(const void *v1, const void *v2)
     register int n1, n2;
     register STR *p1, *p2;
 
-#define	SET_N(nf,ch)	(nf = (ch == '\n'))
-#define	IS_END(ch,nf)	(ch == Delimch && nf)
+#define SET_N(nf,ch)    (nf = (ch == '\n'))
+#define IS_END(ch,nf)   (ch == Delimch && nf)
 
     p1 = (STR *) v1;
     p2 = (STR *) v2;
     c1 = p1->first;
     c2 = p2->first;
     if (c1 != c2)
-	return c1 - c2;
+        return c1 - c2;
 
     fseek(Sort_1, p1->pos, 0);
     fseek(Sort_2, p2->pos, 0);
@@ -289,30 +289,30 @@ int cmp_str(const void *v1, const void *v2)
     n1 = FALSE;
     n2 = FALSE;
     while (!isalnum(c1 = getc(Sort_1)) && c1 != '\0')
-	SET_N(n1, c1);
+        SET_N(n1, c1);
     while (!isalnum(c2 = getc(Sort_2)) && c2 != '\0')
-	SET_N(n2, c2);
+        SET_N(n2, c2);
 
     while (!IS_END(c1, n1) && !IS_END(c2, n2))
     {
-	if (Iflag)
-	{
-	    if (isupper(c1))
-		c1 = tolower(c1);
-	    if (isupper(c2))
-		c2 = tolower(c2);
-	}
-	if (c1 != c2)
-	    return c1 - c2;
-	SET_N(n1, c1);
-	SET_N(n2, c2);
-	c1 = getc(Sort_1);
-	c2 = getc(Sort_2);
+        if (Iflag)
+        {
+            if (isupper(c1))
+                c1 = tolower(c1);
+            if (isupper(c2))
+                c2 = tolower(c2);
+        }
+        if (c1 != c2)
+            return c1 - c2;
+        SET_N(n1, c1);
+        SET_N(n2, c2);
+        c1 = getc(Sort_1);
+        c2 = getc(Sort_2);
     }
     if (IS_END(c1, n1))
-	c1 = 0;
+        c1 = 0;
     if (IS_END(c2, n2))
-	c2 = 0;
+        c2 = 0;
     return c1 - c2;
 }
 
@@ -337,7 +337,7 @@ void
     lp = Seekpts;
     fp = Firstch;
     while (i--)
-	*lp++ = fp++->pos;
+        *lp++ = fp++->pos;
     fclose(Sort_1);
     fclose(Sort_2);
     Tbl.str_flags |= STR_ORDERED;
@@ -350,18 +350,18 @@ char *
 
     if (isprint(c))
     {
-	buf[0] = c;
-	buf[1] = '\0';
+        buf[0] = c;
+        buf[1] = '\0';
     }
     else if (c == 0177)
     {
-	buf[0] = '^';
-	buf[1] = '?';
+        buf[0] = '^';
+        buf[1] = '?';
     }
     else
     {
-	buf[0] = '^';
-	buf[1] = c + 'A' - 1;
+        buf[0] = '^';
+        buf[1] = c + 'A' - 1;
     }
     return buf;
 }
@@ -393,10 +393,10 @@ void randomize(void)
 
     for (sp = Seekpts; cnt > 0; cnt--, sp++)
     {
-	i = random() % cnt;
-	tmp = sp[0];
-	sp[0] = sp[i];
-	sp[i] = tmp;
+        i = random() % cnt;
+        tmp = sp[0];
+        sp[0] = sp[i];
+        sp[i] = tmp;
     }
 }
 
@@ -419,20 +419,20 @@ int main(int ac, char **av)
     register STR *fp;
     static char string[257];
 
-    getargs(ac, av);		/* evalute arguments */
+    getargs(ac, av);            /* evalute arguments */
     if ((inf = fopen(Infile, "r")) == NULL)
     {
-	perror(Infile);
-	exit(1);
+        perror(Infile);
+        exit(1);
     }
 
     if ((outf = fopen(Outfile, "w")) == NULL)
     {
-	perror(Outfile);
-	exit(1);
+        perror(Outfile);
+        exit(1);
     }
     if (!STORING_PTRS)
-	(void) fseek(outf, sizeof Tbl, 0);
+        (void) fseek(outf, sizeof Tbl, 0);
 
     /*
      * Write the strings onto the file
@@ -447,44 +447,44 @@ int main(int ac, char **av)
     last_off = 0;
     do
     {
-	sp = fgets(string, 256, inf);
-	if (sp == NULL || STR_ENDSTRING(sp, Tbl))
-	{
-	    pos = ftell(inf);
-	    length = pos - last_off - (sp ? strlen(sp) : 0);
-	    if (!length)
-		/* Here's where we go back and fix things, if the
-		 * 'fortune' just read was the null string.
-		 * We had to make the assignment of last_off slightly
-		 * redundant to achieve this.
-		 */
-	    {
-		if (pos - last_off == 2)
-		    fix_last_offset(outf, pos);
-		last_off = pos;
-		continue;
-	    }
-	    last_off = pos;
-	    add_offset(outf, pos);
-	    if (Tbl.str_longlen < length)
-		Tbl.str_longlen = length;
-	    if (Tbl.str_shortlen > length)
-		Tbl.str_shortlen = length;
-	    first = Oflag;
-	}
-	else if (first)
-	{
-	    for (nsp = sp; !isalnum(*nsp); nsp++)
-		continue;
-	    ALLOC(Firstch, Num_pts);
-	    fp = &Firstch[Num_pts - 1];
-	    if (Iflag && isupper(*nsp))
-		fp->first = tolower(*nsp);
-	    else
-		fp->first = *nsp;
-	    fp->pos = Seekpts[Num_pts - 1];
-	    first = FALSE;
-	}
+        sp = fgets(string, 256, inf);
+        if (sp == NULL || STR_ENDSTRING(sp, Tbl))
+        {
+            pos = ftell(inf);
+            length = pos - last_off - (sp ? strlen(sp) : 0);
+            if (!length)
+                /* Here's where we go back and fix things, if the
+                 * 'fortune' just read was the null string.
+                 * We had to make the assignment of last_off slightly
+                 * redundant to achieve this.
+                 */
+            {
+                if (pos - last_off == 2)
+                    fix_last_offset(outf, pos);
+                last_off = pos;
+                continue;
+            }
+            last_off = pos;
+            add_offset(outf, pos);
+            if (Tbl.str_longlen < length)
+                Tbl.str_longlen = length;
+            if (Tbl.str_shortlen > length)
+                Tbl.str_shortlen = length;
+            first = Oflag;
+        }
+        else if (first)
+        {
+            for (nsp = sp; !isalnum(*nsp); nsp++)
+                continue;
+            ALLOC(Firstch, Num_pts);
+            fp = &Firstch[Num_pts - 1];
+            if (Iflag && isupper(*nsp))
+                fp->first = tolower(*nsp);
+            else
+                fp->first = *nsp;
+            fp->pos = Seekpts[Num_pts - 1];
+            first = FALSE;
+        }
     }
     while (sp != NULL);
 
@@ -495,29 +495,29 @@ int main(int ac, char **av)
     fclose(inf);
 
     if (Oflag)
-	do_order();
+        do_order();
     else if (Rflag)
-	randomize();
+        randomize();
 
     if (Xflag)
-	Tbl.str_flags |= STR_ROTATED;
+        Tbl.str_flags |= STR_ROTATED;
 
     if (!Sflag)
     {
-	printf("\"%s\" created\n", Outfile);
-	if (Num_pts == 1)
-	    puts("There was no string");
-	else
-	{
-	    if (Num_pts == 2)
-		puts("There was 1 string");
-	    else
-		printf("There were %ld strings\n", Num_pts - 1);
-	    printf("Longest string: %lu byte%s\n", Tbl.str_longlen,
-		Tbl.str_longlen == 1 ? "" : "s");
-	    printf("Shortest string: %lu byte%s\n", Tbl.str_shortlen,
-		Tbl.str_shortlen == 1 ? "" : "s");
-	}
+        printf("\"%s\" created\n", Outfile);
+        if (Num_pts == 1)
+            puts("There was no string");
+        else
+        {
+            if (Num_pts == 2)
+                puts("There was 1 string");
+            else
+                printf("There were %ld strings\n", Num_pts - 1);
+            printf("Longest string: %lu byte%s\n", Tbl.str_longlen,
+                Tbl.str_longlen == 1 ? "" : "s");
+            printf("Shortest string: %lu byte%s\n", Tbl.str_shortlen,
+                Tbl.str_shortlen == 1 ? "" : "s");
+        }
     }
 
     fseek(outf, (off_t) 0, 0);
@@ -537,11 +537,11 @@ int main(int ac, char **av)
     fwrite( Tbl.stuff,        sizeof Tbl.stuff,        1, outf);
     if (STORING_PTRS)
     {
-	for (p = Seekpts, cnt = Num_pts; cnt--; ++p)
-	{
-	    *p = htonl(*p);
-	    fwrite(p, sizeof *p, 1, outf);
-	}
+        for (p = Seekpts, cnt = Num_pts; cnt--; ++p)
+        {
+            *p = htonl(*p);
+            fwrite(p, sizeof *p, 1, outf);
+        }
     }
     fclose(outf);
     exit(0);
