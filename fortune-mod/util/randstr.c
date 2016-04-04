@@ -27,7 +27,7 @@
 
 /*-
  * Copyright (c) 1991, 1993
- *	The Regents of the University of California.  All rights reserved.
+ *      The Regents of the University of California.  All rights reserved.
  *
  * This code is derived from software contributed to Berkeley by
  * Ken Arnold.
@@ -42,8 +42,8 @@
  *    documentation and/or other materials provided with the distribution.
  * 3. All advertising materials mentioning features or use of this software
  *    must display the following acknowledgement:
- *	This product includes software developed by the University of
- *	California, Berkeley and its contributors.
+ *      This product includes software developed by the University of
+ *      California, Berkeley and its contributors.
  * 4. Neither the name of the University nor the names of its contributors
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
@@ -86,26 +86,26 @@
  * Who're you gonna quote?  Dan Quayle?
  */
 
-#include	<netinet/in.h>
-#include	<sys/param.h>
-#include	"strfile.h"
-#include	<stdio.h>
-#include	<stdlib.h>
-#include	<ctype.h>
-#include	<string.h>
-#include	<unistd.h>
-#include	<time.h>
+#include        <netinet/in.h>
+#include        <sys/param.h>
+#include        "strfile.h"
+#include        <stdio.h>
+#include        <stdlib.h>
+#include        <ctype.h>
+#include        <string.h>
+#include        <unistd.h>
+#include        <time.h>
 #ifndef MAXPATHLEN
-#define	MAXPATHLEN	1024
+#define MAXPATHLEN      1024
 #endif /* MAXPATHLEN */
 
-char *Infile,			/* name of input file */
-  Datafile[MAXPATHLEN],		/* name of data file */
-  Delimch;			/* delimiter character */
+char *Infile,                   /* name of input file */
+  Datafile[MAXPATHLEN],         /* name of data file */
+  Delimch;                      /* delimiter character */
 
 FILE *Inf, *Dataf, *Outf;
 
-off_t pos, Seekpts[2];		/* seek pointers to fortunes */
+off_t pos, Seekpts[2];          /* seek pointers to fortunes */
 
 
 void getargs(int ac, char *av[])
@@ -117,20 +117,20 @@ void getargs(int ac, char *av[])
 
     if (*av)
     {
-	Infile = *av;
+        Infile = *av;
 /* Hmm.  Don't output anything if we can help it.
  * fprintf(stderr, "Input file: %s\n",Infile); */
-	if (!strrchr(Infile, '.'))
-	{
-	    strcpy(Datafile, Infile);
-	    strcat(Datafile, ".dat");
-	}
-	else
-	{
-	    strcpy(Datafile, Infile);
-	    extc = strrchr(Infile, '.');
-	    *extc = '\0';
-	}
+        if (!strrchr(Infile, '.'))
+        {
+            strcpy(Datafile, Infile);
+            strcat(Datafile, ".dat");
+        }
+        else
+        {
+            strcpy(Datafile, Infile);
+            extc = strrchr(Infile, '.');
+            *extc = '\0';
+        }
     }
     else
 /*    {
@@ -150,7 +150,7 @@ void get_pos(STRFILE * fp)
 {
     pos = random() % fp->str_numstr;
     if (++(pos) >= fp->str_numstr)
-	pos -= fp->str_numstr;
+        pos -= fp->str_numstr;
 }
 
 /*
@@ -178,33 +178,33 @@ void display(FILE * fp, STRFILE table)
 
     fseek(fp, (long) Seekpts[0], 0);
     for (i = 0; fgets(line, sizeof line, fp) != NULL &&
-	 !STR_ENDSTRING(line, table); i++)
+         !STR_ENDSTRING(line, table); i++)
     {
-	if (table.str_flags & STR_ROTATED)
-	    for (p = line; (ch = *p); ++p)
-		if (isupper(ch))
-		    *p = 'A' + (ch - 'A' + 13) % 26;
-		else if (islower(ch))
-		    *p = 'a' + (ch - 'a' + 13) % 26;
-	fputs(line, stdout);
+        if (table.str_flags & STR_ROTATED)
+            for (p = line; (ch = *p); ++p)
+                if (isupper(ch))
+                    *p = 'A' + (ch - 'A' + 13) % 26;
+                else if (islower(ch))
+                    *p = 'a' + (ch - 'a' + 13) % 26;
+        fputs(line, stdout);
     }
     fflush(stdout);
 }
 
 int main(int ac, char **av)
 {
-    static STRFILE tbl;		/* description table */
+    static STRFILE tbl;         /* description table */
 
     getargs(ac, av);
     if ((Inf = fopen(Infile, "r")) == NULL)
     {
-	perror(Infile);
-	exit(1);
+        perror(Infile);
+        exit(1);
     }
     if ((Dataf = fopen(Datafile, "r")) == NULL)
     {
-	perror(Datafile);
-	exit(1);
+        perror(Datafile);
+        exit(1);
     }
     fread((char *) &tbl, sizeof tbl, 1, Dataf);
     tbl.str_version = ntohl(tbl.str_version);

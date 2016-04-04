@@ -1,8 +1,8 @@
-/*	$NetBSD: strfile.h,v 1.3 1995/03/23 08:28:49 cgd Exp $	*/
+/*  $NetBSD: strfile.h,v 1.3 1995/03/23 08:28:49 cgd Exp $  */
 
 /*-
  * Copyright (c) 1991, 1993
- *	The Regents of the University of California.  All rights reserved.
+ *  The Regents of the University of California.  All rights reserved.
  *
  * This code is derived from software contributed to Berkeley by
  * Ken Arnold.
@@ -17,8 +17,8 @@
  *    documentation and/or other materials provided with the distribution.
  * 3. All advertising materials mentioning features or use of this software
  *    must display the following acknowledgement:
- *	This product includes software developed by the University of
- *	California, Berkeley and its contributors.
+ *  This product includes software developed by the University of
+ *  California, Berkeley and its contributors.
  * 4. Neither the name of the University nor the names of its contributors
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
@@ -35,22 +35,22 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)strfile.h	8.1 (Berkeley) 5/31/93
+ *  @(#)strfile.h   8.1 (Berkeley) 5/31/93
  */
 
-#define	STR_ENDSTRING(line,tbl) \
-	((line)[0] == (tbl).str_delim && (line)[1] == '\n')
+#define STR_ENDSTRING(line,tbl) \
+    ((line)[0] == (tbl).str_delim && (line)[1] == '\n')
 
-typedef struct {				/* information table */
-#define	VERSION		2
-	u_int32_t	str_version;		/* version number */
-	u_int32_t	str_numstr;		/* # of strings in the file */
-	u_int32_t	str_longlen;		/* length of longest string */
-	u_int32_t	str_shortlen;		/* length of shortest string */
-#define	STR_RANDOM	0x1			/* randomized pointers */
-#define	STR_ORDERED	0x2			/* ordered pointers */
-#define	STR_ROTATED	0x4			/* rot-13'd text */
-	u_int32_t	str_flags;		/* bit field for flags */
-	u_int8_t	stuff[4];		/* long aligned space */
-#define	str_delim	stuff[0]		/* delimiting character */
+typedef struct {                /* information table */
+#define VERSION     2
+    u_int32_t   str_version;        /* version number */
+    u_int32_t   str_numstr;     /* # of strings in the file */
+    u_int32_t   str_longlen;        /* length of longest string */
+    u_int32_t   str_shortlen;       /* length of shortest string */
+#define STR_RANDOM  0x1         /* randomized pointers */
+#define STR_ORDERED 0x2         /* ordered pointers */
+#define STR_ROTATED 0x4         /* rot-13'd text */
+    u_int32_t   str_flags;      /* bit field for flags */
+    u_int8_t    stuff[4];       /* long aligned space */
+#define str_delim   stuff[0]        /* delimiting character */
 } STRFILE;

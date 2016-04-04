@@ -2,7 +2,7 @@
 
 /*-
  * Copyright (c) 1991, 1993
- *	The Regents of the University of California.  All rights reserved.
+ *      The Regents of the University of California.  All rights reserved.
  *
  * This code is derived from software contributed to Berkeley by
  * Ken Arnold.
@@ -17,8 +17,8 @@
  *    documentation and/or other materials provided with the distribution.
  * 3. All advertising materials mentioning features or use of this software
  *    must display the following acknowledgement:
- *	This product includes software developed by the University of
- *	California, Berkeley and its contributors.
+ *      This product includes software developed by the University of
+ *      California, Berkeley and its contributors.
  * 4. Neither the name of the University nor the names of its contributors
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
@@ -40,12 +40,12 @@
 #ifndef lint
 static char copyright[] =
 "@(#) Copyright (c) 1991, 1993\n\
-	The Regents of the University of California.  All rights reserved.\n";
+        The Regents of the University of California.  All rights reserved.\n";
 
 #endif /* not lint */
 
 #ifndef lint
-static char sccsid[] = "@(#)unstr.c	8.1 (Berkeley) 5/31/93";
+static char sccsid[] = "@(#)unstr.c     8.1 (Berkeley) 5/31/93";
 
 #endif /* not lint */
 #endif /* comment out the dreck, kill the warnings */
@@ -88,26 +88,26 @@ static char sccsid[] = "@(#)unstr.c	8.1 (Berkeley) 5/31/93";
  * get a fortune that contains nothing but a newline.  Karo syrup, syrup.
  * For the gory details, and lots of cussing, see strfile.c
  */
-#include	<sys/types.h>
-#include	<netinet/in.h>
-#include	<sys/param.h>
-#include	"strfile.h"
-#include	<stdio.h>
-#include	<ctype.h>
-#include	<string.h>
-#include	<stdlib.h>
-#include	<unistd.h>
+#include        <sys/types.h>
+#include        <netinet/in.h>
+#include        <sys/param.h>
+#include        "strfile.h"
+#include        <stdio.h>
+#include        <ctype.h>
+#include        <string.h>
+#include        <stdlib.h>
+#include        <unistd.h>
 
 #ifndef MAXPATHLEN
-#define	MAXPATHLEN	1024
+#define MAXPATHLEN      1024
 #endif /* MAXPATHLEN */
 
-char *Infile,			/* name of input file */
-  Datafile[MAXPATHLEN],		/* name of data file */
-  Delimch,			/* delimiter character */
+char *Infile,                   /* name of input file */
+  Datafile[MAXPATHLEN],         /* name of data file */
+  Delimch,                      /* delimiter character */
   Outfile[MAXPATHLEN];
 
-char NewDelch = '\0';		/* a replacement delimiter character */
+char NewDelch = '\0';           /* a replacement delimiter character */
 
 FILE *Inf, *Dataf, *Outf;
 
@@ -120,54 +120,54 @@ void getargs(int ac, char *av[])
     int ch;
 
     while ((ch = getopt(ac, av, "c:")) != EOF)
-	switch (ch)
-	  {
-	  case 'c':
-	      NewDelch = *optarg;
-	      if (!isascii(NewDelch))
-	      {
-		  fprintf(stderr, "Bad delimiting characher: '\\%o'\n", NewDelch);
-	      }
-	      break;
-	  case '?':
-	  default:
-	      fprintf(stderr, "Usage:\n\tunstr [-c C] datafile[.ext] [outputfile]\n");
-	      exit(1);
-	  }
+        switch (ch)
+          {
+          case 'c':
+              NewDelch = *optarg;
+              if (!isascii(NewDelch))
+              {
+                  fprintf(stderr, "Bad delimiting characher: '\\%o'\n", NewDelch);
+              }
+              break;
+          case '?':
+          default:
+              fprintf(stderr, "Usage:\n\tunstr [-c C] datafile[.ext] [outputfile]\n");
+              exit(1);
+          }
 
     av += optind;
 
     if (*av)
     {
-	Infile = *av;
-	fprintf(stderr, "Input file: %s\n", Infile);
-	if (!strrchr(Infile, '.'))
-	{
-	    strcpy(Datafile, Infile);
-	    strcat(Datafile, ".dat");
-	}
-	else
-	{
-	    strcpy(Datafile, Infile);
-	    extc = strrchr(Infile, '.');
-	    *extc = '\0';
-	}
-	if (*++av)
-	{
-	    strcpy(Outfile, *av);
-	    fprintf(stderr, "Output file: %s\n", Outfile);
-	}
+        Infile = *av;
+        fprintf(stderr, "Input file: %s\n", Infile);
+        if (!strrchr(Infile, '.'))
+        {
+            strcpy(Datafile, Infile);
+            strcat(Datafile, ".dat");
+        }
+        else
+        {
+            strcpy(Datafile, Infile);
+            extc = strrchr(Infile, '.');
+            *extc = '\0';
+        }
+        if (*++av)
+        {
+            strcpy(Outfile, *av);
+            fprintf(stderr, "Output file: %s\n", Outfile);
+        }
     }
     else
     {
-	fprintf(stderr, "No input file name\n");
-	fprintf(stderr, "Usage:\n\tunstr [-c C] datafile[.ext] [outputfile]\n");
-	exit(1);
+        fprintf(stderr, "No input file name\n");
+        fprintf(stderr, "Usage:\n\tunstr [-c C] datafile[.ext] [outputfile]\n");
+        exit(1);
     }
     if (!strcmp(Infile, Outfile))
     {
-	fprintf(stderr, "The input file for strings (%s) must be different from the output file (%s)\n", Infile, Outfile);
-	exit(1);
+        fprintf(stderr, "The input file for strings (%s) must be different from the output file (%s)\n", Infile, Outfile);
+        exit(1);
     }
 }
 
@@ -182,48 +182,48 @@ void order_unstr(tbl)
 
     for (i = 0; i <= tbl->str_numstr; i++)
     {
-	fread((char *) &pos, 1, sizeof pos, Dataf);
-	fseek(Inf, ntohl(pos), 0);
-	printedsome = 0;
-	for (;;)
-	{
-	    sp = fgets(buf, sizeof buf, Inf);
-	    if (sp == NULL || STR_ENDSTRING(sp, *tbl))
-	    {
-		if (sp || printedsome)
-		    fprintf(Outf, "%c\n", Delimch);
-		break;
-	    }
-	    else
-	    {
-		printedsome = 1;
-		fputs(sp, Outf);
-	    }
-	}
+        fread((char *) &pos, 1, sizeof pos, Dataf);
+        fseek(Inf, ntohl(pos), 0);
+        printedsome = 0;
+        for (;;)
+        {
+            sp = fgets(buf, sizeof buf, Inf);
+            if (sp == NULL || STR_ENDSTRING(sp, *tbl))
+            {
+                if (sp || printedsome)
+                    fprintf(Outf, "%c\n", Delimch);
+                break;
+            }
+            else
+            {
+                printedsome = 1;
+                fputs(sp, Outf);
+            }
+        }
     }
 }
 
 int main(int ac, char **av)
 {
-    static STRFILE tbl;		/* description table */
+    static STRFILE tbl;         /* description table */
 
     getargs(ac, av);
     if ((Inf = fopen(Infile, "r")) == NULL)
     {
-	perror(Infile);
-	exit(1);
+        perror(Infile);
+        exit(1);
     }
     if ((Dataf = fopen(Datafile, "r")) == NULL)
     {
-	perror(Datafile);
-	exit(1);
+        perror(Datafile);
+        exit(1);
     }
     if (*Outfile == '\0')
-	Outf = stdout;
+        Outf = stdout;
     else if ((Outf = fopen(Outfile, "w+")) == NULL)
     {
-	perror(Outfile);
-	exit(1);
+        perror(Outfile);
+        exit(1);
     }
     fread(&tbl.str_version,  sizeof(tbl.str_version),  1, Dataf);
     fread(&tbl.str_numstr,   sizeof(tbl.str_numstr),   1, Dataf);
@@ -233,13 +233,13 @@ int main(int ac, char **av)
     fread( tbl.stuff,        sizeof(tbl.stuff),        1, Dataf);
     if (!(tbl.str_flags & (STR_ORDERED | STR_RANDOM)) && (!NewDelch))
     {
-	fprintf(stderr, "nothing to do -- table in file order\n");
-	exit(1);
+        fprintf(stderr, "nothing to do -- table in file order\n");
+        exit(1);
     }
     if (NewDelch)
-	Delimch = NewDelch;
+        Delimch = NewDelch;
     else
-	Delimch = tbl.str_delim;
+        Delimch = tbl.str_delim;
     order_unstr(&tbl);
     fclose(Inf);
     fclose(Dataf);

@@ -21,6 +21,7 @@ my %do_not_check =
 
 my @cr_results;
 my @trailing_whitespace_results;
+my @tabs_results;
 while (my $r = $tree->next_obj())
 {
     if ($r->is_file)
@@ -46,21 +47,30 @@ while (my $r = $tree->next_obj())
             {
                 push @trailing_whitespace_results, $fn;
             }
+            elsif ($r->basename =~ /\.[ch]\z/ and $contents =~ /\t/)
+            {
+                push @tabs_results, $fn;
+            }
         }
     }
 }
 
-if (@cr_results or @trailing_whitespace_results)
+if (@cr_results or @trailing_whitespace_results or @tabs_results)
 {
     print "The following files contain carriage returns:\n\n";
-
     foreach my $r (@cr_results)
     {
         print "$r\n";
     }
-    print "The following files contain trailing whitespace:\n\n";
 
+    print "The following files contain trailing whitespace:\n\n";
     foreach my $r (@trailing_whitespace_results)
+    {
+        print "$r\n";
+    }
+
+    print "The following source files contain tabs:\n\n";
+    foreach my $r (@tabs_results)
     {
         print "$r\n";
     }
