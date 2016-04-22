@@ -31,7 +31,7 @@ while (my $r = $tree->next_obj())
             (
                 $r->basename =~ /\A\..*?\.swp\z/
                     or
-                $r->basename =~ /\.(o|dat)\z/
+                $r->basename =~ /\.(o|dat|valgrind-log)\z/
                     or
                 exists($do_not_check{join '/', @{$r->full_components}})
             )

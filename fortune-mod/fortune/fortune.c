@@ -680,6 +680,9 @@ int add_file(int percent, register char *file, char *dir,
 //    fprintf(stderr, "State mal: %s\n", testpath);
     if(stat(testpath, &statbuf) == 0)
         fp->utf8_charset = TRUE;
+
+    free (testpath);
+    testpath = NULL;
 //    fprintf(stderr, "Is utf8?: %i\n", fp->utf8_charset );
 
     fp->parent = parent;
@@ -696,6 +699,8 @@ int add_file(int percent, register char *file, char *dir,
             free(path);
         do_free(fp->datfile);
         do_free(fp->posfile);
+        do_free(fp->name);
+        do_free(fp->path);
         if (fp->fd >= 0) close(fp->fd);
         free(fp);
         return FALSE;
@@ -709,6 +714,8 @@ int add_file(int percent, register char *file, char *dir,
             free(path);
         do_free(fp->datfile);
         do_free(fp->posfile);
+        do_free(fp->name);
+        do_free(fp->path);
         if(fp->fd >= 0) close(fp->fd);
         free(fp);
         return TRUE;
@@ -728,6 +735,12 @@ int add_file(int percent, register char *file, char *dir,
         (*head)->prev = fp;
         fp->next = *head;
         *head = fp;
+    }
+
+    if (was_malloc)
+    {
+        free(path);
+        path = NULL;
     }
 
     return TRUE;
@@ -760,10 +773,13 @@ int add_dir(register FILEDESC * fp)
             continue;
         name = strdup(dirent->d_name);
         if (add_file(NO_PROB, name, fp->path, &fp->child, &tailp, fp))
+        {
             fp->num_children++;
-        else
-            free(name);
+        }
+        free(name);
     }
+    closedir(dir);
+    dir = NULL;
     if (fp->num_children == 0)
     {
         /*
@@ -1642,10 +1658,6 @@ void display(FILEDESC * fp)
             fputs((char *)line, stdout);
     }
     fflush(stdout);
-
-    if(fp->utf8_charset) {
-        recode_delete_request(request);
-    }
 }
 
 /*
@@ -1723,6 +1735,9 @@ int main(int ac, char *av[])
         fortlen();
         sleep((unsigned int) max(Fort_len / CPERS, MINW));
     }
+
+    recode_delete_request(request);
+    recode_delete_outer(outer);
     exit(0);
     /* NOTREACHED */
 }

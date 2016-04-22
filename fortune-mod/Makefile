@@ -112,7 +112,7 @@ fortune-bin:
 fortune-debug:
 	cd fortune && $(MAKE) CC='$(CC)' \
 		    CFLAGS='$(DEBUGCFLAGS) $(REGEXDEFS) -I../util' \
-		    LDFLAGS='$(DEBUGLDFLAGS)' LIBS='$(REGEXLIBS)'
+		    LDFLAGS='$(DEBUGLDFLAGS)' LIBS='$(REGEXLIBS) $(RECODELIBS)'
 
 util-bin:
 	cd util && $(MAKE) CC='$(CC)' CFLAGS='$(CFLAGS)'	\
@@ -187,9 +187,12 @@ datfiles-check: cookies-z
 root-check:
 	perl tests/trailing-space-and-CRs.pl
 
+tap-check:
+	prove tests/t/*.t
+
 check-deps: all
 
-check: check-deps datfiles-check root-check
+check: check-deps datfiles-check root-check tap-check
 
 clean:
 	for i in $(SUBDIRS) ; do (cd $$i && $(MAKE) clean); done
