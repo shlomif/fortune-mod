@@ -4,7 +4,7 @@ i="$1"
 shift
 
 echo -n "Testing "$i" ..."
-if ! tail -n 1 "$i" | grep -q ^%$  ; then
+if ! tail -n 1 "$i" | grep -q '^%$'  ; then
     echo " failed % check"
     echo "Fortune cookie file does not end in a single %"
     exit 1
