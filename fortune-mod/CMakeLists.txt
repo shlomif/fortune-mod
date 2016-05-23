@@ -98,6 +98,21 @@ ADD_EXECUTABLE(
     "fortune/fortune.c"
 )
 
+ADD_EXECUTABLE(
+    "strfile"
+    "util/strfile.c"
+)
+
+ADD_EXECUTABLE(
+    "unstr"
+    "util/unstr.c"
+)
+
+ADD_EXECUTABLE(
+    "rot"
+    "util/rot.c"
+)
+
 TARGET_LINK_LIBRARIES("fortune" "recode")
 INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/util")
 
