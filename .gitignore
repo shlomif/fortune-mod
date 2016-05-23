@@ -1,3 +1,4 @@
+fortune-mod/cmake/Shlomif_Common.cmake
 fortune-mod/datfiles/*.dat
 fortune-mod/datfiles/*.u8
 fortune-mod/datfiles/cookies-stamp
