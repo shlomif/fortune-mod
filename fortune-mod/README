@@ -29,7 +29,7 @@ offensive directories.  This was solved by allowing the user to append
 '-o' to a fortune name while `-a' is in effect to force selection of the
 offensive version of a database.
 
-Other changes/fixes: Fortune is now consistant in how it determines a
+Other changes/fixes: Fortune is now consistent in how it determines a
 fortune's length (for -s and -l).  The -m can now be used together with
 -s or -l: only fortunes which match _BOTH_ the pattern and the length
 requirement will be printed.

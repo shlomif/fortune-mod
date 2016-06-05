@@ -3,7 +3,7 @@ order, which is The Right Thing for ChangeLogs - DLC)
 
 March 05, 2004 (fortune-mod-1.99.1)
 
-	Most of the changes have occured at some point in time in the last
+	Most of the changes have occurred at some point in time in the last
 	5 years.
 
 	A high number of spelling, punctuation, formatting and grammar
@@ -61,10 +61,10 @@ May, 1997
   the test platform.
 
   While the making of this release was not meant to become a bug
-  search-and-destroy mission, some bugs were inadvertantly discovered
+  search-and-destroy mission, some bugs were inadvertently discovered
   and fixed. including the known bug of using -a with a file that occurs
   in both the offensive and inoffensive directories.  Fixing this
-  particular bug required a way to be able to seperately identify two
+  particular bug required a way to be able to separately identify two
   fortune files with the same name, with one in the inoffensive
   directory, the other one in the offensive directory.  Now, such a name
   will be taken to be the inoffensive file by default.  However, you can
@@ -86,7 +86,7 @@ May, 1997
   asking for trouble.
 
   Bug fixed: Fortune's definition of a fortune length (for -s and -l)
-  was inconsistant.  Unordered fortunes counted the 2 delimiting
+  was inconsistent.  Unordered fortunes counted the 2 delimiting
   characters (as hinted in the man page), but sorted or randomized
   fortunes did not.  Now the delimiting characters are _NEVER_ counted,
   so you will always get the length limit you expect.
