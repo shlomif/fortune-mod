@@ -6,7 +6,7 @@
 * netgod notes debian developers are notoriously hard to impress
 %
 <sel> need help: my first packet to my provider gets lost :-(
-<netgod> sel:  dont send the first one, start with #2
+<netgod> sel:  don't send the first one, start with #2
 %
 <james> abuse me.  I'm so lame I sent a bug report to
         debian-devel-changes
@@ -34,7 +34,7 @@ people who do this run into trouble, that's good!  All businesses based
 on non-free software ought to fail, and the sooner the better.
         -- Richard Stallman
 %
-Microsoft DNS service terminates abnormally when it recieves a response
+Microsoft DNS service terminates abnormally when it receives a response
 to a DNS query that was never made.  Fix Information: Run your DNS
 service on a different platform.
         -- BugTraq
@@ -194,7 +194,7 @@ its twenty below?        -- Linus Torvalds
 <dark> "Hey, I'm from this project called Debian... have you heard of it?
        Your name seems to be on a bunch of our stuff."
 %
-"In the event of a percieved failing of the project leadership #debian is
+"In the event of a perceived failing of the project leadership #debian is
 empowered to take drastic and descisive action to correct the failing,
 including by not limited to expelling officials, apointing new officials
 and generally abusing power"
@@ -346,7 +346,7 @@ mass of unskilled consumers?        -- Steve Shorter
 <Flav> no, we're all irregular polygons
 %
 <Culus> OH MY GOD NOT A RANDOM QUOTE GENERATOR
-<netgod> surely you didnt think that was static? how lame would that be? :-)
+<netgod> surely you didn't think that was static? how lame would that be? :-)
 %
 Mere nonexistence is a feeble excuse for declaring a thing unseeable. You
 *can* see dragons.  You just have to look in the right direction.
@@ -595,7 +595,7 @@ Anyone who stands out in the middle of a road looks like roadkill to me.
 * knghtbrd can already envision:  "Subject: [INTENT TO PREPARE TO PROPOSE
    FILING OF BUG REPORT] Typos in the policy document"
 %
-<netgod> heh thats a lost cause, like the correct pronounciation of
+<netgod> heh thats a lost cause, like the correct pronunciation of
          "jewelry"
 <netgod> give it up :-)
 <sage> and the correct spelling of "colour" :)
@@ -658,7 +658,7 @@ Anyone who stands out in the middle of a road looks like roadkill to me.
 %
 <Knghtbrd> Leave it to manoj to call procmail "puny"
 %
-<Crow-> Manoj: well, i cant understand stuff like "s/3#$%^% {]][ @ f245 }"
+<Crow-> Manoj: well, i can't understand stuff like "s/3#$%^% {]][ @ f245 }"
 <Manoj> Crow: That is not quite legal ;-)
 <Knghtbrd> Manoj - how would one make "s/3#$%^% {]][ @ f245 }" legal
            anyway? (and what would it do?  hehe)
@@ -700,7 +700,7 @@ Oh no, not again.
 %
 I am dyslexic of Borg.  Prepare to have your ass laminated.
 %
-<NeonKttn> I had a friend stick me in her closet during highschool beacuse I
+<NeonKttn> I had a friend stick me in her closet during highschool because I
            wouldn't believe that her boyfriend knew about foreplay...
 <NeonKttn> I shoulda brought popcorn. :)
 %
@@ -737,7 +737,7 @@ cold sweat every once in a while if they use binary-only modules.
 * wichert_ imagines master without a MTA
 <james> wichert: ehm?  that might hinder peformance of the BTS :p
 %
-<gecko> Hmm... I wonder what else seperates Debian from the rest of the
+<gecko> Hmm... I wonder what else separates Debian from the rest of the
         Linux distributions.
 <Knghtbrd> gecko - We Don't Suck
 <gecko> Knghtbrd:  you don't say that when addressing a bunch of people
@@ -808,7 +808,7 @@ painful experience... I rather liked it... ;)
 <Knghtbrd> wc - hush.
 <Knghtbrd> =>
 %
-<dpg> americans are wierd....
+<dpg> americans are weird....
 <xtifr> californians even weirder
 <Knghtbrd> xtifr has a point ...
 %
@@ -911,7 +911,7 @@ There Is No Cabal.
 %
 * netgod opens his mailbox and immediately wishes he hadnt
 %
-<frogbert> its hard being a lesbian withoutn breasts...people dont take
+<frogbert> its hard being a lesbian without breasts...people don't take
            you seriously
 %
 Perhaps Debian is concerned more about technical excellence rather than
@@ -1012,7 +1012,7 @@ the /usr/doc to /usr/share/doc transition now, or later.
 * HomeySan waits for the papa john's pizza to show up
 <ravenos> mm. papa john's.
 <HomeySan> hopefully they send the cute delivery driver
-<ravenos> they dont have that here.
+<ravenos> they don't have that here.
 <Dr_Stein> why? you gonna eat the driver instead?
 %
 <netgod> is it me, or is Knghtbrd snoring?
@@ -1139,7 +1139,7 @@ wearing padded gloves.  ;-)
 * joeyh wonders why everyone wants to know how tall he is
 <james> joeyh: it helps the sniper
 %
-* BenC wonders why he has upgraded to 3.3.5-1 before teh X maintainer
+* BenC wonders why he has upgraded to 3.3.5-1 before the X maintainer
 %
 <Delenn> I wouldn't make it through 24 hours before I'd be firing up the
          grill and slapping a few friends on the barbie.
@@ -1459,7 +1459,7 @@ in the car's gas tank, and my bathtub filled with baked beans.
            modularity and madness (ie, libtool)
 %
 <raptor> Adamel, i think the code you fixed of mine didn't work
-<raptor> i must not have commited the working code
+<raptor> i must not have committed the working code
 <Knghtbrd> raptor: like it's the first time THAT has ever happened  =p
 %
 <Mercury> Knghtbrd: Using -3dfx or -svga?
@@ -1663,7 +1663,7 @@ Nothing is a problem once you debug the code.
 %
 <devkev> yeah i saw the lightning gun and where you were going, thinking
          you were gonna kick some ass :)
-<devkev> didnt realise it would be your own :)
+<devkev> didn't realise it would be your own :)
 %
 "Otherwise, please speak to a doctor about removing your head from your
 ass, I believe it would be beneficial to all involved."
@@ -1861,9 +1861,9 @@ universe are pointed away from Earth?
 <Deek> rebelpacket: If you want to accelerate it, throw it harder.
 %
 <netgod> you know
-<netgod> its really sad when the internic itself cant configure DNS
+<netgod> its really sad when the internic itself can't configure DNS
          servers right
-<netgod> it just doesnt get any more pathetic than that
+<netgod> it just doesn't get any more pathetic than that
 %
 <Knghtbrd> Even with overbrights, Quake's color palette is full of dull,
            flat colors
@@ -1892,7 +1892,7 @@ Z.O.I.D.: Zombie Optimized for Infiltration and Destruction
 * joeyh runs dselect
 <Overfiend> that ought to be sufficient :)
 %
-<barneyfu> knghtbrd: crap, SDL sure makes DGA a helluva alot easier too
+<barneyfu> knghtbrd: crap, SDL sure makes DGA a hell of a lot easier too
            doesn't it? :)
 <knghtbrd> barneyfu: what DGA?
 <barneyfu> mouse dga
@@ -1997,7 +1997,7 @@ RFC 882 put the dot in .com, not Sun Microsystems
 %
 <miguel> `You have been unsubscribed from the high energy personal
          protection devices mailing list'
-<miguel> I dont remember getting into the mailing list
+<miguel> I don't remember getting into the mailing list
 %
 <Myth> I'm getting a connection refused when connecting to port 25, anyone
        know where the damn log is?
@@ -2197,7 +2197,7 @@ from their girlfriends
 Unix is mature OS, windows is still in diapers and they smell badly.
         -- Rafael Skodlar <raffi@linwin.com>
 %
-<Midgar> From all the sterotypes about Aussies, I figure you guys are
+<Midgar> From all the stereotypes about Aussies, I figure you guys are
          really tough.
 <Midgar> ;p
 <krusto> we'll throw koala's at you
@@ -2389,7 +2389,7 @@ perpetual motion machines.  Especially on AIX :)."
 %
 <hop_> i had something that i think was chicken that was coated with a red
        paste that seemed to be composed of lye based on how much of my
-       tounge it burned away.
+       tongue it burned away.
 <hop_> our friend who is Indian said this is why most Indians are thin
        and i quote "It doesn't take very much of this food to get you
        satisfied enoguh to stop eating."

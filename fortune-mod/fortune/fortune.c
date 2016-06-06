@@ -64,7 +64,7 @@
  *  + Percent selection of files with -a now works on datafiles which
  *    appear in both unoffensive and offensive directories (see man page
  *    for details)
- *  + The -s and -l options are now more consistant in their
+ *  + The -s and -l options are now more consistent in their
  *    interpretation of fortune length
  *  + The -s and -l options can now be combined wit the -m option
  */

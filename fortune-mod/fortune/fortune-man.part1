@@ -210,7 +210,7 @@ is equivalent to
 This fortune also supports the BSD method of appending ``-o'' to
 database names to specify offensive fortunes.  However this is
 .B not
-how fortune stores them: offensive fortunes are stored in a seperate
+how fortune stores them: offensive fortunes are stored in a separate
 directory without the ``-o'' infix.  A plain name (i.e., not a path to a
 file or directory) that ends in ``-o'' will be assumed to be an
 offensive database, and will have its suffix stripped off and be
