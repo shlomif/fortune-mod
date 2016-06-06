@@ -600,7 +600,7 @@ to some licensed[1] place, and have some pizza."
 
 Linus: "Oh, I did not know that you needed a license to eat pizza".
 
-[1] Licenced - refers in Australia to a restaurant which has government
+[1] Licensed - refers in Australia to a restaurant which has government
 licence to sell liquor.
 	-- Linus at a talk at the Melbourne University
 %
@@ -891,8 +891,8 @@ BTW: I have a better name for the software .... Microsoft Internet
 Exploder.
 	-- George Bonser <grep@cris.com>
 %
-Well, since MS cant be sure of the username of someone downloading
-things, they are going to play it safe and have everything dowloaded
+Well, since MS can't be sure of the username of someone downloading
+things, they are going to play it safe and have everything downloaded
 and executed by Explorer as suid root. That way, it will run on ANY
 system anywhere. :)
 	-- George Bonser <grep@cris.com>
@@ -1118,14 +1118,14 @@ FvwmAuto just appeared one day, nobody knows how.
 <lilo> Fairlight: udp is the light margarine of tcp/ip transport protocols :)
 	-- Seen on #Linux
 %
-i dont even know if it makes sense at all :) This is an experimental patch
+I don't even know if it makes sense at all :) This is an experimental patch
 for an experimental kernel :))
 	-- Ingo Molnar on linux-kernel
 %
 Linux - Das System fuer schlaue Maedchen ;)
 	-- banshee
 %
-If loving linux is wrong, I dont wanna be right.
+If loving linux is wrong, I don't wanna be right.
 	-- Topic for #LinuxGER
 %
 >>> FreeOS is an english-centric name
@@ -1242,7 +1242,7 @@ Why are there always boycotts?  Shouldn't there be girlcotts too?
 	-- argon on #Linux
 %
 <sct> Anyone want the new supermount? :)
-<klogd> whats new aboutit
+<klogd> whats new about it
 <sct> klogd: It cleans whiter than white. :)
 	-- Seen on #Linux
 %
@@ -1309,7 +1309,7 @@ buggy it is.
 > Alan Cox wrote:
 [..]
 
-No I didnt.  Someone else wrote that.  Please keep attributions
+No I didn't.  Someone else wrote that.  Please keep attributions
 straight.
 	-- From linux-kernel
 %
@@ -1462,7 +1462,7 @@ I want to recompile it.
 	-- Unknown source
 %
 <sel> need help: my first packet to my provider gets lost :-(
-<netgod> sel:  dont send the first one, start with #2
+<netgod> sel:  don't send the first one, start with #2
 * netgod is kidding
 %
 These download files are in Microsoft Word 6.0 format. After
@@ -1517,7 +1517,7 @@ I've seen people with new children before, they go from ultra happy to
 looking like something out of a zombie film in about a week.
 	-- Alan Cox about Linus after his 2nd daughter
 %
-I expect that noone has objections.  However, if I'd only add these entries
+I expect that no one has objections.  However, if I'd only add these entries
 to the list because `I think it's the right thing to do', I'd get a lot of
 flames afterwards :)
 	-- Christian Schwarz
@@ -1676,7 +1676,7 @@ positive influence in Redmond.  They did agree to work on their anti-relay
 capabilities at their POPs to get the RBL lifted.
 	-- Bill Campbell on Smail3-users
 %
-Microsoft DNS service terminates abnormally when it recieves a response
+Microsoft DNS service terminates abnormally when it receives a response
 to a DNS query that was never made.  Fix Information: Run your DNS
 service on a different platform.
 	-- bugtraq
