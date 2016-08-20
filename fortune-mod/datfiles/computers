@@ -2119,6 +2119,11 @@ my drift.
 %
 If you have a procedure with 10 parameters, you probably missed some.
 %
+If you put 7 of the most talented open source software developers in a room
+for a week and asked them to fix a bug in a spreadsheet program, in 1 week
+you'd have 2 new mail readers and a text-based web browser.
+    -- via Bram Moolenaar
+%
 If you put tomfoolery into a computer, nothing comes out but tomfoolery.
 But this tomfoolery, having passed through a very expensive machine,
 is somehow enobled and no-one dare criticise it.
