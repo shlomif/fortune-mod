@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.2)
 
 SET (private_mod_path "${CMAKE_SOURCE_DIR}/cmake")
 LIST (APPEND CMAKE_MODULE_PATH "${private_mod_path}")
