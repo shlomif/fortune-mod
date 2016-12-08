@@ -2,7 +2,10 @@ os: linux
 dist: trusty
 before_install:
     - sudo apt-get update -qq
-    - sudo apt-get install -y ack-grep cpanminus gcc libperl-dev librecode-dev perl make valgrind
+    - sudo apt-get install -y ack-grep cmake cpanminus gcc libperl-dev librecode-dev perl make valgrind
     - sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
-    - sudo cpanm File::Find::Object IO::All Test::RunValgrind
-script: "cd fortune-mod/ && make check"
+    - sudo cpanm File::Find::Object IO::All List::MoreUtils Test::RunValgrind
+script:
+    - "mkdir B && cd B && cmake ../fortune-mod && make && make check && cd .."
+    - "rm -fr B"
+    - "cd fortune-mod/ && make check && cd .."
