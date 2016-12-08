@@ -121,9 +121,53 @@ ADD_DEFINITIONS("-DLOCFORTDIR=\"${LOCALDIR}\"")
 ADD_DEFINITIONS("-DOFFDIR=\"${OCOOKIEDIR}\"")
 ADD_DEFINITIONS("-DFORTDIR=\"${COOKIEDIR}\"")
 
+SET (COOKIES
+    art
+    ascii-art
+    computers
+    cookie
+    definitions
+    drugs
+    education
+    ethnic
+    food
+    fortunes
+    goedel
+    humorists
+    kids
+    law
+    linuxcookie
+    literature
+    love
+    magic
+    medicine
+    men-women
+    miscellaneous
+    news
+    people
+    pets
+    platitudes
+    politics
+    riddles
+    science
+    songs-poems
+    sports
+    startrek
+    translate-me
+    wisdom
+    work
+    linux
+    perl
+    knghtbrd
+    paradoxum
+    zippy
+    debian
+)
+
 ADD_SUBDIRECTORY("datfiles")
 
+string (REPLACE ";" " " COOKIES_STR "${COOKIES}")
 ADD_CUSTOM_TARGET(
     "check"
-    "perl" "${CMAKE_SOURCE_DIR}/run-tests.pl" "--src-dir" "${CMAKE_SOURCE_DIR}"
+    "perl" "${CMAKE_SOURCE_DIR}/run-tests.pl" "--src-dir" "${CMAKE_SOURCE_DIR}" "--cookies" "${COOKIES_STR}"
 )
