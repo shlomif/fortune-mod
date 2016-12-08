@@ -185,7 +185,7 @@ datfiles-check: cookies-z
 	cd datfiles && $(DATFILES_MAKE) check
 
 root-check:
-	perl tests/trailing-space-and-CRs.pl
+	SRC_DIR=. perl tests/trailing-space-and-CRs.pl
 
 tap-check:
 	prove tests/t/*.t

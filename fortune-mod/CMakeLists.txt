@@ -122,3 +122,8 @@ ADD_DEFINITIONS("-DOFFDIR=\"${OCOOKIEDIR}\"")
 ADD_DEFINITIONS("-DFORTDIR=\"${COOKIEDIR}\"")
 
 ADD_SUBDIRECTORY("datfiles")
+
+ADD_CUSTOM_TARGET(
+    "check"
+    "perl" "${CMAKE_SOURCE_DIR}/run-tests.pl" "--src-dir" "${CMAKE_SOURCE_DIR}"
+)

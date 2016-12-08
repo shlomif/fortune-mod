@@ -6,7 +6,7 @@ use warnings;
 use File::Find::Object;
 use IO::All qw/ io /;
 
-my $tree = File::Find::Object->new({}, '.');
+my $tree = File::Find::Object->new({}, $ENV{SRC_DIR});
 
 my %do_not_check =
 (
