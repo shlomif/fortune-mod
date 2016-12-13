@@ -93,24 +93,33 @@ SET (OCOOKIEDIR "${COOKIEDIR}/off" CACHE STRING "offensive cookie dir not under 
 
 FIND_PATH( RECODE_H "recode.h")
 
-ADD_EXECUTABLE(
+MACRO(my_exe exe c_file dir)
+    ADD_EXECUTABLE("${exe}" "${c_file}")
+    INSTALL(TARGETS "${exe}" RUNTIME DESTINATION "${dir}")
+ENDMACRO()
+
+my_exe(
     "fortune"
     "fortune/fortune.c"
+    "games"
 )
 
-ADD_EXECUTABLE(
+my_exe(
     "strfile"
     "util/strfile.c"
+    "sbin"
 )
 
-ADD_EXECUTABLE(
+my_exe(
     "unstr"
     "util/unstr.c"
+    "sbin"
 )
 
-ADD_EXECUTABLE(
+my_exe(
     "rot"
     "util/rot.c"
+    "bin"
 )
 
 TARGET_LINK_LIBRARIES("fortune" "recode")
@@ -171,3 +180,5 @@ ADD_CUSTOM_TARGET(
     "check"
     "perl" "${CMAKE_SOURCE_DIR}/run-tests.pl" "--src-dir" "${CMAKE_SOURCE_DIR}" "--cookies" "${COOKIES_STR}"
 )
+
+INCLUDE(CPack)

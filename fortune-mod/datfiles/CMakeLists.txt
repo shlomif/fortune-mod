@@ -33,4 +33,10 @@ FOREACH(c ${COOKIES})
         "${TARGET_NAME}" ALL
         DEPENDS "${c}" "${DEST}" "${LINK}"
     )
+
+    INSTALL(
+        FILES "${c}" "${DEST}" "${LINK}"
+        DESTINATION "share/games/fortunes"
+    )
+
 ENDFOREACH()
