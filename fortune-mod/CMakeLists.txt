@@ -122,6 +122,9 @@ my_exe(
     "bin"
 )
 
+INSTALL_RENAME_MAN("strfile.man" "1" "strfile" "util")
+INSTALL_RENAME_MAN("fortune.6" "6" "fortune" "fortune")
+
 TARGET_LINK_LIBRARIES("fortune" "recode")
 INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/util")
 
