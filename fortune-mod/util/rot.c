@@ -9,17 +9,15 @@
 
 int main(void)
 {
-    char a, b;
+    int a;
 
     while ((a = getchar()) != EOF)
     {
-        if (isupper(a))
-            b = 'A' + (a - 'A' + 13) % 26;
-        else if (islower(a))
-            b = 'a' + (a - 'a' + 13) % 26;
-        else
-            b = a;
-        putchar(b);
+        putchar(
+            isupper(a) ? ('A' + (a - 'A' + 13) % 26)
+            : islower(a) ? ('a' + (a - 'a' + 13) % 26)
+            : a
+        );
     }
     exit(0);
 }
