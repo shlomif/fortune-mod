@@ -87,7 +87,7 @@ SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 SET (WITH_TEST_SUITE CACHE BOOL "")
 SET (LOCALDIR "${CMAKE_INSTALL_PREFIX}/local/share/games/fortunes" CACHE STRING "LOCALDIR fortunes dir")
-SET (LOCALODIR "${LOCALDIR}/off" CACHE STRING "offsensive fortunes localdir")
+SET (LOCALODIR "${LOCALDIR}/off" CACHE STRING "offensive fortunes localdir")
 SET (COOKIEDIR "${CMAKE_INSTALL_PREFIX}/share/games/fortunes" CACHE STRING  "cookie dir not under /usr/local")
 SET (OCOOKIEDIR "${COOKIEDIR}/off" CACHE STRING "offensive cookie dir not under /usr/local")
 
