@@ -36,7 +36,7 @@ install:
 	install -m 0755 -d $(OCOOKIEDIR)
 	for i in $(OCOOKIES) ; \
 	    do install -m 0644 rotated/$$i rotated/$$i.dat $(OCOOKIEDIR) || exit $$? ; \
-	    cp -d $$i.u8 $(OCOOKIEDIR) ; \
+	    cp -d rotated/$$i.u8 $(OCOOKIEDIR) ; \
 	done
 
 clean:
