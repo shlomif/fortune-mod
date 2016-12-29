@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 
+use File::Spec ();
 use Getopt::Long qw/ GetOptions /;
 
 my $src_dir;
@@ -17,7 +18,7 @@ if (!defined $src_dir)
     die "--src-dir was not defined";
 }
 
-local $ENV{SRC_DIR} = $src_dir;
+local $ENV{SRC_DIR} = File::Spec->rel2abs($src_dir);
 local $ENV{COOKIES} = $cookies_list_str;
 
 sub do_system
