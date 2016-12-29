@@ -22,7 +22,7 @@ ocookies-stamp:	rotated-stamp
 
 rotated-stamp:
 	for i in $(OCOOKIES_UNROTATED) ; \
-	    do $(ROT) < unrotated/$$i > rotated/$$i || exit $$? ; (cd rotated && ln -s $$i $$i.u8) ; done
+	    do $(ROT) < unrotated/$$i > rotated/$$i || exit $$? ; (cd rotated && ln -sf $$i $$i.u8) ; done
 	touch rotated-stamp
 
 check: all

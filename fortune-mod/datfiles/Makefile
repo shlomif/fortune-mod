@@ -41,7 +41,7 @@ cookies-stamp:
 	for i in $(COOKIES) ; \
 	    do \
 		$(STRFILE) $$i ; \
-		ln -s $$i $$i.u8 || exit $? ; \
+		ln -sf $$i $$i.u8 || exit $? ; \
 	    done
 	touch cookies-stamp
 
