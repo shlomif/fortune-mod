@@ -48,7 +48,7 @@ as the tag <code>fortune-mod-1.99.1</code>.
 
 3. Converted the source files to UTF-8.
 
-4. Added a rudimentary "make check" target.
+4. Added some tests.
 
 5. Removed trailing whitespace.
 
@@ -58,18 +58,14 @@ as the tag <code>fortune-mod-1.99.1</code>.
 
 8. Added [Travis-CI](https://travis-ci.org/) support.
 
+9. Converted the build system to [CMake](https://en.wikipedia.org/wiki/CMake) .
+
+10. Added valgrind tests - currently skipped due to lib-recode being buggy.
+
 # What remains to be done.
 
 1. See if there are any downstream patches to apply.
 
-2. Add valgrind tests.
+2. Release fortune-mod-1.99.2.
 
-3. Add other tests.
-
-4. Release fortune-mod-1.99.2.
-
-5. Fix more typos (reports/pull-requests are welcome.)
-
-6. Consider converting the build system to
-[CMake](https://en.wikipedia.org/wiki/CMake) or a different build system.
-
+3. Fix more typos (reports/pull-requests are welcome.)
