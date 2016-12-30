@@ -112,10 +112,8 @@ char NewDelch = '\0';           /* a replacement delimiter character */
 FILE *Inf, *Dataf, *Outf;
 
 /* ARGSUSED */
-void getargs(int ac, char *av[])
+static void getargs(int ac, char *av[])
 {
-    extern int optind;
-    extern char *optarg;
     char *extc;
     int ch;
 
@@ -171,8 +169,7 @@ void getargs(int ac, char *av[])
     }
 }
 
-void order_unstr(tbl)
-     register STRFILE *tbl;
+static void order_unstr(register STRFILE *tbl)
 {
     register int i;
     register char *sp;

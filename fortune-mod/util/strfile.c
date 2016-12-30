@@ -79,6 +79,7 @@
 #include        <stdio.h>
 #include        <ctype.h>
 #include        <string.h>
+#include        <time.h>
 #include        "strfile.h"
 
 #ifndef MAXPATHLEN
@@ -158,7 +159,7 @@ STRFILE Tbl;                    /* statistics table */
 
 STR *Firstch;                   /* first chars of each string */
 
-void usage(void)
+static void usage(void)
 {
     fprintf(stderr,
             "strfile [-iorsx] [-c char] sourcefile [datafile]\n");
@@ -168,10 +169,8 @@ void usage(void)
 /*
  *    This routine evaluates arguments from the command line
  */
-void getargs(int argc, char **argv)
+static void getargs(int argc, char **argv)
 {
-    extern char *optarg;
-    extern int optind;
     int ch;
 
     while ((ch = getopt(argc, argv, "c:iorsx")) != EOF)
@@ -228,7 +227,7 @@ void getargs(int argc, char **argv)
  * add_offset:
  *      Add an offset to the list, or write it out, as appropriate.
  */
-void add_offset(FILE * fp, int32_t off)
+static void add_offset(FILE * fp, int32_t off)
 {
     int32_t net;
 
@@ -249,7 +248,7 @@ void add_offset(FILE * fp, int32_t off)
  * fix_last_offset:
  *     Used when we have two separators in a row.
  */
-void fix_last_offset(FILE * fp, int32_t off)
+static void fix_last_offset(FILE * fp, int32_t off)
 {
     int32_t net;
 
@@ -267,17 +266,17 @@ void fix_last_offset(FILE * fp, int32_t off)
  * cmp_str:
  *      Compare two strings in the file
  */
-int cmp_str(const void *v1, const void *v2)
+static int cmp_str(const void *v1, const void *v2)
 {
     register int c1, c2;
     register int n1, n2;
-    register STR *p1, *p2;
+    register const STR *p1, *p2;
 
 #define SET_N(nf,ch)    (nf = (ch == '\n'))
 #define IS_END(ch,nf)   (ch == Delimch && nf)
 
-    p1 = (STR *) v1;
-    p2 = (STR *) v2;
+    p1 = (const STR *) v1;
+    p2 = (const STR *) v2;
     c1 = p1->first;
     c2 = p2->first;
     if (c1 != c2)
@@ -320,7 +319,7 @@ int cmp_str(const void *v1, const void *v2)
  * do_order:
  *      Order the strings alphabetically (possibly ignoring case).
  */
-void
+static void
   do_order(void)
 {
     register long i;
@@ -343,7 +342,8 @@ void
     Tbl.str_flags |= STR_ORDERED;
 }
 
-char *
+#if 0
+static char *
   unctrl(char c)
 {
     static char buf[3];
@@ -365,6 +365,7 @@ char *
     }
     return buf;
 }
+#endif
 
 /*
  * randomize:
@@ -372,12 +373,11 @@ char *
  *      not to randomize across delimiter boundaries.  All
  *      randomization is done within each block.
  */
-void randomize(void)
+static void randomize(void)
 {
     register int cnt, i;
     register int32_t tmp;
     register int32_t *sp;
-    extern time_t time(time_t *);
 
     srandom((int) (time((time_t *) NULL) + getpid()));
 

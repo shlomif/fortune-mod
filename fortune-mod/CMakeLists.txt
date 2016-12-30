@@ -91,6 +91,8 @@ SET (LOCALODIR "${LOCALDIR}/off" CACHE STRING "offensive fortunes localdir")
 SET (COOKIEDIR "${CMAKE_INSTALL_PREFIX}/share/games/fortunes" CACHE STRING  "cookie dir not under /usr/local")
 SET (OCOOKIEDIR "${COOKIEDIR}/off" CACHE STRING "offensive cookie dir not under /usr/local")
 
+SHLOMIF_ADD_COMMON_C_FLAGS()
+
 FIND_PATH( RECODE_H "recode.h")
 
 MACRO(my_exe exe c_file dir)
