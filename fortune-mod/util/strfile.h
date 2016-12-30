@@ -43,14 +43,14 @@
 
 typedef struct {                /* information table */
 #define VERSION     2
-    u_int32_t   str_version;        /* version number */
-    u_int32_t   str_numstr;     /* # of strings in the file */
-    u_int32_t   str_longlen;        /* length of longest string */
-    u_int32_t   str_shortlen;       /* length of shortest string */
+    uint32_t   str_version;        /* version number */
+    uint32_t   str_numstr;     /* # of strings in the file */
+    uint32_t   str_longlen;        /* length of longest string */
+    uint32_t   str_shortlen;       /* length of shortest string */
 #define STR_RANDOM  0x1         /* randomized pointers */
 #define STR_ORDERED 0x2         /* ordered pointers */
 #define STR_ROTATED 0x4         /* rot-13'd text */
-    u_int32_t   str_flags;      /* bit field for flags */
-    u_int8_t    stuff[4];       /* long aligned space */
+    uint32_t   str_flags;      /* bit field for flags */
+    uint8_t    stuff[4];       /* long aligned space */
 #define str_delim   stuff[0]        /* delimiting character */
 } STRFILE;
