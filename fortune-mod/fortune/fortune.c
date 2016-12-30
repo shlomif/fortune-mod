@@ -990,7 +990,7 @@ int form_file_list(register char **files, register int file_cnt)
           if (!ret)
             ret=add_file(percent, fullpathname, NULL, &File_list,
                          &File_tail, NULL);
-          if ( (!ret && fullpathname != locpathname) || strcmp(sp, "all") == 0 )
+          if ( !ret && strncmp(fullpathname, locpathname, sizeof(fullpathname)))
             ret=add_file(percent, locpathname, NULL, &File_list,
                          &File_tail, NULL);
 
@@ -1001,7 +1001,8 @@ int form_file_list(register char **files, register int file_cnt)
           }
           if (!ret)
             return FALSE;
-
+            if (strncmp(fullpathname, locpathname, sizeof(fullpathname)) && strcmp(sp, "all") == 0)
+                        add_file(percent, locpathname, NULL, &File_list, &File_tail, NULL);
         }
         else
           if (!add_file(percent, fullpathname, NULL, &File_list,
