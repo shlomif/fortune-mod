@@ -3,8 +3,11 @@
 use strict;
 use warnings;
 
-use File::Find::Object;
+use File::Find::Object ();
 use IO::All qw/ io /;
+use Test::More tests => 3;
+use Test::Differences (qw( eq_or_diff ));
+
 
 my $tree = File::Find::Object->new({}, $ENV{SRC_DIR});
 
@@ -55,32 +58,12 @@ while (my $r = $tree->next_obj())
     }
 }
 
-if (@cr_results or @trailing_whitespace_results or @tabs_results)
-{
-    print "The following files contain carriage returns:\n\n";
-    foreach my $r (@cr_results)
-    {
-        print "$r\n";
-    }
-
-    print "The following files contain trailing whitespace:\n\n";
-    foreach my $r (@trailing_whitespace_results)
-    {
-        print "$r\n";
-    }
-
-    print "The following source files contain tabs:\n\n";
-    foreach my $r (@tabs_results)
-    {
-        print "$r\n";
-    }
-    exit(-1);
-}
-else
-{
-    print "CR/trailing space sanity is OK.\n";
-    exit(0);
-}
+# TEST
+eq_or_diff(\@cr_results, [], "Files containing carriage returns.");
+# TEST
+eq_or_diff(\@trailing_whitespace_results, [], "Files containing trailing whitespace.");
+# TEST
+eq_or_diff(\@tabs_results, [], "Source files containing tabs.");
 
 __END__
 

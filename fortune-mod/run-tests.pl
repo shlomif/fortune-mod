@@ -32,5 +32,11 @@ sub do_system
         die "Running [@$cmd] failed!";
     }
 }
-do_system({cmd => [$^X , "$src_dir/tests/trailing-space-and-CRs.pl"]});
+
+# Cancelling because it's now part of the prove-based tests.
+if (0)
+{
+    do_system({cmd => [$^X , "$src_dir/tests/trailing-space-and-CRs.pl"]});
+}
+
 do_system({cmd => ['prove', glob("$src_dir/tests/t/*.t")]});
