@@ -15,6 +15,11 @@ organization for it and move the sources there.
 For more information about it you can contact
 [Shlomi Fish](http://www.shlomifish.org/) .
 
+## Release Tarballs
+
+Release tarballs can be found at [this directory](http://www.shlomifish.org/open-source/projects/fortune-mod/arcs/)
+for now.
+
 ## Sample usage
 
 ```
