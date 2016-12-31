@@ -1,3 +1,4 @@
+SET (_strfile  "${CMAKE_CURRENT_BINARY_DIR}/../strfile")
 FOREACH(c ${COOKIES})
     SET(TARGET_NAME "cookie__${c}")
     SET(DEST "${c}.dat")
@@ -16,9 +17,9 @@ FOREACH(c ${COOKIES})
     )
     ADD_CUSTOM_COMMAND(
         OUTPUT "${DEST}"
-        COMMAND "${CMAKE_CURRENT_BINARY_DIR}/../strfile"
+        COMMAND "${_strfile}"
         ARGS "${SOURCE}" "${DEST}"
-        DEPENDS "${SOURCE}"
+        DEPENDS "${SOURCE}" "${_strfile}"
     )
 
     SET(LINK "${c}.u8")
