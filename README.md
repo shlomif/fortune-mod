@@ -67,10 +67,12 @@ as the tag <code>fortune-mod-1.99.1</code>.
 
 10. Added valgrind tests - currently skipped due to lib-recode being buggy.
 
+11. Released fortune-mod-1.99.3 and fortune-mod-1.99.4.
+
 # What remains to be done.
 
 1. See if there are any downstream patches to apply.
 
-2. Release fortune-mod-1.99.2.
+2. Fix more typos (reports/pull-requests are welcome.)
 
-3. Fix more typos (reports/pull-requests are welcome.)
+3. Release fortune-mod-2.0.0.
