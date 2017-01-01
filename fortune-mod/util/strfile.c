@@ -115,7 +115,6 @@
  *
  */
 
-#define TRUE    1
 #define FALSE   0
 
 #define STORING_PTRS    (Oflag || Rflag)
@@ -140,26 +139,26 @@ typedef struct
 }
 STR;
 
-char *Infile = NULL,            /* input file name */
+static char *Infile = NULL,            /* input file name */
   Outfile[MAXPATHLEN] = "",     /* output file name */
   Delimch = '%';                /* delimiting character */
 
-int Sflag = FALSE;              /* silent run flag */
-int Oflag = FALSE;              /* ordering flag */
-int Iflag = FALSE;              /* ignore case flag */
-int Rflag = FALSE;              /* randomize order flag */
-int Xflag = FALSE;              /* set rotated bit */
-long Num_pts = 0;               /* number of pointers/strings */
+static int Sflag = FALSE;              /* silent run flag */
+static int Oflag = FALSE;              /* ordering flag */
+static int Iflag = FALSE;              /* ignore case flag */
+static int Rflag = FALSE;              /* randomize order flag */
+static int Xflag = FALSE;              /* set rotated bit */
+static long Num_pts = 0;               /* number of pointers/strings */
 
-int32_t *Seekpts;
+static int32_t *Seekpts;
 
-FILE *Sort_1, *Sort_2;          /* pointers for sorting */
+static FILE *Sort_1, *Sort_2;          /* pointers for sorting */
 
-STRFILE Tbl;                    /* statistics table */
+static STRFILE Tbl;                    /* statistics table */
 
-STR *Firstch;                   /* first chars of each string */
+static STR *Firstch;                   /* first chars of each string */
 
-static void usage(void)
+static void __attribute__((noreturn)) usage(void)
 {
     fprintf(stderr,
             "strfile [-iorsx] [-c char] sourcefile [datafile]\n");
@@ -229,11 +228,10 @@ static void getargs(int argc, char **argv)
  */
 static void add_offset(FILE * fp, int32_t off)
 {
-    int32_t net;
-
     if (!STORING_PTRS)
     {
-        net = htonl(off);
+        uint32_t net;
+        net = htonl((uint32_t)off);
         fwrite(&net, 1, sizeof net, fp);
     }
     else
@@ -250,12 +248,10 @@ static void add_offset(FILE * fp, int32_t off)
  */
 static void fix_last_offset(FILE * fp, int32_t off)
 {
-    int32_t net;
-
     if (!STORING_PTRS)
     {
-        net = htonl(off);
-        fseek(fp, -(sizeof net), SEEK_CUR);
+        uint32_t net = htonl((uint32_t)off);
+        fseek(fp, -(long)(sizeof net), SEEK_CUR);
         fwrite(&net, 1, sizeof net, fp);
     }
     else
@@ -328,7 +324,7 @@ static void
 
     Sort_1 = fopen(Infile, "r");
     Sort_2 = fopen(Infile, "r");
-    qsort((char *) Firstch, (int) Num_pts - 1, sizeof *Firstch, cmp_str);
+    qsort((char *) Firstch, (size_t)( (int) Num_pts - 1), sizeof *Firstch, cmp_str);
 /*      i = Tbl.str_numstr;
  * Fucking brilliant.  Tbl.str_numstr was initialized to zero, and is still zero
  */
@@ -379,13 +375,13 @@ static void randomize(void)
     register int32_t tmp;
     register int32_t *sp;
 
-    srandom((int) (time((time_t *) NULL) + getpid()));
+    srandom((unsigned int) (time((time_t *) NULL) + getpid()));
 
     Tbl.str_flags |= STR_RANDOM;
 /*      cnt = Tbl.str_numstr;
  * See comment above.  Isn't this stuff distributed worldwide?  How embarrassing!
  */
-    cnt = Num_pts;
+    cnt = (int)Num_pts;
 
     /*
      * move things around randomly
@@ -440,18 +436,18 @@ int main(int ac, char **av)
 
     Tbl.str_longlen = 0;
     Tbl.str_shortlen = (unsigned int) 0xffffffff;
-    Tbl.str_delim = Delimch;
+    Tbl.str_delim = (uint8_t)Delimch;
     Tbl.str_version = VERSION;
     first = Oflag;
-    add_offset(outf, ftell(inf));
+    add_offset(outf, (int32_t)ftell(inf));
     last_off = 0;
     do
     {
         sp = fgets(string, 256, inf);
         if (sp == NULL || STR_ENDSTRING(sp, Tbl))
         {
-            pos = ftell(inf);
-            length = pos - last_off - (sp ? strlen(sp) : 0);
+            pos = (int32_t)ftell(inf);
+            length = pos - last_off - (int32_t)(sp ? strlen(sp) : 0);
             if (!length)
                 /* Here's where we go back and fix things, if the
                  * 'fortune' just read was the null string.
@@ -466,10 +462,10 @@ int main(int ac, char **av)
             }
             last_off = pos;
             add_offset(outf, pos);
-            if (Tbl.str_longlen < length)
-                Tbl.str_longlen = length;
-            if (Tbl.str_shortlen > length)
-                Tbl.str_shortlen = length;
+            if ((int)Tbl.str_longlen < length)
+                Tbl.str_longlen = (uint32_t)length;
+            if ((int)Tbl.str_shortlen > length)
+                Tbl.str_shortlen = (uint32_t)length;
             first = Oflag;
         }
         else if (first)
@@ -479,7 +475,7 @@ int main(int ac, char **av)
             ALLOC(Firstch, Num_pts);
             fp = &Firstch[Num_pts - 1];
             if (Iflag && isupper(*nsp))
-                fp->first = tolower(*nsp);
+                fp->first = (char)tolower(*nsp);
             else
                 fp->first = *nsp;
             fp->pos = Seekpts[Num_pts - 1];
@@ -522,7 +518,7 @@ int main(int ac, char **av)
 
     fseek(outf, (off_t) 0, 0);
     Tbl.str_version = htonl(Tbl.str_version);
-    Tbl.str_numstr = htonl(Num_pts - 1);
+    Tbl.str_numstr = htonl((uint32_t)(Num_pts - 1));
     /* Look, Ma!  After using the variable three times, let's store
      * something in it!
      */
@@ -537,9 +533,9 @@ int main(int ac, char **av)
     fwrite( Tbl.stuff,        sizeof Tbl.stuff,        1, outf);
     if (STORING_PTRS)
     {
-        for (p = Seekpts, cnt = Num_pts; cnt--; ++p)
+        for (p = Seekpts, cnt = (int)Num_pts; cnt--; ++p)
         {
-            *p = htonl(*p);
+            *p = (int32_t)htonl((uint32_t)*p);
             fwrite(p, sizeof *p, 1, outf);
         }
     }

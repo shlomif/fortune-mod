@@ -102,14 +102,14 @@ static char sccsid[] = "@(#)unstr.c     8.1 (Berkeley) 5/31/93";
 #define MAXPATHLEN      1024
 #endif /* MAXPATHLEN */
 
-char *Infile,                   /* name of input file */
+static char *Infile,                   /* name of input file */
   Datafile[MAXPATHLEN],         /* name of data file */
   Delimch,                      /* delimiter character */
   Outfile[MAXPATHLEN];
 
-char NewDelch = '\0';           /* a replacement delimiter character */
+static char NewDelch = '\0';           /* a replacement delimiter character */
 
-FILE *Inf, *Dataf, *Outf;
+static FILE *Inf, *Dataf, *Outf;
 
 /* ARGSUSED */
 static void getargs(int ac, char *av[])
@@ -171,7 +171,7 @@ static void getargs(int ac, char *av[])
 
 static void order_unstr(register STRFILE *tbl)
 {
-    register int i;
+    register uint32_t i;
     register char *sp;
     auto int32_t pos;
     char buf[BUFSIZ];
@@ -180,7 +180,7 @@ static void order_unstr(register STRFILE *tbl)
     for (i = 0; i <= tbl->str_numstr; i++)
     {
         fread((char *) &pos, 1, sizeof pos, Dataf);
-        fseek(Inf, ntohl(pos), 0);
+        fseek(Inf, ntohl((uint32_t)pos), 0);
         printedsome = 0;
         for (;;)
         {
@@ -236,7 +236,7 @@ int main(int ac, char **av)
     if (NewDelch)
         Delimch = NewDelch;
     else
-        Delimch = tbl.str_delim;
+        Delimch = (char)tbl.str_delim;
     order_unstr(&tbl);
     fclose(Inf);
     fclose(Dataf);
