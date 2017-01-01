@@ -69,6 +69,9 @@ as the tag <code>fortune-mod-1.99.1</code>.
 
 11. Released fortune-mod-1.99.3 and fortune-mod-1.99.4.
 
+12. Fixed some C compiler warnings encountered with the GCC compiler flags of
+[Shlomif_Common](https://bitbucket.org/shlomif/shlomif-cmake-modules/overview).
+
 # What remains to be done.
 
 1. See if there are any downstream patches to apply.
@@ -76,3 +79,8 @@ as the tag <code>fortune-mod-1.99.1</code>.
 2. Fix more typos (reports/pull-requests are welcome.)
 
 3. Release fortune-mod-2.0.0.
+
+4. Fix as many “clang -Weverything” as possible.
+
+5. Perhaps modernize the code a little.
+
