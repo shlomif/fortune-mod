@@ -51,7 +51,7 @@ install: cookies-stamp
 	if [ $(WEB) = 1 ] ; then cd html && $(MAKE) install ; fi
 	for i in $(COOKIES) ; do \
 		install -m 0644 $$i $$i.dat $(COOKIEDIR) || exit $? ; \
-		cp -d $$i.u8 $(COOKIEDIR) ; \
+		cp -P $$i.u8 $(COOKIEDIR) ; \
 		done
 
 clean:

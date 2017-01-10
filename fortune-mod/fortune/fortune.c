@@ -97,7 +97,7 @@ static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
 #endif /* killing warnings */
 
 #define         PROGRAM_NAME            "fortune-mod"
-#define         PROGRAM_VERSION         "9708"
+#define         PROGRAM_VERSION         "1.99.4"
 
 #include <stdbool.h>
 
@@ -1678,8 +1678,14 @@ int main(int ac, char *av[])
 
     setlocale(LC_ALL,"");
     ctype = nl_langinfo(CODESET);
-    if(strcmp(ctype,"ANSI_X3.4-1968") == 0)
+    if (!ctype || !*ctype)
+    {
+        ctype = "C";
+    }
+    else if(strcmp(ctype,"ANSI_X3.4-1968") == 0)
+    {
         ctype="ISO-8859-1";
+    }
 
     crequest = malloc(strlen(ctype) + 7 + 1);
     sprintf(crequest, "UTF-8..%s", ctype);
