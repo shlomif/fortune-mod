@@ -125,6 +125,25 @@ my_exe(
     "bin"
 )
 
+SET (_my_man_page "${CMAKE_CURRENT_SOURCE_DIR}/fortune/fortune.6")
+SET (_my_man_gen "${CMAKE_CURRENT_SOURCE_DIR}/fortune/gen-fortune-man-page.pl")
+SET (_my_args)
+LIST(APPEND _my_args "--cookiedir" "${COOKIEDIR}" "--ocookiedir" "${OCOOKIEDIR}" "--output" "${_my_man_page}")
+IF ("${NO_OFFENSIVE}")
+    LIST(APPEND _my_args "--without-offensive")
+ENDIF()
+
+ADD_CUSTOM_COMMAND(
+    OUTPUT "${_my_man_page}"
+    COMMAND "${PERL_EXECUTABLE}"
+    ARGS "${_my_man_gen}" ${_my_args}
+    DEPENDS "${_my_man_gen}"
+)
+
+ADD_CUSTOM_TARGET(
+    generate_man_page
+    ALL DEPENDS "${_my_man_page}"
+)
 INSTALL_RENAME_MAN("strfile.man" "1" "strfile" "util")
 INSTALL_RENAME_MAN("fortune.6" "6" "fortune" "fortune")
 
