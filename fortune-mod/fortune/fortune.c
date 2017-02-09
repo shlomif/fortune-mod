@@ -253,7 +253,11 @@ static void __attribute__((noreturn)) usage(void)
 #ifndef NO_REGEX
     (void) fprintf(stderr, "i");
 #endif /* NO_REGEX */
-    (void) fprintf(stderr, "losw]");
+    (void) fprintf(stderr, "l");
+#ifndef NO_OFFENSIVE
+    (void) fprintf(stderr, "o");
+#endif
+    (void) fprintf(stderr, "sw]");
 #ifndef NO_REGEX
     (void) fprintf(stderr, " [-m pattern]");
 #endif /* NO_REGEX */
@@ -1005,10 +1009,18 @@ static void getargs(int argc, char **argv)
     ignore_case = FALSE;
 
 #ifdef DEBUG
-    while ((ch = getopt(argc, argv, "acDefilm:n:osvw")) != EOF)
+#define DEBUG_GETOPT "D"
 #else
-    while ((ch = getopt(argc, argv, "acefilm:n:osvw")) != EOF)
-#endif /* DEBUG */
+#define DEBUG_GETOPT
+#endif
+
+#ifdef NO_OFFENSIVE
+#define OFFENSIVE_GETOPT
+#else
+#define OFFENSIVE_GETOPT "o"
+#endif
+
+    while ((ch = getopt(argc, argv, "ac" DEBUG_GETOPT "efilm:n:" OFFENSIVE_GETOPT "svw")) != EOF)
         switch (ch)
           {
           case 'a':             /* any fortune */
@@ -1032,9 +1044,11 @@ static void getargs(int argc, char **argv)
           case 'n':
               SLEN = atoi(optarg);
               break;
+#ifndef NO_OFFENSIVE
           case 'o':             /* offensive ones only */
               Offend++;
               break;
+#endif
           case 's':             /* short ones only */
               Short_only++;
               Long_only = FALSE;
