@@ -12,7 +12,7 @@ The canonical repository for the time being is:
 https://github.com/shlomif/fortune-mod . In the future, we may create a GitHub
 organization for it and move the sources there.
 
-For more information about it you can contact
+For more information about it, you can contact
 [Shlomi Fish](http://www.shlomifish.org/) .
 
 ## Release Tarballs
@@ -72,11 +72,14 @@ as the tag <code>fortune-mod-1.99.1</code>.
 12. Fixed some C compiler warnings encountered with the GCC compiler flags of
 [Shlomif_Common](https://bitbucket.org/shlomif/shlomif-cmake-modules/overview).
 
+13. Added a build-time option to remove the “-o” (= “offensive”) flag, inspired
+by a set of patches on the Fedora package.
+
 # What remains to be done.
 
 1. See if there are any downstream patches to apply.
 
-2. Fix more typos (reports/pull-requests are welcome.)
+2. Fix more typos (reports and pull-requests are welcome.)
 
 3. Release fortune-mod-2.0.0.
 
@@ -84,3 +87,9 @@ as the tag <code>fortune-mod-1.99.1</code>.
 
 5. Perhaps modernize the code a little.
 
+# Links
+
+* [Shlomi Fish’s Fortune Cookie Files](http://www.shlomifish.org/humour/fortunes/) - on his site, containing links to many other collections of fortune cookies.
+* [XML-Grammar-Fortune](http://web-cpan.shlomifish.org/modules/XML-Grammar-Fortune/) - an XML grammar for collections of quotes, allowing one to generate XHTML or plaintext.
+* [Anvari.org’s web interface to fortune](http://www.anvari.org/fortune/) - with
+many collections.
