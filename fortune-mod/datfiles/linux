@@ -945,13 +945,13 @@ You: It allows you to modify you settings, for networking,
 User: Whoa! Layman's terms, please!
 You:  It changes stuff.
 User: That's what I'm looking for!  What can it change?
-You:  This part change IP forwarding.  It allows ...
+You:  This part changes IP forwarding.  It allows ...
 User: Simplify, simplify!  What can it do for ME?
 You:  Nothing, until you understand it.
 User: Well it makes me uncomfortable.  It looks so technical;
       Get rid of it, I want a system *I* can understand.
 You:  But...
-User: Hey, who's system is this anyway?
+User: Hey, whose system is this anyway?
 You:  (... rm this, rm that, rm /etc/* ...) "All done."
 	-- Kevin M. Bealer <kmb203@psu.edu>
 %
@@ -964,7 +964,7 @@ too long Im going to release a 2.0.24unoff and he can sound off all
 he likes.
 	-- Alan Cox
 %
-All the existing 2.0.x kernels are to buggy for 2.1.x to be the
+All the existing 2.0.x kernels are too buggy for 2.1.x to be the
 main goal.
 	-- Alan Cox
 %
