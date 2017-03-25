@@ -1,6 +1,27 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+March 25, 2017 (fortune-mod-1.99.5)
+
+	Add a new cmake-based configuratio/build/install system.
+
+	Converted the source files to UTF-8.
+
+	Added automated tests.
+
+	Removed trailing whitespace.
+
+	Reformatted long (> 80 chars) lines.
+
+	Fixed many typos.
+
+	Fixed some compiler warnings.
+
+	Added a build-time option to remove the “-o” (= “offensive”) flag.
+
+	Incorporated some downstream patches from Linux distributions.
+
+
 March 05, 2004 (fortune-mod-1.99.1)
 
 	Most of the changes have occurred at some point in time in the last
