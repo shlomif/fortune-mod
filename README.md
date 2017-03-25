@@ -83,7 +83,7 @@ by a set of patches on the Fedora package.
 
 3. Release fortune-mod-2.0.0.
 
-4. Fix as many “clang -Weverything” as possible.
+4. Fix as many “clang -Weverything” warnings as possible.
 
 5. Perhaps modernize the code a little.
 
