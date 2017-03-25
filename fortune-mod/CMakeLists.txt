@@ -211,6 +211,34 @@ SET (COOKIES
     debian
 )
 
+SET (OFFENSIVE_COOKIES
+    art
+    astrology
+    atheism
+    black-humor
+    cookie
+    debian
+    definitions
+    drugs
+    ethnic
+    fortunes
+    hphobia
+    limerick
+    linux
+    misandry
+    miscellaneous
+    misogyny
+    politics
+    privates
+    racism
+    religion
+    riddles
+    sex
+    songs-poems
+    vulgarity
+    zippy
+)
+
 ADD_SUBDIRECTORY("datfiles")
 
 string (REPLACE ";" " " COOKIES_STR "${COOKIES}")
