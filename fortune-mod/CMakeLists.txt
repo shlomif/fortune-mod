@@ -94,7 +94,12 @@ SET (OCOOKIEDIR "${COOKIEDIR}/off" CACHE STRING "offensive cookie dir not under 
 
 SHLOMIF_ADD_COMMON_C_FLAGS()
 
-FIND_PATH( RECODE_H "recode.h")
+INCLUDE(CheckIncludeFile)
+SET(_r "stdbool.h" "stdio.h" "recode.h")
+CHECK_INCLUDE_FILES("${_r}" HAVE_RECODE_H)
+IF (NOT "${HAVE_RECODE_H}")
+    MESSAGE(FATAL_ERROR "Cannot find recode.h anywhere - please install lib recode")
+ENDIF ()
 
 MACRO(my_exe exe c_file dir)
     ADD_EXECUTABLE("${exe}" "${c_file}")
@@ -159,7 +164,6 @@ IF ("${NO_OFFENSIVE}")
     ADD_DEFINITIONS("-DNO_OFFENSIVE=1")
 ENDIF()
 
-INCLUDE(CheckIncludeFile)
 CHECK_INCLUDE_FILE("regex.h" HAVE_REGEX_H)
 
 IF ("${HAVE_REGEX_H}")
