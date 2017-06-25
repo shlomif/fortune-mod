@@ -26,7 +26,7 @@ FOREACH(c ${COOKIES})
     ADD_CUSTOM_COMMAND(
         OUTPUT "${LINK}"
         COMMAND "ln"
-        ARGS "-s" "${c}" "${LINK}"
+        ARGS "-sf" "${c}" "${LINK}"
         DEPENDS "${c}"
     )
 
