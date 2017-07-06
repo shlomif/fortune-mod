@@ -175,6 +175,8 @@ typedef struct fd
 }
 FILEDESC;
 
+static char * env_lang;
+
 static bool Found_one;                 /* did we find a match? */
 static bool Find_files = FALSE;        /* just find a list of proper fortune files */
 static bool Wait = FALSE;              /* wait desired after fortune */
@@ -603,19 +605,15 @@ static int add_file(int percent, register const char *file, const char *dir,
         }
         if (!found && parent == NULL && dir == NULL)
         { /* don't display an error when trying language specific files */
-          char *lang;
-
-          lang=getenv("LC_ALL");
-          if (!lang) lang=getenv("LC_MESSAGES");
-          if (!lang) lang=getenv("LANGUAGE");
-          if (!lang) lang=getenv("LANG");
-          if (lang) {
+          if (env_lang) {
+            char *lang;
             char llang[512];
             char langdir[512];
             int ret=0;
             char *p;
 
-            strncpy(llang,lang,sizeof(llang));
+            strncpy(llang,env_lang,sizeof(llang));
+            llang[sizeof(llang)-1] = '\0';
             lang=llang;
 
             /* the language string can be like "es:fr_BE:ga" */
@@ -808,18 +806,14 @@ static int form_file_list(register char **files, register int file_cnt)
                     | add_file(NO_PROB, OFFDIR, NULL, &File_list,
                                &File_tail, NULL));
         else {
-            char *lang=NULL;
-
-            lang=getenv("LC_ALL");
-            if (!lang) lang=getenv("LC_MESSAGES");
-            if (!lang) lang=getenv("LANGUAGE");
-            if (!lang) lang=getenv("LANG");
-            if (lang) {
+            if (env_lang) {
+                char *lang;
                 char llang[512];
                 int ret=0;
                 char *p;
 
-                strncpy(llang,lang,sizeof(llang));
+                strncpy(llang,env_lang,sizeof(llang));
+                llang[sizeof(llang)-1] = '\0';
                 lang=llang;
 
                 /* the language string can be like "es:fr_BE:ga" */
@@ -930,16 +924,14 @@ static int form_file_list(register char **files, register int file_cnt)
             }
         }
 
-        char * lang=getenv("LC_ALL");
-        if (!lang) lang=getenv("LC_MESSAGES");
-        if (!lang) lang=getenv("LANGUAGE");
-        if (!lang) lang=getenv("LANG");
-        if (lang) {
+        if (env_lang) {
+          char *lang;
           char llang[512];
           int ret=0;
           char *p;
 
-          strncpy(llang,lang,sizeof(llang));
+          strncpy(llang,env_lang,sizeof(llang));
+          llang[sizeof(llang)-1] = '\0';
           lang=llang;
 
           /* the language string can be like "es:fr_BE:ga" */
@@ -1685,6 +1677,12 @@ int main(int ac, char *av[])
 {
     const char *ctype;
     char *crequest;
+
+    env_lang=getenv("LC_ALL");
+    if (!env_lang) env_lang=getenv("LC_MESSAGES");
+    if (!env_lang) env_lang=getenv("LANGUAGE");
+    if (!env_lang) env_lang=getenv("LANG");
+
     getargs(ac, av);
 
     outer = recode_new_outer(true);
