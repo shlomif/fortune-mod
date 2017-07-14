@@ -20,6 +20,12 @@ For more information about it, you can contact
 Release tarballs can be found at [this directory](http://www.shlomifish.org/open-source/projects/fortune-mod/arcs/)
 for now.
 
+Reading from [this reported bug](https://github.com/shlomif/fortune-mod/issues/10):
+
+One can find the official release tarballs of fortune-mod as prepared by CPack
+there. They have a proper containing directory. Please don't use GitHub's tags
+for that.
+
 ## Sample usage
 
 ```
