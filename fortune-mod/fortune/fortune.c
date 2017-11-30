@@ -97,7 +97,6 @@ static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
 #endif /* killing warnings */
 
 #define         PROGRAM_NAME            "fortune-mod"
-#define         PROGRAM_VERSION         "1.99.4"
 
 #include <stdbool.h>
 
@@ -137,6 +136,7 @@ static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
 #include        <rx.h>
 #endif
 
+#include        "config.h"
 #include        "strfile.h"
 
 #define TRUE    1
@@ -240,7 +240,7 @@ int add_dir(register FILEDESC *);
 static char *program_version(void)
 {
     static char buf[BUFSIZ];
-    (void) sprintf(buf, "%s version %s", PROGRAM_NAME, PROGRAM_VERSION);
+    (void) sprintf(buf, "%s version %s", PROGRAM_NAME, VERSION);
     return buf;
 }
 

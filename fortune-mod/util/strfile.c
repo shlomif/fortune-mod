@@ -437,7 +437,7 @@ int main(int ac, char **av)
     Tbl.str_longlen = 0;
     Tbl.str_shortlen = (unsigned int) 0xffffffff;
     Tbl.str_delim = (uint8_t)Delimch;
-    Tbl.str_version = VERSION;
+    Tbl.str_version = STRFILE_VERSION;
     first = Oflag;
     add_offset(outf, (int32_t)ftell(inf));
     last_off = 0;

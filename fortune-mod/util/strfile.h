@@ -42,7 +42,7 @@
     ((line)[0] == (tbl).str_delim && (line)[1] == '\n')
 
 typedef struct {                /* information table */
-#define VERSION     2
+#define STRFILE_VERSION     2
     uint32_t   str_version;        /* version number */
     uint32_t   str_numstr;     /* # of strings in the file */
     uint32_t   str_longlen;        /* length of longest string */
