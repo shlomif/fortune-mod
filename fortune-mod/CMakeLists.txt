@@ -94,7 +94,7 @@ SET (OCOOKIEDIR "${COOKIEDIR}/off" CACHE STRING "offensive cookie dir not under 
 
 SHLOMIF_ADD_COMMON_C_FLAGS()
 
-add_flags("-Weverything" "-Wno-language-extension-token" "-Wno-padded")
+# add_flags("-Weverything" "-Wno-language-extension-token" "-Wno-padded")
 
 SHLOMIF_FINALIZE_FLAGS()
 
