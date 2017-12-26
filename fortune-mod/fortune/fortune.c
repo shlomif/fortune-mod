@@ -121,11 +121,6 @@ static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
 #include        <recode.h>
 
 
-/* This makes GNU libc to prototype the BSD regex functions */
-#ifdef BSD_REGEX
-#define _REGEX_RE_COMP
-#endif
-
 #ifdef HAVE_REGEX_H
 #include        <regex.h>
 #endif
@@ -150,10 +145,8 @@ static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
 
 #ifdef DEBUG
 #define DPRINTF(l,x)    if (Debug >= l) fprintf x;
-#undef          NDEBUG
 #else
 #define DPRINTF(l,x)
-#define NDEBUG  1
 #endif
 
 typedef struct fd
@@ -212,14 +205,6 @@ static FILEDESC *Fortfile;             /* Fortune file to use */
 
 static STRFILE Noprob_tbl;             /* sum of data for all no prob files */
 
-#ifdef BSD_REGEX
-
-#define RE_COMP(p)      re_comp(p)
-#define BAD_COMP(f)     ((f) != NULL)
-#define RE_EXEC(p)      re_exec(p)
-
-#else
-
 #ifdef POSIX_REGEX
 #define RE_COMP(p)      regcomp(&Re_pat, (p), REG_NOSUB)
 #define BAD_COMP(f)     ((f) != 0)
@@ -229,8 +214,6 @@ static regex_t Re_pat;
 #else
 #define NO_REGEX
 #endif /* POSIX_REGEX */
-
-#endif /* BSD_REGEX */
 
 static RECODE_REQUEST request;
 static RECODE_OUTER outer;

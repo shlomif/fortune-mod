@@ -94,6 +94,10 @@ SET (OCOOKIEDIR "${COOKIEDIR}/off" CACHE STRING "offensive cookie dir not under 
 
 SHLOMIF_ADD_COMMON_C_FLAGS()
 
+add_flags("-Weverything" "-Wno-language-extension-token" "-Wno-padded")
+
+SHLOMIF_FINALIZE_FLAGS()
+
 INCLUDE(CheckIncludeFile)
 SET(_r "stdbool.h" "stdio.h" "recode.h")
 CHECK_INCLUDE_FILES("${_r}" HAVE_RECODE_H)
@@ -171,7 +175,7 @@ CHECK_INCLUDE_FILE("regex.h" HAVE_REGEX_H)
 
 IF ("${HAVE_REGEX_H}")
     ADD_DEFINITIONS("-DHAVE_REGEX_H")
-    ADD_DEFINITIONS("-DBSD_REGEX")
+    ADD_DEFINITIONS("-DPOSIX_REGEX")
 ENDIF()
 
 ADD_DEFINITIONS("-DHAVE_STDBOOL")
