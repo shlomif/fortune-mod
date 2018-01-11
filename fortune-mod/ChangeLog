@@ -1,6 +1,14 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+January 11, 2018 (fortune-mod-2.0.0)
+
+	Correct typos.
+
+	Deprecate the BSD_REGEX - we now use only POSIX ones.
+
+	Various build fixes.
+
 March 25, 2017 (fortune-mod-1.99.5)
 
 	Add a new cmake-based configuration/build/install system.
