@@ -3,7 +3,7 @@ order, which is The Right Thing for ChangeLogs - DLC)
 
 March 25, 2017 (fortune-mod-1.99.5)
 
-	Add a new cmake-based configuratio/build/install system.
+	Add a new cmake-based configuration/build/install system.
 
 	Converted the source files to UTF-8.
 
