@@ -220,6 +220,30 @@ static RECODE_OUTER outer;
 
 int add_dir(register FILEDESC *);
 
+static unsigned long my_random(unsigned long base)
+{
+    FILE * fp;
+    unsigned long long l = 0;
+    if (getenv("FORTUNE_MOD_USE_SRAND"))
+    {
+        goto fallback;
+    }
+    fp = fopen("/dev/urandom", "rb");
+    if (! fp)
+    {
+        goto fallback;
+    }
+    if (fread(&l, sizeof(l), 1, fp) != 1)
+    {
+        fclose(fp);
+        goto fallback;
+    }
+    fclose(fp);
+    return l % base;
+fallback:
+    return random() % base;
+}
+
 static char *program_version(void)
 {
     static char buf[BUFSIZ];
@@ -1321,7 +1345,7 @@ static FILEDESC *pick_child(FILEDESC * parent)
 
     if (Equal_probs)
     {
-        choice = random() % parent->num_children;
+        choice = my_random(parent->num_children);
         DPRINTF(1, (stderr, "    choice = %d (of %d)\n",
                     choice, parent->num_children));
         for (fp = parent->child; choice--; fp = fp->next)
@@ -1332,7 +1356,7 @@ static FILEDESC *pick_child(FILEDESC * parent)
     else
     {
         get_tbl(parent);
-        choice = (int)(random() % (long)(parent->tbl.str_numstr));
+        choice = (int)(my_random(parent->tbl.str_numstr));
         DPRINTF(1, (stderr, "    choice = %d (of %ld)\n",
                     choice, parent->tbl.str_numstr));
         for (fp = parent->child; choice >= (int)fp->tbl.str_numstr;
@@ -1371,7 +1395,7 @@ static void get_pos(FILEDESC * fp)
     assert(fp->read_tbl);
     if (fp->pos == POS_UNKNOWN)
     {
-        fp->pos = (int32_t)(random() % fp->tbl.str_numstr);
+        fp->pos = (int32_t)(my_random(fp->tbl.str_numstr));
     }
     if (++(fp->pos) >= (int32_t)fp->tbl.str_numstr)
         fp->pos -= fp->tbl.str_numstr;
@@ -1391,7 +1415,7 @@ static void get_fort(void)
         fp = File_list;
     else
     {
-        choice = random() % 100;
+        choice = my_random(100);
         DPRINTF(1, (stderr, "choice = %d\n", choice));
         for (fp = File_list; fp->percent != NO_PROB; fp = fp->next)
             if (choice < fp->percent)
@@ -1414,7 +1438,7 @@ static void get_fort(void)
         if (fp->next != NULL)
         {
             sum_noprobs(fp);
-            choice = (int)(random() % (long)Noprob_tbl.str_numstr);
+            choice = (int)(my_random(Noprob_tbl.str_numstr));
             DPRINTF(1, (stderr, "choice = %d (of %ld) \n", choice,
                         Noprob_tbl.str_numstr));
             while (choice >= (int)fp->tbl.str_numstr)
