@@ -27,7 +27,6 @@ FOREACH(c ${COOKIES})
         OUTPUT "${LINK}"
         COMMAND "ln"
         ARGS "-sf" "${c}" "${LINK}"
-        DEPENDS "${c}"
     )
 
     ADD_CUSTOM_TARGET(
