@@ -6,12 +6,10 @@ Shlomi Fish <shlomif@cpan.org>
 Quick and Dirty Compilation
 ---------------------------
 
-fortune-mod is using CMake ( http://www.cmake.org/ )
-for its build system. You'll need to install CMake version 3.0
-or later from your distribution's repository or from its source
-distribution. *NOTE*: CMake 2.6.2 (that ships with some releases of Ubuntu)
-won't work due to a regression bug so please don't report any errors with
-it.
+fortune-mod uses CMake ( http://www.cmake.org/ )
+for its build system. Version 3 or later is required.
+
+You will also need librecode.
 
 Next, run:
 
@@ -39,6 +37,10 @@ environment.
 
 Testing
 -------
+
+The tests require the File::Find::Object Perl module
+(libfile-find-object-perl in Debian and derivatives), Test::Differences
+(libtest-differences-perl) and Test::RunValgrind (from CPAN).
 
 To test fortune-mod, you need to:
 
