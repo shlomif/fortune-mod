@@ -185,6 +185,7 @@ SET (COOKIES
     computers
     cookie
     definitions
+    disclaimer
     drugs
     education
     ethnic

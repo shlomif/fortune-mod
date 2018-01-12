@@ -30,6 +30,8 @@ cookie		: Cookie file from Karl Lehenbauer's postings to alt.sources
 definitions	: It ought to be all the 'definitions,' but what it really
 		  is, is all the definitions that have a first line ending
 		  with a colon.
+disclaimer	: Disclaimer texts found on products and advertisements.
+		  Work well after corporate mandated login banners.
 drugs		: Alcohol and cigarettes, mostly.  Legal chemicals.
 education	: Schools, teachers, and scholarship, mostly not complimentary.
 ethnic		: Jokes that are about groups of people, but aren't making
