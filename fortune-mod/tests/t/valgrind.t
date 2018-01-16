@@ -6,8 +6,8 @@ use warnings;
 use Test::More;
 use Test::RunValgrind;
 
-plan skip_all => 'lib-recode has memory leaks';
-# plan tests => 1;
+# plan skip_all => 'lib-recode has memory leaks';
+plan tests => 1;
 
 # TEST
 Test::RunValgrind->new({})->run(

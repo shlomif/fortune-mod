@@ -1680,6 +1680,26 @@ static int max(register int i, register int j)
     return (i >= j ? i : j);
 }
 
+static void free_desc(FILEDESC *ptr)
+{
+    while (ptr)
+    {
+        free_desc(ptr->child);
+        do_free(ptr->datfile);
+        do_free(ptr->posfile);
+        do_free(ptr->name);
+        do_free(ptr->path);
+        if (ptr->inf)
+        {
+            fclose(ptr->inf);
+            ptr->inf = NULL;
+        }
+        FILEDESC *next = ptr->next;
+        free(ptr);
+        ptr = next;
+    }
+}
+
 int main(int ac, char *av[])
 {
     const char *ctype;
@@ -1742,6 +1762,9 @@ int main(int ac, char *av[])
 
     recode_delete_request(request);
     recode_delete_outer(outer);
+
+    /* Free the File_list */
+    free_desc(File_list);
     exit(0);
     /* NOTREACHED */
 }
