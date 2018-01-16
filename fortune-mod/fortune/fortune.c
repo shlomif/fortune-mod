@@ -1742,24 +1742,25 @@ int main(int ac, char *av[])
         if (Equal_probs)
             calc_equal_probs();
         print_list(File_list, 0);
-        exit(0);
     }
-    srandom((unsigned int) (time((time_t *) NULL) + getpid()));
-    do
+    else
     {
-        get_fort();
+        srandom((unsigned int) (time((time_t *) NULL) + getpid()));
+        do
+        {
+            get_fort();
+        }
+        while ((Short_only && fortlen() > SLEN) ||
+            (Long_only && fortlen() <= SLEN));
+
+        display(Fortfile);
+
+        if (Wait)
+        {
+            fortlen();
+            sleep((unsigned int) max(Fort_len / CPERS, MINW));
+        }
     }
-    while ((Short_only && fortlen() > SLEN) ||
-           (Long_only && fortlen() <= SLEN));
-
-    display(Fortfile);
-
-    if (Wait)
-    {
-        fortlen();
-        sleep((unsigned int) max(Fort_len / CPERS, MINW));
-    }
-
     recode_delete_request(request);
     recode_delete_outer(outer);
 
