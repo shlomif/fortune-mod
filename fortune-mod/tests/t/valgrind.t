@@ -7,7 +7,7 @@ use Test::More;
 use Test::RunValgrind;
 
 # plan skip_all => 'lib-recode has memory leaks';
-plan tests => 3;
+plan tests => 4;
 
 my $obj = Test::RunValgrind->new({});
 
@@ -38,5 +38,15 @@ $obj->run(
         prog => './fortune',
         argv => [qw/-m foobarbazINGAMINGATONGALKIYRE/],
         blurb => 'fortune -m valgrind test',
+    }
+);
+
+# TEST
+$obj->run(
+    {
+        log_fn => './fortune--4-dash-m-i.valgrind-log',
+        prog => './fortune',
+        argv => [qw/-i -m foobarbazINGAMINGATONGALKIYRE/],
+        blurb => 'fortune -i -m valgrind test',
     }
 );

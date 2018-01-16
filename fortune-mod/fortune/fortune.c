@@ -1103,6 +1103,10 @@ static void getargs(int argc, char **argv)
             fprintf(stderr, "bad pattern: %s\n", pat);
             exit (1);
         }
+        if (ignore_case)
+        {
+            free(pat);
+        }
     }
 #endif /* NO_REGEX */
 }
