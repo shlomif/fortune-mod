@@ -1704,6 +1704,7 @@ int main(int ac, char *av[])
 {
     const char *ctype;
     char *crequest;
+    int exit_code = 0;
 
     env_lang=getenv("LC_ALL");
     if (!env_lang) env_lang=getenv("LC_MESSAGES");
@@ -1733,7 +1734,11 @@ int main(int ac, char *av[])
 
 #ifndef NO_REGEX
     if (Match)
-        exit(find_matches() != 0);
+    {
+        exit_code = (find_matches() != 0);
+        regfree(&Re_pat);
+        goto cleanup;
+    }
 #endif
     init_prob();
     if (Find_files)
@@ -1761,11 +1766,13 @@ int main(int ac, char *av[])
             sleep((unsigned int) max(Fort_len / CPERS, MINW));
         }
     }
+cleanup:
     recode_delete_request(request);
     recode_delete_outer(outer);
 
     /* Free the File_list */
     free_desc(File_list);
-    exit(0);
+    free(Fortbuf);
+    exit(exit_code);
     /* NOTREACHED */
 }
