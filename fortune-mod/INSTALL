@@ -9,7 +9,8 @@ Quick and Dirty Compilation
 fortune-mod uses CMake ( http://www.cmake.org/ )
 for its build system. Version 3 or later is required.
 
-You will also need librecode (= the "recode" library).
+You will also need librecode (= the "recode" library) from
+https://github.com/rrthomas/Recode - version 3.7 or later.
 
 Next, run:
 
