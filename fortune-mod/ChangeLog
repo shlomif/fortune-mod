@@ -1,6 +1,16 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+January 31, 2018 (fortune-mod 2.2.0)
+
+	Add the "disclaimer" cookie file (thanks to mathew).
+
+	Correct some problems in the documentation.
+
+	Fix some memory leaks (thanks to valgrind).
+
+	Reenable the valgrind tests (requires Recode 3.7).
+
 January 11, 2018 (fortune-mod-2.0.0)
 
 	Correct typos.
