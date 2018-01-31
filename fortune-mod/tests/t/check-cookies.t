@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use IO::All qw/ io /;
-use List::MoreUtils qw/ any /;
+use List::Util qw/ any /;
 
 use Test::More tests => 1;
 
