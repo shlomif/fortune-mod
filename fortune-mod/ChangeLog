@@ -1,6 +1,14 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+February 15, 2018 (fortune-mod 2.2.1)
+
+	Fix some mispellings.
+
+	Remove some duplicates.
+
+	Thanks to bug reporters on the bug trackers of Linux distributions.
+
 January 31, 2018 (fortune-mod 2.2.0)
 
 	Add the "disclaimer" cookie file (thanks to mathew).
