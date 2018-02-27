@@ -71,7 +71,7 @@ as the tag <code>fortune-mod-1.99.1</code>.
 
 9. Converted the build system to [CMake](https://en.wikipedia.org/wiki/CMake) .
 
-10. Added valgrind tests - currently skipped due to lib-recode being buggy.
+10. Added valgrind tests and fixed some memory leaks.
 
 11. Released fortune-mod-1.99.3 and fortune-mod-1.99.4.
 
@@ -81,17 +81,22 @@ as the tag <code>fortune-mod-1.99.1</code>.
 13. Added a build-time option to remove the “-o” (= “offensive”) flag, inspired
 by a set of patches on the Fedora package.
 
+14. Applied some downstream patches.
+
+15. Released version 2.0.0.
+
+16. Fixed as many “clang -Weverything” warnings as possible.
+
+17. lib-recode became maintained again at https://github.com/rrthomas/recode
+(thanks to @rrthomas ) thus preventing a switch to something else.
+
 # What remains to be done.
 
-1. See if there are any downstream patches to apply.
+1. See if there are any more downstream patches to apply.
 
 2. Fix more typos (reports and pull-requests are welcome.)
 
-3. Release fortune-mod-2.0.0.
-
-4. Fix as many “clang -Weverything” warnings as possible.
-
-5. Perhaps modernize the code a little.
+3. Perhaps modernize the code a little.
 
 # Links
 
