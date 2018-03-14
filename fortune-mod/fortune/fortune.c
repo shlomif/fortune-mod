@@ -974,15 +974,17 @@ static int form_file_list(register char **files, register int file_cnt)
             ret=add_file(percent, locpathname, NULL, &File_list,
                          &File_tail, NULL);
 
-          if (!ret){
+          if (!ret) {
                   snprintf (locpathname, sizeof (locpathname), "%s/%s", getenv ("PWD"), sp);
 
-                  ret=add_file (percent, locpathname, NULL, &File_list, &File_tail, NULL);
+                  ret = add_file (percent, locpathname, NULL, &File_list, &File_tail, NULL);
           }
-          if (!ret)
-            return FALSE;
-            if (strncmp(fullpathname, locpathname, sizeof(fullpathname)) && strcmp(sp, "all") == 0)
-                        add_file(percent, locpathname, NULL, &File_list, &File_tail, NULL);
+          if (!ret) {
+                return FALSE;
+          }
+          if (strncmp(fullpathname, locpathname, sizeof(fullpathname)) && strcmp(sp, "all") == 0) {
+              add_file(percent, locpathname, NULL, &File_list, &File_tail, NULL);
+          }
         }
         else
           if (!add_file(percent, fullpathname, NULL, &File_list,
@@ -1023,7 +1025,7 @@ static void getargs(int argc, char **argv)
         switch (ch)
           {
           case 'a':             /* any fortune */
-              All_forts++;
+              All_forts = TRUE;
               break;
 #ifdef DEBUG
           case 'D':
@@ -1031,13 +1033,13 @@ static void getargs(int argc, char **argv)
               break;
 #endif /* DEBUG */
           case 'e':
-              Equal_probs++;    /* scatter un-allocted prob equally */
+              Equal_probs = TRUE;    /* scatter un-allocted prob equally */
               break;
           case 'f':             /* find fortune files */
-              Find_files++;
+              Find_files = TRUE;
               break;
           case 'l':             /* long ones only */
-              Long_only++;
+              Long_only = TRUE;
               Short_only = FALSE;
               break;
           case 'n':
@@ -1045,15 +1047,15 @@ static void getargs(int argc, char **argv)
               break;
 #ifndef NO_OFFENSIVE
           case 'o':             /* offensive ones only */
-              Offend++;
+              Offend = TRUE;
               break;
 #endif
           case 's':             /* short ones only */
-              Short_only++;
+              Short_only = TRUE;
               Long_only = FALSE;
               break;
           case 'w':             /* give time to read */
-              Wait++;
+              Wait = TRUE;
               break;
 #ifdef  NO_REGEX
           case 'i':             /* case-insensitive match */
@@ -1063,7 +1065,7 @@ static void getargs(int argc, char **argv)
               exit(0);
 #else /* NO_REGEX */
           case 'm':             /* dump out the fortunes */
-              Match++;
+              Match = TRUE;
               pat = optarg;
               break;
           case 'i':             /* case-insensitive match */
@@ -1074,7 +1076,7 @@ static void getargs(int argc, char **argv)
               (void) printf("%s\n", program_version());
               exit(0);
           case 'c':
-              Show_filename++;
+              Show_filename = TRUE;
               break;
           case '?':
           default:

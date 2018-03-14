@@ -180,7 +180,7 @@ static void getargs(int argc, char **argv)
               if (!isascii(Delimch))
               {
                   printf("bad delimiting character: '\\%o\n'",
-                         Delimch);
+                         (unsigned int)Delimch);
               }
               break;
           case 'i':             /* ignore case in ordering */

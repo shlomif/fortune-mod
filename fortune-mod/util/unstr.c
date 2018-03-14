@@ -124,7 +124,7 @@ static void getargs(int ac, char *av[])
               NewDelch = *optarg;
               if (!isascii(NewDelch))
               {
-                  fprintf(stderr, "Bad delimiting characher: '\\%o'\n", NewDelch);
+                  fprintf(stderr, "Bad delimiting characher: '\\%o'\n", (unsigned int)NewDelch);
               }
               break;
           case '?':
