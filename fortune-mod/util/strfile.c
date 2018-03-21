@@ -80,6 +80,7 @@
 #include        <ctype.h>
 #include        <string.h>
 #include        <time.h>
+#include        <stdbool.h>
 #include        "strfile.h"
 
 #ifndef MAXPATHLEN
@@ -414,6 +415,7 @@ int main(int ac, char **av)
     register char *nsp;
     register STR *fp;
     static char string[257];
+    bool len_was_set = false;
 
     getargs(ac, av);            /* evalute arguments */
     if ((inf = fopen(Infile, "r")) == NULL)
@@ -462,10 +464,19 @@ int main(int ac, char **av)
             }
             last_off = pos;
             add_offset(outf, pos);
-            if ((int)Tbl.str_longlen < length)
+            if (! len_was_set)
+            {
                 Tbl.str_longlen = (uint32_t)length;
-            if ((int)Tbl.str_shortlen > length)
                 Tbl.str_shortlen = (uint32_t)length;
+                len_was_set = true;
+            }
+            else
+            {
+                if ((int)Tbl.str_longlen < length)
+                    Tbl.str_longlen = (uint32_t)length;
+                if (Tbl.str_shortlen > (uint32_t)length)
+                    Tbl.str_shortlen = (uint32_t)length;
+            }
             first = Oflag;
         }
         else if (first)
