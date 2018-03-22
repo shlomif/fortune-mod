@@ -1,6 +1,14 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+March 22, 2018 (fortune-mod 2.4.0)
+
+	Fix issue #24 reported by @pouar of an underflow error in strfile.
+
+	Fix some GCC warnings with the Recode flags.
+
+	Remove some trailing empty lines in fortunes
+
 February 15, 2018 (fortune-mod 2.2.1)
 
 	Fix some mispellings.
