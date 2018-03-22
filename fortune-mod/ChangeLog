@@ -1,6 +1,10 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+March 22, 2018 (fortune-mod 2.4.1)
+
+	Add the missing cmake/Shlomif_Common.cmake file.
+
 March 22, 2018 (fortune-mod 2.4.0)
 
 	Fix issue #24 reported by @pouar of an underflow error in strfile.
