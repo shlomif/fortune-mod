@@ -98,7 +98,7 @@ When
 is run with no arguments it prints out a random epigram. Epigrams are
 END_OF_STRING
 
-$out->print($OFF ? "divided into several categories, where each category is sub-divided
+$out->print($OFF ? "divided into several categories, where each category is sub\\-divided
 into those which are potentially offensive and those which are not."
 : "divided into several categories.");
 
@@ -157,7 +157,7 @@ redirected to this file, the result is
 .BR fortunes ,
 i.e. the filenames themselves, in parentheses.  This can be useful if you
 wish to remove the gathered matches from their original files, since each
-filename-record will precede the records from the file it names.
+filename\-record will precede the records from the file it names.
 .RE
 .TP
 .BI "-n " length
@@ -165,7 +165,7 @@ Set the longest fortune length (in characters) considered to be
 ``short'' (the default is 160).  All fortunes longer than this are
 considered ``long''.  Be careful!  If you set the length too short and
 ask for short fortunes, or too long and ask for long ones, fortune goes
-into a never-ending thrash loop.
+into a never\-ending thrash loop.
 .TP
 END_OF_STRING
 
@@ -188,10 +188,10 @@ ignored if a fortune directory is specified.
 .RS
 \&... let us keep in mind the basic governing philosophy of The
 Brotherhood, as handsomely summarized in these words: we believe in
-healthy, hearty laughter -- at the expense of the whole human race, if
+healthy, hearty laughter \-\- at the expense of the whole human race, if
 needs be.  Needs be.
 .RS
---H. Allen Smith, "Rude Jokes"
+\-\-H. Allen Smith, "Rude Jokes"
 .RE
 .RE
 .TP
@@ -232,26 +232,26 @@ to those files and/or directories, in which case the probability of
 selecting from one of them will be based on their relative sizes.
 .PP
 As an example, given two databases
-.IR funny " and " not-funny ", with " funny
+.IR funny " and " not\-funny ", with " funny
 twice as big (in number of fortunes, not raw file size), saying
 .RS
 .sp
 .B fortune
-.I funny not-funny
+.I funny not\-funny
 .sp
 .RE
 will get you fortunes out of
 .I funny
-two-thirds of the time.  The command
+two\-thirds of the time.  The command
 .RS
 .sp
 .B fortune
-.RI "90% " funny " 10% " not-funny
+.RI "90% " funny " 10% " not\-funny
 .sp
 .RE
 will pick out 90% of its fortunes from
 .I funny
-(the ``10% not-funny'' is unnecessary, since 10% is all that's left).
+(the ``10% not\-funny'' is unnecessary, since 10% is all that's left).
 .PP
 The
 .B -e
@@ -259,14 +259,14 @@ option says to consider all files equal; thus
 .RS
 .sp
 .B fortune -e
-.I funny not-funny
+.I funny not\-funny
 .sp
 .RE
 is equivalent to
 .RS
 .sp
 .B fortune
-.RI "50% " funny " 50% " not-funny
+.RI "50% " funny " 50% " not\-funny
 .sp
 .RE
 END_OF_STRING
@@ -284,7 +284,7 @@ offensive database, and will have its suffix stripped off and be
 searched in the offensive directory (even if the neither of the
 .IR -a " or " -o
 options were specified).  This feature is not only for
-backwards-compatibility, but also to allow users to distinguish between
+backwards\-compatibility, but also to allow users to distinguish between
 inoffensive and offensive databases of the same name.
 .PP
 For example, assuming there is a database named
@@ -296,7 +296,7 @@ and a potentially offensive definition for the remaining 10%:
 .sp
 .B fortune
 90%
-.I definitions definitions-o
+.I definitions definitions\-o
 .RE
 END_OF_STRING
 }
@@ -339,7 +339,7 @@ END_OF_STRING
 if ($OFF)
 {
     $out->print(<<'END_OF_STRING');
-The division of fortunes into offensive and non-offensive by directory,
+The division of fortunes into offensive and non\-offensive by directory,
 rather than via the `-o' file infix, is not 100% compatible with
 original BSD fortune. Although the `-o' infix is recognised as referring
 to an offensive database, the offensive database files still need to be
@@ -383,7 +383,7 @@ This version of fortune is based on the NetBSD fortune 1.4, but with a
 number of bug fixes and enhancements.
 .PP
 The original fortune/strfile format used a single file; strfile read the
-text file and converted it to null-delimited strings, which were stored
+text file and converted it to null\-delimited strings, which were stored
 after the table of pointers in the .dat file.  By NetBSD fortune 1.4,
 this had changed to two separate files: the .dat file was only the header
 (the table of pointers, plus flags; see
