@@ -5589,3 +5589,8 @@ For infrastructure technology, C will be hard to displace.
     -- Dennis Ritchie (1941-2011), creator of the C programming language and of
     UNIX
 %
+It has been suggested that root kits are the largest user community for this
+kind of access, but there are no forward compatibility guarantees for root kit
+authors.
+    -- Jonathan Corbet in "Who needs /dev/kmem?"
+       (http://lwn.net/Articles/147901)
