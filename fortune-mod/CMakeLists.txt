@@ -210,6 +210,7 @@ SET (COOKIES
     songs-poems
     sports
     startrek
+    tao
     translate-me
     wisdom
     work
