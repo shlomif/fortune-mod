@@ -5542,3 +5542,50 @@ mountains.
 %
 Innovation distinguishes between a leader and a follower.
                 -- Steve Jobs (1955-2011)
+%
+UNIX is very simple, it just needs a genius to understand its simplicity.
+    -- Dennis Ritchie (1941-2011), creator of the C programming language and of
+    UNIX
+%
+C is quirky, flawed, and an enormous success.
+    -- Dennis Ritchie (1941-2011), creator of the C programming language and of
+    UNIX
+%
+C has "the power of assembly language and the convenience of... assembly
+language."
+    -- Dennis Ritchie (1941-2011), creator of the C programming language and of
+    UNIX
+%
+When I read commentary about suggestions for where C should go, I often think
+back and give thanks that it wasn't developed under the advice of a worldwide
+crowd.
+    -- Dennis Ritchie (1941-2011), creator of the C programming language and of
+    UNIX
+%
+To tell the truth, I don't know how Linus and his merry band manage so well --
+I couldn't have stood it with C.
+    -- Dennis Ritchie (1941-2011), creator of the C programming language and of
+    UNIX
+%
+I can't recall any difficulty in making the C language definition completely
+open -- any discussion on the matter tended to mention languages whose
+inventors tried to keep tight control, and consequent ill fate.
+    -- Dennis Ritchie (1941-2011), creator of the C programming language and of
+    UNIX
+%
+At least for the people who send me mail about a new language that they're
+designing, the general advice is: do it to learn about how to write a
+compiler. Don't have any expectations that anyone will use it, unless you hook
+up with some sort of organization in a position to push it hard. It's a
+lottery, and some can buy a lot of the tickets. There are plenty of beautiful
+languages (more beautiful than C) that didn't catch on. But someone does win
+the lottery, and doing a language at least teaches you something.
+    -- Dennis Ritchie (1941-2011), creator of the C programming language and of
+    UNIX
+%
+Software is much harder to change en masse than hardware. C++ and Java, say,
+are presumably growing faster than plain C, but I bet C will still be around.
+For infrastructure technology, C will be hard to displace.
+    -- Dennis Ritchie (1941-2011), creator of the C programming language and of
+    UNIX
+%
