@@ -13,7 +13,7 @@
 %
 I never thought that I'd see the day where Netscape is free software and
 X11 is proprietary.  We live in interesting times.
-        -- Matt Kimball <mkimball@xmission.com>
+		-- Matt Kimball <mkimball@xmission.com>
 %
 <jim> Lemme make sure I'm not wasting time here... bcwhite will remove
       pkgs that havent been fixed that have outstanding bugs of severity
@@ -56,7 +56,7 @@ GNU/Linux System.
 FORM_TYPE_SELECT_ONE, FORM_TYPE_SELECT_MULT. */ /* * nesting deeper
 and deeper, harder and harder, go, go, oh, OH, OHHHHH!! * Sorry, got
 carried away there. */ struct lo_FormElementOptionData_struct."
-        -- Mozilla source code
+		-- Mozilla source code
 %
 While the year 2000 (y2k) problem is not an issue for us, all Linux
 implementations will impacted by the year 2038 (y2.038k) issue. The
@@ -97,24 +97,24 @@ Linux. And oh! It was as though the heavens opened and God handed down a
 client-side OS so beautiful, so graceful, and so elegant that a million
 Microsoft developers couldn't have invented it even if they had a hundred
 years and a thousand crates of Jolt cola.
-        -- LAN Times
+		-- LAN Times
 %
 I sat laughing snidely into my notebook until they showed me a PC running
 Linux....  And did this PC choke?  Did it stutter?  Did it, even once,
 say that this program has performed an illegal operation and must be shut
 down?  No. And this is just on the client.
-        -- LAN Times
+		-- LAN Times
 %
 "I think that most debian developers are rather "strong willed" people
 with a great degree of understanding and a high level of passion for what
 they perceive as important in development of the debian system."
-        --Bill Leach
+		-- Bill Leach
 %
 "Actually, the only distribution of Linux I've ever used that passed the
 rootshell test out of the box (hit rootshell at the time the dist is
 released and see if you can break the OS with scripts from there) is
 Debian."
-        -- seen on the Linux security-audit mailing list
+		-- seen on the Linux security-audit mailing list
 %
 * Culus fears perl - the language with optional errors
 %
@@ -173,7 +173,7 @@ Now I can finally explain to everyone why I do this.  I just got $7 worth
 of free stuff for working on Debian !
 %
 <ultima> netgod: My calculator has more registers than the x86, and
-         -thats- sad
+		-- thats- sad
 %
 * boren tosses matlab across the room and hopes it breaks into a number
   aproaching infinite peices
@@ -198,9 +198,7 @@ its twenty below?        -- Linus Torvalds
 empowered to take drastic and descisive action to correct the failing,
 including by not limited to expelling officials, apointing new officials
 and generally abusing power"
-        -- proposed amendment to Debian Constitution
-%
-<Diziet> Fuck, I can't compile the damn thing and I wrote it !
+		-- proposed amendment to Debian Constitution
 %
 <Overfiend> we're calling 2.2 _POTATO_??
 %
@@ -220,7 +218,7 @@ I can just see it now: nomination-terrorism ;-)
         -- Manoj
 
 haha!  i nominate manoj.
-        -- seeS
+		-- seeS
 %
 <JHM> Somehow I have more respect for 14 year old Debian developers than
      14 year old Certified Microsoft Serfs.
@@ -232,13 +230,13 @@ haha!  i nominate manoj.
 "I wonder if this is the first constitution in the history of mankind
 where you have to calculate a square root to determine if a motion
 passes.  :-)"
-        -- Seen on Slashdot
+		-- Seen on Slashdot
 %
 This is the solution to Debian's problem .. and since the only real way
 to create more relatives of developers is to have children, we need more
 sex!  It's a long term investment ... it's the work itself that is
 satisfying!
-        -- Craig Brozefsky
+		-- Craig Brozefsky
 %
 <marcus> dunham: You know how real numbers are constructed from rational
          numbers by equivalence classes of convergent sequences?
@@ -273,17 +271,17 @@ satisfying!
 %
 How many months are we going to be behind them [Redhat] with a glibc
 release?"
-        -- Jim Pick, 8 months before Debian 2.0 is finally released
+		-- Jim Pick, 8 months before Debian 2.0 is finally released
 %
 The purpose of having mailing lists rather than having newsgroups is to
 place a barrier to entry which protects the lists and their users from
 invasion by the general uneducated hordes.
-        -- Ian Jackson
+		-- Ian Jackson
 %
 Most of us feel that marketing types are like a dangerous weapon - keep
 'em unloaded and locked up in a cupboard, and only bring them out when
 you need them to do a job.
-        -- Craig Sanders
+		-- Craig Sanders
 %
 <BenC> cerb: we subscribed you to debian-fight as the moderator
 <BenC> cerb: list rules are, 1) no nice emails, 2) no apologies
@@ -306,13 +304,13 @@ you need them to do a job.
 <MrCurious> someone tell me the ban to place
 <Sopwith> mrcurious: *.debian.org, *.novare.net
 <philX> *.debian.org.  that's awesome.
-        -- Seen on LinuxNet #linux
+		-- Seen on LinuxNet #linux
 %
 "What does this tell me?  That if Microsoft were the last software
 company left in the world, 13% of the US population would be scouring
 garage sales & Goodwill for old TRS-80s, CPM machines & Apple ]['s before
 they would buy Microsoft. That's not exactly a ringing endorsement."
-        -- Seen on Slashdot
+		-- Seen on Slashdot
 %
 "Bruce McKinney, author of of Hardcore Visual Basic, has announced that
 he's fed up with VB and won't be writing a 3rd edition of his book.  The
@@ -350,7 +348,7 @@ mass of unskilled consumers?        -- Steve Shorter
 %
 Mere nonexistence is a feeble excuse for declaring a thing unseeable. You
 *can* see dragons.  You just have to look in the right direction.
-        -- John Hasler
+		-- John Hasler
 %
 <Chalky> gcc is the best compressor ever ported to linux. it can turn
          12MB of kernel source (and that's .debbed) into a 500k kernel
@@ -364,7 +362,7 @@ Mere nonexistence is a feeble excuse for declaring a thing unseeable. You
  [ 1 ]  MANOJ SRIVASTAVA
  [ 4 ]  NONE of the above
 
-        -- Debian Project Leader 1999 ballot
+		-- Debian Project Leader 1999 ballot
 %
 <Oryn> anyone know if there is a version of dpkg for redhat?
 %
@@ -374,7 +372,7 @@ acme-cannon (3.1415) unstable; urgency=low
     bug #98713, #98714.
   * Added manpage. closes: #98725.
 
-  -- Wile E. Coyote <genius@debian.org>  Sun, 31 Jan 1999 07:49:57 -0600
+		-- Wile E. Coyote <genius@debian.org>  Sun, 31 Jan 1999 07:49:57 -0600
 %
 !netgod:*! time flies when youre using linux
 !doogie:*! yeah, infinite loops in 5 seconds.
@@ -413,37 +411,37 @@ Software is like sex, it's better when it's free.     -- Linus Torvalds
 <Knghtbrd> dark - In Debian?  Hell yeah we do!
 %
 I did it just to piss you off.  :-P
-        -- Branden Robinson in a message to debian-devel
+		-- Branden Robinson in a message to debian-devel
 %
 The software required Win95 or better, so I installed Linux.
 %
 10) there is no 10, but it sounded like a nice number :)
-        -- Wichert Akkerman
+		-- Wichert Akkerman
 %
 Eric Raymond:  I want to live in a world where software doesn't suck.
 Richard Stallman:  Any software that isn't free sucks.
 Linus Torvalds:  I'm interested in free beer.
 Richard Stallman:  That's okay, as long as I don't have to drink it.  I
                    don't like beer.
-        -- LinuxWorld Expo panel, 4 March 1999
+		-- LinuxWorld Expo panel, 4 March 1999
 %
 I'm not a level-headed person...        -- Bruce Perens
 %
 Personally, I don't often talk about social good because when I hear other
 people talk about social good, that's when I reach for my revolver.
-        -- Eric Raymond
+		-- Eric Raymond
 %
 If we want something nice to get born in nine months, then sex has to
 happen.  We want to have the kind of sex that is acceptable and fun for both
 people, not the kind where someone is getting screwed. Let's get some cross
 fertilization, but not someone getting screwed.
-        -- Larry Wall
+		-- Larry Wall
 %
 We all know Linux is great... it does infinite loops in 5 seconds.
-        -- Linus Torvalds
+		-- Linus Torvalds
 %
 YES! YES! YES! Oh, YES! (ooops, I sound like Meg Ryan ;-)
-        -- Ian Nandhra
+		-- Ian Nandhra
 %
 <Knghtbrd> If I start writing essays about Free Software for slashdot,
            please shoot me.
@@ -456,7 +454,7 @@ pair of bolt cutters, and a large wooden mallet, laughing like a maniac and
 cutting everything i can fit the bolt cutters around. and whacking that
 which i cannot. so if i seem semi-incoherent, or just really *really* nasty
 at times, please forgive me. stress is not a pretty thing. };P
-        -- Phillip R. Jaenke
+		-- Phillip R. Jaenke
 %
 Every company complaining about Microsoft's business practices is simply a
 rose bush. They look lovely and smell nice. Once a lucky company dethrones
@@ -466,38 +464,33 @@ thorn by any other name would hurt as much.
 Something must be Done
 This is Something
 Therefore, This must be Done
-        -- The Thatcherite Syllogism
+		-- The Thatcherite Syllogism
 %
 <Knghtbrd> xtifr - beware of james when he's off his medication  =>
 %
 Indifference will certainly be the downfall of mankind, but who cares?
 %
 Never underestimate the power of human stupidity.
-        -- Robert A. Heinlein
-%
-<wc> red dye causes cancer, haven't you heard? (;
-<Knghtbrd> fucking everything causes cancer, haven't you heard?
-<Knghtbrd> =>
-<archon> no, that causes aids
+		-- Robert A. Heinlein
 %
 Gold, n.:
   A soft malleable metal relatively scarce in distribution.  It is mined
   deep in the earth by poor men who then give it to rich men who immediately
   bury it back in the earth in great prisons, although gold hasn't done
   anything to them.
-        -- Mike Harding, "The Armchair Anarchist's Almanac"
+		-- Mike Harding, "The Armchair Anarchist's Almanac"
 %
 * lilo hereby declares OPN a virtual pain in the ass :)
 %
 "They are both businesses - if you have given them enough money, I'm
 sure they'll do whatever the hell you ask:->"
-        -- David Welton
+		-- David Welton
 %
 "You have the right not to be an asshole.  If you give up that right
 everything you say and do in here will be held against you. If you cannot
 afford to stop being an asshole then someone will be appointed to kick
 yours outta here."
-        -- Your rights as an irc addict
+		-- Your rights as an irc addict
 %
 * Simunye is so happy she has her mothers gene's
 <Dellaran> you better give them back before she misses them!
@@ -508,7 +501,7 @@ California, n.:
     From Latin "calor", meaning "heat" (as in English "calorie" or
 Spanish "caliente"); and "fornia'" for "sexual intercourse" or
 "fornication." Hence: Tierra de California, "the land of hot sex."
-        -- Ed Moran
+		-- Ed Moran
 %
 * Caytln slaps Lisa
 <Caytln> catfight :P
@@ -581,7 +574,7 @@ Unix.           -- Dennis Baker
 <netgod> Feanor: u have no idea of the depth of the stupidty of american law
 %
 Anyone who stands out in the middle of a road looks like roadkill to me.
-        -- Linus Torvalds
+		-- Linus Torvalds
 %
 <lilo> "PLEASE RESPECT INTELLECTUAL RIGHTS!"
 <lilo> "Please demonstrate intellect." ;)
@@ -590,7 +583,7 @@ Anyone who stands out in the middle of a road looks like roadkill to me.
            arses now, someone's gonna come up and bite us later...
 %
 "Now we'll have to kill you."
-        -- Linus Torvalds
+		-- Linus Torvalds
 %
 * knghtbrd can already envision:  "Subject: [INTENT TO PREPARE TO PROPOSE
    FILING OF BUG REPORT] Typos in the policy document"
@@ -608,10 +601,6 @@ Anyone who stands out in the middle of a road looks like roadkill to me.
 %
 <LauraDax> !seen god
 <Tabi-> LauraDax, I don't remember seeing "god"
-%
-<Knghtbrd>     Europe Passes Pro-spam Law
-<Knghtbrd> I though only Americans were that fucking stupid  =>
-<Espy> apparently americans are quite naive :)
 %
 <kira> is a surgical war where you go give the foreign troops nose jobs?
 %
@@ -687,7 +676,7 @@ Anyone who stands out in the middle of a road looks like roadkill to me.
 <RelDrgn> ...or ESR, he wants a new job ;)
 %
 Oh no, not again.
-        -- Manoj Srivastava
+		-- Manoj Srivastava
 %
 <Knghtbrd> Granted, RMS is a fanatic, I don't deny this.  I'll even say
            he's a royal pain in the arse most of the time.  But he's
@@ -696,7 +685,7 @@ Oh no, not again.
            without him.
 %
 <Espy> tomorrow there will be a great disturbance in the workforce
-        -- May 18, 1999
+		-- May 18, 1999
 %
 I am dyslexic of Borg.  Prepare to have your ass laminated.
 %
@@ -732,7 +721,7 @@ Basically, I want people to know that when they use binary-only modules,
 it's THEIR problem.  I want people to know that in their bones, and I
 want it shouted out from the rooftops.  I want people to wake up in a
 cold sweat every once in a while if they use binary-only modules.
-        -- Linus Torvalds
+		-- Linus Torvalds
 %
 * wichert_ imagines master without a MTA
 <james> wichert: ehm?  that might hinder peformance of the BTS :p
@@ -747,7 +736,7 @@ cold sweat every once in a while if they use binary-only modules.
 Due to the closed source development model of XFree it is impossible
 to support, or even speculate about, features in pre- or beta releases
 of XFree.
-        -- Marcus Sundberg
+		-- Marcus Sundberg
 %
 >   >I don't really regard bible-kjv-text as a technical document,
 >   > but... :)
@@ -766,7 +755,7 @@ email.  :-)
 <knghtbrd> so's mine and I live here
 %
 Moonchild without an opinion? Satan is skating to work tomorrow!
-        -- Brett Manz
+		-- Brett Manz
 %
 <Knghtbrd> I really don't want much at all...  Just a kind word, an
            attractive woman, and UNLIMITED BANDWIDTH!!
@@ -776,7 +765,7 @@ Moonchild without an opinion? Satan is skating to work tomorrow!
 %
 Last time I had intimate contact with another human being was rather a
 painful experience... I rather liked it... ;)
-        -- Brett Manz
+		-- Brett Manz
 %
 <Apple_IIe> anyone seen my 80 column card?
 %
@@ -823,10 +812,6 @@ painful experience... I rather liked it... ;)
 <Knghtbrd> CosmicRay - why not, sounds like a fun way to spend the
            afternoon =D
 %
-<Crow-> these stupid head hunters want resumes in ms word format
-<Crow-> can you write shit in tex and convert it to word?
-<Overfiend> \converttoword{shit}
-%
 <xtifr> you don't have to be insane to work here....oh wait, yes you do!
         :)
 %
@@ -837,7 +822,7 @@ painful experience... I rather liked it... ;)
 2.3.* releases are development kernels, with no guarantees that they
 will not cause your system to do horrible things like corrupt its
 disks, catch fire, or start running Mindcraft benchmarks.
-        -- Slashdot
+		-- Slashdot
 %
 do {
     :
@@ -859,7 +844,7 @@ do {
 <stu> double-height hard drive
 %
 Klingon function calls do not have 'parameters' -- they have 'arguments'
--- and they ALWAYS WIN THEM.
+		-- and they ALWAYS WIN THEM.
 %
 * Knghtktty is not going to ask how zucchini got into the discussion ...
 %
@@ -871,10 +856,7 @@ Klingon function calls do not have 'parameters' -- they have 'arguments'
 %
 "As you journey through life take a minute every now and then to give a
 thought for the other fellow. He could be plotting something."
-        -- Hagar the Horrible
-%
-<Crow-> who gives a shit about US law
-<jim> anyone living in the US.
+		-- Hagar the Horrible
 %
 <Knghtbrd> Okay, you people have started talking about BSDM applications of
            network hardware...  I think I'll run off and do something useful
@@ -918,13 +900,10 @@ Perhaps Debian is concerned more about technical excellence rather than
 ease of use by breaking software. In the former we may excel.  In the
 latter we have to concede the field to Microsoft. Guess where I want to go
 today?
-        -- Manoj Srivastava
+		-- Manoj Srivastava
 %
 * PerlGeek is really a space alien
 * Knghtktty believes PerlGeek
-%
-// Minor lesson: don't fuck about with something you don't fully understand
-        -- the dosdoom source code
 %
 <netgod> my client has been owned severely
 <netgod> this guy got root, ran packet sniffers, installed .rhosts and
@@ -934,7 +913,7 @@ today?
 <netgod> question is how was root hacked, and that i couldnt tell u
 <netgod> it is, of course, not a debian box
 * netgod notes the debian box is the only one left untouched by the hacker
-         -- wonder why
+		-- wonder why
 %
 * joeyh cvs commits his home directory. Aaaaaa
 <drow> eeeeeeek
@@ -944,7 +923,7 @@ today?
 %
 I stopped a long time ago to try to find anything in the bug list of dpkg.
 We should run for an entry in the Guinness Book of Records.
-        -- Stephane Bortzmeyer
+		-- Stephane Bortzmeyer
 %
 <ahzz_> i figured 17G oughta be enough.
 %
@@ -981,7 +960,7 @@ d!
 Techical solutions are not a matter of voting. Two legislations in the US
 states almost decided that the value of Pi be 3.14, exactly. Popular vote
 does not make for a correct solution.
-        -- Manoj Srivastava
+		-- Manoj Srivastava
 %
 <aj> <Knghtbrd> the increase in tension worldwide (as evidenced by crime
 <aj>            and whatnot) over that time period looks a lot like Linux
@@ -994,7 +973,7 @@ Since this database is not used for profit, and since entire works are not
 published, it falls under fair use, as we understand it.  However, if any
 half-assed idiot decides to make a profit off of this, they will need to
 double check it all...
-        -- Notes included with the default fortunes database
+		-- Notes included with the default fortunes database
 %
 There is no snooze button on a cat who wants breakfast.
 %
@@ -1002,7 +981,7 @@ Subject: Bug#42432: debian-policy: Proposal for CTV for Draft for Proof of
 Concept for Draft for Proposal for Proposal for CTV for a CTV to decide on
 a proposal for a CTV for the CTV on whether or not we shoud have a CTV on
 the /usr/doc to /usr/share/doc transition now, or later.
-        -- Ed Lang
+		-- Ed Lang
 %
 <Knghtbrd> It's a trackball for one
 <wichert> so it's not a rodent
@@ -1040,7 +1019,7 @@ Operating Systems Installed:
     price does not include taxes/shipping). Surprisingly, no source code
     is included.
 
-        -- Bill Stilwell, http://linuxtoday.com/stories/8794.html
+		-- Bill Stilwell, http://linuxtoday.com/stories/8794.html
 %
 Steal this tagline.  I did.
 %
@@ -1079,7 +1058,7 @@ vulnerable to this problem..
 %
 First off - Quake is simply incredible. It lets you repeatedly kill your
 boss in the office without being arrested. :)
-        -- Signal 11, in a slashdot comment
+		-- Signal 11, in a slashdot comment
 %
 Lucas' Law:  Good will always win, because evil hires the _stupid_
              engineers.
@@ -1103,7 +1082,7 @@ keep the needs of our users at the forefront of our minds. And from a
 user's perspective, something that keeps the system tidy in the normal
 case, and works *now*, is much better than idealistic fantasies like a
 working dpkg.
-        -- Manoj Srivastava
+		-- Manoj Srivastava
 %
 For every vision there is an equal and opposite revision.
 %
@@ -1131,7 +1110,7 @@ For every vision there is an equal and opposite revision.
 Given some of the recent threads, the interactive discussions might
 need to be conducted on canvas, in the presence of a referee, while
 wearing padded gloves.  ;-)
-        -- Phil Hands
+		-- Phil Hands
 %
 <james> but, then I used an Atari, I was more likely to win the lottery in
         ten countries simultaneously than get accelerated X
@@ -1154,18 +1133,15 @@ NSA AGENT 1: Hey guys, did you check out slashdot over the weekend?
     AGENT 2: No, I was installing Mandrake 6.1 and I coulnd't get the darn
              ppp connection up..
     AGENT 1: Well check it out... they're on to us.
-        -- Chris Moyer <cdmoyer@starmail.com>
+		-- Chris Moyer <cdmoyer@starmail.com>
 %
 Technology is a constand battle between manufacturers producing bigger and
 more idiot-proof systems and nature producing bigger and better idiots.
-        -- Slashdot signature
-%
-"I am ecstatic that some moron re-invented a 1995 windows fuckup."
-        -- Alan Cox
+		-- Slashdot signature
 %
 knghtbrd: there may be no spoon, but can you spot the vulnerability in
 eye_render_shiny_object.c?
-        -- rcw
+		-- rcw
 %
 <Joy> wow... simple maths show that Debian developers have closed more
       than *31* *thousand* bug reports since our BTS exists!
@@ -1186,7 +1162,7 @@ eye_render_shiny_object.c?
 <Knghtbrd> a little NeXTStep is good for the soul.
 %
 Caveats: it's GNOME, be afraid, be very afraid of the Depends line
-        -- James Troup
+		-- James Troup
 %
 <Culus> Hhhmmmmmmmm
 <Culus> waterbeds for cows
@@ -1195,7 +1171,7 @@ Caveats: it's GNOME, be afraid, be very afraid of the Depends line
 <Culus> cas:  To be comfy warm
 %
 If you are what you eat, I guess that makes me a cheese danish.
-        -- Anonymous
+		-- Anonymous
 %
 <hop> when you start making only stupid mistakes that are obvious, thats
       when you start getting competent
@@ -1224,13 +1200,13 @@ Gates' Law: Every 18 months, the speed of software halves.
 	   And did I mention that it's not recommended?
 %
 I think irc isn't going to work though---we're running out of topic space!
-        -- Joseph Carter
+		-- Joseph Carter
 %
 "Pacific Bell Customer Service, this is [..], how can I provide you with
 excellent customer service today?"
 "HAHAHAHAHA!!  That's good, I like it.."
 "Um, thanks, they make us say that."
-        -- knghtbrd and a pacbell rep, name removed to protect her job
+		-- knghtbrd and a pacbell rep, name removed to protect her job
 %
 <danpat> Omnic: bloody newzealanders
 <Omnic> danpat: put a sock in it
@@ -1258,7 +1234,7 @@ excellent customer service today?"
 %
 "The difference between genius and stupidity is that genius has its
 limits."
-        -- Albert Einstein
+		-- Albert Einstein
 %
 <knghtbrd> If charging someone for violation of US crypto laws would get
            you laughed out of court, just "investigate" them on hte charge
@@ -1269,7 +1245,7 @@ limits."
 <Espy> weasels don't have gills
 %
 If I have trouble installing Linux, something is wrong. Very wrong.
-        -- Linus Torvalds
+		-- Linus Torvalds
 %
 * bma_home gropes you
 <bma_home> "oups, wrong channel"
@@ -1282,7 +1258,7 @@ If I have trouble installing Linux, something is wrong. Very wrong.
 %
 Reading computer manuals without the hardware is as frustrating as reading
 sex manuals without the software.
-        - Arthur C Clarke
+		-- Arthur C Clarke
 %
 <knghtbrd> (tinc)
 <Espy> (ytitac)
@@ -1328,7 +1304,7 @@ It's as BAD as you think, and they ARE out to get you.
 %
 Guns don't kill people.  It's those damn bullets.  Guns just make them go
 really really fast.
-        -- Jake Johanson
+		-- Jake Johanson
 %
 <Espy> we need to split main into"core" and "wtf-uses-this"
 %
@@ -1345,7 +1321,7 @@ really really fast.
 	   like RMS by now and no longer be able to code.  ;>
 %
 C'mon! political protest! sheesh. Where's that anarchist spirit? ;-)
-        -- Decklin Foster
+		-- Decklin Foster
 %
 We've upped our standards, so up yours!
 %
@@ -1359,7 +1335,7 @@ We've upped our standards, so up yours!
 [regarding measures to prevent cheating in quake]
 I mean, as long as I can make my rocket launcher look like a big twinkie,
 I'll be happy ;)
-        -- Qeyser <keyser@jhu.edu>
+		-- Qeyser <keyser@jhu.edu>
 %
 <Knghtbrd> r0bert: in short, we're moving several things the client
            currently is responsible for telling the server into things the
@@ -1412,11 +1388,11 @@ I'll be happy ;)
 Microsoft is a cross between the Borg and the Ferengi.  Unfortunately,
 they use Borg to do their marketing and Ferengi to do their
 programming.
-        -- Simon Slavin
+		-- Simon Slavin
 %
 I would rather spend 10 hours reading someone else's source code than 10
 minutes listening to Musak waiting for technical support which isn't.
-        -- Dr. Greg Wettstein, Roger Maris Cancer Center
+		-- Dr. Greg Wettstein, Roger Maris Cancer Center
 %
 Where do you think you're going today?
 %
@@ -1428,7 +1404,7 @@ I'd been hearing all sorts of gloom and doom predictions for Y2K, so I
 I guess I wasn't fully awake when I completed my preparations late last
 night.  This morning I found the kitchen shelves soaked in gasoline, water
 in the car's gas tank, and my bathtub filled with baked beans.
-        -- Dan Pearl in a message to rec.humor.funny
+		-- Dan Pearl in a message to rec.humor.funny
 %
 <Tarzan> hey did you fall off your pirch or something?
 <knghtbrd> me?  heh.
@@ -1492,7 +1468,7 @@ in the car's gas tank, and my bathtub filled with baked beans.
 %
 "Nominal fee". What an ugly sentence. It's one of those things that
 implies that if you have to ask, you can't afford it.
-        -- Linus Torvalds
+		-- Linus Torvalds
 %
 <Deek> you GPL your homework? :)
 <knghtbrd> yah  =D
@@ -1540,7 +1516,7 @@ implies that if you have to ask, you can't afford it.
       when it can't survive a backhoe
 %
 This message was written with vi!  (not that anyone in the world cares)
-        -- seen on an old message from an anon.penet.fi address
+		-- seen on an old message from an anon.penet.fi address
 %
 Connection reset by some moron with a backhoe
 %
@@ -1556,12 +1532,12 @@ The less you know about computers the more you want Microsoft!
 Making one brilliant decision and a whole bunch of mediocre ones isn't as
 good as making a whole bunch of generally smart decisions throughout the
 whole process.
-        -- John Carmack
+		-- John Carmack
 %
 It's not usually cost effective time wise to go do it. But if something's
 really pissing you off, you just go find the code and fix it and that's
 really cool.
-        -- John Carmack, on the advantages of open source
+		-- John Carmack, on the advantages of open source
 %
 <calc> yea it sounds useful for RE'ing USB
 <calc> i have a useless 3com usb camera here :(
@@ -1631,7 +1607,7 @@ Microsoft for copying the Macintosh UI / trash can icon, until Microsoft
 pointed out that Apple got many of its Mac ideas (including the trash can
 icon) from Xerox ParcPlace.  Xerox is probably still wondering why
 everyone is interested in their trash cans.
-        -- Danny Thorpe, Borland Delphi R&R
+		-- Danny Thorpe, Borland Delphi R&R
 %
 <knghtbrd> is it a sign of mental illness to wander aimlessly through the
            start map, collect your Thunderbolt, hop in the pool, and gib
@@ -1656,7 +1632,7 @@ everyone is interested in their trash cans.
 <knghtbrd> Endy: You obviously know very little about Debian.
 %
 Nothing is a problem once you debug the code.
-        -- John Carmack
+		-- John Carmack
 %
 <Overfiend> The Unix way -- everything is a file
 <Overfiend> The Linux way -- everything is a filesystem :)
@@ -1667,19 +1643,13 @@ Nothing is a problem once you debug the code.
 %
 "Otherwise, please speak to a doctor about removing your head from your
 ass, I believe it would be beneficial to all involved."
-        -- Zephaniah E. Hull, flaming someone on a mailing list
+		-- Zephaniah E. Hull, flaming someone on a mailing list
 %
 Tagline, you're it!
 %
-<knghtbrd> this is college course in formal logic
-<devkev> knghtbrd: i hate that shit, much prefer fuzzy logic :)
-<knghtbrd> kev: fuzzy logic tickles.
-<taniwha> knghtbrd: lol
-<devkev> knghtbrd: fuzzy logic is so cool, it models the world really well
-%
 I am practicing a fine point of ethics.  It is acceptable to shoot back.
 It is not acceptable to shoot first.
-        -- Zed Pobre
+		-- Zed Pobre
 %
 <Coderjoe> gib, perl?
 <gib> methinks perl is the programmer's Swiss Army Chainsaw
@@ -1688,11 +1658,11 @@ It is not acceptable to shoot first.
 <taniwha> Endy: of course not
 %
 That's the funniest thing I've ever heard and I will _not_ condone it.
-        -- DyerMaker, 17 March 2000 MegaPhone radio show
+		-- DyerMaker, 17 March 2000 MegaPhone radio show
 %
 It's not?  Are you saying that you SHOULD allow people (other than William
 Wallace) to shoot lightning bolts from their arse?
-        -- Seth Galbraith
+		-- Seth Galbraith
 %
 <Mercury> You don't have to be crazy to be a member of the project, but
           you will be.. <=:]
@@ -1757,11 +1727,11 @@ Wallace) to shoot lightning bolts from their arse?
 At some point, bits have to go into packets and routers need to make
 decisions on them. Changes at that level is what I want to hear about, not
 strategic company relationships.
-        -- John Carmack
+		-- John Carmack
 %
 We reject: kings, presidents, and voting.
 We believe in: rough consensus and working code.
-        -- Dave Clark
+		-- Dave Clark
 %
 <Knghtbrd> QF is going to get zipfile support today
 <Coderjoe> heh... infozip?
@@ -1793,7 +1763,7 @@ forward this message to everyone you know.
 %
 Hmm...  Which would do a better job at driving physicists crazy?  Travel
 faster than light, or a floating-point boolean value?
-        -- Michael Mol
+		-- Michael Mol
 %
 <calc> knghtbrd: gnome 2.0 will be out in a few months, not sure how it
        will compare to kde 2.0 though
@@ -1815,13 +1785,6 @@ faster than light, or a floating-point boolean value?
 <knghtbrd> tausq: who the HELL wrote that ?
 <tausq> me :)
 * knghtbrd flogs tausq
-%
-<Deek> Exactly how much of a PITA is this in C?
-<Knghtbrd> It's written in C++.
-<Deek> Hence my question.
-<Knghtbrd> I could do something like it in C.  Anyone who saw the results
-           would think I was either a genius or out of my fucking mind.
-           They'd be right on either count.
 %
 <Knghtbrd> glDisable (GL_BUGS);
 <Endy> heh
@@ -1875,7 +1838,7 @@ universe are pointed away from Earth?
 <Deek> Q3 takes the medieval church-dungeon and puts it in Vegas.
 %
 "I have a bone to pick, and a few to break."
-        -- Anonymous
+		-- Anonymous
 %
 Z.O.I.D.: Zombie Optimized for Infiltration and Destruction
 %
@@ -1910,7 +1873,7 @@ Z.O.I.D.: Zombie Optimized for Infiltration and Destruction
 A subversive is anyone who can out-argue their government.
 %
 We must know, we will know.
-        -- David Hilbert
+		-- David Hilbert
 %
 <Knghtbrd> Internet censorship.  Because your children need to be
            protected from naked women, medical procedures, diverse
@@ -1920,14 +1883,14 @@ We must know, we will know.
 %
 A friend of mine has a barcode on his arm.
 He rings up as a $.35 pack of JuicyFruit.
-        -- Seen on Slashdot
+		-- Seen on Slashdot
 %
 <NullC> I like the seed code for computing masking curves.
 <NullC> I've never seen code that made be want to drink before that...
 %
 $you = new YOU;
 honk() if $you->love(perl)
-        -- Seen on Slashdot
+		-- Seen on Slashdot
 %
 <cj> no!  problems in M$ software?
 <cj> "Thoroughly bugtested"
@@ -1938,11 +1901,7 @@ honk() if $you->love(perl)
 %
 "Debian: no hats or reptiles were harmed in the making of this distribution=
 ."
-        -- Paul Slootman
-%
-* knghtbrd ponders how to scare the living shit out of 87 people at once..
-<knghtbrd> AHH!  I can do it in 3 words!:
-<knghtbrd> Microsoft Visual COBOL.
+		-- Paul Slootman
 %
 * athener calls Amnesty International House of Pancakes
 %
@@ -1958,7 +1917,7 @@ honk() if $you->love(perl)
 <elmo> something we should know about you and cosmicray, Ben? :)
 %
 Change the Social Contract?  BWAHAHAHAHAHAHAHAHAHAHAHA.
-	-- Branden Robinson
+		-- Branden Robinson
 %
 <knghtbrd> Program received signal SIGSEGV, Segmentation fault.
 <knghtbrd> 0x40095fb0 in memchr () from /lib/libc.so.6
@@ -1969,10 +1928,10 @@ Change the Social Contract?  BWAHAHAHAHAHAHAHAHAHAHAHA.
 * knghtbrd trades gdb for a nice ouija board - it'll help more
 %
 All good ideas look like bad ideas to those who are losers.
-        -- Dilbert
+		-- Dilbert
 %
 RFC 882 put the dot in .com, not Sun Microsystems
-        -- Seen on Slashdot
+		-- Seen on Slashdot
 %
 * joeyh_ wonders if linux is supposed to lock up when you ask 100
   processes to cat the entire cd drive
@@ -2004,9 +1963,6 @@ RFC 882 put the dot in .com, not Sun Microsystems
 <aj> Myth: /var/log/damn.log?
 * aj wonders what that'd look like
 <aj> Dec 18 05:32:30 blae smtpd[123]: DAMN IT ALL TO HELL!!
-%
-<doogie_> linux takes shit and turns it into something useful.
-<doogie_> windows takes something useful and turns it into shit
 %
 * weasel wonders how stupid one has to be to spam alt.anonymous.messages
 <knghtbrd> weasel: about half as stupid as one has to be to harvest it.
@@ -2080,7 +2036,7 @@ RFC 882 put the dot in .com, not Sun Microsystems
  * This code has been tested against that, and is equivalent,
  * except that you don't need to include two pages of legalese
  * with every copy.
-        -- public domain MD5 source
+		-- public domain MD5 source
 %
 * knghtbrd is gone - zzz - messages will be snapped like wet towels at all
   of the people who have stolen the trademark knghtbrd away message
@@ -2089,12 +2045,12 @@ RFC 882 put the dot in .com, not Sun Microsystems
 %
 Never underestimate the power of somebody with source code, a text editor,
 and the willingness to totally hose their system.
-        -- Rob Landley <telomerase@yahoo.com>
+		-- Rob Landley <telomerase@yahoo.com>
 %
 "So, will the Andover party have a cash bar?"
 "No, there's free beer."
 "Uh-oh, Stallman's gonna be pissed..."
-        -- overheard at the Bazaar, 1999
+		-- overheard at the Bazaar, 1999
 %
 <Addi> Alter.net seems to have replaced one of its router with a zucchini.
 %
@@ -2133,19 +2089,11 @@ from their girlfriends
 "What are we going to do tonight, Bill?"
 "Same thing we do every night Steve, try to take over the world!"
 %
-<knghtbrd> *sigh*  My todo list is like the fucking energizer bunny
-<knghtbrd> It keeps growing and growing and growing and ...
-%
 <Deek> That reminds me, we'll need to buy a chainsaw for the office. "In
        case of emergency, break glass"
 %
 <knghtbrd> He's a about half the size of the others.
 <knghtbrd> But he's got a chainsaw.
-%
-<Knghtbrd> It is when the example source won't compile ...
-<``Erik> then you fucked something up
-<Knghtbrd> Nope, I followed their instructions
-<``Erik> that may've been your problem :}
 %
 <Deek> "I keep my personal gpg data in a locked, lead safe in a vault
        guarded by angry rednecks and their dawgs.  Trespassers will be
@@ -2195,7 +2143,7 @@ from their girlfriends
 <Coderjoe> damn straight. or curvy, crooked, or what have you
 %
 Unix is mature OS, windows is still in diapers and they smell badly.
-        -- Rafael Skodlar <raffi@linwin.com>
+		-- Rafael Skodlar <raffi@linwin.com>
 %
 <Midgar> From all the stereotypes about Aussies, I figure you guys are
          really tough.
@@ -2212,7 +2160,7 @@ colors and minor style variations (which building plan was used for which
 particular house) are allowed by the restrictive covenants and local
 zoning laws.  Sourceforege is the open source equivalent of the
 subdivision in the movie "Edward Scissorhands".
-        -- Terry Lambert
+		-- Terry Lambert
 %
 <calc> Knghtbrd: irc doesn't compile c code very well ;)
 %
@@ -2225,7 +2173,7 @@ with pointers to Win32-based components, the best that can be said about
 its adoption of XML is that it will make it easier for browsers and
 applications on non-Windows platforms to understand which parts of the
 document it must ignore."
-        -- Nicholas Petreley, "Computerworld", 3 September, 2001
+		-- Nicholas Petreley, "Computerworld", 3 September, 2001
 %
 <robert> i understand there are some reasonable limits to free speech in
          america, for example I cannot scream Fire into a crowded theatre
@@ -2257,7 +2205,7 @@ Yep, that cashier read all the signs... canned chicken soup, TheraFlu,
 Halls, NyQuil, the bigass bottles of OJ and grapefruit juice... he knew
 and I knew that I had a date with the teevee and a down comforter. Awww
 yeah.
-        -- Elizabeth Kirkindall
+		-- Elizabeth Kirkindall
 %
 In science it often happens that scientists say, 'You know that's a really
 good argument; my position is mistaken,' and then they actually change
@@ -2265,7 +2213,7 @@ their minds and you never hear that old view from them again.  They really
 do it.  It doesn't happen as often as it should, because scientists are
 human and change is sometimes painful.  But it happens every day.  I cannot
 recall the last time something like that happened in politics or religion.
-        -- Carl Sagan, 1987 CSICOP keynote address
+		-- Carl Sagan, 1987 CSICOP keynote address
 %
 <knghtbrd> add a GF2/3, a sizable hard drive, and a 15" flat panel and
            you've got a pretty damned portable machine.
@@ -2284,7 +2232,7 @@ Linux supports the notion of a command line or a shell for the same reason
 that only children read books with only pictures in them. Language, be it
 English or something else, is the only tool flexible enough to accomplish
 a sufficiently broad range of tasks.
-        -- Bill Garrett
+		-- Bill Garrett
 %
 ## Signoff: insurgent (razzin' frazzin' motherfu... stupid directx...)
 %
@@ -2297,14 +2245,6 @@ a sufficiently broad range of tasks.
            am.  =)
 %
 <rcw> liiwi: printk("CPU0 on fire\n");
-%
-<Sammy> that's *IT*.  I'm never fucking attempting to install redhat
-        again.
-<Sammy> this is like the 10th fucking machine on which the installer has
-        imploded immediately after I went through the hell of their
-	package selection process.
-<timball> Sammy: just use debian and never look back
-<Sammy> timball: debian iso's are being written at this very moment.
 %
 <Electro> my computer was once one of the building blocks of a great
           pyramid
@@ -2342,11 +2282,11 @@ new extensions work as documented the first time I try them.  When I have
 a problem on an Nvidia, I assume that it is my fault.  With anyone else's
 drivers, I assume it is their fault.  This has turned out correct almost
 all the time."
-        -- John Carmack
+		-- John Carmack
 %
 Libtool shared library portability is only slightly more believable than
 perpetual motion machines.  Especially on AIX :)."
-        -- David Leimbach
+		-- David Leimbach
 %
 <Overfiend> this is the New Overfiend, preacher of Love and Tolerance
 %

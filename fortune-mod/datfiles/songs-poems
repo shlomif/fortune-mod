@@ -26,7 +26,7 @@ Is always walcum
 %
 A box without hinges, key, or lid,
 Yet golden treasure inside is hid.
-		-- J.R.R. Tolkien
+		-- J. R. R. Tolkien
 %
 A bunch of the boys were whooping it in the Malemute saloon;
 The kid that handles the music box was hitting a jag-time tune;
@@ -691,7 +691,7 @@ Because I do not hope to survive
 Injustice from the Palace, death from the air,
 Because I do, only do,
 I continue...
-		-- T.S. Pynchon
+		-- T. S. Pynchon
 %
 Beneath this stone lies Murphy,
 They buried him today,
@@ -712,7 +712,7 @@ While Riley was away.
 
 	who | grep sleeping
 	who | grep awake
-	who | grep bad || good
+	who | grep 'bad\|good'
 	for (goodness sake) {
 		be good
 	}
@@ -722,7 +722,7 @@ And the reality
 Between the motion
 And the act
 Falls the Shadow
-		-- T.S. Eliot, "The Hollow Man"
+		-- T. S. Eliot, "The Hollow Man"
 
 	[Quoted in "VMS Internals and Data Structures", V4.4, when
 	 referring to system service dispatching.]
@@ -827,7 +827,7 @@ The best laid schemes o' mice an' men
 Gang aft a-gley,
 An' lea'e us nought but grief and pain
 For promised joy.
-	-- Robert Burns, "To a Mouse", 1785
+		-- Robert Burns, "To a Mouse", 1785
 %
 Buzz off, Banana Nose; Relieve mine eyes
 Of hateful soreness, purge mine ears of corn;
@@ -1054,7 +1054,7 @@ Death comes on every passing breeze,
 He lurks in every flower;
 Each season has its own disease,
 Its peril -- every hour.
-	--Reginald Heber
+		-- Reginald Heber
 %
 	Deck us all with Boston Charlie,
 	Walla Walla, Wash., an' Kalamazoo!
@@ -1308,7 +1308,7 @@ And everybody knows it's now or never.  Everybody knows that it's me or you.
 And everybody knows that you live forever when you've done a line or two.
 Everybody knows the deal is rotten: Old Black Joe's still pickin' cotton
 for you ribbons and bows.  And everybody knows.
-	-- Leonard Cohen, "Everybody Knows"
+		-- Leonard Cohen, "Everybody Knows"
 %
 Everything's great in this good old world;
 (This is the stuff they can always use.)
@@ -1377,7 +1377,7 @@ Oh Spot, the complex levels of behavior you display
 Connote a fairly well-developed cognitive array.
 And though you are not sentient, Spot, and do not comprehend,
 I nonetheless consider you a true and valued friend.
-	-- Lt. Cmdr. Data, "An Ode to Spot"
+		-- Lt. Cmdr. Data, "An Ode to Spot"
 %
 Fifteen men on a dead man's chest,
 Yo-ho-ho and a bottle of rum!
@@ -2547,7 +2547,7 @@ Yes life is fine when things combine,
 	Like ham in beef chow mein...
 But lord, this time I think I mind,
 	They've put acid in my rain.
-		      --- Milo Bloom
+		-- - Milo Bloom
 %
 I'd rather laugh with the sinners,
 Than cry with the saints,
@@ -2616,7 +2616,7 @@ Never wouldn't ever do a binary. (No sir!)
 I'm 'er eighth tree that was N-ary.
 N-ary the tree I am, I am,
 N-ary the tree I am.
-		-- Stolen from Paul Revere and the Raiders
+		-- Stolen from Herman's Hermits
 %
 I'm So Miserable Without You It's Almost Like Having You Here
 		-- Song title by Stephen Bishop.
@@ -2863,7 +2863,7 @@ If you're worried by earthquakes and nuclear war,
 As well as by traffic and crime,
 Consider how worry-free gophers are,
 Though living on burrowed time.
-	-- Richard Armour, WSJ, 11/7/83
+		-- Richard Armour, WSJ, 11/7/83
 %
 Il brilgue: les t^oves libricilleux
 	Se gyrent et frillant dans le guave,
@@ -2953,7 +2953,7 @@ And there were gardens bright with sinuous rills,
 Where blossomed many an incense-bearing tree;
 And here were forest ancient as the hills,
 Enfolding sunny spots of greenery.
-		-- S.T. Coleridge, "Kubla Kahn"
+		-- S. T. Coleridge, "Kubla Kahn"
 %
 In Xanadu did Kubla Khan a stately pleasure dome decree
 But only if the NFL to a franchise would agree.
@@ -3254,7 +3254,7 @@ while the night is laid out against the sky
 like a smear of mustard on an old pork pie.
 
 "Nice poem Tom.  I have ideas for changes though, why not come over?"
-	-- Ezra
+		-- Ezra
 %
 Let us go, through certain half-deserted streets,
 The muttering retreats
@@ -3264,7 +3264,7 @@ Streets that follow like a tedious argument
 Of insidious intent
 To lead you to an overwhelming question...
 Oh, do not ask, "What is it?"
-		-- T.S. Eliot, "Love song of J. Alfred Prufrock"
+		-- T. S. Eliot, "Love song of J. Alfred Prufrock"
 %
 Let us treat men and women well;
 Treat them as if they were real;
@@ -3798,7 +3798,7 @@ And since to look at things in bloom
 Fifty springs are little room,
 About the woodlands I will go
 To see the cherry hung with snow.
-		-- A.E. Housman
+		-- A. E. Housman
 %
 Now that day wearies me,
 My yearning desire
@@ -3946,7 +3946,7 @@ To know not of megrims or melancho-ly!"
 And a delicate face, and could strut about Town!"
 "My dear--a raw country girl, such as you be,
 Cannot quite expect that.  You ain't ruined," said she.
-		--Thomas Hardy
+		-- Thomas Hardy
 %
 Oh, by the way, which one's Pink?
 		-- Pink Floyd
@@ -4556,7 +4556,7 @@ Hard luck has of hope bereft you,
 Health is failing, wish you'd die--
 Why, you've still the sunshine left you
 And the big blue sky.
-		-- R.W. Service
+		-- R. W. Service
 %
 Science Fiction, Double Feature.
 Frank has built and lost his creature.
@@ -5006,7 +5006,7 @@ Pretty friendship 'tis to rhyme
 Your friends to death before their time.
 Moping, melancholy mad:
 Come, pipe a tune to dance to, lad.
-		-- A.E. Housman
+		-- A. E. Housman
 %
 That feeling just came over me.
 		-- Albert DeSalvo, the "Boston Strangler"
@@ -5474,7 +5474,7 @@ of Chicago and the yellow fever epidemic proved natural subjects for her pen.
 	Whether death was by drowning, by fits or by runaway sleigh, the
 formula was the same:
 		Have you heard of the dreadful fate
-		Of Mr. P.P. Bliss and wife?
+		Of Mr. P. P. Bliss and wife?
 		Of their death I will relate,
 		And also others lost their life
 		(in the) Ashbula Bridge disaster,
@@ -5613,7 +5613,7 @@ If mermaids are better before or be... brave
 My dear fellows," The captain cried out.
 And cursing with spleen.
 This song may be dull, but it's certainly clean.
-		-- "The Clean Song", Oscar Brandt
+		-- Oscar Brand, "A Clean Song"
 %
 There was a little girl
 Who had a little curl
@@ -5640,7 +5640,7 @@ There's a thrill in store for all for we're about to toast
 The corporation that we represent.
 We're here to cheer each pioneer and also proudly boast,
 Of that man of men our sterling president
-The name of T.J. Watson means
+The name of T. J. Watson means
 A courage none can stem
 And we feel honored to be here to toast the IBM.
 		-- Ever Onward, from the 1940 IBM Songbook
@@ -5759,7 +5759,7 @@ This is the way the world ends,
 This is the way the world ends,
 This is the way the world ends,
 Not with a bang but with a whimper.
-		-- T.S. Eliot, "The Hollow Men"
+		-- T. S. Eliot, "The Hollow Men"
 %
 This land is my land, and only my land,
 I've got a shotgun, and you ain't got one,
@@ -5817,7 +5817,7 @@ In the Land of Mordor where the Shadows lie.
 One Ring to rule them all, One Ring to find them,
 One Ring to bring them all and in the darkness bind them
 In the Land of Mordor where the Shadows lie.
-		-- J.R.R. Tolkien, "The Lord of the Rings"
+		-- J. R. R. Tolkien, "The Lord of the Rings"
 %
 Throw away documentation and manuals,
 and users will be a hundred times happier.
@@ -6248,7 +6248,7 @@ And earthquakes only terrify the dolts,
 And to him who's scientific
 There is nothing that's terrific
 In the pattern of a flight of thunderbolts!
-		-- W.S. Gilbert, "The Mikado"
+		-- W. S. Gilbert, "The Mikado"
 %
 Wad some power the giftie gie us
 To see oursels as others see us.
@@ -6431,7 +6431,7 @@ Well, they've no idea what money's for --
 Ten to one they'll start another war.
 I've heard a lot of silly things, but, Lor'!
 Fancy giving money to the Government!
-		-- A.P. Herbert
+		-- A. P. Herbert
 %
 Well, I don't know where they come from but they sure do come,
 I hope they comin' for me!
@@ -6609,7 +6609,7 @@ Shall whet their knives, and think of you.
 %
 When a lion meets another with a louder roar,
 the first lion thinks the last a bore.
-		-- G.B. Shaw
+		-- G. B. Shaw
 %
 When I think about myself,
 I almost laugh myself to death,
@@ -6676,7 +6676,7 @@ Behind blue eyes.
 No one knows what its like to be hated,
 	to be fated,
 To telling only lies.
-			-- The Who
+		-- The Who
 %
 When oxygen Tech played Hydrogen U.
 The Game had just begun, when Hydrogen scored two fast points
@@ -6845,7 +6845,7 @@ So on we worked, and waited for the light,
 	And went without the meat, and cursed the bread;
 And Richard Cory, one calm summer night,
 	Went home and put a bullet through his head.
-		-- E.A. Robinson, "Richard Cory"
+		-- E. A. Robinson, "Richard Cory"
 %
 WHERE CAN THE MATTER BE
 	Oh, dear, where can the matter be
@@ -6937,7 +6937,7 @@ Who made the world I cannot tell;
 'Tis made, and here am I in hell.
 My hand, though now my knuckles bleed,
 I never soiled with such a deed.
-		-- A.E. Housman
+		-- A. E. Housman
 %
 Who to himself is law no law doth need,
 offends no law, and is a king indeed.
@@ -7117,7 +7117,7 @@ But it just may be a lunatic you're looking for!
 You will find me drinking gin
 In the lowest kind of inn,
 Because I am a rigid Vegetarian.
-		-- G.K. Chesterton
+		-- G. K. Chesterton
 %
 You'll always be,
 What you always were,

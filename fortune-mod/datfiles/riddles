@@ -48,9 +48,6 @@ A:	We are Vaxen.
 Q:	Do you know what the death rate around here is?
 A:	One per person.
 %
-Q:	Heard about the <ethnic> who couldn't spell?
-A:	He spent the night in a warehouse.
-%
 Q:	How can you tell when a Burroughs salesman is lying?
 A:	When his lips move.
 %
@@ -64,9 +61,6 @@ Q:	How do you catch a tame rabbit?
 A:	The tame way!
 %
 Q:	How do you keep a moron in suspense?
-%
-Q:	How do you know when you're in the <ethnic> section of Vermont?
-A:	The maple sap buckets are hanging on utility poles.
 %
 Q:	How do you play religious roulette?
 A:	You stand around in a circle and blaspheme and see who gets
@@ -150,7 +144,7 @@ Q:	How many gradual (sorry, that's supposed to be "graduate") students
 	does it take to screw in a light bulb?
 A:	"I'm afraid we don't know, but make my stipend tax-free, give my
 	advisor a $30,000 grant of the taxpayer's money, and I'm sure he
-	can tell me how to do the shit work for him so he can take the
+	can tell me how to do the gruntwork for him so he can take the
 	credit for answering this incredibly vital question."
 %
 Q:	How many hardware engineers does it take to change a light bulb?
@@ -374,11 +368,6 @@ Q:	What does a WASP Mom make for dinner?
 A:	A crisp salad, a hearty soup, a lovely entree, followed by
 	a delicious dessert.
 %
-Q:	What does friendship among Soviet nationalities mean?
-A:	It means that the Armenians take the Russians by the hand; the
-	Russians take the Ukrainians by the hand; the Ukranians take
-	the Uzbeks by the hand; and they all go and beat up the Jews.
-%
 Q:	What does it say on the bottom of Coke cans in North Dakota?
 A:	Open other end.
 %
@@ -397,7 +386,7 @@ A:	Open other end.
 Q:	What is purple and commutes?
 A:	An Abelian grape.
 %
-Q:	What is purple and concord the world?
+Q:	What is purple and conquered the world?
 A:	Alexander the Grape.
 %
 Q:	What is the difference between a duck?
@@ -560,9 +549,6 @@ A:	Well, Dad, I could have finished years ago, but I wanted
 Q:	Why is Christmas just like a day at the office?
 A:	You do all of the work and the fat guy in the suit
 	gets all the credit.
-%
-Q:	Why is it that Mexico isn't sending anyone to the '84 summer games?
-A:	Anyone in Mexico who can run, swim or jump is already in LA.
 %
 Q:	Why is it that the more accuracy you demand from an interpolation
 	function, the more expensive it becomes to compute?

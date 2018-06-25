@@ -1,5 +1,5 @@
 "How do you pronounce SunOS?"  "Just like you hear it, with a big SOS"
-	-- dedicated to Roland Kaltefleiter
+		-- dedicated to Roland Kaltefleiter
 %
 finlandia:~> apropos win
 win: nothing appropriate.
@@ -97,54 +97,54 @@ happily for many days, and upon finding elvis, he vi'd and was happy.  After
 a long day at work (on a Unix box) he came home, started editing a file,
 and couldn't figure out why he couldn't suspend vi (w/ ctrl-z) to do
 a compile.
-	-- Erik Troan, ewt@tipper.oit.unc.edu
+		-- Erik Troan, ewt@tipper.oit.unc.edu
 %
 We are MicroSoft.  You will be assimilated.  Resistance is futile.
-	-- Attributed to B.G., Gill Bates
+		-- Attributed to B.G., Gill Bates
 %
 Avoid the Gates of Hell.  Use Linux
-	-- unknown source
+		-- unknown source
 %
 Intel engineering seem to have misheard Intel marketing strategy.  The
 phrase was "Divide and conquer" not "Divide and cock up"
-	-- Alan Cox, iialan@www.linux.org.uk
+		-- Alan Cox, iialan@www.linux.org.uk
 %
 Linux!  Guerrilla UNIX Development     Venimus, Vidimus, Dolavimus.
-	-- Mark A. Horton KA4YBR, mah@ka4ybr.com
+		-- Mark A. Horton KA4YBR, mah@ka4ybr.com
 %
 ----==-- _                     / /  \
 ---==---(_)__  __ ____  __    / / /\ \
 --==---/ / _ \/ // /\ \/ /   / /_/\ \ \
 -=====/_/_//_/\_,_/ /_/\_\  /______\ \ \
 A proud member of TeamLinux \_________\/
-	-- CHaley (HAC), haley@unm.edu, ch008cth@pi.lanl.gov)
+		-- CHaley (HAC), haley@unm.edu, ch008cth@pi.lanl.gov)
 %
 "Who is General Failure and why is he reading my hard disk?"
 Microsoft spel chekar vor sail, worgs grate !!
-	-- Felix von Leitner, leitner@inf.fu-berlin.de
+		-- Felix von Leitner, leitner@inf.fu-berlin.de
 %
 Personally, I think my choice in the mostest-superlative-computer wars has to
 be the HP-48 series of calculators.  They'll run almost anything.  And if they
 can't, while I'll just plug a Linux box into the serial port and load up the
 HP-48 VT-100 emulator.
-	-- Jeff Dege, jdege@winternet.com
+		-- Jeff Dege, jdege@winternet.com
 %
 /*
  * Oops. The kernel tried to access some bad page. We'll have to
  * terminate things with extreme prejudice.
 */
 die_if_kernel("Oops", regs, error_code);
-	-- From linux/arch/i386/mm/fault.c
+		-- From linux/arch/i386/mm/fault.c
 %
 Linux: because a PC is a terrible thing to waste
-	-- ksh@cis.ufl.edu put this on Tshirts in '93
+		-- ksh@cis.ufl.edu put this on Tshirts in '93
 %
 Linux: the choice of a GNU generation
-	-- ksh@cis.ufl.edu put this on Tshirts in '93
+		-- ksh@cis.ufl.edu put this on Tshirts in '93
 %
 There are two types of Linux developers - those who can spell, and
 those who can't.  There is a constant pitched battle between the two.
-	-- From one of the post-1.1.54 kernel update messages posted to c.o.l.a
+		-- From one of the post-1.1.54 kernel update messages posted to c.o.l.a
 %
 > > Other than the fact Linux has a cool name, could someone explain why I
 > > should use Linux over BSD?
@@ -156,7 +156,7 @@ those who can't.  There is a constant pitched battle between the two.
 > mistake of putting a lot of numbers and weird abbreviations into the
 > name, and is scaring away a lot of people just because it sounds too
 > technical.
-	-- Linus Torvalds' follow-up to a question about Linux
+		-- Linus Torvalds' follow-up to a question about Linux
 %
 > The day people think linux would be better served by somebody else (FSF
 > being the natural alternative), I'll "abdicate".  I don't think that
@@ -178,7 +178,7 @@ those who can't.  There is a constant pitched battle between the two.
 >
 > (*) Hey, maybe I could apply for a saint-hood from the Pope.  Does
 > somebody know what his email-address is? I'm so nice it makes you puke.
-	-- Taken from Linus's reply to someone worried about the future of Linux
+		-- Taken from Linus's reply to someone worried about the future of Linux
 %
 > : Any porters out there should feel happier knowing that DEC is shipping
 > : me an AlphaPC that I intend to try getting linux running on: this will
@@ -470,34 +470,34 @@ Now, it we had this sort of thing:
 
 ...you'd have a lot of dead people at intersections, and traffic jams you
 wouldn't believe...
-	-- Discussion on the intuitiveness of commands
+		-- Discussion on the intuitiveness of commands
 %
 Actually, typing random strings in the Finder does the equivalent of
 filename completion.
-	-- Discussion on file completion vs. the Mac Finder
+		-- Discussion on file completion vs. the Mac Finder
 %
 Not me, guy.  I read the Bash man page each day like a Jehovah's Witness reads
 the Bible.  No wait, the Bash man page IS the bible.  Excuse me...
-	-- More on confusing aliases, taken from comp.os.linux.misc
+		-- More on confusing aliases, taken from comp.os.linux.misc
 %
 On the Internet, no one knows you're using Windows NT
-	-- Submitted by Ramiro Estrugo, restrugo@fateware.com
+		-- Submitted by Ramiro Estrugo, restrugo@fateware.com
 %
 > I'm an idiot..  At least this [bug] took about 5 minutes to find..
 Disquieting ...
-	-- Gonzalo Tornaria in response to Linus Torvalds's
+		-- Gonzalo Tornaria in response to Linus Torvalds's
 %
 > I'm an idiot..  At least this [bug] took about 5 minutes to find..
 We need to find some new terms to describe the rest of us mere mortals
 then.
-	-- Craig Schlenter in response to Linus Torvalds's
+		-- Craig Schlenter in response to Linus Torvalds's
 %
 > I'm an idiot..  At least this [bug] took about 5 minutes to find..
 Surely, Linus is talking about the kind of idiocy that others aspire to :-).
-	-- Bruce Perens in response to Linus Torvalds's
+		-- Bruce Perens in response to Linus Torvalds's
 %
 Never make any mistaeks.
-	-- Anonymous, in a mail discussion about to a kernel bug report
+		-- Anonymous, in a mail discussion about to a kernel bug report
 %
 +#if defined(__alpha__) && defined(CONFIG_PCI)
 +       /*
@@ -1005,7 +1005,7 @@ Whoa, first contact!
 Welcome, from the people of Terra (Sol III). We extend our hands in
 friendship, and sincerely hope you shall do the same with your
 hand-equivelents.
-	-- Jason Burrell about a russian posting
+		-- Jason Burrell about a russian posting
 %
 > Whoa, first contact!
 
@@ -1013,47 +1013,37 @@ Nope, 'fraid not, Linux is still primarily used on planet Earth, I'm
 afraid.
 
 Our friend here sent a message in Russian (KOI8-R encoding).
-	-- Aleksey Kliger, explaining a russian posting
+		-- Aleksey Kliger, explaining a russian posting
 %
 There is, however, a strange, musty smell in the air that reminds me of
 something...hmm...yes...I've got it...there's a VMS nearby, or I'm a Blit.
-	-- Larry Wall in Configure from the perl distribution
-%
-Das ganze Saarland ist von M$ besetzt - das ganze? Nein eine kleine
-Gruppe im Sudwesten trotzt dem ubergrosen Herrscher dank ihres
-Zaubertrankes Linux
-	-- Tooster on #LinuxGER
+		-- Larry Wall in Configure from the perl distribution
 %
 1648 files (84%) out of the files that I mirror disappeared.  Since
 my delete threshold was set at 90%, all those files are now missing
 from my hard drive.  It's going to take a loooong time to fetch those
 again via 14.4kbps!
-	-- Brian C. White
-%
-Whoever asked if the debian organization was dead isn't reading
-debian-devel. 66 messages in one day, and it's not over. I find it
-difficult to keep up.
-	-- Bruce Perens
+		-- Brian C. White
 %
 >    What is the status of Linux' Unicode implementation. Will Linux
 >    be prepared for the first contact?
 
 We have full klingon console support just in case
-	-- Alan Cox on linux-kernel
+		-- Alan Cox on linux-kernel
 %
 "You, sir, are nothing but a pathetically lame salesdroid!
 I fart in your general direction!"
-	-- Randseed on #Linux
+		-- Randseed on #Linux
 %
 * Jes wonders why so many people in here uses fooZZZZZ and foo_sleeping nicks
 <peter> Jes: Because they are sleeping?
-	-- Seen on #Linux
+		-- Seen on #Linux
 %
 * gb notes that fdisk thinks his cdrom can store one terabyte
-	-- Seen on #Linux
+		-- Seen on #Linux
 %
 Check it out, send me comments, and dance joyously in the streets,
-	-- Linus Torvalds announcing 2.0.27
+		-- Linus Torvalds announcing 2.0.27
 %
 AP/STT.  Helsinki, Dec 5th, 6:22 AM.  For immediate release.
 
@@ -1165,10 +1155,7 @@ And formatted so it's a little easier to read:
                 ->new(PeerAddr=>"bad.dude.com:139")
                 ->send("bye", MSG_OOB);
 
-	-- Randal Schwartz
-%
-(It is an old Debian tradition to leave at least twice a year ...)
-	-- Sven Rudolph
+		-- Randal Schwartz
 %
 If a 'train station' is where a train stops, what's a 'workstation'?
 %
@@ -1423,7 +1410,7 @@ e-mail address bounces, Redhat doesn't provide it and I never used it.
 machine with the latest glibc sources (and no files are recompiled a
 second time).  I think I'll remove `build' after changing one file if
 I want to recompile it.
-	-- Juan Cespedes <cespedes@debian.org>
+		-- Juan Cespedes <cespedes@debian.org>
 %
 <Culus> aIIIIIIIIIII!!!!!!!!!!!!!!!11
 <Culus> MY LIGHT JUST DIED
@@ -1469,15 +1456,12 @@ I want to recompile it.
 These download files are in Microsoft Word 6.0 format. After
 unzipping, these files can be viewed in any text editor, including
 all versions of Microsoft Word, WordPad, and Microsoft Word Viewer
-	-- From Micro$oft
-%
-<james> abuse me.  I'm so lame I sent a bug report to debian-devel-changes
-	-- Seen on #Debian
+		-- From Micro$oft
 %
 Ooh, mommy, mommy, what I have now doesn't work in this extremely
 unlikely circumstance, so I'll just throw it away and write something
 completely new.
-	-- Linus Torvalds
+		-- Linus Torvalds
 %
 #ifdef __SMP__
 #error "Me no hablo Alpha SMP"
