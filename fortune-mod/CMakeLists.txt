@@ -204,6 +204,7 @@ SET (COOKIES
     pets
     platitudes
     politics
+    pratchett
     riddles
     science
     songs-poems
