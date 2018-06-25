@@ -5594,3 +5594,8 @@ kind of access, but there are no forward compatibility guarantees for root kit
 authors.
     -- Jonathan Corbet in "Who needs /dev/kmem?"
        (http://lwn.net/Articles/147901)
+%
+Step 1: Close AutoCAD - I know this can be difficult for some of you. You could
+also wait for AutoCAD to crash if you want.
+    -- Michael Rotolo
+       (http://themadcadder.blogs.com/my_weblog/2008/12/external-xref-manager-xref-path-saver.html)
