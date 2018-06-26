@@ -1,6 +1,19 @@
 fortune-mod README
 ==================
 
+This  is fortune-mod. It now lives at:
+
+* https://github.com/shlomif/fortune-mod
+
+* http://www.shlomifish.org/open-source/projects/fortune-mod/
+
+It is based on fortune-mod-1.99.1 with many improvements.
+
+    -- Shlomi Fish
+
+Old README
+==========
+
 This is fortune-mod-1.99.1. It's a pre-release for
 fortune-mod-2.0. This should give interested parties a chance to have
 a look at the changes that have come in, and the new features.
