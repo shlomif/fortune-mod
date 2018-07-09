@@ -18,7 +18,7 @@ FOREACH(c ${OFFENSIVE_COOKIES})
     ADD_CUSTOM_COMMAND(
         OUTPUT "${DEST}"
         COMMAND "${_strfile}"
-        ARGS "${rot_dest}" "${DEST}"
+        ARGS "-x" "${rot_dest}" "${DEST}"
         DEPENDS "${rot_dest}" "${_strfile}"
     )
 

@@ -224,6 +224,13 @@ static unsigned long my_random(unsigned long base)
 {
     FILE * fp;
     unsigned long long l = 0;
+    char * hard_coded_val;
+
+    hard_coded_val = getenv("FORTUNE_MOD_RAND_HARD_CODED_VALS");
+    if (hard_coded_val)
+    {
+        return ((unsigned long)atol(hard_coded_val) % base);
+    }
     if (getenv("FORTUNE_MOD_USE_SRAND"))
     {
         goto fallback;
