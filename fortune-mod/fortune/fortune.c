@@ -740,6 +740,10 @@ static int add_file(int percent, register const char *file, const char *dir,
     return TRUE;
 }
 
+static int names_compare(const void *a, const void *b)
+{
+    return strcmp(*(const char**)a, *(const char**)b);
+}
 /*
  * add_dir:
  *      Add the contents of an entire directory.
@@ -750,6 +754,8 @@ int add_dir(register FILEDESC * fp)
     register struct dirent *dirent;
     auto FILEDESC *tailp;
     auto char *name;
+    char **names;
+    size_t i, count_names, max_count_names;
 
     close(fp->fd);
     fp->fd = -1;
@@ -761,18 +767,43 @@ int add_dir(register FILEDESC * fp)
     tailp = NULL;
     DPRINTF(1, (stderr, "adding dir \"%s\"\n", fp->path));
     fp->num_children = 0;
+    max_count_names = 200;
+    count_names = 0;
+    names = malloc(sizeof(names[0])*max_count_names);
+    if (! names)
+    {
+        perror("Out of RAM!");
+        exit(-1);
+    }
     while ((dirent = readdir(dir)) != NULL)
     {
         if (dirent->d_name[0] == 0)
             continue;
         name = strdup(dirent->d_name);
-        if (add_file(NO_PROB, name, fp->path, &fp->child, &tailp, fp))
+        if (count_names == max_count_names)
+        {
+            max_count_names += 200;
+            names = realloc(names, sizeof(names[0])*max_count_names);
+            if (! names)
+            {
+                perror("Out of RAM!");
+                exit(-1);
+            }
+        }
+        names[count_names++] = name;
+    }
+    closedir(dir);
+    qsort(names, count_names, sizeof(names[0]), names_compare);
+
+    for (i=0; i < count_names; ++i)
+    {
+        if (add_file(NO_PROB, names[i], fp->path, &fp->child, &tailp, fp))
         {
             fp->num_children++;
         }
-        free(name);
+        free(names[i]);
     }
-    closedir(dir);
+    free(names);
     dir = NULL;
     if (fp->num_children == 0)
     {

@@ -4,7 +4,6 @@
 # https://github.com/shlomif/fortune-mod/issues/26
 # " Offensive fortunes not automatically decrypting #26 "
 
-
 use strict;
 use warnings;
 
@@ -46,5 +45,5 @@ sub do_system
     my $text = `'$inst_dir/games/fortune' -o`;
 
     # TEST
-    like( $text, qr/\ADrinking when we are/, 'fortune -m matched' );
+    like( $text, qr/\A"Prayer/, 'fortune -o was not rotated' );
 }
