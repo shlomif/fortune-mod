@@ -1,6 +1,13 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+July 10, 2018 (fortune-mod 2.6.1)
+
+	Fix the previously rotated display of offensive fortunes (using the "-o"
+	or "-a" flags). See https://github.com/shlomif/fortune-mod/issues/26 .
+
+	Incorporate several more minor patches from Debian.
+
 June 26, 2018 (fortune-mod 2.6.0)
 
 	Incorporate patches from the Debian package.
