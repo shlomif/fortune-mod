@@ -36,7 +36,7 @@ FOREACH(c ${COOKIES})
 
     INSTALL(
         FILES "${c}" "${CMAKE_CURRENT_BINARY_DIR}/${DEST}" "${CMAKE_CURRENT_BINARY_DIR}/${LINK}"
-        DESTINATION "share/games/fortunes"
+        DESTINATION "${LOCALDIR}"
     )
 
 ENDFOREACH()

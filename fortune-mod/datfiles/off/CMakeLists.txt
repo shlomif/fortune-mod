@@ -39,7 +39,7 @@ FOREACH(c ${OFFENSIVE_COOKIES})
 
     INSTALL(
         FILES "${rot_dest}" "${CMAKE_CURRENT_BINARY_DIR}/${DEST}" "${rot_LINK}"
-        DESTINATION "share/games/fortunes/off"
+        DESTINATION "${LOCALODIR}"
     )
 
 ENDFOREACH()
