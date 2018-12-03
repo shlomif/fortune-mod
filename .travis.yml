@@ -1,10 +1,9 @@
 os: linux
-dist: trusty
+dist: xenial
 before_install:
     - sudo apt-get update -qq
     - sudo apt-get --no-install-recommends install -y cmake cpanminus gcc libperl-dev librecode-dev perl make valgrind
     - sudo cpanm File::Find::Object IO::All List::Util Test::Differences Test::RunValgrind
-    - ( a="$(pwd)"; tgt="fortune-mod/cmake/"; mkdir B2 && cd B2 && hg clone https://bitbucket.org/shlomif/shlomif-cmake-modules && cd shlomif-cmake-modules/shlomif-cmake-modules && cp -f "$(pwd)"/Shlomif_Common.cmake "$a"/"$tgt"/ )
 script:
     - "mkdir B && cd B && cmake ../fortune-mod && make && make check && cd .."
     - "rm -fr B"
