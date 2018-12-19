@@ -1,6 +1,16 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+December 19, 2018 (fortune-mod 2.6.2)
+
+	Fix the cmake files installation paths. See
+	https://github.com/shlomif/fortune-mod/pull/29 .
+
+	Some improvements for spelling, punctuation and grammar.
+
+	Normalize the numbering of "Great Moments in History":
+	https://github.com/shlomif/fortune-mod/issues/28 .
+
 July 10, 2018 (fortune-mod 2.6.1)
 
 	Fix the previously rotated display of offensive fortunes (using the "-o"
