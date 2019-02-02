@@ -86,14 +86,19 @@
  * Who're you gonna quote?  Dan Quayle?
  */
 
-#include        <netinet/in.h>
-#include        <sys/param.h>
+/* For ntohl() */
+#ifdef _WIN32
+#include        <winsock2.h>
+#define getpid() 0
+#else
+#include        <arpa/inet.h>
+#include        <unistd.h>
+#endif
 #include        "strfile.h"
 #include        <stdio.h>
 #include        <stdlib.h>
 #include        <ctype.h>
 #include        <string.h>
-#include        <unistd.h>
 #include        <time.h>
 #ifndef MAXPATHLEN
 #define MAXPATHLEN      1024

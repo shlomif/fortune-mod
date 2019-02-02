@@ -122,6 +122,8 @@ my_exe(
     "sbin"
 )
 
+# Build but not install.
+ADD_EXECUTABLE("randstr" "util/randstr.c")
 my_exe(
     "unstr"
     "util/unstr.c"
