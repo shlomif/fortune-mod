@@ -86,23 +86,7 @@
  * Who're you gonna quote?  Dan Quayle?
  */
 
-/* For ntohl() */
-#ifdef _WIN32
-#include        <winsock2.h>
-#define getpid() 0
-#else
-#include        <arpa/inet.h>
-#include        <unistd.h>
-#endif
-#include        "strfile.h"
-#include        <stdio.h>
-#include        <stdlib.h>
-#include        <ctype.h>
-#include        <string.h>
-#include        <time.h>
-#ifndef MAXPATHLEN
-#define MAXPATHLEN      1024
-#endif /* MAXPATHLEN */
+#include "fortune-mod-common.h"
 
 char *Infile,                   /* name of input file */
   Datafile[MAXPATHLEN],         /* name of data file */

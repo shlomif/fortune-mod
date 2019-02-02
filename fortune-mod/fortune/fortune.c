@@ -98,23 +98,10 @@ static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
 
 #define         PROGRAM_NAME            "fortune-mod"
 
-#include <stdbool.h>
-
-#include        <sys/types.h>
-#include        <sys/time.h>
-#include        <sys/param.h>
-#include        <sys/stat.h>
-#include        <netinet/in.h>
-
-#include        <time.h>
+#include "fortune-mod-common.h"
 #include        <dirent.h>
 #include        <fcntl.h>
 #include        <assert.h>
-#include        <unistd.h>
-#include        <stdio.h>
-#include        <ctype.h>
-#include        <stdlib.h>
-#include        <string.h>
 #include        <errno.h>
 #include        <locale.h>
 #include        <langinfo.h>
@@ -132,7 +119,6 @@ static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
 #endif
 
 #include        "config.h"
-#include        "strfile.h"
 
 #define TRUE    1
 #define FALSE   0

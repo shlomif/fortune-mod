@@ -72,20 +72,7 @@
  *I haven't the faintest flipping idea what all that is, so kill the warnings
  */
 
-#include        <stdlib.h>
-#include        <unistd.h>
-#include        <netinet/in.h>
-#include        <sys/param.h>
-#include        <stdio.h>
-#include        <ctype.h>
-#include        <string.h>
-#include        <time.h>
-#include        <stdbool.h>
-#include        "strfile.h"
-
-#ifndef MAXPATHLEN
-#define MAXPATHLEN      1024
-#endif /* MAXPATHLEN */
+#include "fortune-mod-common.h"
 
 /*
  *    This program takes a file composed of strings separated by

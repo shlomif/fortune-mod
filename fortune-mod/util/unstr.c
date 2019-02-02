@@ -88,19 +88,8 @@ static char sccsid[] = "@(#)unstr.c     8.1 (Berkeley) 5/31/93";
  * get a fortune that contains nothing but a newline.  Karo syrup, syrup.
  * For the gory details, and lots of cussing, see strfile.c
  */
-#include        <sys/types.h>
-#include        <netinet/in.h>
-#include        <sys/param.h>
-#include        "strfile.h"
-#include        <stdio.h>
-#include        <ctype.h>
-#include        <string.h>
-#include        <stdlib.h>
-#include        <unistd.h>
 
-#ifndef MAXPATHLEN
-#define MAXPATHLEN      1024
-#endif /* MAXPATHLEN */
+#include "fortune-mod-common.h"
 
 static char *Infile,                   /* name of input file */
   Datafile[MAXPATHLEN],         /* name of data file */
