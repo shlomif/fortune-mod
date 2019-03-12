@@ -18,3 +18,4 @@ before_install:
 script:
     - "mkdir B && cd B && cmake ../fortune-mod && make && make check && cd .."
     - "rm -fr B"
+sudo: false
