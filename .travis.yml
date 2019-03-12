@@ -15,6 +15,7 @@ before_install:
     - cpanm local::lib
     - eval "$(perl -Mlocal::lib=$HOME/perl_modules)"
     - cpanm File::Find::Object List::Util Path::Tiny Test::Differences Test::RunValgrind
+language: perl
 script:
     - "mkdir B && cd B && cmake ../fortune-mod && make && make check && cd .."
     - "rm -fr B"
