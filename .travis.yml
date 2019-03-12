@@ -1,8 +1,17 @@
+addons:
+    apt:
+        packages:
+            - cmake
+            - cpanminus
+            - gcc
+            - libperl-dev
+            - librecode-dev
+            - perl
+            - make
+            - valgrind
 os: linux
 dist: xenial
 before_install:
-    - sudo apt-get update -qq
-    - sudo apt-get --no-install-recommends install -y cmake cpanminus gcc libperl-dev librecode-dev perl make valgrind
     - sudo cpanm File::Find::Object IO::All List::Util Test::Differences Test::RunValgrind
 script:
     - "mkdir B && cd B && cmake ../fortune-mod && make && make check && cd .."
