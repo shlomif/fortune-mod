@@ -4,53 +4,48 @@ use strict;
 use warnings;
 
 use File::Find::Object ();
-use IO::All qw/ io /;
+use Path::Tiny qw/ path /;
 use Test::More tests => 3;
 use Test::Differences (qw( eq_or_diff ));
 
+my $tree = File::Find::Object->new( {}, $ENV{SRC_DIR} );
 
-my $tree = File::Find::Object->new({}, $ENV{SRC_DIR});
-
-my %do_not_check =
-(
+my %do_not_check = (
     map { $_ => 1 }
-    qw(
-    fortune/fortune
-    util/rot
-    util/strfile
-    util/unstr
-    )
+        qw(
+        fortune/fortune
+        util/rot
+        util/strfile
+        util/unstr
+        )
 );
 
 my @cr_results;
 my @trailing_whitespace_results;
 my @tabs_results;
-while (my $r = $tree->next_obj())
+while ( my $r = $tree->next_obj() )
 {
-    if ($r->is_file)
+    if ( $r->is_file )
     {
         my $fn = $r->path;
-        if (not
-            (
-                $r->basename =~ /\A\..*?\.swp\z/
-                    or
-                $r->basename =~ /\.(o|dat|valgrind-log)\z/
-                    or
-                exists($do_not_check{join '/', @{$r->full_components}})
+        if (
+            not(   $r->basename =~ /\A\..*?\.swp\z/
+                or $r->basename =~ /\.(o|dat|valgrind-log)\z/
+                or
+                exists( $do_not_check{ join '/', @{ $r->full_components } } ) )
             )
-        )
         {
-            my $contents = io->file($fn)->binmode->all;
+            my $contents = path($fn)->slurp_raw;
 
-            if ($contents =~ /\r/)
+            if ( $contents =~ /\r/ )
             {
                 push @cr_results, $fn;
             }
-            elsif ($contents =~ /[ \t]$/ms)
+            elsif ( $contents =~ /[ \t]$/ms )
             {
                 push @trailing_whitespace_results, $fn;
             }
-            elsif ($r->basename =~ /\.[ch]\z/ and $contents =~ /\t/)
+            elsif ( $r->basename =~ /\.[ch]\z/ and $contents =~ /\t/ )
             {
                 push @tabs_results, $fn;
             }
@@ -59,11 +54,14 @@ while (my $r = $tree->next_obj())
 }
 
 # TEST
-eq_or_diff(\@cr_results, [], "Files containing carriage returns.");
+eq_or_diff( \@cr_results, [], "Files containing carriage returns." );
+
 # TEST
-eq_or_diff(\@trailing_whitespace_results, [], "Files containing trailing whitespace.");
+eq_or_diff( \@trailing_whitespace_results,
+    [], "Files containing trailing whitespace." );
+
 # TEST
-eq_or_diff(\@tabs_results, [], "Source files containing tabs.");
+eq_or_diff( \@tabs_results, [], "Source files containing tabs." );
 
 __END__
 

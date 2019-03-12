@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use IO::All qw/ io /;
+use Path::Tiny qw/ path /;
 use List::Util qw/ any /;
 
 use Test::More tests => 1;
@@ -11,21 +11,22 @@ use Test::More tests => 1;
 sub check_file
 {
     my ($fn) = @_;
-    my @l = io->file($fn)->utf8->chomp->getlines;
+    my @l = path($fn)->lines_utf8;
+    chomp @l;
 
-    if ($l[-1] ne '%')
+    if ( $l[-1] ne '%' )
     {
-        return  "Fortune cookie file does not end in a single %";
+        return "Fortune cookie file does not end in a single %";
     }
-    if (any { length($_) > 80 } @l)
+    if ( any { length($_) > 80 } @l )
     {
         return "Fortune cookie file contains a line longer than 78 characters";
     }
-    if (any { /\r/ } @l)
+    if ( any { /\r/ } @l )
     {
-        return "Fortune cookie file contains a CR"
+        return "Fortune cookie file contains a CR";
     }
-    if (any { /[ \t]\z/ } @l)
+    if ( any { /[ \t]\z/ } @l )
     {
         return "Fortune cookie file contains trailing whitespace";
     }
@@ -34,10 +35,10 @@ sub check_file
 
 sub mytest
 {
-    foreach my $cookie (split/ /, $ENV{COOKIES})
+    foreach my $cookie ( split / /, $ENV{COOKIES} )
     {
-        my $err = check_file( "$ENV{SRC_DIR}/datfiles/$cookie");
-        if ($err ne '')
+        my $err = check_file("$ENV{SRC_DIR}/datfiles/$cookie");
+        if ( $err ne '' )
         {
             fail("$cookie failed - $err.");
             return;

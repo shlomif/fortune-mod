@@ -14,7 +14,7 @@ dist: xenial
 before_install:
     - cpanm local::lib
     - eval "$(perl -Mlocal::lib=$HOME/perl_modules)"
-    - cpanm File::Find::Object IO::All List::Util Test::Differences Test::RunValgrind
+    - cpanm File::Find::Object List::Util Path::Tiny Test::Differences Test::RunValgrind
 script:
     - "mkdir B && cd B && cmake ../fortune-mod && make && make check && cd .."
     - "rm -fr B"
