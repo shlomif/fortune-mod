@@ -1,0 +1,352 @@
+#!/usr/bin/env perl
+
+# This is a script to configure the distribution. Its primary audience
+# are the core developers and halo developers, and not end-users. Please
+# see the INSTALL file for proper building instructions using cmake.
+#
+# "Tatzer" (Taf-Tzadik-Reish) is the Hebrew word for "configure!".
+
+use strict;
+use warnings;
+
+use Getopt::Long qw/ GetOptions /;
+use Path::Tiny qw/path/;
+
+my %BOOL_OPTS_WITH_FALSE_DEFAULTS =
+    ( 'omit-frame' => 'OPTIMIZATION_OMIT_FRAME_POINTER', );
+
+my %TRUE_BOOL_OPTS = ( 'test-suite' => 'FCS_WITH_TEST_SUITE', );
+
+my %INT_OPTS = ( 'pack-size' => 'FCS_IA_PACK_SIZE', );
+
+my %STR_OPTS = (
+    'arch'   => { param => 'CPU_ARCH', },
+    'prefix' => { param => 'CMAKE_INSTALL_PREFIX', },
+    (
+        map {
+            my ( $key, $param ) = @$_;
+            ( $key => +{ prefix => "${param}_", param => $param } )
+        } ( [ 'p|pos' => 'BHS_STATE_STORAGE' ], )
+    ),
+);
+
+my @BOOL_OPTS_WITH_FALSE_DEFAULTS__KEYS = keys %BOOL_OPTS_WITH_FALSE_DEFAULTS;
+
+my %bool_opts_with_false_defaults__values =
+    ( map { $_ => 0 } @BOOL_OPTS_WITH_FALSE_DEFAULTS__KEYS );
+
+my @TRUE_BOOL_KEYS         = keys %TRUE_BOOL_OPTS;
+my %true_bool_opts__values = map { $_ => 1 } @TRUE_BOOL_KEYS;
+
+my @INT_OPS__KEYS = keys %INT_OPTS;
+
+my %int_opts__values = ( map { $_ => undef() } @INT_OPS__KEYS );
+
+my @STR_OPTS__KEYS = keys %STR_OPTS;
+for my $k (@STR_OPTS__KEYS)
+{
+    $STR_OPTS{$k}{'value'} = undef();
+    $STR_OPTS{$k}{'prefix'} //= '';
+}
+
+$STR_OPTS{'prefix'}{value} = '/usr';
+
+my $build_type = "debug";
+my $generate_what;
+my $build_static_lib      = 0;
+my $with_context_var      = 1;
+my $max_bench_threads_num = 4;
+my $link_to_static        = 0;
+
+sub set_both
+{
+    my $val = shift;
+    foreach my $k ('p|pos')
+    {
+        $STR_OPTS{$k}{'value'} = $val;
+    }
+    return;
+}
+
+sub set_hash
+{
+    return set_both("INTERNAL_HASH");
+}
+
+set_hash();
+
+my %themes = (
+    tt         => [qw(-r --notest-suite --static)],
+    bench      => [qw(-l tt --omit-frame)],
+    fc_bench   => [qw(-l bench)],
+    testing    => [qw(--rwd --test-suite)],
+    pysol_defs => [],
+);
+
+my $SEED_KEY = 'FCS_THEME_RAND';
+my $SEED     = $ENV{$SEED_KEY};
+if ( defined $SEED )
+{
+    if ( $SEED =~ /[^0-9]/ )
+    {
+        die "Invalid value for seed!";
+    }
+    my %k;
+    foreach my $flags ( values %themes )
+    {
+        for ( my $idx = 0 ; $idx < @$flags ; ++$idx )
+        {
+            my $flag = $flags->[$idx];
+            if ( $flag eq '-l' )
+            {
+                ++$idx;
+            }
+            else
+            {
+                $k{$flag} = 1;
+            }
+        }
+    }
+    my @k = sort { $a cmp $b } keys %k;
+
+    require Math::Random::MT;
+    my $gen = Math::Random::MT->new($SEED);
+    my @subset;
+    foreach my $key (@k)
+    {
+        if ( $gen->rand() < 0.5 )
+        {
+            push @subset, $key;
+        }
+    }
+    my $FN = "run-t-$SEED.bash";
+    path($FN)->spew_utf8( join( ' ', $^X, $0, @subset ) . "\n" );
+    delete $ENV{$SEED_KEY};
+    exec( "bash", $FN );
+}
+
+my $HOME = $ENV{HOME};
+
+foreach my $rec (
+    { id => "c2",  a => "core2", },
+    { id => "ci7", a => "corei7-avx", },
+    { id => "n2",  a => "native", },
+    { id => "p4",  a => "pentium4" },
+    { id => "x64", a => "barcelona" },
+    )
+{
+    my $id   = $rec->{id};
+    my $arch = $rec->{a};
+
+    $themes{$id} = [ "--arch=$arch", "--prefix=$HOME/apps/fcs", ];
+
+    my $def = sub {
+        my ( $suffix, $theme ) = @_;
+        $themes{ $id . $suffix } = [@$theme];
+        return;
+    };
+    my $id_def = sub {
+        my ( $suffix, $theme ) = @_;
+        return $def->( $suffix, [ '-l', $theme, '-l', $id ] );
+    };
+    my $bb_def = sub {
+        my ( $suffix, $theme ) = @_;
+        return $def->( $suffix, [ '-l', $id . 'bb', @$theme ] );
+    };
+
+    # Benchmark for freecell only
+    $id_def->( b => 'fc_bench' );
+
+    # Generalised benchmark - not freecell-only - should pass the tests.
+    $id_def->( bb => 'bench' );
+
+    # Memory conserving theme - for freecell only
+    $id_def->( m => 'fc_reduce_mem' );
+
+    # Generalised Memory conserving theme - not only for freecell
+    $id_def->( mm => 'reduce_mem' );
+
+    # Testing theme - aims to run the tests quickly
+    $bb_def->( t => [qw(-l testing)] );
+
+    # For use by PySolFC
+    $bb_def->(
+        _pysol => [ '-l', 'pysol_defs', "--prefix=$HOME/apps/fcs-for-pysol", ]
+    );
+}
+
+my @new_argv = @ARGV;
+
+CALC_NEW_ARGV:
+for ( my $idx = 0 ; $idx < @new_argv ; ++$idx )
+{
+    if ( my ($arg_val) = $new_argv[$idx] =~ m{\A-l(.*)\z}ms )
+    {
+        my $start_idx = $idx;
+
+        my $param = $arg_val || $new_argv[ ++$idx ];
+
+        if ( !( my $cmd = $themes{$param} ) )
+        {
+            die "Unknown -l argument $param!";
+        }
+        else
+        {
+            splice( @new_argv, $start_idx, $idx - $start_idx + 1, @$cmd );
+        }
+
+        $idx = $start_idx;
+        redo CALC_NEW_ARGV;
+    }
+}
+
+@ARGV = @new_argv;
+
+if ( $ENV{VERBOSE} )
+{
+    print "<@ARGV>";
+}
+
+GetOptions(
+    'd|debug' => sub {
+        my ( $opt, $val ) = @_;
+        if ($val)
+        {
+            $build_type = "debug";
+        }
+        return;
+    },
+    'r|release' => sub {
+        my ( $opt, $val ) = @_;
+        if ($val)
+        {
+            $build_type = "release";
+        }
+        elsif ( $build_type eq "release" )
+        {
+            $build_type = "debug";
+        }
+        return;
+    },
+    'hash'    => \&set_hash,
+    'profile' => sub {
+        my ( $opt, $val ) = @_;
+        if ($val)
+        {
+            $build_type = "profile";
+        }
+        elsif ( $build_type eq "profile" )
+        {
+            $build_type = "debug";
+        }
+        return;
+    },
+    'minsize' => sub {
+        $build_type = "MinSizeRel";
+        return;
+    },
+    'gen=s' => \$generate_what,
+    'rwd'   => sub {
+        my ( $opt, $val ) = @_;
+
+        $build_type = "RelWithDebInfo";
+
+        return;
+    },
+    'tokyo'                   => sub { return set_both("TOKYO_CAB_HASH"); },
+    'static'                  => \$build_static_lib,
+    'with-ctx-var!'           => \$with_context_var,
+    'max-bench-threads-num=i' => \$max_bench_threads_num,
+    'static!'                 => \$link_to_static,
+    (
+        map { ; "$_!" => \( $bool_opts_with_false_defaults__values{$_} ) }
+            @BOOL_OPTS_WITH_FALSE_DEFAULTS__KEYS
+    ),
+    ( map { ; "$_!"  => \( $true_bool_opts__values{$_} ) } @TRUE_BOOL_KEYS ),
+    ( map { ; "$_=i" => \( $int_opts__values{$_} ) } @INT_OPS__KEYS ),
+    ( map { ; "$_=s" => \( $STR_OPTS{$_}{value} ) } @STR_OPTS__KEYS ),
+) or die "Wrong options";
+
+my $path_to_source_dir;
+
+if (@ARGV)
+{
+    $path_to_source_dir = shift(@ARGV);
+
+    if (@ARGV)
+    {
+        die "Junk at the end of ARGV - <@ARGV>";
+    }
+}
+else
+{
+    $path_to_source_dir = path($0)->parent(2)->child("fortune-mod");
+}
+
+# This cache is sometimes causing problems.
+unlink("CMakeCache.txt");
+path($_)->remove_tree foreach ( '_Inline', 't/_Inline' );
+unlink( glob("*.so") );
+
+my @cmd = (
+    "cmake",
+    (
+        defined( $ENV{CMAKE_MAKE_PROGRAM} )
+        ? "-DCMAKE_MAKE_PROGRAM=$ENV{CMAKE_MAKE_PROGRAM}"
+        : ()
+    ),
+    ( defined($generate_what) ? ( "-G", $generate_what ) : () ),
+    "-DCMAKE_BUILD_TYPE=$build_type",
+    "-DDATADIR=$STR_OPTS{prefix}{value}/share",
+    ( ( !$build_static_lib ) ? ("-DBUILD_STATIC_LIBRARY=") : () ),
+    (
+        map {
+            $bool_opts_with_false_defaults__values{$_}
+                ? ( "-D" . $BOOL_OPTS_WITH_FALSE_DEFAULTS{$_} . "=1" )
+                : ()
+        } @BOOL_OPTS_WITH_FALSE_DEFAULTS__KEYS
+    ),
+    (
+        map {
+                  '-D'
+                . $TRUE_BOOL_OPTS{$_} . '='
+                . ( $true_bool_opts__values{$_} ? '1' : '' )
+        } @TRUE_BOOL_KEYS
+    ),
+    (
+        map {
+            defined( $int_opts__values{$_} )
+                ? ( "-D" . $INT_OPTS{$_} . "=" . $int_opts__values{$_} )
+                : ()
+        } @INT_OPS__KEYS
+    ),
+    (
+        map {
+            my $k = $_;
+            my $r = $STR_OPTS{$k};
+            my $v = $r->{value};
+            defined($v) ? ("-D$r->{param}=$r->{prefix}$v") : ()
+        } @STR_OPTS__KEYS
+    ),
+);
+
+push @cmd, $path_to_source_dir;
+
+print( join( " ", @cmd ), "\n" );
+my $exit_code = system(@cmd);
+exit( $exit_code ? 1 : 0 );
+
+__END__
+
+=head1 COPYRIGHT AND LICENSE
+
+This file is part of Black Hole Solitaire Solver. It is subject to the license
+terms in the COPYING file found in the top-level directory of this distribution
+and at https://github.com/shlomif/black-hole-solitaire/blob/master/LICENSE .
+No part of Black Hole Solitaire Solver, including this file, may be copied,
+modified, propagated, or distributed except according to the terms contained
+in the COPYING file.
+
+Copyright (c) 2009 Shlomi Fish
+
+=cut
