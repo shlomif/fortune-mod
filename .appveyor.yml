@@ -15,7 +15,6 @@ install:
 build: off
 test_script:
     - set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe
-    - cd ..\..
     # Removing for now because it is too much trouble on windows.
     # - set FCS_TEST_BUILD=1
     - perl CI-testing/continuous-integration-testing.pl --gen="MSYS Makefiles"
