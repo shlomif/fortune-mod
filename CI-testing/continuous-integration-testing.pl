@@ -31,13 +31,15 @@ if ( defined $cmake_gen )
 {
     $ENV{CMAKE_GEN} = $cmake_gen;
 }
-
+mkdir('B');
+chdir('B');
 do_system(
     {
         cmd => [
-                  "mkdir B && cd B && $^X ..${SEP}scripts${SEP}Tatzer "
-                . ( defined($cmake_gen) ? qq#--gen="$cmake_gen"# : "" )
-                . " && $MAKE && $^X ..${SEP}fortune-mod${SEP}run-tests.pl"
+            $^X, "..${SEP}scripts${SEP}Tatzer",
+            ( defined($cmake_gen) ? (qq#--gen="$cmake_gen"#) : () )
         ]
     }
 );
+do_system( { cmd => [$MAKE] } );
+do_system( { cmd => [ $^X, "..${SEP}fortune-mod${SEP}run-tests.pl", ] } );
