@@ -1,6 +1,16 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+June 07, 2019 (fortune-mod 2.8.0)
+
+	Add some quotes by amigojapan.
+
+	Some improvements for spelling, punctuation and grammar.
+
+	Extract a common C header.
+
+	Add TidyAll tests.
+
 December 19, 2018 (fortune-mod 2.6.2)
 
 	Fix the cmake files installation paths. See
