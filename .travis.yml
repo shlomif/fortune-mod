@@ -14,7 +14,7 @@ dist: xenial
 before_install:
     - cpanm local::lib
     - eval "$(perl -Mlocal::lib=$HOME/perl_modules)"
-    - cpanm Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount File::Find::Object List::Util Path::Tiny Perl::Tidy Test::Code::TidyAll Test::Differences Test::RunValgrind
+    - cpanm Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount File::Find::Object List::Util Path::Tiny Perl::Critic Perl::Tidy Test::Code::TidyAll Test::Differences Test::RunValgrind
 install: []
 language: perl
 script:
