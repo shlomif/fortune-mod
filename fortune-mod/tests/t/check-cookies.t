@@ -47,5 +47,5 @@ sub mytest
     pass("All are ok.");
 }
 
+# TEST
 mytest();
-
