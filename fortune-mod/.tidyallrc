@@ -1,0 +1,9 @@
+[PerlTidy]
+select = **/*.{pl,pm,t}
+argv = -ci=4 -bl -cti=0
+ignore =
+
+[PerlCritic]
+select = **/*.{pl,pm,t}
+; ignore = **/*
+ignore =

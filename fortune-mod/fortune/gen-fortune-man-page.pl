@@ -11,25 +11,25 @@ my $cookiedir;
 my $ocookiedir;
 my $no_offensive = 0;
 GetOptions(
-    '--cookiedir=s' => \$cookiedir,
-    '--ocookiedir=s' => \$ocookiedir,
+    '--cookiedir=s'        => \$cookiedir,
+    '--ocookiedir=s'       => \$ocookiedir,
     '--without-offensive!' => \$no_offensive,
-    '--output=s' => \$output_fn,
+    '--output=s'           => \$output_fn,
 ) or die "Wrong options - $!";
 
-if (!defined($output_fn))
+if ( !defined($output_fn) )
 {
     die "Please specify --output";
 }
 
-if (!defined($cookiedir))
+if ( !defined($cookiedir) )
 {
     die "Please specify cookiedir";
 }
 
-my $OFF = (!$no_offensive);
+my $OFF = ( !$no_offensive );
 
-if ($OFF and !defined($ocookiedir))
+if ( $OFF and !defined($ocookiedir) )
 {
     die "Please specify ocookiedir";
 }
@@ -98,9 +98,12 @@ When
 is run with no arguments it prints out a random epigram. Epigrams are
 END_OF_STRING
 
-$out->print($OFF ? "divided into several categories, where each category is sub\\-divided
+$out->print(
+    $OFF
+    ? "divided into several categories, where each category is sub\\-divided
 into those which are potentially offensive and those which are not."
-: "divided into several categories.");
+    : "divided into several categories."
+);
 
 $out->print(<<'END_OF_STRING');
 .SS Options
@@ -109,7 +112,9 @@ The options are as follows:
 .B -a
 END_OF_STRING
 
-$out->print($OFF ? <<'EOF'
+$out->print(
+    $OFF
+    ? <<'EOF'
 Choose from all lists of maxims, both offensive and not.  (See the
 .B -o
 option for more information on offensive fortunes.)
@@ -363,7 +368,9 @@ The fortune databases are now divided into a larger number of smaller
 files, some organized by format (poetry, definitions), and some by
 END_OF_STRING
 
-$out->print($OFF ? <<'EOF'
+$out->print(
+    $OFF
+    ? <<'EOF'
 content (religion, politics).  There are parallel files in the main
 directory and in the offensive files directory (e.g., fortunes/definitions and
 fortunes/off/definitions).  Not all the potentially offensive fortunes are in

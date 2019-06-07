@@ -13,7 +13,7 @@ GetOptions(
     'src-dir=s' => \$src_dir,
 ) or die "could not parse options - $!";
 
-if (!defined $src_dir)
+if ( !defined $src_dir )
 {
     die "--src-dir was not defined";
 }
@@ -36,7 +36,7 @@ sub do_system
 # Cancelling because it's now part of the prove-based tests.
 if (0)
 {
-    do_system({cmd => [$^X , "$src_dir/tests/trailing-space-and-CRs.pl"]});
+    do_system( { cmd => [ $^X, "$src_dir/tests/trailing-space-and-CRs.pl" ] } );
 }
 
-do_system({cmd => ['prove', glob("$src_dir/tests/t/*.t")]});
+do_system( { cmd => [ 'prove', glob("$src_dir/tests/t/*.t") ] } );
