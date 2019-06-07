@@ -14,10 +14,11 @@ dist: xenial
 before_install:
     - cpanm local::lib
     - eval "$(perl -Mlocal::lib=$HOME/perl_modules)"
-    - cpanm File::Find::Object List::Util Path::Tiny Test::Differences Test::RunValgrind
+    - cpanm Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount File::Find::Object List::Util Path::Tiny Perl::Tidy Test::Code::TidyAll Test::Differences Test::RunValgrind
 install: []
 language: perl
 script:
+    - "export FORTUNE_TEST_TIDY=1"
     - "mkdir B && cd B && cmake ../fortune-mod && make && make check && cd .."
     - "rm -fr B"
 sudo: false
