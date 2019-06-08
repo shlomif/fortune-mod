@@ -61,4 +61,5 @@
 #include "getopt.h"
 #define random(x) rand(x)
 #define srandom(x) srand(x)
+#define sleep(n) _sleep((n)*1000)
 #endif
