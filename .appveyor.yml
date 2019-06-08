@@ -25,6 +25,8 @@ test_script:
     - set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe
     # Removing for now because it is too much trouble on windows.
     # - set FCS_TEST_BUILD=1
+    - set CPATH=c:\mingw64\include
+    - set LIBRARY_PATH=c:\mingw64\lib
     - perl CI-testing/continuous-integration-testing.pl --gen="MSYS Makefiles"
 # cache:
 #   - C:\Perl5
