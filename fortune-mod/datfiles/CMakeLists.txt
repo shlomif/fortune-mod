@@ -23,11 +23,18 @@ FOREACH(c ${COOKIES})
     )
 
     SET(LINK "${c}.u8")
+    if (WIN32)
+    ADD_CUSTOM_COMMAND(
+        OUTPUT "${LINK}"
+        COMMAND ${CMAKE_COMMAND} -E copy "${c}" "${LINK}"
+    )
+    else()
     ADD_CUSTOM_COMMAND(
         OUTPUT "${LINK}"
         COMMAND "ln"
         ARGS "-sf" "${c}" "${LINK}"
     )
+    endif()
 
     ADD_CUSTOM_TARGET(
         "${TARGET_NAME}" ALL

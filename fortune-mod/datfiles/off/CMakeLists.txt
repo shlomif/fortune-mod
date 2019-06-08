@@ -24,6 +24,12 @@ FOREACH(c ${OFFENSIVE_COOKIES})
 
     SET(LINK "${c}.u8")
     SET(rot_LINK "${rot_dir}/${LINK}")
+    if (WIN32)
+    ADD_CUSTOM_COMMAND(
+        OUTPUT "${rot_LINK}"
+        COMMAND ${CMAKE_COMMAND} -E copy "${rot_dest}" "${rot_LINK}"
+    )
+else()
     ADD_CUSTOM_COMMAND(
         OUTPUT "${rot_LINK}"
         COMMAND "ln"
@@ -31,7 +37,7 @@ FOREACH(c ${OFFENSIVE_COOKIES})
         DEPENDS "${rot_dest}"
         WORKING_DIRECTORY "${rot_dir}"
     )
-
+endif()
     ADD_CUSTOM_TARGET(
         "${TARGET_NAME}" ALL
         DEPENDS "${rot_dest}" "${DEST}" "${rot_LINK}"
