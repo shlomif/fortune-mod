@@ -1707,7 +1707,7 @@ static int fortlen(void)
     return nchar;
 }
 
-static int max(register int i, register int j)
+static int mymax(register int i, register int j)
 {
     return (i >= j ? i : j);
 }
@@ -1799,7 +1799,7 @@ int main(int ac, char *av[])
         if (Wait)
         {
             fortlen();
-            sleep((unsigned int) max(Fort_len / CPERS, MINW));
+            sleep((unsigned int) mymax(Fort_len / CPERS, MINW));
         }
     }
 cleanup:
