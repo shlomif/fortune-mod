@@ -117,7 +117,7 @@ MACRO(my_exe exe c_file dir)
     endif()
     if (WIN32)
         # See https://stackoverflow.com/questions/15119639/how-to-link-winsock-in-cmake
-        list(APPEND _libs intl wsock32 ws2_32)
+        list(APPEND _libs intl regex wsock32 ws2_32)
     endif()
     TARGET_LINK_LIBRARIES("${exe}" ${_libs})
     INSTALL(TARGETS "${exe}" RUNTIME DESTINATION "${dir}")
