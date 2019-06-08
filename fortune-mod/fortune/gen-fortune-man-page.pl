@@ -33,7 +33,9 @@ if ( $OFF and !defined($ocookiedir) )
 {
     die "Please specify ocookiedir";
 }
-open my $out, '>', $output_fn;
+
+# The :raw is to prevent CRs on Win32/etc.
+open my $out, '>:raw', $output_fn;
 
 $out->print(<<'END_OF_STRING');
 .\"	$NetBSD: fortune.6,v 1.4 1995/03/23 08:28:37 cgd Exp $
