@@ -16,7 +16,7 @@ install:
     - SET PERL_LOCAL_LIB_ROOT=C:/Perl5
     - SET PERL_MB_OPT=--install_base C:/Perl5
     - SET PERL_MM_OPT=INSTALL_BASE=C:/Perl5
-    - cpanm --notest Dir::Manifest Dist::Zilla Env::Path Games::Solitaire::Verify::Solution IO::All Inline Inline::C Perl::Tidy Pod::Coverage::TrustPod Pod::Weaver::Section::Support String::ShellQuote Test::Code::TidyAll Test::CPAN::Changes Test::Differences Test::EOL Test::Kwalitee Test::NoTabs Test::Pod Test::Pod::Coverage Test::RunValgrind Test::TrailingSpace Test::Trap
+    - cpanm --notest Env::Path IO::All Perl::Tidy Pod::Coverage::TrustPod String::ShellQuote Test::Code::TidyAll Test::Differences Test::EOL Test::Pod Test::Pod::Coverage Test::RunValgrind Test::TrailingSpace Test::Trap
     - git clone https://github.com/rrthomas/Recode ./recode
     - C:\msys64\usr\bin\bash.exe -l -x c:/projects/fortune-mod/recode/build-aux/appveyor-install.sh
     - C:\msys64\usr\bin\bash.exe -x -lc "cd c:/projects/fortune-mod/recode && ./bootstrap && ./configure --enable-silent-rules %CONFIGURE_FLAGS% && make && make install"

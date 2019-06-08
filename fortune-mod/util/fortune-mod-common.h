@@ -57,3 +57,7 @@
 #ifndef MAXPATHLEN
 #define MAXPATHLEN      1024
 #endif /* MAXPATHLEN */
+#if defined(_WIN32)
+#define random(x) rand(x)
+#define srandom(x) srand(x)
+#endif
