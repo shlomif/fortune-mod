@@ -26,7 +26,7 @@ FOREACH(c ${COOKIES})
     if (WIN32)
     ADD_CUSTOM_COMMAND(
         OUTPUT "${LINK}"
-        COMMAND ${CMAKE_COMMAND} -E copy "${c}" "${LINK}"
+        COMMAND ${CMAKE_COMMAND} -E copy "${SOURCE}" "${LINK}"
     )
     else()
     ADD_CUSTOM_COMMAND(

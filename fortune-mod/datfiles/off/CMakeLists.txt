@@ -28,6 +28,7 @@ FOREACH(c ${OFFENSIVE_COOKIES})
     ADD_CUSTOM_COMMAND(
         OUTPUT "${rot_LINK}"
         COMMAND ${CMAKE_COMMAND} -E copy "${rot_dest}" "${rot_LINK}"
+        DEPENDS "${rot_dest}"
     )
 else()
     ADD_CUSTOM_COMMAND(
