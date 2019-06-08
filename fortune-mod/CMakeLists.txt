@@ -111,10 +111,15 @@ MACRO(my_exe exe c_file dir)
         list(APPEND _files "util/getopt.c")
     endif()
     ADD_EXECUTABLE("${exe}" "${c_file}")
+    set(_libs)
+    if ("${exe}" STREQUAL "fortune")
+        list(APPEND _libs "recode")
+    endif()
     if (WIN32)
         # See https://stackoverflow.com/questions/15119639/how-to-link-winsock-in-cmake
-        TARGET_LINK_LIBRARIES("${exe}" intl wsock32 ws2_32)
+        list(APPEND _libs intl wsock32 ws2_32)
     endif()
+    TARGET_LINK_LIBRARIES("${exe}" ${_libs})
     INSTALL(TARGETS "${exe}" RUNTIME DESTINATION "${dir}")
 ENDMACRO()
 
@@ -166,7 +171,6 @@ ADD_CUSTOM_TARGET(
 INSTALL_RENAME_MAN("strfile.man" "1" "strfile" "util")
 INSTALL_RENAME_MAN("fortune.6" "6" "fortune" "fortune")
 
-TARGET_LINK_LIBRARIES("fortune" "recode")
 INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/util")
 
 IF(WIN32 AND NOT UNIX)
