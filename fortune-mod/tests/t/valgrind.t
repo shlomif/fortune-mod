@@ -6,7 +6,10 @@ use warnings;
 use Test::More;
 use Test::RunValgrind;
 
-# plan skip_all => 'lib-recode has memory leaks';
+if ( $^O eq "MSWin32" )
+{
+    plan skip_all => 'valgrind is not available on Windows';
+}
 plan tests => 4;
 
 my $obj = Test::RunValgrind->new( {} );
