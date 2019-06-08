@@ -42,4 +42,4 @@ do_system(
     }
 );
 do_system( { cmd => [$MAKE] } );
-do_system( { cmd => [ $^X, "..${SEP}fortune-mod${SEP}run-tests.pl", ] } );
+do_system( { cmd => [ $MAKE, "check", ] } );
