@@ -104,7 +104,9 @@ static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
 #include        <assert.h>
 #include        <errno.h>
 #include        <locale.h>
+#ifndef _WIN32
 #include        <langinfo.h>
+#endif
 #include        <recode.h>
 
 
@@ -1747,6 +1749,9 @@ int main(int ac, char *av[])
     request = recode_new_request (outer);
 
     setlocale(LC_ALL,"");
+#ifdef _WIN32
+    ctype = "C";
+#else
     ctype = nl_langinfo(CODESET);
     if (!ctype || !*ctype)
     {
@@ -1756,6 +1761,7 @@ int main(int ac, char *av[])
     {
         ctype="ISO-8859-1";
     }
+#endif
 
     crequest = malloc(strlen(ctype) + 7 + 1);
     sprintf(crequest, "UTF-8..%s", ctype);
