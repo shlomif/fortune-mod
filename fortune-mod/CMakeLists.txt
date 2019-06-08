@@ -113,7 +113,7 @@ MACRO(my_exe exe c_file dir)
     ADD_EXECUTABLE("${exe}" "${c_file}")
     if (WIN32)
         # See https://stackoverflow.com/questions/15119639/how-to-link-winsock-in-cmake
-        TARGET_LINK_LIBRARIES("${exe}" wsock32 ws2_32)
+        TARGET_LINK_LIBRARIES("${exe}" intl wsock32 ws2_32)
     endif()
     INSTALL(TARGETS "${exe}" RUNTIME DESTINATION "${dir}")
 ENDMACRO()
