@@ -58,6 +58,7 @@
 #define MAXPATHLEN      1024
 #endif /* MAXPATHLEN */
 #if defined(_WIN32)
+#include "getopt.h"
 #define random(x) rand(x)
 #define srandom(x) srand(x)
 #endif
