@@ -11,6 +11,10 @@ extern "C" {
 
 /* Version number of package */
 #define VERSION "${VERSION}"
+#define LOCOFFDIR "${LOCALODIR}"
+#define LOCFORTDIR "${LOCALDIR}"
+#define OFFDIR "${OCOOKIEDIR}"
+#define FORTDIR "${COOKIEDIR}"
 
 #ifdef __cplusplus
 }
