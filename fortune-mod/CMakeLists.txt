@@ -120,7 +120,9 @@ MACRO(my_exe exe c_file dir)
         list(APPEND _libs intl regex wsock32 ws2_32)
     endif()
     TARGET_LINK_LIBRARIES("${exe}" ${_libs})
-    INSTALL(TARGETS "${exe}" RUNTIME DESTINATION "${dir}")
+    if (NOT ("${dir}" STREQUAL "null"))
+        INSTALL(TARGETS "${exe}" RUNTIME DESTINATION "${dir}")
+    endif()
 ENDMACRO()
 
 my_exe(
@@ -136,7 +138,7 @@ my_exe(
 )
 
 # Build but not install.
-ADD_EXECUTABLE("randstr" "util/randstr.c")
+my_exe("randstr" "util/randstr.c" "null")
 my_exe(
     "unstr"
     "util/unstr.c"
