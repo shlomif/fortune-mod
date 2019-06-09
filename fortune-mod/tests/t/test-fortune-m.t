@@ -28,10 +28,15 @@ sub do_system
     rmtree( $inst_dir,  0, 0 );
     mkpath($build_dir);
     chdir $build_dir;
+    my $KEY = 'CMAKE_GEN';
     do_system(
         {
-            cmd =>
-                [ 'cmake', "-DCMAKE_INSTALL_PREFIX=$inst_dir", $ENV{SRC_DIR} ]
+            cmd => [
+                'cmake',
+                ( defined( $ENV{$KEY} ) ? ( "-G", $ENV{$KEY} ) : () ),
+                "-DCMAKE_INSTALL_PREFIX=$inst_dir",
+                $ENV{SRC_DIR}
+            ]
         }
     );
     do_system( { cmd => ['make'] } );
