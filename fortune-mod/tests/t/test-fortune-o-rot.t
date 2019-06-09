@@ -7,50 +7,13 @@
 use strict;
 use warnings;
 
-use File::Path qw/mkpath rmtree/;
-use Cwd qw/getcwd/;
-
+use FindBin;
+use lib "$FindBin::Bin/lib";
+use FortTestInst ();
 use Test::More tests => 1;
 
-sub do_system
 {
-    my ($args) = @_;
-
-    my $cmd = $args->{cmd};
-    print "Running [@$cmd]\n";
-    if ( system(@$cmd) )
-    {
-        die "Running [@$cmd] failed!";
-    }
-}
-
-{
-    my $cwd       = getcwd();
-    my $build_dir = "$cwd/fortune-m-build-dir";
-    my $inst_dir  = "$cwd/fortune-m-INST_DIR";
-    rmtree( $build_dir, 0, 0 );
-    rmtree( $inst_dir,  0, 0 );
-    mkpath($build_dir);
-    chdir $build_dir;
-    my $KEY = 'CMAKE_GEN';
-    do_system(
-        {
-            cmd => [
-                'cmake',
-                ( defined( $ENV{$KEY} ) ? ( "-G", $ENV{$KEY} ) : () ),
-                (
-                    defined( $ENV{CMAKE_MAKE_PROGRAM} )
-                    ? "-DCMAKE_MAKE_PROGRAM=$ENV{CMAKE_MAKE_PROGRAM}"
-                    : ()
-                ),
-                "-DCMAKE_INSTALL_PREFIX=$inst_dir",
-                $ENV{SRC_DIR}
-            ]
-        }
-    );
-    do_system( { cmd => ['make'] } );
-    do_system( { cmd => [ 'make', 'install', ] } );
-
+    my $inst_dir = FortTestInst::install();
     local $ENV{FORTUNE_MOD_RAND_HARD_CODED_VALS} = 240;
     my $text = `'$inst_dir/games/fortune' -o`;
 
