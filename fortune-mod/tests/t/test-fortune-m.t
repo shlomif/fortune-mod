@@ -34,6 +34,11 @@ sub do_system
             cmd => [
                 'cmake',
                 ( defined( $ENV{$KEY} ) ? ( "-G", $ENV{$KEY} ) : () ),
+                (
+                    defined( $ENV{CMAKE_MAKE_PROGRAM} )
+                    ? "-DCMAKE_MAKE_PROGRAM=$ENV{CMAKE_MAKE_PROGRAM}"
+                    : ()
+                ),
                 "-DCMAKE_INSTALL_PREFIX=$inst_dir",
                 $ENV{SRC_DIR}
             ]
