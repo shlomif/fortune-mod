@@ -11,7 +11,7 @@ use Test::More tests => 1;
 {
     my $inst_dir = FortTestInst::install();
 
-    my $text = `'$inst_dir/games/fortune' -m giants`;
+    my $text = `$inst_dir/games/fortune -m giants`;
 
     # TEST
     like( $text, qr/Newton/, 'fortune -m matched' );

@@ -15,7 +15,7 @@ use Test::More tests => 1;
 {
     my $inst_dir = FortTestInst::install();
     local $ENV{FORTUNE_MOD_RAND_HARD_CODED_VALS} = 240;
-    my $text = `'$inst_dir/games/fortune' -o`;
+    my $text = `$inst_dir/games/fortune -o`;
 
     # TEST
     like( $text, qr/\A"Prayer/, 'fortune -o was not rotated' );
