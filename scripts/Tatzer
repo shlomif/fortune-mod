@@ -125,7 +125,7 @@ if ( defined $SEED )
     exec( "bash", $FN );
 }
 
-my $HOME = $ENV{HOME};
+my $HOME = $ENV{HOME} // $ENV{userprofile} // "";
 
 foreach my $rec (
     { id => "c2",  a => "core2", },
