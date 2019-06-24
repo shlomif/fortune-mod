@@ -1502,8 +1502,11 @@ static void get_fort(void)
     open_dat(fp);
     lseek(fp->datfd,
           (off_t) (sizeof fp->tbl + (size_t)fp->pos * sizeof Seekpts[0]), 0);
-    read(fp->datfd, &Seekpts[0], sizeof Seekpts[0]);
-    read(fp->datfd, &Seekpts[1], sizeof Seekpts[1]);
+    if ((read(fp->datfd, &Seekpts[0], sizeof Seekpts[0]) <0)||
+    (read(fp->datfd, &Seekpts[1], sizeof Seekpts[1])<0))
+    {
+        exit(1);
+    }
     Seekpts[0] = (int32_t)ntohl((uint32_t)Seekpts[0]);
     Seekpts[1] = (int32_t)ntohl((uint32_t)Seekpts[1]);
 }

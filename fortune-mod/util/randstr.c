@@ -87,6 +87,7 @@
  */
 
 #include "fortune-mod-common.h"
+#include "rinutils/unused.h"
 
 char *Infile,                   /* name of input file */
   Datafile[MAXPATHLEN],         /* name of data file */
@@ -97,9 +98,8 @@ FILE *Inf, *Dataf, *Outf;
 off_t pos, Seekpts[2];          /* seek pointers to fortunes */
 
 
-void getargs(int ac, char *av[])
+static void getargs(char *av[])
 {
-    extern int optind;
     char *extc;
 
     av += optind + 1;
@@ -135,7 +135,7 @@ void getargs(int ac, char *av[])
  *      Get the position from the pos file, if there is one.  If not,
  *      return a random number.
  */
-void get_pos(STRFILE * fp)
+static void get_pos(STRFILE * fp)
 {
     pos = random() % fp->str_numstr;
     if (++(pos) >= fp->str_numstr)
@@ -146,23 +146,22 @@ void get_pos(STRFILE * fp)
  * get_fort:
  *      Get the fortune data file's seek pointer for the next fortune.
  */
-void get_fort(STRFILE fp)
+static void get_fort(STRFILE fp)
 {
-    register int choice;
-
-    choice = random() % fp.str_numstr;
-
     get_pos(&fp);
     fseek(Dataf, (long) (sizeof fp + pos * sizeof Seekpts[0]), 0);
-    fread(Seekpts, sizeof Seekpts, 1, Dataf);
+    if (!fread(Seekpts, sizeof Seekpts, 1, Dataf))
+    {
+        exit(1);
+    }
     Seekpts[0] = ntohl(Seekpts[0]);
     Seekpts[1] = ntohl(Seekpts[1]);
 }
 
-void display(FILE * fp, STRFILE table)
+static void display(FILE * fp, STRFILE table)
 {
     register char *p, ch;
-    unsigned char line[BUFSIZ];
+    char line[BUFSIZ];
     int i;
 
     fseek(fp, (long) Seekpts[0], 0);
@@ -171,20 +170,22 @@ void display(FILE * fp, STRFILE table)
     {
         if (table.str_flags & STR_ROTATED)
             for (p = line; (ch = *p); ++p)
+            {
                 if (isupper(ch))
                     *p = 'A' + (ch - 'A' + 13) % 26;
                 else if (islower(ch))
                     *p = 'a' + (ch - 'a' + 13) % 26;
+            }
         fputs(line, stdout);
     }
     fflush(stdout);
 }
 
-int main(int ac, char **av)
+int main(int ac GCC_UNUSED, char **av)
 {
     static STRFILE tbl;         /* description table */
 
-    getargs(ac, av);
+    getargs(av);
     if ((Inf = fopen(Infile, "r")) == NULL)
     {
         perror(Infile);
@@ -195,7 +196,10 @@ int main(int ac, char **av)
         perror(Datafile);
         exit(1);
     }
-    fread((char *) &tbl, sizeof tbl, 1, Dataf);
+    if (!fread((char *) &tbl, sizeof tbl, 1, Dataf))
+    {
+        exit(1);
+    }
     tbl.str_version = ntohl(tbl.str_version);
     tbl.str_numstr = ntohl(tbl.str_numstr);
     tbl.str_longlen = ntohl(tbl.str_longlen);

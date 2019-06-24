@@ -51,6 +51,13 @@ while ( my $r = $tree->next_obj() )
             }
         }
     }
+    else
+    {
+        if ( ( $r->dir_components->[-1] // '' ) eq '.git' )
+        {
+            $tree->prune;
+        }
+    }
 }
 
 # TEST

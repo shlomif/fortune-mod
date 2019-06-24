@@ -168,7 +168,10 @@ static void order_unstr(register STRFILE *tbl)
 
     for (i = 0; i <= tbl->str_numstr; i++)
     {
-        fread((char *) &pos, 1, sizeof pos, Dataf);
+        if (!fread((char *) &pos, 1, sizeof pos, Dataf))
+        {
+            exit(1);
+        }
         fseek(Inf, ntohl((uint32_t)pos), 0);
         printedsome = 0;
         for (;;)
@@ -211,12 +214,13 @@ int main(int ac, char **av)
         perror(Outfile);
         exit(1);
     }
-    fread(&tbl.str_version,  sizeof(tbl.str_version),  1, Dataf);
-    fread(&tbl.str_numstr,   sizeof(tbl.str_numstr),   1, Dataf);
-    fread(&tbl.str_longlen,  sizeof(tbl.str_longlen),  1, Dataf);
-    fread(&tbl.str_shortlen, sizeof(tbl.str_shortlen), 1, Dataf);
-    fread(&tbl.str_flags,    sizeof(tbl.str_flags),    1, Dataf);
-    fread( tbl.stuff,        sizeof(tbl.stuff),        1, Dataf);
+#define err_fread(a, b, c, d) if (!fread(a, b, c, d)) { perror("fread"); exit(1); }
+    err_fread(&tbl.str_version,  sizeof(tbl.str_version),  1, Dataf);
+    err_fread(&tbl.str_numstr,   sizeof(tbl.str_numstr),   1, Dataf);
+    err_fread(&tbl.str_longlen,  sizeof(tbl.str_longlen),  1, Dataf);
+    err_fread(&tbl.str_shortlen, sizeof(tbl.str_shortlen), 1, Dataf);
+    err_fread(&tbl.str_flags,    sizeof(tbl.str_flags),    1, Dataf);
+    err_fread( tbl.stuff,        sizeof(tbl.stuff),        1, Dataf);
     if (!(tbl.str_flags & (STR_ORDERED | STR_RANDOM)) && (!NewDelch))
     {
         fprintf(stderr, "nothing to do -- table in file order\n");
