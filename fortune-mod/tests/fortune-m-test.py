@@ -6,5 +6,6 @@ import subprocess
 from os.path import join
 inst_dir = join(os.getcwd(), "fortune-m-INST_DIR")
 
-subprocess.check_call([
-    glob.glob(join(inst_dir, "games", "fortune")+'*')[0], "-m", "giants"])
+exe = glob.glob(join(inst_dir, "games", "fortune")+'*')[0]
+subprocess.call(["objdump", "-p", exe])
+subprocess.check_call([exe, "-m", "giants"])
