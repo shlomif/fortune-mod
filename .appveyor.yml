@@ -8,7 +8,7 @@ environment:
         VERBOSE: 1
 install:
     - choco install strawberryperl
-    - SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;C:\Python35-x64;%PATH%
+    - SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
     - perl -v
     - if not exist C:\Perl5 mkdir C:\Perl5
     - SET PATH=C:\msys64\bin;C:\Perl5\bin;C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
@@ -27,6 +27,8 @@ test_script:
     # - set FCS_TEST_BUILD=1
     - set CPATH=c:\mingw64\include;c:\msys64\mingw64\include
     - set LIBRARY_PATH=c:\mingw64\lib;c:\msys64\mingw64\lib
+    # Python3 confuses the recode build so only add it here.
+    - SET PATH=%PATH%;C:\Python35-x64
     - perl CI-testing/continuous-integration-testing.pl --gen="MSYS Makefiles"
 cache:
    - C:\msys64\mingw64
