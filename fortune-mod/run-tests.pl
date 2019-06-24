@@ -42,5 +42,5 @@ if (0)
 eval { do_system( { cmd => [ 'prove', glob("$src_dir/tests/t/*.t") ] } ); };
 
 my $E = $@;
-system( "python3", "$src_dir/tests/fortune-m-test.py" );
+system( "python", "$src_dir/tests/fortune-m-test.py" );
 exit( $E ? 1 : 0 );

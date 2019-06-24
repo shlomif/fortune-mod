@@ -8,7 +8,7 @@ environment:
         VERBOSE: 1
 install:
     - choco install strawberryperl
-    - SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
+    - SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;C:\Python35-x64;%PATH%
     - perl -v
     - if not exist C:\Perl5 mkdir C:\Perl5
     - SET PATH=C:\msys64\bin;C:\Perl5\bin;C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
