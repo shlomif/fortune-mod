@@ -157,7 +157,7 @@ my_exe(
 my_exe(
     "strfile"
     "util/strfile.c"
-    "sbin"
+    "bin"
 )
 
 # Build but not install.
@@ -165,7 +165,7 @@ my_exe("randstr" "util/randstr.c" "null")
 my_exe(
     "unstr"
     "util/unstr.c"
-    "sbin"
+    "bin"
 )
 
 my_exe(
