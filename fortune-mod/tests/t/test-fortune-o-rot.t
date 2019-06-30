@@ -13,7 +13,7 @@ use FortTestInst ();
 use Test::More tests => 1;
 
 {
-    my $inst_dir = FortTestInst::install();
+    my $inst_dir = FortTestInst::install("fortune-o-rot");
     local $ENV{FORTUNE_MOD_RAND_HARD_CODED_VALS} = 240;
     my $text = `$inst_dir/games/fortune -o`;
 

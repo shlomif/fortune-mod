@@ -2,12 +2,6 @@ package FortTestInst;
 
 use strict;
 use warnings;
-our @ISA         = qw(Exporter);
-our %EXPORT_TAGS = ( 'all' => [qw()] );
-our @EXPORT_OK   = ( @{ $EXPORT_TAGS{'all'} } );
-our @EXPORT      = qw();
-our $VERSION     = '1.00';
-require Exporter;
 
 use File::Path qw/mkpath rmtree/;
 use Cwd qw/getcwd/;
@@ -30,9 +24,10 @@ sub do_system
 
 sub install
 {
-    my $cwd       = getcwd();
-    my $build_dir = "$cwd/fortune-m-build-dir";
-    my $inst_dir  = "$cwd/fortune-m-INST_DIR";
+    my ($basepath) = @_;
+    my $cwd        = getcwd();
+    my $build_dir  = "$cwd/$basepath-build-dir";
+    my $inst_dir   = "$cwd/$basepath-INST_DIR";
     rmtree( $build_dir, 0, 0 );
     rmtree( $inst_dir,  0, 0 );
     mkpath($build_dir);

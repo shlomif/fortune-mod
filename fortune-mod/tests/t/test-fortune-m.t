@@ -9,7 +9,7 @@ use FortTestInst ();
 use Test::More tests => 1;
 
 {
-    my $inst_dir = FortTestInst::install();
+    my $inst_dir = FortTestInst::install("fortune-m");
 
     my $text = `$inst_dir/games/fortune -m giants`;
 

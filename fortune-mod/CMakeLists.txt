@@ -29,6 +29,7 @@ SET (base_with_ver "fortune-mod-[0-9]+\\\\.[0-9]+\\\\.[0-9]+")
 
 SET(CPACK_SOURCE_IGNORE_FILES
     "/.deps/"
+    "/\\\\.git/"
     "~$"
     "\\\\.pyc$"
     "/tags$"
