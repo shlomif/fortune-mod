@@ -1,6 +1,16 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+June 30, 2019 (fortune-mod 2.10.0)
+
+	Move strfile and unstr to /usr/bin :
+	https://github.com/shlomif/fortune-mod/issues/35
+
+	Code cleanups: warnings and portability.
+
+	Better porting to windows / appveyor-CI
+	(still not perfect)
+
 June 07, 2019 (fortune-mod 2.8.0)
 
 	Add some quotes by amigojapan.
