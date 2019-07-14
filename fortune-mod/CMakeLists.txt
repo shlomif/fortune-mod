@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.2)
 
+project(fortune-mod)
+
 INCLUDE ("${CMAKE_SOURCE_DIR}/cmake/shlomif_common_bootstrap.cmake")
 SHLOMIF_COMMON_SETUP("${private_mod_path}")
 
