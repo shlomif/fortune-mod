@@ -863,14 +863,14 @@ here an Oops, there an Oops, everywhere an Oops-Oops.
 Also another major deciding factor is availability of source code.
 It just gives everybody a warm fuzzy feeling knowing that there is
 source code available to the product you are using.  It allows everybody
-to improve on the product and fix bugs etc. sooner that the author(s)
+to improve on the product and fix bugs etc. sooner than the author(s)
 would get the time/chance to.
 	-- Atif Khan
 %
 > Also another major deciding factor is availability of source code.
 > It just gives everybody a warm fuzzy feeling knowing that there is
 > source code available to the product you are using.  It allows everybody
-> to improve on the product and fix bugs etc. sooner that the author(s)
+> to improve on the product and fix bugs etc. sooner than the author(s)
 > would get the time/chance to.
 
 I think this is one the really BIG reasons for the snowball/onslaught
@@ -983,7 +983,7 @@ P:      Linus Torvalds
 S:      Buried alive in email
 	-- from /usr/src/linux/MAINTAINERS
 %
-         Why use Windows when you can have air conditioning?
+         Why use Windows, when you can have air conditioning?
          Why use Windows, when you can leave through the door?
 	-- Konrad Blum
 %
@@ -1191,9 +1191,6 @@ mark
 %
 Sorry.  I just realized this sentance makes no sense :)
 	-- Ian Main
-%
-Netscape is not a newsreader, and probably never shall be.
-	-- Tom Christiansen
 %
 Stopping Apache webserver...sleeping...starting again...
 apache: dl-version.c:189:
