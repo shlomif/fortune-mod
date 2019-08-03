@@ -848,7 +848,7 @@ The easiest way to get the root password is to become system admin.
 The good thing about standards is that there are so many to choose from.
 	-- Andrew S. Tanenbaum
 %
-The primary difference [...] is that the Java programm will reliably and
+The primary difference [...] is that the Java program will reliably and
 obviously crash, whereas the C Program will do something obscure
 	-- Java Language Tutorial
 %
