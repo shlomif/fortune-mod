@@ -9,6 +9,8 @@ addons:
             - perl
             - make
             - valgrind
+            - xz-utils
+            - zip
 os: linux
 dist: xenial
 before_install:
@@ -19,6 +21,6 @@ install: []
 language: perl
 script:
     - "export FORTUNE_TEST_TIDY=1"
-    - "mkdir B && cd B && cmake ../fortune-mod && make && make check && cd .."
+    - "perl CI-testing/continuous-integration-testing.pl"
     - "rm -fr B"
 sudo: false
