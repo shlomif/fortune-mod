@@ -18,6 +18,7 @@ sub do_system
         die "Running [@$cmd] failed!";
     }
 }
+my $cwd = cwd();
 
 my $IS_WIN = ( $^O eq "MSWin32" );
 my $SEP    = $IS_WIN ? "\\" : '/';
@@ -33,7 +34,6 @@ if ( defined $cmake_gen )
 {
     $ENV{CMAKE_GEN} = $cmake_gen;
 }
-my $cwd = cwd();
 mkdir('B');
 chdir('B');
 if ( !$ENV{SKIP_RINUTILS_INSTALL} )
@@ -79,7 +79,8 @@ if ($IS_WIN)
     $ENV{RINUTILS_INCLUDE_DIR} = "C:/foo/include";
 }
 chdir($cwd);
-$cwd->child('B')->remove_tree;
+$cwd->child('B')->remove_tree( { safe => 0, } );
+
 do_system(
     {
         cmd => [
