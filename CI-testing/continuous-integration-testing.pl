@@ -5,6 +5,7 @@ use warnings;
 use autodie;
 
 use Getopt::Long qw/GetOptions/;
+use Path::Tiny qw/ path tempdir tempfile cwd /;
 
 sub do_system
 {
@@ -32,6 +33,7 @@ if ( defined $cmake_gen )
 {
     $ENV{CMAKE_GEN} = $cmake_gen;
 }
+my $cwd = cwd();
 mkdir('B');
 chdir('B');
 if ( !$ENV{SKIP_RINUTILS_INSTALL} )
@@ -76,6 +78,8 @@ if ($IS_WIN)
         ";/foo/lib/pkgconfig/;/c/foo/lib/pkgconfig/";
     $ENV{RINUTILS_INCLUDE_DIR} = "C:/foo/include";
 }
+chdir($cwd);
+$cwd->child('B')->remove_tree;
 do_system(
     {
         cmd => [
