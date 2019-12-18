@@ -1,6 +1,15 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+December 18, 2019 (fortune-mod 2.12.0)
+
+	Extract rinutils as aa package and require it as a dep:
+	https://github.com/shlomif/rinutils/ .
+
+	Move some jokes to the offensive collection:
+	https://github.com/shlomif/fortune-mod/pull/38 - thanks
+	to @s0nata .
+
 June 30, 2019 (fortune-mod 2.10.0)
 
 	Move strfile and unstr to /usr/bin :
