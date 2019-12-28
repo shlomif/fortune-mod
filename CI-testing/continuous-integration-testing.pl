@@ -13,7 +13,7 @@ sub do_system
     my ($args) = @_;
 
     my $cmd = $args->{cmd};
-    print "Running [@$cmd]";
+    print "Running [@$cmd]\n";
     if ( system(@$cmd) )
     {
         die "Running [@$cmd] failed!";
