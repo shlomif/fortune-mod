@@ -54,6 +54,7 @@ if ( !$ENV{SKIP_RINUTILS_INSTALL} )
         {
             cmd => [
                       qq#cd rinutils && mkdir B && cd B && cmake #
+                    . " -DWITH_TEST_SUITE=OFF "
                     . ( defined($cmake_gen) ? qq# -G "$cmake_gen" # : "" )
                     . (
                     defined( $ENV{CMAKE_MAKE_PROGRAM} )
