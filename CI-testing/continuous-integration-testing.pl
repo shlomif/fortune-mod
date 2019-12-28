@@ -1,11 +1,12 @@
 #!/usr/bin/env perl
 
+use 5.014;
 use strict;
 use warnings;
 use autodie;
 
-use Getopt::Long qw/GetOptions/;
-use Path::Tiny qw/ path tempdir tempfile cwd /;
+use Path::Tiny qw/ path cwd /;
+use Getopt::Long qw/ GetOptions /;
 
 sub do_system
 {
@@ -21,9 +22,10 @@ sub do_system
 my $cwd = cwd();
 
 my $IS_WIN = ( $^O eq "MSWin32" );
-my $SEP    = $IS_WIN ? "\\" : '/';
 my $MAKE   = $IS_WIN ? 'gmake' : 'make';
-my $SUDO   = $IS_WIN ? '' : 'sudo';
+
+my $SEP  = $IS_WIN ? "\\" : '/';
+my $SUDO = $IS_WIN ? ''   : 'sudo';
 
 my $cmake_gen;
 GetOptions( 'gen=s' => \$cmake_gen, )
@@ -33,6 +35,11 @@ local $ENV{RUN_TESTS_VERBOSE} = 1;
 if ( defined $cmake_gen )
 {
     $ENV{CMAKE_GEN} = $cmake_gen;
+}
+
+sub _transform
+{
+    return shift(@_) =~ s%\\%\\\\%gr;
 }
 mkdir('B');
 chdir('B');
@@ -60,18 +67,13 @@ if ( !$ENV{SKIP_RINUTILS_INSTALL} )
     );
 }
 do_system( { cmd => [ "cmake", "--version" ] } );
-my $CMAKE_MODULE_PATH = join ";",
-    (
-    map { ; $_, s%/%\\%gr } (
-        map { ; $_, "$_/Rinutils", "$_/Rinutils/cmake" }
-            map { ; $_, "$_/lib", "$_/lib64" } ( map { ; "c:$_", $_ } ("/foo") )
-    )
-    );
+my $CMAKE_PREFIX_PATH;
 
-# die "<$CMAKE_MODULE_PATH>";
 if ($IS_WIN)
 {
-    ( $ENV{CMAKE_MODULE_PATH} //= '' ) .= ";$CMAKE_MODULE_PATH;";
+    $CMAKE_PREFIX_PATH = join ";", ( map { ; $IS_WIN ? "c:$_" : $_ } ("/foo") );
+
+    ( $ENV{CMAKE_PREFIX_PATH} //= '' ) .= ";$CMAKE_PREFIX_PATH;";
 
     # ( $ENV{PKG_CONFIG_PATH} //= '' ) .= ";C:\\foo\\lib\\pkgconfig;";
     ( $ENV{PKG_CONFIG_PATH} //= '' ) .=
@@ -84,7 +86,15 @@ $cwd->child('B')->remove_tree( { safe => 0, } );
 do_system(
     {
         cmd => [
-                  "mkdir B && cd B && cmake  "
+            "mkdir B && cd B && cmake  "
+                . (
+                defined($CMAKE_PREFIX_PATH)
+                ? ( " -DCMAKE_PREFIX_PATH="
+                        . _transform($CMAKE_PREFIX_PATH)
+                        . " " )
+                : ''
+                )
+                . " "
                 . ( defined($cmake_gen) ? qq#-G "$cmake_gen"# : "" )
                 . " ../fortune-mod && $MAKE && $MAKE check"
         ]
