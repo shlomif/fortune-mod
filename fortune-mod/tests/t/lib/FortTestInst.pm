@@ -3,8 +3,8 @@ package FortTestInst;
 use strict;
 use warnings;
 
+use Path::Tiny qw/ path tempdir tempfile cwd /;
 use File::Path qw/mkpath rmtree/;
-use Cwd qw/getcwd/;
 
 my $IS_WIN = ( $^O eq "MSWin32" );
 my $SEP    = $IS_WIN ? "\\" : '/';
@@ -25,9 +25,9 @@ sub do_system
 sub install
 {
     my ($basepath) = @_;
-    my $cwd        = getcwd();
-    my $build_dir  = "$cwd/$basepath-build-dir";
-    my $inst_dir   = "$cwd/$basepath-INST_DIR";
+    my $cwd        = cwd->absolute;
+    my $build_dir  = $cwd->child("$basepath-build-dir");
+    my $inst_dir   = $cwd->child("$basepath-INST_DIR");
     rmtree( $build_dir, 0, 0 );
     rmtree( $inst_dir,  0, 0 );
     mkpath($build_dir);
