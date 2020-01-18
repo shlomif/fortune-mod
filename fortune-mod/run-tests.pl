@@ -21,6 +21,8 @@ if ( !defined $src_dir )
 local $ENV{SRC_DIR} = File::Spec->rel2abs($src_dir);
 local $ENV{COOKIES} = $cookies_list_str;
 
+my $IS_WIN = ( $^O eq "MSWin32" );
+
 sub do_system
 {
     my ($args) = @_;
@@ -39,11 +41,23 @@ if (0)
     do_system( { cmd => [ $^X, "$src_dir/tests/trailing-space-and-CRs.pl" ] } );
 }
 
-eval { do_system( { cmd => [ 'prove', glob("$src_dir/tests/t/*.t") ] } ); };
+eval {
+    do_system(
+        {
+            cmd => [
+                'prove', ( $IS_WIN ? ("-v") : () ),
+                glob("$src_dir/tests/t/*.t")
+            ]
+        }
+    );
+};
 
 my $E = $@;
 if ( $ENV{FORTUNE_TEST_DEBUG} )
 {
     system( "python", "$src_dir/tests/fortune-m-test.py" );
 }
-exit( $E ? 1 : 0 );
+if ($E)
+{
+    die $E;
+}
