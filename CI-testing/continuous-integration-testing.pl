@@ -84,10 +84,11 @@ if ($IS_WIN)
 chdir($cwd);
 $cwd->child('B')->remove_tree( { safe => 0, } );
 
+my $WIN32__DOUBLE_AMPERSAND__PROPER_HANDLING__NEEDED_PREFIX = "cd . &&";
 do_system(
     {
         cmd => [
-            "cd . && mkdir B && cd B && cmake"
+"$WIN32__DOUBLE_AMPERSAND__PROPER_HANDLING__NEEDED_PREFIX mkdir B && cd B && cmake"
                 . (
                 defined($CMAKE_PREFIX_PATH)
                 ? ( " -DCMAKE_PREFIX_PATH=" . _transform($CMAKE_PREFIX_PATH) )
