@@ -43,6 +43,15 @@ sub _transform
 }
 mkdir('B');
 chdir('B');
+
+my $cmake_common_args = ""
+    . ( defined($cmake_gen) ? qq# -G "$cmake_gen" # : "" )
+    . (
+    defined( $ENV{CMAKE_MAKE_PROGRAM} )
+    ? " -DCMAKE_MAKE_PROGRAM=$ENV{CMAKE_MAKE_PROGRAM} "
+    : ""
+    );
+
 if ( !$ENV{SKIP_RINUTILS_INSTALL} )
 {
     do_system(
@@ -54,13 +63,8 @@ if ( !$ENV{SKIP_RINUTILS_INSTALL} )
         {
             cmd => [
                       qq#cd rinutils && mkdir B && cd B && cmake #
+                    . $cmake_common_args
                     . " -DWITH_TEST_SUITE=OFF "
-                    . ( defined($cmake_gen) ? qq# -G "$cmake_gen" # : "" )
-                    . (
-                    defined( $ENV{CMAKE_MAKE_PROGRAM} )
-                    ? " -DCMAKE_MAKE_PROGRAM=$ENV{CMAKE_MAKE_PROGRAM} "
-                    : ""
-                    )
                     . ( $IS_WIN ? " -DCMAKE_INSTALL_PREFIX=C:/foo " : '' )
                     . qq# .. && $SUDO $MAKE install#
             ]
@@ -95,7 +99,7 @@ do_system(
                 : ''
                 )
                 . " "
-                . ( defined($cmake_gen) ? qq#-G "$cmake_gen"# : "" )
+                . $cmake_common_args
                 . " ../fortune-mod && $MAKE && $MAKE check"
         ]
     }
