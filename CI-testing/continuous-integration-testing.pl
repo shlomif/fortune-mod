@@ -87,12 +87,10 @@ $cwd->child('B')->remove_tree( { safe => 0, } );
 do_system(
     {
         cmd => [
-            "mkdir B && cd B && cmake  "
+            "mkdir B && cd B && cmake"
                 . (
                 defined($CMAKE_PREFIX_PATH)
-                ? ( " -DCMAKE_PREFIX_PATH="
-                        . _transform($CMAKE_PREFIX_PATH)
-                        . " " )
+                ? ( " -DCMAKE_PREFIX_PATH=" . _transform($CMAKE_PREFIX_PATH) )
                 : ''
                 )
                 . " "
