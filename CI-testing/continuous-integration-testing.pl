@@ -50,7 +50,7 @@ my $cmake_common_args = ""
     defined( $ENV{CMAKE_MAKE_PROGRAM} )
     ? " -DCMAKE_MAKE_PROGRAM=$ENV{CMAKE_MAKE_PROGRAM} "
     : ""
-    );
+    ) . ( $IS_WIN ? " -DCMAKE_BUILD_TYPE=Debug " : "" );
 
 if ( !$ENV{SKIP_RINUTILS_INSTALL} )
 {
