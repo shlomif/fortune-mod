@@ -10,8 +10,11 @@ use Test::More tests => 1;
 
 {
     my $inst_dir = FortTestInst::install("fortune-m");
-
-    my $text = `$inst_dir/games/fortune -m giants`;
+    my @cmd      = ( $inst_dir->child( 'games', 'fortune' ), '-m', 'giants' );
+    print "Running [@cmd]\n";
+    my $text = `@cmd`;
+    my $rc   = $?;
+    print "AfterRun rc=$rc [@cmd]\n";
 
     # TEST
     like( $text, qr/Newton/, 'fortune -m matched' );

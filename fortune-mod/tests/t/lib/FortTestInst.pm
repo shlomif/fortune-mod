@@ -51,6 +51,7 @@ sub install
     );
     do_system( { cmd => [$MAKE] } );
     do_system( { cmd => [ $MAKE, 'install', ] } );
+    chdir($cwd);
 
     return $inst_dir;
 }
