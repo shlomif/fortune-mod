@@ -44,6 +44,7 @@ sub install
                     : ()
                 ),
                 "-DCMAKE_INSTALL_PREFIX=$inst_dir",
+                ( $IS_WIN ? ("-DCMAKE_BUILD_TYPE=Debug") : () ),
                 $ENV{SRC_DIR}
             ]
         }
