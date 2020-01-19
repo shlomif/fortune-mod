@@ -4,7 +4,7 @@
 
 This GitHub repository maintains the sources for fortune-mod, a
 version of
-[the UNIX fortune command](http://en.wikipedia.org/wiki/Fortune_%28Unix%29).
+[the UNIX fortune command](https://en.wikipedia.org/wiki/Fortune_%28Unix%29).
 `fortune` is a command-line utility which displays a random quotation from a
 collection of quotes.
 
@@ -13,11 +13,11 @@ https://github.com/shlomif/fortune-mod . In the future, we may create a GitHub
 organization for it and move the sources there.
 
 For more information about it, you can contact
-[Shlomi Fish](http://www.shlomifish.org/) .
+[Shlomi Fish](https://www.shlomifish.org/) .
 
 ## Release Tarballs
 
-Release tarballs can be found at [this directory](http://www.shlomifish.org/open-source/projects/fortune-mod/arcs/)
+Release tarballs can be found at [this directory](https://www.shlomifish.org/open-source/projects/fortune-mod/arcs/)
 for now.
 
 Reading from [this reported bug](https://github.com/shlomif/fortune-mod/issues/10):
@@ -98,9 +98,16 @@ by a set of patches on the Fedora package.
 
 3. Perhaps modernize the code a little.
 
+4. Get the build and tests to pass on [AppVeyor/MS Windows](https://ci.appveyor.com/project/shlomif/fortune-mod)
+(any help will be appreciated).
+
+5. Add more quotes / fortune cookies.
+
+6. Prepare packages for the new releases for [downstream distributions/Operating Systems](https://pkgs.org/download/fortune-mod).
+
 # Links
 
-* [Shlomi Fish’s Fortune Cookie Files](http://www.shlomifish.org/humour/fortunes/) - on his site, containing links to many other collections of fortune cookies.
-* [XML-Grammar-Fortune](http://web-cpan.shlomifish.org/modules/XML-Grammar-Fortune/) - an XML grammar for collections of quotes, allowing one to generate XHTML or plaintext.
+* [Shlomi Fish’s Fortune Cookie Files](https://www.shlomifish.org/humour/fortunes/) - on his site, containing links to many other collections of fortune cookies.
+* [XML-Grammar-Fortune](https://web-cpan.shlomifish.org/modules/XML-Grammar-Fortune/) - an XML grammar for collections of quotes, allowing one to generate XHTML or plaintext.
 * [Anvari.org’s web interface to fortune](http://www.anvari.org/fortune/) - with
 many collections.
