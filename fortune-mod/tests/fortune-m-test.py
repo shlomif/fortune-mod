@@ -10,4 +10,4 @@ exe = glob.glob(join(inst_dir, "games", "fortune")+'*')[0]
 # subprocess.call(["objdump", "-p", exe])
 rc = subprocess.call(
     [exe, "-m", "giants"],
-    stdout=subprocess.STDOUT, stderr=subprocess.STDOUT, )
+)
