@@ -99,8 +99,15 @@ do_system(
                 : ''
                 )
                 . " "
-                . $cmake_common_args
-                . " ../fortune-mod && $MAKE && $MAKE check"
+                . (
+                $IS_WIN
+                ? ( $cmake_common_args
+                        . " -DCMAKE_INSTALL_PREFIX=c:/foo "
+                        . " ../fortune-mod && $MAKE && $MAKE install && c:/foo/games/fortune.exe"
+                    )
+                : ( $cmake_common_args
+                        . " ../fortune-mod && $MAKE && $MAKE check" )
+                )
         ]
     }
 );
