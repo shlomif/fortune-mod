@@ -16,7 +16,8 @@ use Test::More tests => 1;
     if ($IS_WIN)
     {
         print "IS_WIN=1\n";
-        $cmd[0] = ( "$cmd[0]" =~ s#/#\\#gr );
+        $cmd[0] = ( "$cmd[0]" =~ s#/#\\\\#gr );
+        $cmd[0] .= ".exe";
         print "TransformedRun [@cmd]\n";
     }
     print "Running [@cmd]\n";
