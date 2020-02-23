@@ -17,7 +17,9 @@ before_install:
     - cpanm local::lib
     - eval "$(perl -Mlocal::lib=$HOME/perl_modules)"
     - cpanm Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount File::Find::Object List::Util Path::Tiny Perl::Critic Perl::Tidy Test::Code::TidyAll Test::Differences Test::RunValgrind
-install: []
+install:
+    # Required to avoid defaul travis "cpanm ." booboo.
+    - true
 language: perl
 perl:
     - "5.30"
