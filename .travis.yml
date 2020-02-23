@@ -19,6 +19,8 @@ before_install:
     - cpanm Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount File::Find::Object List::Util Path::Tiny Perl::Critic Perl::Tidy Test::Code::TidyAll Test::Differences Test::RunValgrind
 install: []
 language: perl
+perl:
+    - "5.30"
 script:
     - "export FORTUNE_TEST_TIDY=1"
     - "perl CI-testing/continuous-integration-testing.pl"
