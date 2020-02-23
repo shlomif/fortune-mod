@@ -12,7 +12,7 @@ addons:
             - xz-utils
             - zip
 os: linux
-dist: xenial
+dist: bionic
 before_install:
     - cpanm local::lib
     - eval "$(perl -Mlocal::lib=$HOME/perl_modules)"
