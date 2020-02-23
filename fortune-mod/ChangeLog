@@ -1,6 +1,14 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+February 23, 2020 (fortune-mod 2.14.0)
+
+	Correct some typos and add some new cookies.
+
+	Better Win32/Win64 Portability (AppVeyor is still failing.)
+
+	Code cleanups.
+
 December 18, 2019 (fortune-mod 2.12.0)
 
 	Extract rinutils as aa package and require it as a dep:
