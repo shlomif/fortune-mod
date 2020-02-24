@@ -1763,8 +1763,6 @@ int main(int ac, char *av[])
     int exit_code = 0;
 #ifdef REMOVE_CODE
     printf("%s\n", "hello - ioplol success");
-    return 0;
-#else
 
 
     env_lang=getenv("LC_ALL");
@@ -1772,6 +1770,8 @@ int main(int ac, char *av[])
     if (!env_lang) env_lang=getenv("LANGUAGE");
     if (!env_lang) env_lang=getenv("LANG");
 
+    return 0;
+#else
     getargs(ac, av);
 
 #ifdef WITH_RECODE
