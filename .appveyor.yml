@@ -27,7 +27,7 @@ test_script:
     # - set FCS_TEST_BUILD=1
     - set CPATH=c:\mingw64\include;c:\msys64\mingw64\include
     - set LIBRARY_PATH=c:\mingw64\lib;c:\msys64\mingw64\lib
-    - set PATH=%PATH%;c:\mingw64\lib;c:\mingw64\bin;c:\msys64\mingw64\lib
+    - set PATH=%PATH%;c:\mingw64\lib;c:\mingw64\bin;c:\msys64\mingw64\lib;c:\msys64\mingw64\bin
     # Python3 confuses the recode build so only add it here.
     - SET PATH=%PATH%;C:\Python35-x64
     - SET FORTUNE_TEST_DEBUG=1
