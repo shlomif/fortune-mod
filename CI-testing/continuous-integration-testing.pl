@@ -85,7 +85,7 @@ if ($IS_WIN)
         ";/foo/lib/pkgconfig/;/c/foo/lib/pkgconfig/";
     $ENV{RINUTILS_INCLUDE_DIR} = "C:/foo/include";
 
-    # For warnings
+    # for warning flags.
     $ENV{FCS_GCC} = 1;
 }
 chdir($cwd);
