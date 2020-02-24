@@ -116,10 +116,12 @@ do_system(
 );
 if ($IS_WIN)
 {
+    my $gdb_cmds_fn = "cmds.gdb";
+    path($gdb_cmds_fn)->spew_utf8("r\nbt\nq\n");
     do_system(
         {
             cmd => [
-"$WIN32__DOUBLE_AMPERSAND__PROPER_HANDLING__NEEDED_PREFIX c:/foo/games/fortune.exe"
+"$WIN32__DOUBLE_AMPERSAND__PROPER_HANDLING__NEEDED_PREFIX gdb --command=$gdb_cmds_fn c:/foo/games/fortune.exe"
             ]
         }
     );

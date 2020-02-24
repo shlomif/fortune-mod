@@ -1777,6 +1777,7 @@ int main(int ac, char *av[])
     request = recode_new_request (outer);
 #endif
 
+#ifndef REMOVE_CODE
     setlocale(LC_ALL,"");
 #ifdef _WIN32
     ctype = "C";
@@ -1790,6 +1791,7 @@ int main(int ac, char *av[])
     {
         ctype="ISO-8859-1";
     }
+#endif
 #endif
 
 #ifdef WITH_RECODE
