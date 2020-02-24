@@ -36,7 +36,7 @@ test_script:
     - mkdir de4
     - cd de4
     - 7z e ..\CI-testing\arcs\Dependencies_x64_Release.zip
-    - .\Dependencies -modules c:\foo\games\fortune
+    - .\Dependencies -modules c:\foo\games\fortune.exe
     - c:\foo\games\fortune
 cache:
    - C:\msys64\mingw64
