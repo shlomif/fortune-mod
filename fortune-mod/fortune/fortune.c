@@ -107,7 +107,9 @@ static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
 #ifndef _WIN32
 #include        <langinfo.h>
 #endif
+#ifdef WITH_RECODE
 #include        <recode.h>
+#endif
 
 
 #ifdef HAVE_REGEX_H
@@ -203,8 +205,10 @@ static regex_t Re_pat;
 #define NO_REGEX
 #endif /* POSIX_REGEX */
 
+#ifdef WITH_RECODE
 static RECODE_REQUEST request;
 static RECODE_OUTER outer;
+#endif
 
 int add_dir(register FILEDESC *);
 
@@ -1591,7 +1595,11 @@ static void matches_in_list(FILEDESC * list)
 
                 if (fp->utf8_charset)
                 {
+#ifdef WITH_RECODE
                     output = recode_string (request, (const char *)Fortbuf);
+#else
+                    output = strdup(Fortbuf);
+#endif
                 }
                 else
                 {
@@ -1676,7 +1684,11 @@ static void display(FILEDESC * fp)
         }
         if(fp->utf8_charset) {
             char *output;
+#ifdef WITH_RECODE
             output = recode_string (request, (const char *)line);
+#else
+            output = strdup(line);
+#endif
             fputs(output, stdout);
             free(output);
         }
@@ -1748,8 +1760,10 @@ int main(int ac, char *av[])
 
     getargs(ac, av);
 
+#ifdef WITH_RECODE
     outer = recode_new_outer(true);
     request = recode_new_request (outer);
+#endif
 
     setlocale(LC_ALL,"");
 #ifdef _WIN32
@@ -1766,10 +1780,12 @@ int main(int ac, char *av[])
     }
 #endif
 
+#ifdef WITH_RECODE
     crequest = malloc(strlen(ctype) + 7 + 1);
     sprintf(crequest, "UTF-8..%s", ctype);
     recode_scan_request (request, crequest);
     free(crequest);
+#endif
 
 #ifndef NO_REGEX
     if (Match)
@@ -1806,8 +1822,10 @@ int main(int ac, char *av[])
         }
     }
 cleanup:
+#ifdef WITH_RECODE
     recode_delete_request(request);
     recode_delete_outer(outer);
+#endif
 
     /* Free the File_list */
     free_desc(File_list);
