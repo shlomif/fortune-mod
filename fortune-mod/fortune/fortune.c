@@ -1759,22 +1759,12 @@ static void free_desc(FILEDESC *ptr)
     }
 }
 
-#ifdef REMOVE_CODE
-
-#include <stdio.h>
-
-#else
-#endif // REMOVE_CODE
-
 int main(int ac, char *av[])
 {
     const char *ctype;
     char *crequest;
     int exit_code = 0;
 #ifdef REMOVE_CODE
-    printf("%s\n", "hello - ioplol success");
-
-
     env_lang=getenv("LC_ALL");
     if (!env_lang) env_lang=getenv("LC_MESSAGES");
     if (!env_lang) env_lang=getenv("LANGUAGE");
@@ -1787,8 +1777,9 @@ int main(int ac, char *av[])
     printf("%s\n", "after getargs");
     fflush(stdout);
 #endif
+#if 0
     return 0;
-#else
+#endif
 
 #ifdef WITH_RECODE
     outer = recode_new_outer(true);
@@ -1819,7 +1810,9 @@ int main(int ac, char *av[])
     free(crequest);
 #endif
 
+#if 0
     return 0;
+#endif
 
 #ifndef NO_REGEX
     if (Match)
@@ -1866,5 +1859,6 @@ cleanup:
     free(Fortbuf);
     exit(exit_code);
     /* NOTREACHED */
+#else
 #endif // REMOVE_CODE
 }

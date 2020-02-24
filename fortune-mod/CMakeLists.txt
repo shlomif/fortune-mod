@@ -204,7 +204,7 @@ INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/util")
 
 IF(WIN32 AND NOT UNIX)
     FOREACH (var "LOCALODIR" "LOCALDIR" "OCOOKIEDIR" "COOKIEDIR")
-        string(REPLACE "\\" "/" "${var}" "${var}")
+        string(REPLACE "\\" "/" "${var}" "${${var}}")
     ENDFOREACH()
 ENDIF()
 
