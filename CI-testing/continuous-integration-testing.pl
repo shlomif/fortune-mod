@@ -89,6 +89,7 @@ chdir($cwd);
 $cwd->child('B')->remove_tree( { safe => 0, } );
 
 my $WIN32__DOUBLE_AMPERSAND__PROPER_HANDLING__NEEDED_PREFIX = "cd . &&";
+print "PATH = <<$ENV{PATH}>>\n";
 do_system(
     {
         cmd => [
