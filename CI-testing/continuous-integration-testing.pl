@@ -116,7 +116,7 @@ if ($IS_WIN)
     do_system(
         {
             cmd => [
-"$WIN32__DOUBLE_AMPERSAND__PROPER_HANDLING__NEEDED_PREFIX && c:/foo/games/fortune.exe"
+"$WIN32__DOUBLE_AMPERSAND__PROPER_HANDLING__NEEDED_PREFIX c:/foo/games/fortune.exe"
             ]
         }
     );
