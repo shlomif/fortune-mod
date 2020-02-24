@@ -544,6 +544,20 @@ static int is_fortfile(char *file, char **datp)
     return TRUE;
 }
 
+static bool path_is_absolute(const char *const path)
+{
+    if (path[0] == '/')
+    {
+        return true;
+    }
+#ifdef _WIN32
+    if (isalpha(path[0]) && path[1] == ':' && path[2] == '/')
+    {
+        return true;
+    }
+#endif
+    return false;
+}
 /*
  * add_file:
  *      Add a file to the file list.
@@ -585,7 +599,7 @@ static int add_file(int percent, register const char *file, const char *dir,
     }
 
     DPRINTF(1, (stderr, "trying to add file \"%s\"\n", path));
-    if ((fd = open(path, O_RDONLY)) < 0 || *path != '/')
+    if ((fd = open(path, O_RDONLY)) < 0 || !path_is_absolute(path))
     {
       found = FALSE;
         if (dir == NULL && (strchr(file,'/') == NULL))
