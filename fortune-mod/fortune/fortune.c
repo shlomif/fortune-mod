@@ -637,9 +637,12 @@ static int add_file(int percent, register const char *file, const char *dir,
                 ret=1;
               lang=p;
             }
-            if (!ret)
+            if (!ret) {
+              fprintf(stderr, "moshe\n");
               perror(path);
+            }
           } else {
+              fprintf(stderr, "abe\n");
             perror(path);
           }
         }
@@ -755,6 +758,7 @@ int add_dir(register FILEDESC * fp)
     fp->fd = -1;
     if ((dir = opendir(fp->path)) == NULL)
     {
+        fprintf(stderr, "yonah\n");
         perror(fp->path);
         return FALSE;
     }
@@ -766,6 +770,7 @@ int add_dir(register FILEDESC * fp)
     names = malloc(sizeof(names[0])*max_count_names);
     if (! names)
     {
+        fprintf(stderr, "zach\n");
         perror("Out of RAM!");
         exit(-1);
     }
@@ -780,6 +785,7 @@ int add_dir(register FILEDESC * fp)
             names = realloc(names, sizeof(names[0])*max_count_names);
             if (! names)
             {
+                fprintf(stderr, "reb\n");
                 perror("Out of RAM!");
                 exit(-1);
             }
@@ -791,36 +797,36 @@ int add_dir(register FILEDESC * fp)
 
     for (i=0; i < count_names; ++i)
     {
-        if (add_file(NO_PROB, names[i], fp->path, &fp->child, &tailp, fp))
-        {
-            fp->num_children++;
-        }
-        free(names[i]);
-    }
-    free(names);
-    dir = NULL;
-    if (fp->num_children == 0)
+    if (add_file(NO_PROB, names[i], fp->path, &fp->child, &tailp, fp))
     {
-        /*
-         * Only the local fortune dir and the local offensive dir are
-         * allowed to be empty.
-         *  - Brian Bassett (brianb@debian.org) 1999/07/31
-         */
-        if (strcmp(LOCFORTDIR, fp->path) == 0 || strcmp(LOCOFFDIR, fp->path) == 0)
-        {
-            return TRUE;
-        }
-        fprintf(stderr,
-                "fortune: %s: No fortune files in directory.\n", fp->path);
-        return FALSE;
+        fp->num_children++;
     }
-    return TRUE;
+    free(names[i]);
+}
+free(names);
+dir = NULL;
+if (fp->num_children == 0)
+{
+    /*
+     * Only the local fortune dir and the local offensive dir are
+     * allowed to be empty.
+     *  - Brian Bassett (brianb@debian.org) 1999/07/31
+     */
+    if (strcmp(LOCFORTDIR, fp->path) == 0 || strcmp(LOCOFFDIR, fp->path) == 0)
+    {
+        return TRUE;
+    }
+    fprintf(stderr,
+            "fortune: %s: No fortune files in directory.\n", fp->path);
+    return FALSE;
+}
+return TRUE;
 }
 
 /*
- * form_file_list:
- *      Form the file list from the file specifications.
- */
+* form_file_list:
+*      Form the file list from the file specifications.
+*/
 static int form_file_list(register char **files, register int file_cnt)
 {
     register int i, percent;
@@ -828,67 +834,67 @@ static int form_file_list(register char **files, register int file_cnt)
     char langdir[1024];
     char fullpathname[512],locpathname[512];
 
-    if (file_cnt == 0)
-    {
-        if (All_forts)
+if (file_cnt == 0)
+{
+    if (All_forts)
+        return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
+                         &File_tail, NULL)
+                | add_file(NO_PROB, LOCOFFDIR, NULL, &File_list,
+                           &File_tail, NULL)
+                | add_file(NO_PROB, FORTDIR, NULL, &File_list,
+                           &File_tail, NULL)
+                | add_file(NO_PROB, OFFDIR, NULL, &File_list,
+                           &File_tail, NULL));
+    else if (Offend)
+        return (add_file(NO_PROB, LOCOFFDIR, NULL, &File_list,
+                         &File_tail, NULL)
+                | add_file(NO_PROB, OFFDIR, NULL, &File_list,
+                           &File_tail, NULL));
+    else {
+        if (env_lang) {
+            char *lang;
+            char llang[512];
+            int ret=0;
+            char *p;
+
+            strncpy(llang,env_lang,sizeof(llang));
+            llang[sizeof(llang)-1] = '\0';
+            lang=llang;
+
+            /* the language string can be like "es:fr_BE:ga" */
+            while ( lang && (*lang)) {
+                    p=strchr(lang,':');
+                    if (p) *p++='\0';
+
+                    /* first try full locale */
+                    ret=add_file(NO_PROB, lang, NULL, &File_list,
+                            &File_tail, NULL);
+
+                    /* if not try language name only (two first chars) */
+                    if (!ret) {
+                      char ll[3];
+
+                      strncpy(ll,lang,2);
+                      ll[2]='\0';
+                      ret=add_file(NO_PROB, ll, NULL,
+                                   &File_list, &File_tail, NULL);
+                    }
+
+                    /* if we have found one we have finished */
+                    if (ret)
+                      return ret;
+                    lang=p;
+            }
+            /* default */
             return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
                              &File_tail, NULL)
-                    | add_file(NO_PROB, LOCOFFDIR, NULL, &File_list,
-                               &File_tail, NULL)
                     | add_file(NO_PROB, FORTDIR, NULL, &File_list,
-                               &File_tail, NULL)
-                    | add_file(NO_PROB, OFFDIR, NULL, &File_list,
                                &File_tail, NULL));
-        else if (Offend)
-            return (add_file(NO_PROB, LOCOFFDIR, NULL, &File_list,
-                             &File_tail, NULL)
-                    | add_file(NO_PROB, OFFDIR, NULL, &File_list,
-                               &File_tail, NULL));
-        else {
-            if (env_lang) {
-                char *lang;
-                char llang[512];
-                int ret=0;
-                char *p;
 
-                strncpy(llang,env_lang,sizeof(llang));
-                llang[sizeof(llang)-1] = '\0';
-                lang=llang;
-
-                /* the language string can be like "es:fr_BE:ga" */
-                while ( lang && (*lang)) {
-                        p=strchr(lang,':');
-                        if (p) *p++='\0';
-
-                        /* first try full locale */
-                        ret=add_file(NO_PROB, lang, NULL, &File_list,
-                                &File_tail, NULL);
-
-                        /* if not try language name only (two first chars) */
-                        if (!ret) {
-                          char ll[3];
-
-                          strncpy(ll,lang,2);
-                          ll[2]='\0';
-                          ret=add_file(NO_PROB, ll, NULL,
-                                       &File_list, &File_tail, NULL);
-                        }
-
-                        /* if we have found one we have finished */
-                        if (ret)
-                          return ret;
-                        lang=p;
-                }
-                /* default */
-                return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
-                                 &File_tail, NULL)
-                        | add_file(NO_PROB, FORTDIR, NULL, &File_list,
-                                   &File_tail, NULL));
-
-            }
-            else
-              /* no locales available, use default */
-              return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
+        }
+        else
+          /* no locales available, use default */
+          return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
                                &File_tail, NULL)
                       | add_file(NO_PROB, FORTDIR, NULL, &File_list,
                                  &File_tail, NULL));
@@ -1295,6 +1301,7 @@ static void get_tbl(FILEDESC * fp)
 #endif
         if ((fd = open(fp->datfile, O_RDONLY)) < 0)
         {
+                fprintf(stderr, "mir\n");
             perror(fp->datfile);
             exit(1);
         }
@@ -1428,6 +1435,7 @@ static void open_dat(FILEDESC * fp)
 {
     if (fp->datfd < 0 && (fp->datfd = open(fp->datfile, O_RDONLY)) < 0)
     {
+                fprintf(stderr, "goaliiii\n");
         perror(fp->datfile);
         exit(1);
     }
@@ -1535,6 +1543,7 @@ static void open_fp(FILEDESC * fp)
 {
     if (fp->inf == NULL && (fp->inf = fdopen(fp->fd, "r")) == NULL)
     {
+        fprintf(stderr, "tsolphhad\n");
         perror(fp->path);
         exit(1);
     }
