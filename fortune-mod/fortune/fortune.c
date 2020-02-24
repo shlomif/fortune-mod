@@ -1770,8 +1770,6 @@ int main(int ac, char *av[])
     if (!env_lang) env_lang=getenv("LANGUAGE");
     if (!env_lang) env_lang=getenv("LANG");
 
-    return 0;
-#else
     getargs(ac, av);
 
 #ifdef WITH_RECODE
@@ -1800,6 +1798,9 @@ int main(int ac, char *av[])
     recode_scan_request (request, crequest);
     free(crequest);
 #endif
+
+    return 0;
+#else
 
 #ifndef NO_REGEX
     if (Match)
