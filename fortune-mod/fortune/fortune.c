@@ -610,7 +610,7 @@ static int add_file(int percent, register const char *file, const char *dir,
           if (env_lang) {
             char *lang;
             char llang[512];
-            char langdir[512];
+            char langdir[1024];
             int ret=0;
             char *p;
 
@@ -819,7 +819,7 @@ static int form_file_list(register char **files, register int file_cnt)
 {
     register int i, percent;
     register char *sp;
-    char langdir[512];
+    char langdir[1024];
     char fullpathname[512],locpathname[512];
 
     if (file_cnt == 0)

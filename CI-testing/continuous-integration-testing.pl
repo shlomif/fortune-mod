@@ -84,6 +84,9 @@ if ($IS_WIN)
     ( $ENV{PKG_CONFIG_PATH} //= '' ) .=
         ";/foo/lib/pkgconfig/;/c/foo/lib/pkgconfig/";
     $ENV{RINUTILS_INCLUDE_DIR} = "C:/foo/include";
+
+    # For warnings
+    $ENV{FCS_GCC} = 1;
 }
 chdir($cwd);
 $cwd->child('B')->remove_tree( { safe => 0, } );
