@@ -104,11 +104,20 @@ do_system(
                 $IS_WIN
                 ? ( $cmake_common_args
                         . " -DCMAKE_INSTALL_PREFIX=c:/foo "
-                        . " ../fortune-mod && $MAKE && $MAKE install && c:/foo/games/fortune.exe"
-                    )
+                        . " ../fortune-mod && $MAKE && $MAKE install" )
                 : ( $cmake_common_args
                         . " ../fortune-mod && $MAKE && $MAKE check" )
                 )
         ]
     }
 );
+if ($IS_WIN)
+{
+    do_system(
+        {
+            cmd => [
+"$WIN32__DOUBLE_AMPERSAND__PROPER_HANDLING__NEEDED_PREFIX && c:/foo/games/fortune.exe"
+            ]
+        }
+    );
+}
