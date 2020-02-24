@@ -1782,11 +1782,13 @@ int main(int ac, char *av[])
 
     printf("%s\n", "before getargs");
     fflush(stdout);
-#else
+#ifndef DONT_CALL_GETARGS
     getargs(ac, av);
     printf("%s\n", "after getargs");
     fflush(stdout);
+#endif
     return 0;
+#else
 
 #ifdef WITH_RECODE
     outer = recode_new_outer(true);
