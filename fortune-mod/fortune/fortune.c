@@ -1031,6 +1031,8 @@ static int form_file_list(register char **files, register int file_cnt)
  */
 static void getargs(int argc, char **argv)
 {
+    printf("%s\n", "start getargs");
+    fflush(stdout);
     register int ignore_case;
 
 #ifndef NO_REGEX
@@ -1053,6 +1055,8 @@ static void getargs(int argc, char **argv)
 #define OFFENSIVE_GETOPT "o"
 #endif
 
+    printf("%s\n", "in2 getargs");
+    fflush(stdout);
     while ((ch = getopt(argc, argv, "ac" DEBUG_GETOPT "efilm:n:" OFFENSIVE_GETOPT "svw")) != EOF)
         switch (ch)
           {
@@ -1116,6 +1120,8 @@ static void getargs(int argc, char **argv)
           }
     argc -= optind;
     argv += optind;
+    printf("%s\n", "in3 getargs");
+    fflush(stdout);
 
     if (!form_file_list(argv, argc))
     {
@@ -1128,6 +1134,8 @@ static void getargs(int argc, char **argv)
 #endif /* DEBUG */
 /* If (Find_files) print_list() moved to main */
 #ifndef NO_REGEX
+    printf("%s\n", "in4 getargs");
+    fflush(stdout);
     if (pat != NULL)
     {
         if (ignore_case)
@@ -1137,6 +1145,8 @@ static void getargs(int argc, char **argv)
             fprintf(stderr, "bad pattern: %s\n", pat);
             exit (1);
         }
+        printf("%s\n", "in5pat getargs");
+        fflush(stdout);
         if (ignore_case)
         {
             free(pat);
@@ -1770,7 +1780,12 @@ int main(int ac, char *av[])
     if (!env_lang) env_lang=getenv("LANGUAGE");
     if (!env_lang) env_lang=getenv("LANG");
 
+    printf("%s\n", "before getargs");
+    fflush(stdout);
     getargs(ac, av);
+    printf("%s\n", "after getargs");
+    fflush(stdout);
+    return 0;
 
 #ifdef WITH_RECODE
     outer = recode_new_outer(true);
