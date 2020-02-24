@@ -141,11 +141,6 @@ static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
 #define DPRINTF(l,x)
 #endif
 
-#ifdef REMOVE_CODE
-
-#include <stdio.h>
-
-#else
 typedef struct fd
 {
     int percent;
@@ -1754,6 +1749,11 @@ static void free_desc(FILEDESC *ptr)
     }
 }
 
+#ifdef REMOVE_CODE
+
+#include <stdio.h>
+
+#else
 #endif // REMOVE_CODE
 
 int main(int ac, char *av[])
