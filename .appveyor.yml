@@ -32,10 +32,10 @@ test_script:
     - SET PATH=%PATH%;C:\Python35-x64
     - SET FORTUNE_TEST_DEBUG=1
     - perl -E "system(qq#perl CI-testing/continuous-integration-testing.pl --gen=@{[chr(34)]}MSYS Makefiles@{[chr(34)]}#); exit(0)"
-    - wget -c "https://github.com/lucasg/Dependencies/releases/download/v1.10/Dependencies_x64_Release.zip"
+    - curl -fsS -o Dependencies_x64_Release.zip "https://github.com/lucasg/Dependencies/releases/download/v1.10/Dependencies_x64_Release.zip"
     - mkdir de4
     - cd de4
-    - unzip ..\Dependencies_x64_Release.zip
+    - 7z e ..\Dependencies_x64_Release.zip
     - .\Dependencies -modules c:\foo\games\fortune
     - c:\foo\games\fortune
 cache:
