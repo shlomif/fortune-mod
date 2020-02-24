@@ -96,9 +96,16 @@ static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
 #endif /* not lint */
 #endif /* killing warnings */
 
+#define REMOVE_CODE
 #define         PROGRAM_NAME            "fortune-mod"
 
 #include "fortune-mod-common.h"
+#ifdef REMOVE_CODE
+
+#include <stdio.h>
+
+#else
+
 #include        <dirent.h>
 #include        <fcntl.h>
 #include        <assert.h>
@@ -1747,11 +1754,18 @@ static void free_desc(FILEDESC *ptr)
     }
 }
 
+#endif // REMOVE_CODE
+
 int main(int ac, char *av[])
 {
     const char *ctype;
     char *crequest;
     int exit_code = 0;
+#ifdef REMOVE_CODE
+    printf("%s\n", "hello - ioplol success");
+    return 0;
+#else
+
 
     env_lang=getenv("LC_ALL");
     if (!env_lang) env_lang=getenv("LC_MESSAGES");
@@ -1832,4 +1846,5 @@ cleanup:
     free(Fortbuf);
     exit(exit_code);
     /* NOTREACHED */
+#endif // REMOVE_CODE
 }
