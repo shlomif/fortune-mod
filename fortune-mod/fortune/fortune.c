@@ -1782,6 +1782,7 @@ int main(int ac, char *av[])
 
     printf("%s\n", "before getargs");
     fflush(stdout);
+#else
     getargs(ac, av);
     printf("%s\n", "after getargs");
     fflush(stdout);
@@ -1817,7 +1818,6 @@ int main(int ac, char *av[])
 #endif
 
     return 0;
-#else
 
 #ifndef NO_REGEX
     if (Match)
