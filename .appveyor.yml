@@ -31,7 +31,7 @@ test_script:
     # Python3 confuses the recode build so only add it here.
     - SET PATH=%PATH%;C:\Python35-x64
     - SET FORTUNE_TEST_DEBUG=1
-    - perl CI-testing/continuous-integration-testing.pl --gen="MSYS Makefiles" || echo "fail"
+    - perl -E "system(qq#perl CI-testing/continuous-integration-testing.pl --gen=@{[chr(34)]}MSYS Makefiles@{[chr(34)]}#); exit(0)"
     - c:\foo\games\fortune
 cache:
    - C:\msys64\mingw64
