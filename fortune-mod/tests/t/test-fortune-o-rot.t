@@ -12,7 +12,14 @@ use Path::Tiny qw/ path tempdir tempfile cwd /;
 use FindBin;
 use lib "$FindBin::Bin/lib";
 use FortTestInst ();
-use Test::More tests => 1;
+use Test::More;
+
+if ( $^O eq "MSWin32" )
+{
+    plan skip_all => 'srandom() is different on MS Windows';
+}
+
+plan tests => 1;
 
 {
     my $inst_dir = FortTestInst::install("fortune-o-rot");
