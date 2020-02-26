@@ -96,7 +96,6 @@ static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
 #endif /* not lint */
 #endif /* killing warnings */
 
-#define REMOVE_CODE
 #define         PROGRAM_NAME            "fortune-mod"
 
 #include "fortune-mod-common.h"
@@ -109,6 +108,7 @@ static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
 #ifndef _WIN32
 #include        <langinfo.h>
 #define O_BINARY 0
+#define WITH_RECODE
 #endif
 #ifdef WITH_RECODE
 #include        <recode.h>
@@ -453,6 +453,19 @@ static FILEDESC *new_fp(void)
     return fp;
 }
 
+#ifdef MYDEBUG
+static inline void debugprint(const char *msg, ...)
+{
+    va_list ap;
+
+    va_start(ap, msg);
+    vfprintf(stderr, msg, ap);
+    fflush(stderr);
+    va_end(ap);
+}
+#else
+#define debugprint(format, ...) {}
+#endif
 /*
  * is_dir:
  *      Return TRUE if the file is a directory, FALSE otherwise.
@@ -462,13 +475,11 @@ static int is_dir(const char *const file)
     auto struct stat sbuf;
 
     if (stat(file, &sbuf) < 0) {
-        fprintf(stderr, "is_dir failed for file=<%s>\n", file);
-        fflush(stderr);
+        debugprint( "is_dir failed for file=<%s>\n", file);
         return -1;
     }
     const bool ret = ( (sbuf.st_mode & S_IFDIR) ? true : false);
-    fprintf(stderr, "is_dir for file=<%s> gave ret=<%d>\n", file, ret);
-    fflush(stderr);
+    debugprint( "is_dir for file=<%s> gave ret=<%d>\n", file, ret);
     return ret;
 }
 
@@ -615,8 +626,7 @@ static int add_file(int percent, register const char *file, const char *dir,
     )
         || !path_is_absolute(path))
     {
-        fprintf(stderr, "sarahhhhh fd=%d path=<%s> dir=<%s> file=<%s> percent=%d\n", fd, path, dir, file, percent);
-        fflush(stderr);
+        debugprint("sarahhhhh fd=%d path=<%s> dir=<%s> file=<%s> percent=%d\n", fd, path, dir, file, percent);
       found = FALSE;
         if (dir == NULL && (strchr(file,'/') == NULL))
         {
@@ -668,11 +678,11 @@ static int add_file(int percent, register const char *file, const char *dir,
               lang=p;
             }
             if (!ret) {
-              fprintf(stderr, "moshe\n");
+              debugprint("moshe\n");
               perror(path);
             }
           } else {
-              fprintf(stderr, "abe\n");
+              debugprint( "abe\n");
             perror(path);
           }
         }
@@ -788,7 +798,7 @@ int add_dir(register FILEDESC * fp)
     fp->fd = -1;
     if ((dir = opendir(fp->path)) == NULL)
     {
-        fprintf(stderr, "yonah\n");
+        debugprint("yonah\n");
         perror(fp->path);
         return FALSE;
     }
@@ -800,7 +810,7 @@ int add_dir(register FILEDESC * fp)
     names = malloc(sizeof(names[0])*max_count_names);
     if (! names)
     {
-        fprintf(stderr, "zach\n");
+        debugprint( "zach\n");
         perror("Out of RAM!");
         exit(-1);
     }
@@ -815,7 +825,7 @@ int add_dir(register FILEDESC * fp)
             names = realloc(names, sizeof(names[0])*max_count_names);
             if (! names)
             {
-                fprintf(stderr, "reb\n");
+                debugprint("rebecca\n");
                 perror("Out of RAM!");
                 exit(-1);
             }
@@ -827,30 +837,30 @@ int add_dir(register FILEDESC * fp)
 
     for (i=0; i < count_names; ++i)
     {
-    if (add_file(NO_PROB, names[i], fp->path, &fp->child, &tailp, fp))
-    {
-        fp->num_children++;
+        if (add_file(NO_PROB, names[i], fp->path, &fp->child, &tailp, fp))
+        {
+            fp->num_children++;
+        }
+        free(names[i]);
     }
-    free(names[i]);
-}
-free(names);
-dir = NULL;
-if (fp->num_children == 0)
-{
-    /*
-     * Only the local fortune dir and the local offensive dir are
-     * allowed to be empty.
-     *  - Brian Bassett (brianb@debian.org) 1999/07/31
-     */
-    if (strcmp(LOCFORTDIR, fp->path) == 0 || strcmp(LOCOFFDIR, fp->path) == 0)
+    free(names);
+    dir = NULL;
+    if (fp->num_children == 0)
     {
-        return TRUE;
-    }
-    fprintf(stderr,
+        /*
+         * Only the local fortune dir and the local offensive dir are
+         * allowed to be empty.
+         *  - Brian Bassett (brianb@debian.org) 1999/07/31
+         */
+        if (strcmp(LOCFORTDIR, fp->path) == 0 || strcmp(LOCOFFDIR, fp->path) == 0)
+        {
+            return TRUE;
+        }
+        fprintf(stderr,
             "fortune: %s: No fortune files in directory.\n", fp->path);
-    return FALSE;
-}
-return TRUE;
+        return FALSE;
+    }
+    return TRUE;
 }
 
 /*
@@ -864,70 +874,70 @@ static int form_file_list(register char **files, register int file_cnt)
     char langdir[1024];
     char fullpathname[512],locpathname[512];
 
-if (file_cnt == 0)
-{
-    if (All_forts)
-        return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
-                         &File_tail, NULL)
+    if (file_cnt == 0)
+    {
+        if (All_forts)
+            return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
+                    &File_tail, NULL)
                 | add_file(NO_PROB, LOCOFFDIR, NULL, &File_list,
-                           &File_tail, NULL)
+                    &File_tail, NULL)
                 | add_file(NO_PROB, FORTDIR, NULL, &File_list,
-                           &File_tail, NULL)
+                    &File_tail, NULL)
                 | add_file(NO_PROB, OFFDIR, NULL, &File_list,
-                           &File_tail, NULL));
-    else if (Offend)
-        return (add_file(NO_PROB, LOCOFFDIR, NULL, &File_list,
-                         &File_tail, NULL)
+                    &File_tail, NULL));
+        else if (Offend)
+            return (add_file(NO_PROB, LOCOFFDIR, NULL, &File_list,
+                    &File_tail, NULL)
                 | add_file(NO_PROB, OFFDIR, NULL, &File_list,
-                           &File_tail, NULL));
-    else {
-        if (env_lang) {
-            char *lang;
-            char llang[512];
-            int ret=0;
-            char *p;
+                    &File_tail, NULL));
+        else {
+            if (env_lang) {
+                char *lang;
+                char llang[512];
+                int ret=0;
+                char *p;
 
-            strncpy(llang,env_lang,sizeof(llang));
-            llang[sizeof(llang)-1] = '\0';
-            lang=llang;
+                strncpy(llang,env_lang,sizeof(llang));
+                llang[sizeof(llang)-1] = '\0';
+                lang=llang;
 
-            /* the language string can be like "es:fr_BE:ga" */
-            while ( lang && (*lang)) {
+                /* the language string can be like "es:fr_BE:ga" */
+                while ( lang && (*lang)) {
                     p=strchr(lang,':');
                     if (p) *p++='\0';
 
                     /* first try full locale */
                     ret=add_file(NO_PROB, lang, NULL, &File_list,
-                            &File_tail, NULL);
+                        &File_tail, NULL);
 
                     /* if not try language name only (two first chars) */
                     if (!ret) {
-                      char ll[3];
+                        char ll[3];
 
-                      strncpy(ll,lang,2);
-                      ll[2]='\0';
-                      ret=add_file(NO_PROB, ll, NULL,
-                                   &File_list, &File_tail, NULL);
+                        strncpy(ll,lang,2);
+                        ll[2]='\0';
+                        ret=add_file(NO_PROB, ll, NULL,
+                            &File_list, &File_tail, NULL);
                     }
 
                     /* if we have found one we have finished */
                     if (ret)
-                      return ret;
+                        return ret;
                     lang=p;
-            }
-            /* default */
-            return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
-                             &File_tail, NULL)
+                }
+                /* default */
+                return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
+                        &File_tail, NULL)
                     | add_file(NO_PROB, FORTDIR, NULL, &File_list,
-                               &File_tail, NULL));
+                        &File_tail, NULL));
 
-        }
-        else
-          /* no locales available, use default */
-          return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
-                               &File_tail, NULL)
-                      | add_file(NO_PROB, FORTDIR, NULL, &File_list,
-                                 &File_tail, NULL));
+            }
+            else
+                /* no locales available, use default */
+                return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
+                        &File_tail, NULL)
+                    | add_file(NO_PROB, FORTDIR, NULL, &File_list,
+                        &File_tail, NULL));
 
         }
     }
@@ -977,20 +987,20 @@ if (file_cnt == 0)
         }
         if (strcmp(sp, "all") == 0)
         {
-          snprintf(fullpathname,sizeof(fullpathname),"%s",FORTDIR);
-          snprintf(locpathname,sizeof(locpathname),"%s",LOCFORTDIR);
+            snprintf(fullpathname,sizeof(fullpathname),"%s",FORTDIR);
+            snprintf(locpathname,sizeof(locpathname),"%s",LOCFORTDIR);
         }
         /* if it isn't an absolute path or relative to . or ..
            make it an absolute path relative to FORTDIR */
         else
         {
             if (strncmp(sp,"/",1)!=0 && strncmp(sp,"./",2)!=0 &&
-                    strncmp(sp,"../",3)!=0)
+                strncmp(sp,"../",3)!=0)
             {
                 snprintf(fullpathname,sizeof(fullpathname),
-                        "%s/%s",FORTDIR,sp);
+                    "%s/%s",FORTDIR,sp);
                 snprintf(locpathname,sizeof(locpathname),
-                        "%s/%s",LOCFORTDIR,sp);
+                    "%s/%s",LOCFORTDIR,sp);
             }
             else
             {
@@ -1000,64 +1010,64 @@ if (file_cnt == 0)
         }
 
         if (env_lang) {
-          char *lang;
-          char llang[512];
-          int ret=0;
-          char *p;
+            char *lang;
+            char llang[512];
+            int ret=0;
+            char *p;
 
-          strncpy(llang,env_lang,sizeof(llang));
-          llang[sizeof(llang)-1] = '\0';
-          lang=llang;
+            strncpy(llang,env_lang,sizeof(llang));
+            llang[sizeof(llang)-1] = '\0';
+            lang=llang;
 
-          /* the language string can be like "es:fr_BE:ga" */
-          while (!ret && lang && (*lang)) {
-            p=strchr(lang,':');
-            if (p) *p++='\0';
+            /* the language string can be like "es:fr_BE:ga" */
+            while (!ret && lang && (*lang)) {
+                p=strchr(lang,':');
+                if (p) *p++='\0';
 
-            /* first try full locale */
-            snprintf(langdir,sizeof(langdir),"%s/%s/%s",
-                     FORTDIR, lang, sp);
-            ret=add_file(percent, langdir, NULL, &File_list,
-                         &File_tail, NULL);
+                /* first try full locale */
+                snprintf(langdir,sizeof(langdir),"%s/%s/%s",
+                    FORTDIR, lang, sp);
+                ret=add_file(percent, langdir, NULL, &File_list,
+                    &File_tail, NULL);
 
-            /* if not try language name only (two first chars) */
-            if (!ret) {
-              char ll[3];
+                /* if not try language name only (two first chars) */
+                if (!ret) {
+                    char ll[3];
 
-              strncpy(ll,lang,2);
-              ll[2]='\0';
-              snprintf(langdir,sizeof(langdir),
-                       "%s/%s/%s", FORTDIR, ll, sp);
-              ret=add_file(percent, langdir, NULL,
-                           &File_list, &File_tail, NULL);
+                    strncpy(ll,lang,2);
+                    ll[2]='\0';
+                    snprintf(langdir,sizeof(langdir),
+                        "%s/%s/%s", FORTDIR, ll, sp);
+                    ret=add_file(percent, langdir, NULL,
+                        &File_list, &File_tail, NULL);
+                }
+
+                lang=p;
             }
+            /* default */
+            if (!ret)
+                ret=add_file(percent, fullpathname, NULL, &File_list,
+                    &File_tail, NULL);
+            if ( !ret && strncmp(fullpathname, locpathname, sizeof(fullpathname)))
+                ret=add_file(percent, locpathname, NULL, &File_list,
+                    &File_tail, NULL);
 
-            lang=p;
-          }
-          /* default */
-          if (!ret)
-            ret=add_file(percent, fullpathname, NULL, &File_list,
-                         &File_tail, NULL);
-          if ( !ret && strncmp(fullpathname, locpathname, sizeof(fullpathname)))
-            ret=add_file(percent, locpathname, NULL, &File_list,
-                         &File_tail, NULL);
+            if (!ret) {
+                snprintf (locpathname, sizeof (locpathname), "%s/%s", getenv ("PWD"), sp);
 
-          if (!ret) {
-                  snprintf (locpathname, sizeof (locpathname), "%s/%s", getenv ("PWD"), sp);
-
-                  ret = add_file (percent, locpathname, NULL, &File_list, &File_tail, NULL);
-          }
-          if (!ret) {
+                ret = add_file (percent, locpathname, NULL, &File_list, &File_tail, NULL);
+            }
+            if (!ret) {
                 return FALSE;
-          }
-          if (strncmp(fullpathname, locpathname, sizeof(fullpathname)) && strcmp(sp, "all") == 0) {
-              add_file(percent, locpathname, NULL, &File_list, &File_tail, NULL);
-          }
+            }
+            if (strncmp(fullpathname, locpathname, sizeof(fullpathname)) && strcmp(sp, "all") == 0) {
+                add_file(percent, locpathname, NULL, &File_list, &File_tail, NULL);
+            }
         }
         else
-          if (!add_file(percent, fullpathname, NULL, &File_list,
-                        &File_tail, NULL))
-            return FALSE;
+            if (!add_file(percent, fullpathname, NULL, &File_list,
+                    &File_tail, NULL))
+                return FALSE;
     }
     return TRUE;
 }
@@ -1067,8 +1077,6 @@ if (file_cnt == 0)
  */
 static void getargs(int argc, char **argv)
 {
-    printf("%s\n", "start getargs");
-    fflush(stdout);
     register int ignore_case;
 
 #ifndef NO_REGEX
@@ -1091,8 +1099,6 @@ static void getargs(int argc, char **argv)
 #define OFFENSIVE_GETOPT "o"
 #endif
 
-    printf("%s\n", "in2 getargs");
-    fflush(stdout);
     while ((ch = getopt(argc, argv, "ac" DEBUG_GETOPT "efilm:n:" OFFENSIVE_GETOPT "svw")) != EOF)
         switch (ch)
           {
@@ -1156,8 +1162,6 @@ static void getargs(int argc, char **argv)
           }
     argc -= optind;
     argv += optind;
-    printf("%s\n", "in3 getargs");
-    fflush(stdout);
 
     if (!form_file_list(argv, argc))
     {
@@ -1170,8 +1174,6 @@ static void getargs(int argc, char **argv)
 #endif /* DEBUG */
 /* If (Find_files) print_list() moved to main */
 #ifndef NO_REGEX
-    printf("%s\n", "in4 getargs");
-    fflush(stdout);
     if (pat != NULL)
     {
         if (ignore_case)
@@ -1181,8 +1183,6 @@ static void getargs(int argc, char **argv)
             fprintf(stderr, "bad pattern: %s\n", pat);
             exit (1);
         }
-        printf("%s\n", "in5pat getargs");
-        fflush(stdout);
         if (ignore_case)
         {
             free(pat);
@@ -1331,7 +1331,6 @@ static void get_tbl(FILEDESC * fp)
 #endif
         if ((fd = open(fp->datfile, O_RDONLY|O_BINARY)) < 0)
         {
-                fprintf(stderr, "mir\n");
             perror(fp->datfile);
             exit(1);
         }
@@ -1465,8 +1464,6 @@ static void open_dat(FILEDESC * fp)
 {
     if (fp->datfd < 0 && (fp->datfd = open(fp->datfile, O_RDONLY|O_BINARY)) < 0)
     {
-                fprintf(stderr, "goaliiii\n");
-        perror(fp->datfile);
         exit(1);
     }
 }
@@ -1573,7 +1570,6 @@ static void open_fp(FILEDESC * fp)
 {
     if (fp->inf == NULL && (fp->inf = fdopen(fp->fd, "r")) == NULL)
     {
-        fprintf(stderr, "tsolphhad\n");
         perror(fp->path);
         exit(1);
     }
@@ -1803,7 +1799,6 @@ int main(int ac, char *av[])
     const char *ctype;
     char *crequest;
     int exit_code = 0;
-#ifdef REMOVE_CODE
     env_lang=getenv("LC_ALL");
     if (!env_lang) env_lang=getenv("LC_MESSAGES");
     if (!env_lang) env_lang=getenv("LANGUAGE");
@@ -1815,15 +1810,8 @@ int main(int ac, char *av[])
 #endif
 
 
-    printf("%s\n", "before getargs");
-    fflush(stdout);
 #ifndef DONT_CALL_GETARGS
     getargs(ac, av);
-    printf("%s\n", "after getargs");
-    fflush(stdout);
-#endif
-#if 0
-    return 0;
 #endif
 
 #ifdef WITH_RECODE
@@ -1831,7 +1819,6 @@ int main(int ac, char *av[])
     request = recode_new_request (outer);
 #endif
 
-#ifndef REMOVE_CODE
     setlocale(LC_ALL,"");
 #ifdef _WIN32
     ctype = "C";
@@ -1846,17 +1833,12 @@ int main(int ac, char *av[])
         ctype="ISO-8859-1";
     }
 #endif
-#endif
 
 #ifdef WITH_RECODE
     crequest = malloc(strlen(ctype) + 7 + 1);
     sprintf(crequest, "UTF-8..%s", ctype);
     recode_scan_request (request, crequest);
     free(crequest);
-#endif
-
-#if 0
-    return 0;
 #endif
 
 #ifndef NO_REGEX
@@ -1904,6 +1886,4 @@ cleanup:
     free(Fortbuf);
     exit(exit_code);
     /* NOTREACHED */
-#else
-#endif // REMOVE_CODE
 }
