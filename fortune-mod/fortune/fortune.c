@@ -457,14 +457,14 @@ static FILEDESC *new_fp(void)
  * is_dir:
  *      Return TRUE if the file is a directory, FALSE otherwise.
  */
-static bool is_dir(const char *const file)
+static int is_dir(const char *const file)
 {
     auto struct stat sbuf;
 
     if (stat(file, &sbuf) < 0) {
         fprintf(stderr, "is_dir failed for file=<%s>\n", file);
         fflush(stderr);
-        return FALSE;
+        return -1;
     }
     const bool ret = ( (sbuf.st_mode & S_IFDIR) ? true : false);
     fprintf(stderr, "is_dir for file=<%s> gave ret=<%d>\n", file, ret);
@@ -576,7 +576,6 @@ static int add_file(int percent, register const char *file, const char *dir,
     register int fd = -1;
     register char *path, *testpath;
     register bool was_malloc;
-    register bool isdir;
     auto char *sp;
     auto bool found;
     struct stat statbuf;
@@ -598,7 +597,8 @@ static int add_file(int percent, register const char *file, const char *dir,
             free(path);
         return FALSE;
     }
-    if ((isdir = is_dir(path)) && parent != NULL)
+    const int isdir = is_dir(path);
+    if ((isdir > 0 && parent != NULL) || (isdir < 0))
     {
         if (was_malloc)
             free(path);
