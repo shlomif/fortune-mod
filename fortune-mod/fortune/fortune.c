@@ -108,6 +108,7 @@ static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
 #include        <locale.h>
 #ifndef _WIN32
 #include        <langinfo.h>
+#define O_BINARY 0
 #endif
 #ifdef WITH_RECODE
 #include        <recode.h>
@@ -610,7 +611,7 @@ static int add_file(int percent, register const char *file, const char *dir,
 #ifdef _WIN32
         (!isdir) &&
 #endif
-       ( (fd = open(path, O_RDONLY)) < 0)
+       ( (fd = open(path, O_RDONLY|O_BINARY)) < 0)
     )
         || !path_is_absolute(path))
     {
@@ -1328,7 +1329,7 @@ static void get_tbl(FILEDESC * fp)
         }
         /* End */
 #endif
-        if ((fd = open(fp->datfile, O_RDONLY)) < 0)
+        if ((fd = open(fp->datfile, O_RDONLY|O_BINARY)) < 0)
         {
                 fprintf(stderr, "mir\n");
             perror(fp->datfile);
@@ -1462,7 +1463,7 @@ static FILEDESC *pick_child(FILEDESC * parent)
  */
 static void open_dat(FILEDESC * fp)
 {
-    if (fp->datfd < 0 && (fp->datfd = open(fp->datfile, O_RDONLY)) < 0)
+    if (fp->datfd < 0 && (fp->datfd = open(fp->datfile, O_RDONLY|O_BINARY)) < 0)
     {
                 fprintf(stderr, "goaliiii\n");
         perror(fp->datfile);
