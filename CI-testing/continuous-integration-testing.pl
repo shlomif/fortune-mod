@@ -107,7 +107,8 @@ do_system(
                 $IS_WIN
                 ? ( $cmake_common_args
                         . " -DCMAKE_INSTALL_PREFIX=c:/foo "
-                        . " ../fortune-mod && $MAKE && $MAKE install" )
+                        . " ../fortune-mod && $MAKE && $MAKE install && $MAKE check"
+                    )
                 : ( $cmake_common_args
                         . " ../fortune-mod && $MAKE && $MAKE check" )
                 )
