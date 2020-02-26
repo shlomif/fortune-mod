@@ -456,13 +456,19 @@ static FILEDESC *new_fp(void)
  * is_dir:
  *      Return TRUE if the file is a directory, FALSE otherwise.
  */
-static int is_dir(char *file)
+static bool is_dir(const char *const file)
 {
     auto struct stat sbuf;
 
-    if (stat(file, &sbuf) < 0)
+    if (stat(file, &sbuf) < 0) {
+        fprintf(stderr, "is_dir failed for file=<%s>\n", file);
+        fflush(stderr);
         return FALSE;
-    return (sbuf.st_mode & S_IFDIR);
+    }
+    const bool ret = ( (sbuf.st_mode & S_IFDIR) ? true : false);
+    fprintf(stderr, "is_dir for file=<%s> gave ret=<%d>\n", file, ret);
+    fflush(stderr);
+    return ret;
 }
 
 /*
