@@ -601,6 +601,8 @@ static int add_file(int percent, register const char *file, const char *dir,
     DPRINTF(1, (stderr, "trying to add file \"%s\"\n", path));
     if ((fd = open(path, O_RDONLY)) < 0 || !path_is_absolute(path))
     {
+        fprintf(stderr, "sarahhhhh fd=%d path=<%s> dir=<%s> file=<%s> percent=%d\n", fd, path, dir, file, percent);
+        fflush(stderr);
       found = FALSE;
         if (dir == NULL && (strchr(file,'/') == NULL))
         {
