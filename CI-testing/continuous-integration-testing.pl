@@ -85,7 +85,7 @@ if ($IS_WIN)
         ";/foo/lib/pkgconfig/;/c/foo/lib/pkgconfig/";
     $ENV{RINUTILS_INCLUDE_DIR} = "C:/foo/include";
 
-    # For warnings
+    # for warning flags.
     $ENV{FCS_GCC} = 1;
 }
 chdir($cwd);
@@ -107,7 +107,8 @@ do_system(
                 $IS_WIN
                 ? ( $cmake_common_args
                         . " -DCMAKE_INSTALL_PREFIX=c:/foo "
-                        . " ../fortune-mod && $MAKE && $MAKE install" )
+                        . " ../fortune-mod && $MAKE && $MAKE install && $MAKE check"
+                    )
                 : ( $cmake_common_args
                         . " ../fortune-mod && $MAKE && $MAKE check" )
                 )
@@ -116,10 +117,14 @@ do_system(
 );
 if ($IS_WIN)
 {
+    my $gdb_cmds_fn = "cmds.gdb";
+    path($gdb_cmds_fn)->spew_utf8("r\nbt\nq\n");
+    my $gdb_prefix = "gdb --command=$gdb_cmds_fn";
+    $gdb_prefix = '';
     do_system(
         {
             cmd => [
-"$WIN32__DOUBLE_AMPERSAND__PROPER_HANDLING__NEEDED_PREFIX c:/foo/games/fortune.exe"
+"$WIN32__DOUBLE_AMPERSAND__PROPER_HANDLING__NEEDED_PREFIX $gdb_prefix c:/foo/games/fortune.exe"
             ]
         }
     );
