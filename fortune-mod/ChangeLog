@@ -1,6 +1,21 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+February 26, 2020 (fortune-mod 2.16.0)
+
+	Better portability to Microsoft Windows and other OSes
+	Thanks to AppVeyor (done by Shlomi Fish).
+
+	Add the -u flag [from debian]
+
+	Add fortune.desktop [from debian]
+
+	Remove backspaces in a cookie [from debian]
+
+	Complete the lyrics of a Leonard Cohen song [from debian]
+
+	Correct a misattribution.
+
 February 23, 2020 (fortune-mod 2.14.0)
 
 	Correct some typos and add some new cookies.
