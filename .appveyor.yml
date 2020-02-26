@@ -31,6 +31,7 @@ test_script:
     # Python3 confuses the recode build so only add it here.
     - SET PATH=%PATH%;C:\Python35-x64
     - SET FORTUNE_TEST_DEBUG=1
+    - perl CI-testing/continuous-integration-testing.pl --gen="MSYS Makefiles"
     - perl -E "exit(system(qq#perl CI-testing/continuous-integration-testing.pl --gen=@{[chr(34)]}MSYS Makefiles@{[chr(34)]}#) ? -1 : 0)"
     # - curl -fsS -o Dependencies_x64_Release.zip "https://github.com/lucasg/Dependencies/releases/download/v1.10/Dependencies_x64_Release.zip"
     # - c:\foo\games\fortune
