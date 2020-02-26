@@ -172,6 +172,7 @@ static bool Offend = FALSE;            /* offensive fortunes only */
 static bool All_forts = FALSE;         /* any fortune allowed */
 static bool Equal_probs = FALSE;       /* scatter un-allocated prob equally */
 static bool Show_filename = FALSE;
+static bool No_recode = FALSE; /* Do we want to stop recoding from occuring */
 
 static bool ErrorMessage = FALSE;      /* Set to true if an error message has been displayed */
 
@@ -1099,7 +1100,7 @@ static void getargs(int argc, char **argv)
 #define OFFENSIVE_GETOPT "o"
 #endif
 
-    while ((ch = getopt(argc, argv, "ac" DEBUG_GETOPT "efilm:n:" OFFENSIVE_GETOPT "svw")) != EOF)
+    while ((ch = getopt(argc, argv, "ac" DEBUG_GETOPT "efilm:n:" OFFENSIVE_GETOPT "suvw")) != EOF)
         switch (ch)
           {
           case 'a':             /* any fortune */
@@ -1150,6 +1151,9 @@ static void getargs(int argc, char **argv)
               ignore_case++;
               break;
 #endif /* NO_REGEX */
+          case 'u': /* Don't recode the fortune */
+              No_recode = TRUE;
+              break;
           case 'v':
               (void) printf("%s\n", program_version());
               exit(0);
@@ -1640,7 +1644,7 @@ static void matches_in_list(FILEDESC * list)
                 *sp = '\0';
                 nchar = (int)(sp - Fortbuf);
 
-                if (fp->utf8_charset)
+                if (fp->utf8_charset && (! No_recode))
                 {
 #ifdef WITH_RECODE
                     output = recode_string (request, (const char *)Fortbuf);
@@ -1680,7 +1684,7 @@ static void matches_in_list(FILEDESC * list)
                     printf("%c\n", fp->tbl.str_delim);
                 }
 
-                if (fp->utf8_charset)
+                if (fp->utf8_charset && (! No_recode))
                   free (output);
 
                 sp = Fortbuf;
@@ -1729,7 +1733,7 @@ static void display(FILEDESC * fp)
                     *p = 'a' + (ch - 'a' + 13) % 26;
             }
         }
-        if(fp->utf8_charset) {
+        if (fp->utf8_charset && (! No_recode)) {
             char *output;
 #ifdef WITH_RECODE
             output = recode_string (request, (const char *)line);
