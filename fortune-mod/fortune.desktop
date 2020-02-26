@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Fortune
+GenericName=Database of funny quotes
+Exec=sh -c 'fortune && echo && echo Press return to continue && read returnkey'
+Categories=Game;ConsoleOnly;Amusement;
