@@ -1794,6 +1794,12 @@ int main(int ac, char *av[])
     if (!env_lang) env_lang=getenv("LC_MESSAGES");
     if (!env_lang) env_lang=getenv("LANGUAGE");
     if (!env_lang) env_lang=getenv("LANG");
+#ifdef _WIN32
+    if (!env_lang) {
+        env_lang="en";
+    }
+#endif
+
 
     printf("%s\n", "before getargs");
     fflush(stdout);
