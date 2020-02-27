@@ -6,7 +6,10 @@ This GitHub repository maintains the sources for fortune-mod, a
 version of
 [the UNIX fortune command](https://en.wikipedia.org/wiki/Fortune_%28Unix%29).
 `fortune` is a command-line utility which displays a random quotation from a
-collection of quotes.
+collection of quotes. This collection is read from the local [file system](https://en.wikipedia.org/wiki/File_system)
+and does not require network access. A large collection of quotes is provided in
+the download and installed by default, but more quote collections can be added
+by the user.
 
 The canonical repository for the time being is:
 https://github.com/shlomif/fortune-mod . In the future, we may create a GitHub
