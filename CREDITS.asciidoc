@@ -1,0 +1,9 @@
+fortune-mod's Credits, Authors, and Contributors
+==========================================
+Shlomi Fish <shlomif@cpan.org>
+:Date: 2020-02-27
+:Revision: $Id$
+
+* irc://irc.freenode.net/#cmake[#cmake] and especially ngalditz -
+providing help diagnosing a run time failure on MS Windows and
+recommending https://github.com/lucasg/Dependencies/ .
