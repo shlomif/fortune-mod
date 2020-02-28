@@ -4,6 +4,18 @@ Shlomi Fish <shlomif@cpan.org>
 :Date: 2020-02-27
 :Revision: $Id$
 
+* https://www.shlomifish.org/[Shlomi Fish]: maintaining fortune-mod
+from version 2.0.0 onwards.
+
 * irc://irc.freenode.net/#cmake[#cmake] and especially ngalditz -
 providing help diagnosing a run time failure on MS Windows and
 recommending https://github.com/lucasg/Dependencies/ .
+
+* https://github.com/lucasg[lucasg] for writing
+https://github.com/lucasg/Dependencies/ .
+
+* https://packages.debian.org/en/sid/fortune-mod[Debian packagers]:
+providing patches and fixes.
+
+* https://src.fedoraproject.org/rpms/fortune-mod[Fedora packagers]:
+providing patches and fixes.
