@@ -93,6 +93,9 @@ by a set of patches on the Fedora package.
 17. lib-recode became maintained again at https://github.com/rrthomas/recode
 (thanks to @rrthomas ) thus preventing a switch to something else.
 
+18. Got the build and tests to pass on [AppVeyor/MS Windows](https://ci.appveyor.com/project/shlomif/fortune-mod)
+(with some appreciated help).
+
 # What remains to be done.
 
 1. See if there are any more downstream patches to apply.
@@ -101,12 +104,9 @@ by a set of patches on the Fedora package.
 
 3. Perhaps modernize the code a little.
 
-4. Get the build and tests to pass on [AppVeyor/MS Windows](https://ci.appveyor.com/project/shlomif/fortune-mod)
-(any help will be appreciated).
+4. Add more quotes / fortune cookies.
 
-5. Add more quotes / fortune cookies.
-
-6. Prepare packages for the new releases for [downstream distributions/Operating Systems](https://pkgs.org/download/fortune-mod).
+5. Prepare packages for the new releases for [downstream distributions/Operating Systems](https://pkgs.org/download/fortune-mod).
 
 # Links
 
