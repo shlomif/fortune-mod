@@ -33,8 +33,8 @@ my $CONTAINER = "fortune-mod--deb--test-build";
 do_system( { cmd => [ 'docker', 'pull', $SYS ] } );
 do_system(
     { cmd => [ 'docker', 'run', "-t", "-d", "--name", $CONTAINER, $SYS, ] } );
-my $REPO = 'fortune-mod' my $URL =
-    "https://salsa.debian.org/shlomif-guest/$REPO";
+my $REPO = 'fortune-mod';
+my $URL  = "https://salsa.debian.org/shlomif-guest/$REPO";
 if ( !-e $REPO )
 {
     do_system( { cmd => [ "git", "clone", $URL, ] } );
