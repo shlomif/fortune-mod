@@ -50,7 +50,10 @@ my $LOG_FN = "git-buildpackage-log.txt";
 # do_system( { cmd => [ 'docker', 'cp', "../scripts", "fcsfed:scripts", ] } );
 my $script = <<"EOSCRIPTTTTTTT";
 set -e -x
-sudo apt -y install build-essential cmake git-buildpackage perl
+set -o pipefail
+apt-get -y update
+apt-get -y install eatmydata sudo
+sudo eatmydata apt -y install build-essential cmake git-buildpackage perl
 cd "$REPO"
 git clean -dxf .
 gbp buildpackage 2>&1 | tee ~/"$LOG_FN"
