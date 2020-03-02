@@ -49,10 +49,11 @@ chdir $cwd;
 
 my $LOG_FN = "git-buildpackage-log.txt";
 
+my $BASH_SAFETY = "set -e -x ; set -o pipefail ; ";
+
 # do_system( { cmd => [ 'docker', 'cp', "../scripts", "fcsfed:scripts", ] } );
 my $script = <<"EOSCRIPTTTTTTT";
-set -e -x
-set -o pipefail
+$BASH_SAFETY
 apt-get -y update
 apt-get -y install eatmydata sudo
 sudo eatmydata apt -y install build-essential cmake git-buildpackage perl
@@ -70,13 +71,14 @@ do_system(
     {
         cmd => [
             'docker', 'exec', $CONTAINER, 'bash', '-c',
-            "set -e -x; chown -R $USER:$USER $HOMEDIR",
+            "$BASH_SAFETY chown -R $USER:$USER $HOMEDIR",
         ]
     }
 );
 
 $script = <<"EOSCRIPTTTTTTT";
-cd "$REPO"
+$BASH_SAFETY
+cd "$HOMEDIR/$REPO"
 git clean -dxf .
 gbp buildpackage 2>&1 | tee ~/"$LOG_FN"
 EOSCRIPTTTTTTT
