@@ -30,11 +30,14 @@ my @deps;    #= map { /^BuildRequires:\s*(\S+)/ ? ("'$1'") : () }
 # path("freecell-solver.spec.in")->lines_utf8;
 my $SYS       = "debian:sid";
 my $CONTAINER = "fortune-mod--deb--test-build";
+my $USER      = "mygbp";
+my $HOMEDIR   = "/home/$USER";
 do_system( { cmd => [ 'docker', 'pull', $SYS ] } );
 do_system(
     { cmd => [ 'docker', 'run', "-t", "-d", "--name", $CONTAINER, $SYS, ] } );
 my $REPO = 'fortune-mod';
 my $URL  = "https://salsa.debian.org/shlomif-guest/$REPO";
+
 if ( !-e $REPO )
 {
     do_system( { cmd => [ "git", "clone", $URL, ] } );
@@ -43,7 +46,6 @@ my $cwd = cwd;
 chdir "./$REPO";
 do_system( { cmd => [ "git", "pull", "--ff-only", ] } );
 chdir $cwd;
-do_system( { cmd => [ 'docker', 'cp', "./$REPO", "$CONTAINER:$REPO", ] } );
 
 my $LOG_FN = "git-buildpackage-log.txt";
 
@@ -54,14 +56,41 @@ set -o pipefail
 apt-get -y update
 apt-get -y install eatmydata sudo
 sudo eatmydata apt -y install build-essential cmake git-buildpackage perl
+sudo adduser --disabled-password --gecos '' "$USER"
+sudo usermod -a -G sudo "$USER"
+echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+EOSCRIPTTTTTTT
+
+do_system(
+    { cmd => [ 'docker', 'exec', $CONTAINER, 'bash', '-c', $script, ] } );
+
+do_system(
+    { cmd => [ 'docker', 'cp', "./$REPO", "$CONTAINER:$HOMEDIR/$REPO", ] } );
+do_system(
+    {
+        cmd => [
+            'docker', 'exec', $CONTAINER, 'bash', '-c',
+            "set -e -x; chown -R $USER:$USER $HOMEDIR",
+        ]
+    }
+);
+
+$script = <<"EOSCRIPTTTTTTT";
 cd "$REPO"
 git clean -dxf .
 gbp buildpackage 2>&1 | tee ~/"$LOG_FN"
 EOSCRIPTTTTTTT
 
 do_system(
-    { cmd => [ 'docker', 'exec', $CONTAINER, 'bash', '-c', $script, ] } );
-do_system( { cmd => [ 'docker', 'cp', "$CONTAINER:$LOG_FN", $LOG_FN, ] } );
+    {
+        cmd => [
+            'docker',   'exec', '--user', $USER,
+            $CONTAINER, 'bash', '-c',     $script,
+        ]
+    }
+);
+do_system(
+    { cmd => [ 'docker', 'cp', "$CONTAINER:$HOMEDIR/$LOG_FN", $LOG_FN, ] } );
 
 do_system( { cmd => [ 'docker', 'stop', $CONTAINER, ] } );
 do_system( { cmd => [ 'docker', 'rm',   $CONTAINER, ] } );
