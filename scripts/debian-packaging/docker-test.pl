@@ -25,6 +25,32 @@ sub do_system
     }
 }
 
+my @DOCKER_CMD = ('docker');
+
+{
+    my $fh = path("/etc/fedora-release");
+
+    if ( -e $fh )
+    {
+        if ( my ($fedora_ver) =
+            $fh->slurp_utf8() =~ /^Fedora release ([0-9]+)/ )
+        {
+            if ( $fedora_ver >= 31 )
+            {
+                @DOCKER_CMD = ('podman');
+            }
+        }
+    }
+}
+
+sub _do_docker
+{
+    my ($args) = @_;
+
+    my $cmd = $args->{cmd};
+    return do_system( { cmd => [ @DOCKER_CMD, @$cmd, ], } );
+}
+
 my @deps;    #= map { /^BuildRequires:\s*(\S+)/ ? ("'$1'") : () }
 
 # path("freecell-solver.spec.in")->lines_utf8;
@@ -32,9 +58,8 @@ my $SYS       = "debian:sid";
 my $CONTAINER = "fortune-mod--deb--test-build";
 my $USER      = "mygbp";
 my $HOMEDIR   = "/home/$USER";
-do_system( { cmd => [ 'docker', 'pull', $SYS ] } );
-do_system(
-    { cmd => [ 'docker', 'run', "-t", "-d", "--name", $CONTAINER, $SYS, ] } );
+_do_docker( { cmd => [ 'pull', $SYS ] } );
+_do_docker( { cmd => [ 'run', "-t", "-d", "--name", $CONTAINER, $SYS, ] } );
 my $REPO = 'fortune-mod';
 my $URL  = "https://salsa.debian.org/shlomif-guest/$REPO";
 
@@ -51,7 +76,7 @@ my $LOG_FN = "git-buildpackage-log.txt";
 
 my $BASH_SAFETY = "set -e -x ; set -o pipefail ; ";
 
-# do_system( { cmd => [ 'docker', 'cp', "../scripts", "fcsfed:scripts", ] } );
+# _do_docker( { cmd => [  'cp', "../scripts", "fcsfed:scripts", ] } );
 my $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 apt-get -y update
@@ -62,15 +87,13 @@ sudo usermod -a -G sudo "$USER"
 echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 EOSCRIPTTTTTTT
 
-do_system(
-    { cmd => [ 'docker', 'exec', $CONTAINER, 'bash', '-c', $script, ] } );
+_do_docker( { cmd => [ 'exec', $CONTAINER, 'bash', '-c', $script, ] } );
 
-do_system(
-    { cmd => [ 'docker', 'cp', "./$REPO", "$CONTAINER:$HOMEDIR/$REPO", ] } );
-do_system(
+_do_docker( { cmd => [ 'cp', "./$REPO", "$CONTAINER:$HOMEDIR/$REPO", ] } );
+_do_docker(
     {
         cmd => [
-            'docker', 'exec', $CONTAINER, 'bash', '-c',
+            'exec', $CONTAINER, 'bash', '-c',
             "$BASH_SAFETY chown -R $USER:$USER $HOMEDIR",
         ]
     }
@@ -83,19 +106,15 @@ git clean -dxf .
 gbp buildpackage 2>&1 | tee ~/"$LOG_FN"
 EOSCRIPTTTTTTT
 
-do_system(
+_do_docker(
     {
-        cmd => [
-            'docker',   'exec', '--user', $USER,
-            $CONTAINER, 'bash', '-c',     $script,
-        ]
+        cmd => [ 'exec', '--user', $USER, $CONTAINER, 'bash', '-c', $script, ]
     }
 );
-do_system(
-    { cmd => [ 'docker', 'cp', "$CONTAINER:$HOMEDIR/$LOG_FN", $LOG_FN, ] } );
+_do_docker( { cmd => [ 'cp', "$CONTAINER:$HOMEDIR/$LOG_FN", $LOG_FN, ] } );
 
-do_system( { cmd => [ 'docker', 'stop', $CONTAINER, ] } );
-do_system( { cmd => [ 'docker', 'rm',   $CONTAINER, ] } );
+_do_docker( { cmd => [ 'stop', $CONTAINER, ] } );
+_do_docker( { cmd => [ 'rm',   $CONTAINER, ] } );
 
 __END__
 
