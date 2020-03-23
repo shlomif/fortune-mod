@@ -58,7 +58,7 @@ unpacked source of the fortune-mod-1.99.1.tar tarball from the Mageia Linux
 1. fortune-mod-1.99.1 was imported into the repository from the Mageia tarball
 as the tag <code>fortune-mod-1.99.1</code>.
 
-2. Cleaned up the build process a little.
+2. Converted the build system to [CMake](https://en.wikipedia.org/wiki/CMake) .
 
 3. Converted the source files to UTF-8.
 
@@ -70,30 +70,27 @@ as the tag <code>fortune-mod-1.99.1</code>.
 
 7. Fixed some typos.
 
-8. Added [Travis-CI](https://travis-ci.org/) support.
+8. Added [Travis-CI](https://travis-ci.org/) testing.
 
-9. Converted the build system to [CMake](https://en.wikipedia.org/wiki/CMake) .
+9. Added valgrind tests and fixed some memory leaks.
 
-10. Added valgrind tests and fixed some memory leaks.
+10. Released fortune-mod-1.99.3, fortune-mod-1.99.4, v2.0.0 and up to
+version 2.16.0
 
-11. Released fortune-mod-1.99.3 and fortune-mod-1.99.4.
-
-12. Fixed some C compiler warnings encountered with the GCC compiler flags of
+11. Fixed some C compiler warnings encountered with the GCC compiler flags of
 [Shlomif_Common](https://bitbucket.org/shlomif/shlomif-cmake-modules/overview).
 
-13. Added a build-time option to remove the “-o” (= “offensive”) flag, inspired
+12. Added a build-time option to remove the “-o” (= “offensive”) flag, inspired
 by a set of patches on the Fedora package.
 
-14. Applied some downstream patches.
+13. Applied some downstream patches.
 
-15. Released version 2.0.0.
+14. Fixed as many “clang -Weverything” warnings as possible.
 
-16. Fixed as many “clang -Weverything” warnings as possible.
-
-17. lib-recode became maintained again at https://github.com/rrthomas/recode
+15. lib-recode became maintained again at https://github.com/rrthomas/recode
 (thanks to @rrthomas ) thus preventing a switch to something else.
 
-18. Got the build and tests to pass on [AppVeyor/MS Windows](https://ci.appveyor.com/project/shlomif/fortune-mod)
+16. Got the build and tests to pass on [AppVeyor/MS Windows](https://ci.appveyor.com/project/shlomif/fortune-mod)
 (with some appreciated help).
 
 # What remains to be done.
