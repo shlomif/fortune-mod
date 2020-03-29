@@ -18,6 +18,28 @@ organization for it and move the sources there.
 For more information about it, you can contact
 [Shlomi Fish](https://www.shlomifish.org/) .
 
+## Installation
+
+On Fedora and other rpm-based distributions:
+
+```
+sudo dnf install fortune-mod
+```
+
+On Arch Linux and derivatives:
+
+```
+sudo pacman -S fortune-mod
+```
+
+On Debian, and derivatives (e.g: Ubuntu, Linux Mint):
+
+```
+sudo apt install fortune-mod
+```
+
+(Warning: may be an old version.)
+
 ## Release Tarballs
 
 Release tarballs can be found at [this directory](https://www.shlomifish.org/open-source/projects/fortune-mod/arcs/)
