@@ -5,6 +5,8 @@ March 30, 2020 (fortune-mod 2.18.0)
 
 	Avoid double traversal if FORTDIR == LOCFORTDIR.
 
+	Typos' corrections and a new quote.
+
 February 26, 2020 (fortune-mod 2.16.0)
 
 	Better portability to Microsoft Windows and other OSes
