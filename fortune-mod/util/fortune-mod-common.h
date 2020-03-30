@@ -36,26 +36,26 @@
  *  @(#)strfile.h   8.1 (Berkeley) 5/31/93
  */
 #pragma once
-#include        <sys/types.h>
-#include        <sys/stat.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 /* For ntohl() */
 #ifdef _WIN32
-#include        <winsock2.h>
+#include <winsock2.h>
 #define getpid() 0
 #else
-#include        <arpa/inet.h>
-#include        <unistd.h>
+#include <arpa/inet.h>
+#include <unistd.h>
 #endif
-#include        <sys/param.h>
-#include        "strfile.h"
-#include        <stdio.h>
-#include        <time.h>
-#include        <ctype.h>
-#include        <string.h>
-#include        <stdlib.h>
-#include        <stdbool.h>
+#include <sys/param.h>
+#include "strfile.h"
+#include <stdio.h>
+#include <time.h>
+#include <ctype.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdbool.h>
 #ifndef MAXPATHLEN
-#define MAXPATHLEN      1024
+#define MAXPATHLEN 1024
 #endif /* MAXPATHLEN */
 #if defined(_WIN32)
 #include <windows.h>

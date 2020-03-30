@@ -13,11 +13,8 @@ int main(void)
 
     while ((a = getchar()) != EOF)
     {
-        putchar(
-            isupper(a) ? ('A' + (a - 'A' + 13) % 26)
-            : islower(a) ? ('a' + (a - 'a' + 13) % 26)
-            : a
-        );
+        putchar(isupper(a) ? ('A' + (a - 'A' + 13) % 26)
+                           : islower(a) ? ('a' + (a - 'a' + 13) % 26) : a);
     }
     exit(0);
 }

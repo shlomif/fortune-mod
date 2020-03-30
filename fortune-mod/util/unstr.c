@@ -91,12 +91,12 @@ static char sccsid[] = "@(#)unstr.c     8.1 (Berkeley) 5/31/93";
 
 #include "fortune-mod-common.h"
 
-static char *Infile,                   /* name of input file */
-  Datafile[MAXPATHLEN],         /* name of data file */
-  Delimch,                      /* delimiter character */
-  Outfile[MAXPATHLEN];
+static char *Infile,      /* name of input file */
+    Datafile[MAXPATHLEN], /* name of data file */
+    Delimch,              /* delimiter character */
+    Outfile[MAXPATHLEN];
 
-static char NewDelch = '\0';           /* a replacement delimiter character */
+static char NewDelch = '\0'; /* a replacement delimiter character */
 
 static FILE *Inf, *Dataf, *Outf;
 
@@ -108,19 +108,21 @@ static void getargs(int ac, char *av[])
 
     while ((ch = getopt(ac, av, "c:")) != EOF)
         switch (ch)
-          {
-          case 'c':
-              NewDelch = *optarg;
-              if (!isascii(NewDelch))
-              {
-                  fprintf(stderr, "Bad delimiting characher: '\\%o'\n", (unsigned int)NewDelch);
-              }
-              break;
-          case '?':
-          default:
-              fprintf(stderr, "Usage:\n\tunstr [-c C] datafile[.ext] [outputfile]\n");
-              exit(1);
-          }
+        {
+        case 'c':
+            NewDelch = *optarg;
+            if (!isascii(NewDelch))
+            {
+                fprintf(stderr, "Bad delimiting characher: '\\%o'\n",
+                    (unsigned int)NewDelch);
+            }
+            break;
+        case '?':
+        default:
+            fprintf(
+                stderr, "Usage:\n\tunstr [-c C] datafile[.ext] [outputfile]\n");
+            exit(1);
+        }
 
     av += optind;
 
@@ -153,7 +155,10 @@ static void getargs(int ac, char *av[])
     }
     if (!strcmp(Infile, Outfile))
     {
-        fprintf(stderr, "The input file for strings (%s) must be different from the output file (%s)\n", Infile, Outfile);
+        fprintf(stderr,
+            "The input file for strings (%s) must be different from the output "
+            "file (%s)\n",
+            Infile, Outfile);
         exit(1);
     }
 }
@@ -168,7 +173,7 @@ static void order_unstr(register STRFILE *tbl)
 
     for (i = 0; i <= tbl->str_numstr; i++)
     {
-        if (!fread((char *) &pos, 1, sizeof pos, Dataf))
+        if (!fread((char *)&pos, 1, sizeof pos, Dataf))
         {
             exit(1);
         }
@@ -194,7 +199,7 @@ static void order_unstr(register STRFILE *tbl)
 
 int main(int ac, char **av)
 {
-    static STRFILE tbl;         /* description table */
+    static STRFILE tbl; /* description table */
 
     getargs(ac, av);
     if ((Inf = fopen(Infile, "r")) == NULL)
@@ -214,13 +219,18 @@ int main(int ac, char **av)
         perror(Outfile);
         exit(1);
     }
-#define err_fread(a, b, c, d) if (!fread(a, b, c, d)) { perror("fread"); exit(1); }
-    err_fread(&tbl.str_version,  sizeof(tbl.str_version),  1, Dataf);
-    err_fread(&tbl.str_numstr,   sizeof(tbl.str_numstr),   1, Dataf);
-    err_fread(&tbl.str_longlen,  sizeof(tbl.str_longlen),  1, Dataf);
+#define err_fread(a, b, c, d)                                                  \
+    if (!fread(a, b, c, d))                                                    \
+    {                                                                          \
+        perror("fread");                                                       \
+        exit(1);                                                               \
+    }
+    err_fread(&tbl.str_version, sizeof(tbl.str_version), 1, Dataf);
+    err_fread(&tbl.str_numstr, sizeof(tbl.str_numstr), 1, Dataf);
+    err_fread(&tbl.str_longlen, sizeof(tbl.str_longlen), 1, Dataf);
     err_fread(&tbl.str_shortlen, sizeof(tbl.str_shortlen), 1, Dataf);
-    err_fread(&tbl.str_flags,    sizeof(tbl.str_flags),    1, Dataf);
-    err_fread( tbl.stuff,        sizeof(tbl.stuff),        1, Dataf);
+    err_fread(&tbl.str_flags, sizeof(tbl.str_flags), 1, Dataf);
+    err_fread(tbl.stuff, sizeof(tbl.stuff), 1, Dataf);
     if (!(tbl.str_flags & (STR_ORDERED | STR_RANDOM)) && (!NewDelch))
     {
         fprintf(stderr, "nothing to do -- table in file order\n");

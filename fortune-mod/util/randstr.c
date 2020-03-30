@@ -89,14 +89,13 @@
 #include "fortune-mod-common.h"
 #include "rinutils/unused.h"
 
-char *Infile,                   /* name of input file */
-  Datafile[MAXPATHLEN],         /* name of data file */
-  Delimch;                      /* delimiter character */
+char *Infile,             /* name of input file */
+    Datafile[MAXPATHLEN], /* name of data file */
+    Delimch;              /* delimiter character */
 
 FILE *Inf, *Dataf, *Outf;
 
-off_t pos, Seekpts[2];          /* seek pointers to fortunes */
-
+off_t pos, Seekpts[2]; /* seek pointers to fortunes */
 
 static void getargs(char *av[])
 {
@@ -107,8 +106,8 @@ static void getargs(char *av[])
     if (*av)
     {
         Infile = *av;
-/* Hmm.  Don't output anything if we can help it.
- * fprintf(stderr, "Input file: %s\n",Infile); */
+        /* Hmm.  Don't output anything if we can help it.
+         * fprintf(stderr, "Input file: %s\n",Infile); */
         if (!strrchr(Infile, '.'))
         {
             strcpy(Datafile, Infile);
@@ -122,12 +121,14 @@ static void getargs(char *av[])
         }
     }
     else
-/*    {
- * Don't write out errors here, either; trust in exit codes and sh
- * fprintf(stderr, "No input file name\n");
- * fprintf(stderr, "Usage:\n\tunstr [-c C] datafile[.ext] [outputfile]\n");
- */ exit(1);
-/*    } */
+        /*    {
+         * Don't write out errors here, either; trust in exit codes and sh
+         * fprintf(stderr, "No input file name\n");
+         * fprintf(stderr, "Usage:\n\tunstr [-c C] datafile[.ext]
+         * [outputfile]\n");
+         */
+        exit(1);
+    /*    } */
 }
 
 /*
@@ -135,7 +136,7 @@ static void getargs(char *av[])
  *      Get the position from the pos file, if there is one.  If not,
  *      return a random number.
  */
-static void get_pos(STRFILE * fp)
+static void get_pos(STRFILE *fp)
 {
     pos = random() % fp->str_numstr;
     if (++(pos) >= fp->str_numstr)
@@ -149,7 +150,7 @@ static void get_pos(STRFILE * fp)
 static void get_fort(STRFILE fp)
 {
     get_pos(&fp);
-    fseek(Dataf, (long) (sizeof fp + pos * sizeof Seekpts[0]), 0);
+    fseek(Dataf, (long)(sizeof fp + pos * sizeof Seekpts[0]), 0);
     if (!fread(Seekpts, sizeof Seekpts, 1, Dataf))
     {
         exit(1);
@@ -158,15 +159,16 @@ static void get_fort(STRFILE fp)
     Seekpts[1] = ntohl(Seekpts[1]);
 }
 
-static void display(FILE * fp, STRFILE table)
+static void display(FILE *fp, STRFILE table)
 {
     register char *p, ch;
     char line[BUFSIZ];
     int i;
 
-    fseek(fp, (long) Seekpts[0], 0);
-    for (i = 0; fgets(line, sizeof line, fp) != NULL &&
-         !STR_ENDSTRING(line, table); i++)
+    fseek(fp, (long)Seekpts[0], 0);
+    for (i = 0;
+         fgets(line, sizeof line, fp) != NULL && !STR_ENDSTRING(line, table);
+         i++)
     {
         if (table.str_flags & STR_ROTATED)
             for (p = line; (ch = *p); ++p)
@@ -183,7 +185,7 @@ static void display(FILE * fp, STRFILE table)
 
 int main(int ac GCC_UNUSED, char **av)
 {
-    static STRFILE tbl;         /* description table */
+    static STRFILE tbl; /* description table */
 
     getargs(av);
     if ((Inf = fopen(Infile, "r")) == NULL)
@@ -196,7 +198,7 @@ int main(int ac GCC_UNUSED, char **av)
         perror(Datafile);
         exit(1);
     }
-    if (!fread((char *) &tbl, sizeof tbl, 1, Dataf))
+    if (!fread((char *)&tbl, sizeof tbl, 1, Dataf))
     {
         exit(1);
     }
@@ -206,7 +208,7 @@ int main(int ac GCC_UNUSED, char **av)
     tbl.str_shortlen = ntohl(tbl.str_shortlen);
     tbl.str_flags = ntohl(tbl.str_flags);
 
-    srandom((int) (time((time_t *) NULL) + getpid()));
+    srandom((int)(time((time_t *)NULL) + getpid()));
     get_fort(tbl);
     display(Inf, tbl);
 

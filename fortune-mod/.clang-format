@@ -1,0 +1,16 @@
+---
+BasedOnStyle:  LLVM
+AlignAfterOpenBracket: DontAlign
+BreakBeforeBraces: Custom
+IndentWidth:     4
+SortIncludes:    false
+BraceWrapping:
+    AfterClass: true
+    AfterControlStatement: true
+    AfterEnum: true
+    AfterFunction: true
+    AfterExternBlock: false
+    AfterNamespace: true
+    AfterStruct: true
+    BeforeCatch: true
+    BeforeElse: true
