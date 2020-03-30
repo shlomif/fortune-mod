@@ -44,6 +44,7 @@ sub install
                     : ()
                 ),
                 "-DCMAKE_INSTALL_PREFIX=$inst_dir",
+                "-DLOCALDIR=$inst_dir/share/games/fortunes",
                 ( $IS_WIN ? ("-DCMAKE_BUILD_TYPE=Debug") : () ),
                 $ENV{SRC_DIR}
             ]

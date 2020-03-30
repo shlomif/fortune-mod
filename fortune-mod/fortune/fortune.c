@@ -868,6 +868,16 @@ int add_dir(register FILEDESC * fp)
 * form_file_list:
 *      Form the file list from the file specifications.
 */
+
+static int cond_top_level__add_file(const char *dirpath, const char*possible_dup)
+{
+    if (!strcmp(dirpath, possible_dup))
+    {
+        return 0;
+    }
+    return add_file(NO_PROB, dirpath, NULL, &File_list, &File_tail, NULL);
+}
+
 static int form_file_list(register char **files, register int file_cnt)
 {
     register int i, percent;
@@ -882,15 +892,12 @@ static int form_file_list(register char **files, register int file_cnt)
                     &File_tail, NULL)
                 | add_file(NO_PROB, LOCOFFDIR, NULL, &File_list,
                     &File_tail, NULL)
-                | add_file(NO_PROB, FORTDIR, NULL, &File_list,
-                    &File_tail, NULL)
-                | add_file(NO_PROB, OFFDIR, NULL, &File_list,
-                    &File_tail, NULL));
+                | cond_top_level__add_file(FORTDIR, LOCFORTDIR)
+                | cond_top_level__add_file(OFFDIR, LOCOFFDIR));
         else if (Offend)
             return (add_file(NO_PROB, LOCOFFDIR, NULL, &File_list,
                     &File_tail, NULL)
-                | add_file(NO_PROB, OFFDIR, NULL, &File_list,
-                    &File_tail, NULL));
+                | cond_top_level__add_file(OFFDIR, LOCOFFDIR));
         else {
             if (env_lang) {
                 char *lang;
@@ -929,17 +936,14 @@ static int form_file_list(register char **files, register int file_cnt)
                 /* default */
                 return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
                         &File_tail, NULL)
-                    | add_file(NO_PROB, FORTDIR, NULL, &File_list,
-                        &File_tail, NULL));
+                    | cond_top_level__add_file(FORTDIR, LOCFORTDIR));
 
             }
             else
                 /* no locales available, use default */
                 return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
                         &File_tail, NULL)
-                    | add_file(NO_PROB, FORTDIR, NULL, &File_list,
-                        &File_tail, NULL));
-
+                    | cond_top_level__add_file(FORTDIR, LOCFORTDIR));
         }
     }
 

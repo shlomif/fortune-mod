@@ -1,6 +1,10 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+March 30, 2020 (fortune-mod 2.18.0)
+
+	Avoid double traversal if FORTDIR == LOCFORTDIR.
+
 February 26, 2020 (fortune-mod 2.16.0)
 
 	Better portability to Microsoft Windows and other OSes
