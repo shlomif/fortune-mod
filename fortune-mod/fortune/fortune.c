@@ -869,13 +869,23 @@ int add_dir(register FILEDESC * fp)
 *      Form the file list from the file specifications.
 */
 
+static int top_level__add_file(const char *dirpath)
+{
+    return add_file(NO_PROB, dirpath, NULL, &File_list, &File_tail, NULL);
+}
+
 static int cond_top_level__add_file(const char *dirpath, const char*possible_dup)
 {
     if (!strcmp(dirpath, possible_dup))
     {
         return 0;
     }
-    return add_file(NO_PROB, dirpath, NULL, &File_list, &File_tail, NULL);
+    return top_level__add_file(dirpath);
+}
+
+static int top_level_LOCFORTDIR(void)
+{
+    return (top_level__add_file(LOCFORTDIR) | cond_top_level__add_file(FORTDIR, LOCFORTDIR));
 }
 
 static int form_file_list(register char **files, register int file_cnt)
@@ -888,15 +898,12 @@ static int form_file_list(register char **files, register int file_cnt)
     if (file_cnt == 0)
     {
         if (All_forts)
-            return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
-                    &File_tail, NULL)
-                | add_file(NO_PROB, LOCOFFDIR, NULL, &File_list,
-                    &File_tail, NULL)
+            return (top_level__add_file(LOCFORTDIR)
+                | top_level__add_file(LOCOFFDIR)
                 | cond_top_level__add_file(FORTDIR, LOCFORTDIR)
                 | cond_top_level__add_file(OFFDIR, LOCOFFDIR));
         else if (Offend)
-            return (add_file(NO_PROB, LOCOFFDIR, NULL, &File_list,
-                    &File_tail, NULL)
+            return ( top_level__add_file(LOCOFFDIR)
                 | cond_top_level__add_file(OFFDIR, LOCOFFDIR));
         else {
             if (env_lang) {
@@ -934,16 +941,11 @@ static int form_file_list(register char **files, register int file_cnt)
                     lang=p;
                 }
                 /* default */
-                return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
-                        &File_tail, NULL)
-                    | cond_top_level__add_file(FORTDIR, LOCFORTDIR));
-
+                return top_level_LOCFORTDIR();
             }
             else
                 /* no locales available, use default */
-                return (add_file(NO_PROB, LOCFORTDIR, NULL, &File_list,
-                        &File_tail, NULL)
-                    | cond_top_level__add_file(FORTDIR, LOCFORTDIR));
+                return top_level_LOCFORTDIR();
         }
     }
 
