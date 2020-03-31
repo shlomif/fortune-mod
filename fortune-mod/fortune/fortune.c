@@ -894,10 +894,19 @@ static int cond_top_level__add_file(
     return top_level__add_file(dirpath);
 }
 
+static int cond_top_level__LOCFORTDIR(void)
+{
+    return cond_top_level__add_file(FORTDIR, LOCFORTDIR);
+}
+
+static int cond_top_level__OFFDIR(void)
+{
+    return cond_top_level__add_file(OFFDIR, LOCOFFDIR);
+}
+
 static int top_level_LOCFORTDIR(void)
 {
-    return (top_level__add_file(LOCFORTDIR) |
-            cond_top_level__add_file(FORTDIR, LOCFORTDIR));
+    return (top_level__add_file(LOCFORTDIR) | cond_top_level__LOCFORTDIR());
 }
 
 static int form_file_list(register char **files, register int file_cnt)
@@ -910,13 +919,15 @@ static int form_file_list(register char **files, register int file_cnt)
     if (file_cnt == 0)
     {
         if (All_forts)
+        {
             return (top_level__add_file(LOCFORTDIR) |
                     top_level__add_file(LOCOFFDIR) |
-                    cond_top_level__add_file(FORTDIR, LOCFORTDIR) |
-                    cond_top_level__add_file(OFFDIR, LOCOFFDIR));
+                    cond_top_level__LOCFORTDIR() | cond_top_level__OFFDIR());
+        }
         else if (Offend)
-            return (top_level__add_file(LOCOFFDIR) |
-                    cond_top_level__add_file(OFFDIR, LOCOFFDIR));
+        {
+            return (top_level__add_file(LOCOFFDIR) | cond_top_level__OFFDIR());
+        }
         else
         {
             if (env_lang)
@@ -961,8 +972,10 @@ static int form_file_list(register char **files, register int file_cnt)
                 return top_level_LOCFORTDIR();
             }
             else
+            {
                 /* no locales available, use default */
                 return top_level_LOCFORTDIR();
+            }
         }
     }
 
