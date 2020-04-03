@@ -12,45 +12,9 @@ use 5.014;
 use autodie;
 
 use Path::Tiny qw/ path tempdir tempfile cwd /;
+use Docker::CLI::Wrapper::Base ();
 
-sub do_system
-{
-    my ($args) = @_;
-
-    my $cmd = $args->{cmd};
-    print "Running [@$cmd]\n";
-    if ( system(@$cmd) )
-    {
-        die "Running [@$cmd] failed!";
-    }
-}
-
-my @DOCKER_CMD = ('docker');
-
-{
-    my $fh = path("/etc/fedora-release");
-
-    if ( -e $fh )
-    {
-        if ( my ($fedora_ver) =
-            $fh->slurp_utf8() =~ /^Fedora release ([0-9]+)/ )
-        {
-            if ( $fedora_ver >= 31 )
-            {
-                # @DOCKER_CMD = ('podman');
-                @DOCKER_CMD = ( 'systemd-run', '--scope', '--user', 'podman' );
-            }
-        }
-    }
-}
-
-sub _do_docker
-{
-    my ($args) = @_;
-
-    my $cmd = $args->{cmd};
-    return do_system( { cmd => [ @DOCKER_CMD, @$cmd, ], } );
-}
+my $obj = Docker::CLI::Wrapper::Base->new();
 
 my @deps;    #= map { /^BuildRequires:\s*(\S+)/ ? ("'$1'") : () }
 
@@ -62,30 +26,30 @@ my $HOMEDIR   = "/home/$USER";
 
 sub _clean_up_containers
 {
-    eval { _do_docker( { cmd => [ 'stop', $CONTAINER, ] } ); };
+    eval { $obj->docker( { cmd => [ 'stop', $CONTAINER, ] } ); };
 
-    eval { _do_docker( { cmd => [ 'rm', $CONTAINER, ] } ); };
+    eval { $obj->docker( { cmd => [ 'rm', $CONTAINER, ] } ); };
 }
 _clean_up_containers();
-_do_docker( { cmd => [ 'pull', $SYS ] } );
-_do_docker( { cmd => [ 'run', "-t", "-d", "--name", $CONTAINER, $SYS, ] } );
+$obj->docker( { cmd => [ 'pull', $SYS ] } );
+$obj->docker( { cmd => [ 'run', "-t", "-d", "--name", $CONTAINER, $SYS, ] } );
 my $REPO = 'fortune-mod';
 my $URL  = "https://salsa.debian.org/shlomif-guest/$REPO";
 
 if ( !-e $REPO )
 {
-    do_system( { cmd => [ "git", "clone", $URL, ] } );
+    $obj->do_system( { cmd => [ "git", "clone", $URL, ] } );
 }
 my $cwd = cwd;
 chdir "./$REPO";
-do_system( { cmd => [ "git", "pull", "--ff-only", ] } );
+$obj->do_system( { cmd => [ "git", "pull", "--ff-only", ] } );
 chdir $cwd;
 
 my $LOG_FN = "git-buildpackage-log.txt";
 
 my $BASH_SAFETY = "set -e -x ; set -o pipefail ; ";
 
-# _do_docker( { cmd => [  'cp', "../scripts", "fcsfed:scripts", ] } );
+# $obj->docker( { cmd => [  'cp', "../scripts", "fcsfed:scripts", ] } );
 my $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 apt-get -y update
@@ -96,10 +60,10 @@ sudo usermod -a -G sudo "$USER"
 echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 EOSCRIPTTTTTTT
 
-_do_docker( { cmd => [ 'exec', $CONTAINER, 'bash', '-c', $script, ] } );
+$obj->docker( { cmd => [ 'exec', $CONTAINER, 'bash', '-c', $script, ] } );
 
-_do_docker( { cmd => [ 'cp', "./$REPO", "$CONTAINER:$HOMEDIR/$REPO", ] } );
-_do_docker(
+$obj->docker( { cmd => [ 'cp', "./$REPO", "$CONTAINER:$HOMEDIR/$REPO", ] } );
+$obj->docker(
     {
         cmd => [
             'exec', $CONTAINER, 'bash', '-c',
@@ -115,12 +79,12 @@ git clean -dxf .
 gbp buildpackage 2>&1 | tee ~/"$LOG_FN"
 EOSCRIPTTTTTTT
 
-_do_docker(
+$obj->docker(
     {
         cmd => [ 'exec', '--user', $USER, $CONTAINER, 'bash', '-c', $script, ]
     }
 );
-_do_docker( { cmd => [ 'cp', "$CONTAINER:$HOMEDIR/$LOG_FN", $LOG_FN, ] } );
+$obj->docker( { cmd => [ 'cp', "$CONTAINER:$HOMEDIR/$LOG_FN", $LOG_FN, ] } );
 
 _clean_up_containers();
 
