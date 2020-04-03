@@ -37,7 +37,8 @@ my @DOCKER_CMD = ('docker');
         {
             if ( $fedora_ver >= 31 )
             {
-                @DOCKER_CMD = ('podman');
+                # @DOCKER_CMD = ('podman');
+                @DOCKER_CMD = ( 'systemd-run', '--scope', '--user', 'podman' );
             }
         }
     }
@@ -58,6 +59,14 @@ my $SYS       = "debian:sid";
 my $CONTAINER = "fortune-mod--deb--test-build";
 my $USER      = "mygbp";
 my $HOMEDIR   = "/home/$USER";
+
+sub _clean_up_containers
+{
+    eval { _do_docker( { cmd => [ 'stop', $CONTAINER, ] } ); };
+
+    eval { _do_docker( { cmd => [ 'rm', $CONTAINER, ] } ); };
+}
+_clean_up_containers();
 _do_docker( { cmd => [ 'pull', $SYS ] } );
 _do_docker( { cmd => [ 'run', "-t", "-d", "--name", $CONTAINER, $SYS, ] } );
 my $REPO = 'fortune-mod';
@@ -113,8 +122,7 @@ _do_docker(
 );
 _do_docker( { cmd => [ 'cp', "$CONTAINER:$HOMEDIR/$LOG_FN", $LOG_FN, ] } );
 
-_do_docker( { cmd => [ 'stop', $CONTAINER, ] } );
-_do_docker( { cmd => [ 'rm',   $CONTAINER, ] } );
+_clean_up_containers();
 
 __END__
 
