@@ -161,7 +161,7 @@ static void get_fort(STRFILE fp)
 
 static void display(FILE *fp, STRFILE table)
 {
-    register char *p, ch;
+    char *p, ch;
     char line[BUFSIZ];
     int i;
 

@@ -254,9 +254,9 @@ static void fix_last_offset(FILE *fp, int32_t off)
  */
 static int cmp_str(const void *v1, const void *v2)
 {
-    register int c1, c2;
-    register int n1, n2;
-    register const STR *p1, *p2;
+    int c1, c2;
+    int n1, n2;
+    const STR *p1, *p2;
 
 #define SET_N(nf, ch) (nf = (ch == '\n'))
 #define IS_END(ch, nf) (ch == Delimch && nf)
@@ -307,9 +307,9 @@ static int cmp_str(const void *v1, const void *v2)
  */
 static void do_order(void)
 {
-    register long i;
-    register int32_t *lp;
-    register STR *fp;
+    long i;
+    int32_t *lp;
+    STR *fp;
 
     Sort_1 = fopen(Infile, "r");
     Sort_2 = fopen(Infile, "r");
@@ -362,9 +362,9 @@ static char *
  */
 static void randomize(void)
 {
-    register int cnt, i;
-    register int32_t tmp;
-    register int32_t *sp;
+    int cnt, i;
+    int32_t tmp;
+    int32_t *sp;
 
     srandom((unsigned int)(time((time_t *)NULL) + getpid()));
 
@@ -399,12 +399,12 @@ static void randomize(void)
  */
 int main(int ac, char **av)
 {
-    register char *sp;
-    register FILE *inf, *outf;
-    register int32_t last_off, length, pos, *p;
-    register int first, cnt;
-    register char *nsp;
-    register STR *fp;
+    char *sp;
+    FILE *inf, *outf;
+    int32_t last_off, length, pos, *p;
+    int first, cnt;
+    char *nsp;
+    STR *fp;
     static char string[257];
     bool len_was_set = false;
 

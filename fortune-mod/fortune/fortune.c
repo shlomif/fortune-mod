@@ -215,7 +215,7 @@ static RECODE_REQUEST request;
 static RECODE_OUTER outer;
 #endif
 
-int add_dir(register FILEDESC *);
+int add_dir(FILEDESC *);
 
 static unsigned long my_random(unsigned long base)
 {
@@ -298,7 +298,7 @@ static void calc_equal_probs(void)
  * print_list:
  *      Print out the actual list, recursively.
  */
-static void print_list(register FILEDESC *list, int lev)
+static void print_list(FILEDESC *list, int lev)
 {
     while (list != NULL)
     {
@@ -331,11 +331,11 @@ static void print_list(register FILEDESC *list, int lev)
  * conv_pat:
  *      Convert the pattern to an ignore-case equivalent.
  */
-static char *conv_pat(register char *orig)
+static char *conv_pat(char *orig)
 {
-    register char *sp;
-    register unsigned int cnt;
-    register char *new;
+    char *sp;
+    unsigned int cnt;
+    char *new;
 
     cnt = 1; /* allow for '\0' */
     for (sp = orig; *sp != '\0'; sp++)
@@ -422,7 +422,7 @@ static char *copy(char *str, unsigned int len)
  */
 static FILEDESC *new_fp(void)
 {
-    register FILEDESC *fp;
+    FILEDESC *fp;
 
     fp = (FILEDESC *)do_malloc(sizeof *fp);
     fp->datfd = -1;
@@ -470,7 +470,7 @@ static inline void debugprint(const char *msg, ...)
  */
 static int is_dir(const char *const file)
 {
-    auto struct stat sbuf;
+    struct stat sbuf;
 
     if (stat(file, &sbuf) < 0)
     {
@@ -512,9 +512,9 @@ static int is_existant(char *file)
  */
 static int is_fortfile(char *file, char **datp)
 {
-    register int i;
-    register char *sp;
-    register char *datfile;
+    int i;
+    char *sp;
+    char *datfile;
     static const char *suflist[] = {/* list of "illegal" suffixes" */
         "dat", "pos", "c", "h", "p", "i", "f", "pas", "ftn", "ins.c", "ins,pas",
         "ins.ftn", "sml", NULL};
@@ -575,15 +575,15 @@ static bool path_is_absolute(const char *const path)
  * add_file:
  *      Add a file to the file list.
  */
-static int add_file(int percent, register const char *file, const char *dir,
+static int add_file(int percent, const char *file, const char *dir,
     FILEDESC **head, FILEDESC **tail, FILEDESC *parent)
 {
-    register FILEDESC *fp;
-    register int fd = -1;
-    register char *path, *testpath;
-    register bool was_malloc;
-    auto char *sp;
-    auto bool found;
+    FILEDESC *fp;
+    int fd = -1;
+    char *path, *testpath;
+    bool was_malloc;
+    char *sp;
+    bool found;
     struct stat statbuf;
 
     if (dir == NULL)
@@ -1320,7 +1320,7 @@ static void zero_tbl(STRFILE *tp)
  * sum_tbl:
  *      Merge the tbl data of t2 into t1.
  */
-static void sum_tbl(register STRFILE *t1, register STRFILE *t2)
+static void sum_tbl(STRFILE *t1, STRFILE *t2)
 {
     t1->str_numstr += t2->str_numstr;
     if (t1->str_longlen < t2->str_longlen)
