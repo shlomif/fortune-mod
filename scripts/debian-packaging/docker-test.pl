@@ -11,23 +11,17 @@ use warnings;
 use 5.014;
 use autodie;
 
-use Path::Tiny qw/ path tempdir tempfile cwd /;
+use Path::Tiny qw/ cwd /;
 use Docker::CLI::Wrapper::Container ();
 
 my $obj = Docker::CLI::Wrapper::Container->new(
     { container => "fortune-mod--deb--test-build", sys => "debian:sid", } );
 
-my @deps;    #= map { /^BuildRequires:\s*(\S+)/ ? ("'$1'") : () }
-
-# path("freecell-solver.spec.in")->lines_utf8;
 my $USER    = "mygbp";
 my $HOMEDIR = "/home/$USER";
 
 $obj->clean_up();
-$obj->docker( { cmd => [ 'pull', $obj->sys() ] } );
-$obj->docker(
-    { cmd => [ 'run', "-t", "-d", "--name", $obj->container(), $obj->sys(), ] }
-);
+$obj->run_docker();
 my $REPO = 'fortune-mod';
 my $URL  = "https://salsa.debian.org/shlomif-guest/$REPO";
 
