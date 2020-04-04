@@ -12,7 +12,7 @@ use 5.014;
 use autodie;
 
 use Path::Tiny qw/ cwd /;
-use Docker::CLI::Wrapper::Container ();
+use Docker::CLI::Wrapper::Container v0.0.4 ();
 
 my $obj = Docker::CLI::Wrapper::Container->new(
     { container => "fortune-mod--deb--test-build", sys => "debian:sid", } );
@@ -49,17 +49,13 @@ sudo usermod -a -G sudo "$USER"
 echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 EOSCRIPTTTTTTT
 
-$obj->docker(
-    { cmd => [ 'exec', $obj->container(), 'bash', '-c', $script, ] } );
+$obj->exe_bash_code( { code => $script, } );
 
 $obj->docker(
     { cmd => [ 'cp', "./$REPO", $obj->container() . ":$HOMEDIR/$REPO", ] } );
-$obj->docker(
+$obj->exe_bash_code(
     {
-        cmd => [
-            'exec', $obj->container(), 'bash', '-c',
-            "$BASH_SAFETY chown -R $USER:$USER $HOMEDIR",
-        ]
+        code => "$BASH_SAFETY chown -R $USER:$USER $HOMEDIR",
     }
 );
 
@@ -70,12 +66,10 @@ git clean -dxf .
 gbp buildpackage 2>&1 | tee ~/"$LOG_FN"
 EOSCRIPTTTTTTT
 
-$obj->docker(
+$obj->exe_bash_code(
     {
-        cmd => [
-            'exec', '--user', $USER, $obj->container(),
-            'bash', '-c',     $script,
-        ]
+        user => $USER,
+        code => $script,
     }
 );
 $obj->docker(
