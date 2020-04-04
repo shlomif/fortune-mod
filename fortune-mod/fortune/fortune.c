@@ -627,29 +627,22 @@ static int add_file(int percent, const char *file, const char *dir,
         {
             if (((sp = strrchr(file, '-')) != NULL) && (strcmp(sp, "-o") == 0))
             {
+#define CALL__add_file(dir) add_file(percent, file, dir, head, tail, parent)
                 /* BSD-style '-o' offensive file suffix */
                 *sp = '\0';
-                found =
-                    (add_file(percent, file, LOCOFFDIR, head, tail, parent)) ||
-                    add_file(percent, file, OFFDIR, head, tail, parent);
+                found = CALL__add_file(LOCOFFDIR) || CALL__add_file(OFFDIR);
                 /* put the suffix back in for better identification later */
                 *sp = '-';
             }
             else if (All_forts)
                 found =
-                    (add_file(percent, file, LOCFORTDIR, head, tail, parent) ||
-                        add_file(
-                            percent, file, LOCOFFDIR, head, tail, parent) ||
-                        add_file(percent, file, FORTDIR, head, tail, parent) ||
-                        add_file(percent, file, OFFDIR, head, tail, parent));
+                    (CALL__add_file(LOCFORTDIR) || CALL__add_file(LOCOFFDIR) ||
+                        CALL__add_file(FORTDIR) || CALL__add_file(OFFDIR));
             else if (Offend)
-                found =
-                    (add_file(percent, file, LOCOFFDIR, head, tail, parent) ||
-                        add_file(percent, file, OFFDIR, head, tail, parent));
+                found = (CALL__add_file(LOCOFFDIR) || CALL__add_file(OFFDIR));
             else
-                found =
-                    (add_file(percent, file, LOCFORTDIR, head, tail, parent) ||
-                        add_file(percent, file, FORTDIR, head, tail, parent));
+                found = (CALL__add_file(LOCFORTDIR) || CALL__add_file(FORTDIR));
+#undef CALL__add_file
         }
         if (!found && parent == NULL && dir == NULL)
         { /* don't display an error when trying language specific files */
