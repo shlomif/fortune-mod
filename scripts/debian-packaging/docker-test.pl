@@ -23,13 +23,7 @@ my @deps;    #= map { /^BuildRequires:\s*(\S+)/ ? ("'$1'") : () }
 my $USER    = "mygbp";
 my $HOMEDIR = "/home/$USER";
 
-sub _clean_up_containers
-{
-    eval { $obj->docker( { cmd => [ 'stop', $obj->container(), ] } ); };
-
-    eval { $obj->docker( { cmd => [ 'rm', $obj->container(), ] } ); };
-}
-_clean_up_containers();
+$obj->clean_up();
 $obj->docker( { cmd => [ 'pull', $obj->sys() ] } );
 $obj->docker(
     { cmd => [ 'run', "-t", "-d", "--name", $obj->container(), $obj->sys(), ] }
@@ -93,7 +87,7 @@ $obj->docker(
 $obj->docker(
     { cmd => [ 'cp', $obj->container() . ":$HOMEDIR/$LOG_FN", $LOG_FN, ] } );
 
-_clean_up_containers();
+$obj->clean_up();
 
 __END__
 
