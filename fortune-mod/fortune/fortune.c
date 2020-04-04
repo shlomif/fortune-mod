@@ -708,11 +708,8 @@ static int add_file(int percent, register const char *file, const char *dir,
     fp->fd = fd;
     fp->percent = percent;
 
-    fp->name = do_malloc(strlen(file) + (size_t)1);
-    strncpy(fp->name, file, strlen(file) + (size_t)1);
-
-    fp->path = do_malloc(strlen(path) + (size_t)1);
-    strncpy(fp->path, path, strlen(path) + 1UL);
+    fp->name = strdup(file);
+    fp->path = strdup(path);
 
     // FIXME
     fp->utf8_charset = FALSE;
