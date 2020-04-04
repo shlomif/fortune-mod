@@ -14,25 +14,26 @@ use autodie;
 use Path::Tiny qw/ path tempdir tempfile cwd /;
 use Docker::CLI::Wrapper::Container ();
 
-my $obj = Docker::CLI::Wrapper::Container->new( { sys => "debian:sid", } );
+my $obj = Docker::CLI::Wrapper::Container->new(
+    { container => "fortune-mod--deb--test-build", sys => "debian:sid", } );
 
 my @deps;    #= map { /^BuildRequires:\s*(\S+)/ ? ("'$1'") : () }
 
 # path("freecell-solver.spec.in")->lines_utf8;
-my $CONTAINER = "fortune-mod--deb--test-build";
-my $USER      = "mygbp";
-my $HOMEDIR   = "/home/$USER";
+my $USER    = "mygbp";
+my $HOMEDIR = "/home/$USER";
 
 sub _clean_up_containers
 {
-    eval { $obj->docker( { cmd => [ 'stop', $CONTAINER, ] } ); };
+    eval { $obj->docker( { cmd => [ 'stop', $obj->container(), ] } ); };
 
-    eval { $obj->docker( { cmd => [ 'rm', $CONTAINER, ] } ); };
+    eval { $obj->docker( { cmd => [ 'rm', $obj->container(), ] } ); };
 }
 _clean_up_containers();
 $obj->docker( { cmd => [ 'pull', $obj->sys() ] } );
 $obj->docker(
-    { cmd => [ 'run', "-t", "-d", "--name", $CONTAINER, $obj->sys(), ] } );
+    { cmd => [ 'run', "-t", "-d", "--name", $obj->container(), $obj->sys(), ] }
+);
 my $REPO = 'fortune-mod';
 my $URL  = "https://salsa.debian.org/shlomif-guest/$REPO";
 
@@ -60,13 +61,15 @@ sudo usermod -a -G sudo "$USER"
 echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 EOSCRIPTTTTTTT
 
-$obj->docker( { cmd => [ 'exec', $CONTAINER, 'bash', '-c', $script, ] } );
+$obj->docker(
+    { cmd => [ 'exec', $obj->container(), 'bash', '-c', $script, ] } );
 
-$obj->docker( { cmd => [ 'cp', "./$REPO", "$CONTAINER:$HOMEDIR/$REPO", ] } );
+$obj->docker(
+    { cmd => [ 'cp', "./$REPO", $obj->container() . ":$HOMEDIR/$REPO", ] } );
 $obj->docker(
     {
         cmd => [
-            'exec', $CONTAINER, 'bash', '-c',
+            'exec', $obj->container(), 'bash', '-c',
             "$BASH_SAFETY chown -R $USER:$USER $HOMEDIR",
         ]
     }
@@ -81,10 +84,14 @@ EOSCRIPTTTTTTT
 
 $obj->docker(
     {
-        cmd => [ 'exec', '--user', $USER, $CONTAINER, 'bash', '-c', $script, ]
+        cmd => [
+            'exec', '--user', $USER, $obj->container(),
+            'bash', '-c',     $script,
+        ]
     }
 );
-$obj->docker( { cmd => [ 'cp', "$CONTAINER:$HOMEDIR/$LOG_FN", $LOG_FN, ] } );
+$obj->docker(
+    { cmd => [ 'cp', $obj->container() . ":$HOMEDIR/$LOG_FN", $LOG_FN, ] } );
 
 _clean_up_containers();
 
