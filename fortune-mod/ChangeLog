@@ -1,6 +1,16 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+April 04, 2020 (fortune-mod 2.20.0)
+
+	Further avoid double traversal if FORTDIR == LOCFORTDIR.
+
+	Using clang-format to format the code.
+
+	Eliminate -D_FORTIFY_SOURCE warnings.
+
+	Modernize and refactor the code.
+
 March 30, 2020 (fortune-mod 2.18.0)
 
 	Avoid double traversal if FORTDIR == LOCFORTDIR.
