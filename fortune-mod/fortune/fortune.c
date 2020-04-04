@@ -628,20 +628,27 @@ static int add_file(int percent, const char *file, const char *dir,
             if (((sp = strrchr(file, '-')) != NULL) && (strcmp(sp, "-o") == 0))
             {
 #define CALL__add_file(dir) add_file(percent, file, dir, head, tail, parent)
+#define COND_CALL__add_file(loc_dir, dir)                                      \
+    ((!strcmp((loc_dir), (dir))) ? 0 : CALL__add_file(dir))
                 /* BSD-style '-o' offensive file suffix */
                 *sp = '\0';
-                found = CALL__add_file(LOCOFFDIR) || CALL__add_file(OFFDIR);
+                found = CALL__add_file(LOCOFFDIR) ||
+                        COND_CALL__add_file(LOCOFFDIR, OFFDIR);
                 /* put the suffix back in for better identification later */
                 *sp = '-';
             }
             else if (All_forts)
                 found =
                     (CALL__add_file(LOCFORTDIR) || CALL__add_file(LOCOFFDIR) ||
-                        CALL__add_file(FORTDIR) || CALL__add_file(OFFDIR));
+                        COND_CALL__add_file(LOCFORTDIR, FORTDIR) ||
+                        COND_CALL__add_file(LOCOFFDIR, OFFDIR));
             else if (Offend)
-                found = (CALL__add_file(LOCOFFDIR) || CALL__add_file(OFFDIR));
+                found = (CALL__add_file(LOCOFFDIR) ||
+                         COND_CALL__add_file(LOCOFFDIR, OFFDIR));
             else
-                found = (CALL__add_file(LOCFORTDIR) || CALL__add_file(FORTDIR));
+                found = (CALL__add_file(LOCFORTDIR) ||
+                         COND_CALL__add_file(LOCFORTDIR, FORTDIR));
+#undef COND_CALL__add_file
 #undef CALL__add_file
         }
         if (!found && parent == NULL && dir == NULL)
