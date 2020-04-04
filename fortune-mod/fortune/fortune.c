@@ -219,11 +219,8 @@ int add_dir(register FILEDESC *);
 
 static unsigned long my_random(unsigned long base)
 {
-    FILE *fp;
     unsigned long long l = 0;
-    char *hard_coded_val;
-
-    hard_coded_val = getenv("FORTUNE_MOD_RAND_HARD_CODED_VALS");
+    char *hard_coded_val = getenv("FORTUNE_MOD_RAND_HARD_CODED_VALS");
     if (hard_coded_val)
     {
         return ((unsigned long)atol(hard_coded_val) % base);
@@ -232,7 +229,7 @@ static unsigned long my_random(unsigned long base)
     {
         goto fallback;
     }
-    fp = fopen("/dev/urandom", "rb");
+    FILE *const fp = fopen("/dev/urandom", "rb");
     if (!fp)
     {
         goto fallback;
@@ -287,10 +284,8 @@ static void __attribute__((noreturn)) usage(void)
  */
 static void calc_equal_probs(void)
 {
-    FILEDESC *fiddlylist;
-
     Num_files = Num_kids = 0;
-    fiddlylist = File_list;
+    FILEDESC *fiddlylist = File_list;
     while (fiddlylist != NULL)
     {
         Num_files++;
@@ -660,20 +655,18 @@ static int add_file(int percent, register const char *file, const char *dir,
         { /* don't display an error when trying language specific files */
             if (env_lang)
             {
-                char *lang;
                 char llang[512];
                 char langdir[1024];
                 int ret = 0;
-                char *p;
 
                 strncpy(llang, env_lang, sizeof(llang));
                 llang[sizeof(llang) - 1] = '\0';
-                lang = llang;
+                char *lang = llang;
 
                 /* the language string can be like "es:fr_BE:ga" */
                 while (!ret && lang && (*lang))
                 {
-                    p = strchr(lang, ':');
+                    char *p = strchr(lang, ':');
                     if (p)
                         *p++ = '\0';
                     snprintf(langdir, sizeof(langdir), "%s/%s", FORTDIR, lang);
@@ -792,12 +785,10 @@ static int names_compare(const void *a, const void *b)
  * add_dir:
  *      Add the contents of an entire directory.
  */
-int add_dir(register FILEDESC *fp)
+int add_dir(FILEDESC *fp)
 {
-    register DIR *dir;
-    register struct dirent *dirent;
-    auto FILEDESC *tailp;
-    auto char *name;
+    DIR *dir;
+    struct dirent *dirent;
     char **names;
     size_t i, count_names, max_count_names;
 
@@ -809,7 +800,7 @@ int add_dir(register FILEDESC *fp)
         perror(fp->path);
         return FALSE;
     }
-    tailp = NULL;
+    FILEDESC *tailp = NULL;
     DPRINTF(1, (stderr, "adding dir \"%s\"\n", fp->path));
     fp->num_children = 0;
     max_count_names = 200;
@@ -825,7 +816,7 @@ int add_dir(register FILEDESC *fp)
     {
         if (dirent->d_name[0] == 0)
             continue;
-        name = strdup(dirent->d_name);
+        char *name = strdup(dirent->d_name);
         if (count_names == max_count_names)
         {
             max_count_names += 200;
@@ -906,10 +897,10 @@ static int top_level_LOCFORTDIR(void)
     return (top_level__add_file(LOCFORTDIR) | cond_top_level__LOCFORTDIR());
 }
 
-static int form_file_list(register char **files, register int file_cnt)
+static int form_file_list(char **files, int file_cnt)
 {
-    register int i, percent;
-    register char *sp;
+    int i, percent;
+    char *sp;
     char langdir[1024];
     char fullpathname[512], locpathname[512];
 
@@ -1045,19 +1036,17 @@ static int form_file_list(register char **files, register int file_cnt)
 
         if (env_lang)
         {
-            char *lang;
             char llang[512];
             int ret = 0;
-            char *p;
 
             strncpy(llang, env_lang, sizeof(llang));
             llang[sizeof(llang) - 1] = '\0';
-            lang = llang;
+            char *lang = llang;
 
             /* the language string can be like "es:fr_BE:ga" */
             while (!ret && lang && (*lang))
             {
-                p = strchr(lang, ':');
+                char *p = strchr(lang, ':');
                 if (p)
                     *p++ = '\0';
 
@@ -1122,15 +1111,13 @@ static int form_file_list(register char **files, register int file_cnt)
  */
 static void getargs(int argc, char **argv)
 {
-    register int ignore_case;
+    int ignore_case = FALSE;
 
 #ifndef NO_REGEX
-    register char *pat = NULL;
+    char *pat = NULL;
 
 #endif /* NO_REGEX */
     int ch;
-
-    ignore_case = FALSE;
 
 #ifdef DEBUG
 #define DEBUG_GETOPT "D"
@@ -1247,18 +1234,15 @@ static void getargs(int argc, char **argv)
  */
 static void init_prob(void)
 {
-    register FILEDESC *fp, *last;
-    register int percent, num_noprob, frac;
+    FILEDESC *fp;
+    int percent = 0, num_noprob = 0, frac;
 
     /*
      * Distribute the residual probability (if any) across all
      * files with unspecified probability (i.e., probability of 0)
      * (if any).
      */
-
-    percent = 0;
-    num_noprob = 0;
-    last = NULL;
+    FILEDESC *last = NULL;
     for (fp = File_tail; fp != NULL; fp = fp->prev)
         if (fp->percent == NO_PROB)
         {
@@ -1325,7 +1309,7 @@ static void init_prob(void)
  * zero_tbl:
  *      Zero out the fields we care about in a tbl structure.
  */
-static void zero_tbl(register STRFILE *tp)
+static void zero_tbl(STRFILE *tp)
 {
     tp->str_numstr = 0;
     tp->str_longlen = 0;
@@ -1351,8 +1335,8 @@ static void sum_tbl(register STRFILE *t1, register STRFILE *t2)
  */
 static void get_tbl(FILEDESC *fp)
 {
-    auto int fd;
-    register FILEDESC *child;
+    int fd;
+    FILEDESC *child;
 
     if (fp->read_tbl)
         return;
@@ -1440,7 +1424,7 @@ static void get_tbl(FILEDESC *fp)
  * sum_noprobs:
  *      Sum up all the noprob probabilities, starting with fp.
  */
-static void sum_noprobs(register FILEDESC *fp)
+static void sum_noprobs(FILEDESC *fp)
 {
     static bool did_noprobs = FALSE;
 
@@ -1465,8 +1449,8 @@ static void sum_noprobs(register FILEDESC *fp)
  */
 static FILEDESC *pick_child(FILEDESC *parent)
 {
-    register FILEDESC *fp;
-    register int choice;
+    FILEDESC *fp;
+    int choice;
 
     if (Equal_probs)
     {
@@ -1533,8 +1517,8 @@ static void get_pos(FILEDESC *fp)
  */
 static void get_fort(void)
 {
-    register FILEDESC *fp;
-    register int choice;
+    FILEDESC *fp;
+    int choice;
 
     if (File_list->next == NULL || File_list->percent == NO_PROB)
         fp = File_list;
@@ -1620,10 +1604,9 @@ static void open_fp(FILEDESC *fp)
  */
 static int maxlen_in_list(FILEDESC *list)
 {
-    register FILEDESC *fp;
-    register int len, maxlen;
+    FILEDESC *fp;
+    int len, maxlen = 0;
 
-    maxlen = 0;
     for (fp = list; fp != NULL; fp = fp->next)
     {
         if (fp->child != NULL)
@@ -1652,7 +1635,7 @@ static void matches_in_list(FILEDESC *list)
     unsigned char *sp;
     unsigned char *p; /* -allover */
     unsigned char ch; /* -allover */
-    register FILEDESC *fp;
+    FILEDESC *fp;
     int in_file, nchar;
     char *output;
 
@@ -1747,7 +1730,7 @@ static int find_matches(void)
 
 static void display(FILEDESC *fp)
 {
-    register char *p, ch;
+    char *p, ch;
     unsigned char line[BUFSIZ];
 
     open_fp(fp);
@@ -1791,7 +1774,7 @@ static void display(FILEDESC *fp)
  */
 static int fortlen(void)
 {
-    register int nchar;
+    int nchar;
     char line[BUFSIZ];
 
     if (!(Fortfile->tbl.str_flags & (STR_RANDOM | STR_ORDERED)))
@@ -1809,7 +1792,7 @@ static int fortlen(void)
     return nchar;
 }
 
-static int mymax(register int i, register int j) { return (i >= j ? i : j); }
+static int mymax(int i, int j) { return (i >= j ? i : j); }
 
 static void free_desc(FILEDESC *ptr)
 {
@@ -1924,5 +1907,4 @@ cleanup:
     free_desc(File_list);
     free(Fortbuf);
     exit(exit_code);
-    /* NOTREACHED */
 }
