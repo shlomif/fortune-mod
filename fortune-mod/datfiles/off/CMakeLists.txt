@@ -2,8 +2,9 @@ SET (_strfile  "${CMAKE_CURRENT_BINARY_DIR}/../../strfile")
 SET (_rot  "${CMAKE_CURRENT_BINARY_DIR}/../../rot")
 SET (rot_dir "${CMAKE_CURRENT_BINARY_DIR}/rotated")
 FILE(MAKE_DIRECTORY "${rot_dir}")
+SET (_rotated_cookies )
+SET (_install_rotated_cookies )
 FOREACH(c ${OFFENSIVE_COOKIES})
-    SET(TARGET_NAME "offensive_cookie__${c}")
     SET(rot_dest "${rot_dir}/${c}")
     SET(DEST "${c}.dat")
     SET(SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/unrotated/${c}")
@@ -30,23 +31,24 @@ FOREACH(c ${OFFENSIVE_COOKIES})
         COMMAND ${CMAKE_COMMAND} -E copy "${rot_dest}" "${rot_LINK}"
         DEPENDS "${rot_dest}"
     )
-else()
-    ADD_CUSTOM_COMMAND(
-        OUTPUT "${rot_LINK}"
-        COMMAND "ln"
-        ARGS "-s" "${c}" "${LINK}"
-        DEPENDS "${rot_dest}"
-        WORKING_DIRECTORY "${rot_dir}"
-    )
-endif()
-    ADD_CUSTOM_TARGET(
-        "${TARGET_NAME}" ALL
-        DEPENDS "${rot_dest}" "${DEST}" "${rot_LINK}"
-    )
-
-    INSTALL(
-        FILES "${rot_dest}" "${CMAKE_CURRENT_BINARY_DIR}/${DEST}" "${rot_LINK}"
-        DESTINATION "${LOCALODIR}"
-    )
-
+    else()
+        ADD_CUSTOM_COMMAND(
+            OUTPUT "${rot_LINK}"
+            COMMAND "ln"
+            ARGS "-s" "${c}" "${LINK}"
+            DEPENDS "${rot_dest}"
+            WORKING_DIRECTORY "${rot_dir}"
+        )
+    endif()
+    LIST(APPEND _rotated_cookies "${rot_dest}" "${DEST}" "${rot_LINK}")
+    LIST(APPEND _install_rotated_cookies "${rot_dest}" "${CMAKE_CURRENT_BINARY_DIR}/${DEST}" "${rot_LINK}")
 ENDFOREACH()
+
+ADD_CUSTOM_TARGET(
+    offensive_cookies ALL
+    DEPENDS ${_rotated_cookies}
+)
+INSTALL(
+    FILES ${_install_rotated_cookies}
+    DESTINATION "${LOCALODIR}"
+)
