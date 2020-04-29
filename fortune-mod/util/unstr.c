@@ -91,10 +91,9 @@ static char sccsid[] = "@(#)unstr.c     8.1 (Berkeley) 5/31/93";
 
 #include "fortune-mod-common.h"
 
-static char *Infile,      /* name of input file */
-    Datafile[MAXPATHLEN], /* name of data file */
-    Delimch,              /* delimiter character */
-    Outfile[MAXPATHLEN];
+static char *input_filename, Datafile[MAXPATHLEN], /* name of data file */
+    Delimch,                                       /* delimiter character */
+    output_filename[MAXPATHLEN];
 
 static char NewDelch = '\0'; /* a replacement delimiter character */
 
@@ -128,23 +127,23 @@ static void getargs(int ac, char *av[])
 
     if (*av)
     {
-        Infile = *av;
-        fprintf(stderr, "Input file: %s\n", Infile);
-        if (!strrchr(Infile, '.'))
+        input_filename = *av;
+        fprintf(stderr, "Input file: %s\n", input_filename);
+        if (!strrchr(input_filename, '.'))
         {
-            strcpy(Datafile, Infile);
+            strcpy(Datafile, input_filename);
             strcat(Datafile, ".dat");
         }
         else
         {
-            strcpy(Datafile, Infile);
-            extc = strrchr(Infile, '.');
+            strcpy(Datafile, input_filename);
+            extc = strrchr(input_filename, '.');
             *extc = '\0';
         }
         if (*++av)
         {
-            strcpy(Outfile, *av);
-            fprintf(stderr, "Output file: %s\n", Outfile);
+            strcpy(output_filename, *av);
+            fprintf(stderr, "Output file: %s\n", output_filename);
         }
     }
     else
@@ -153,12 +152,12 @@ static void getargs(int ac, char *av[])
         fprintf(stderr, "Usage:\n\tunstr [-c C] datafile[.ext] [outputfile]\n");
         exit(1);
     }
-    if (!strcmp(Infile, Outfile))
+    if (!strcmp(input_filename, output_filename))
     {
         fprintf(stderr,
             "The input file for strings (%s) must be different from the output "
             "file (%s)\n",
-            Infile, Outfile);
+            input_filename, output_filename);
         exit(1);
     }
 }
@@ -202,9 +201,9 @@ int main(int ac, char **av)
     static STRFILE tbl; /* description table */
 
     getargs(ac, av);
-    if ((Inf = fopen(Infile, "r")) == NULL)
+    if ((Inf = fopen(input_filename, "r")) == NULL)
     {
-        perror(Infile);
+        perror(input_filename);
         exit(1);
     }
     if ((Dataf = fopen(Datafile, "r")) == NULL)
@@ -212,11 +211,11 @@ int main(int ac, char **av)
         perror(Datafile);
         exit(1);
     }
-    if (*Outfile == '\0')
+    if (*output_filename == '\0')
         Outf = stdout;
-    else if ((Outf = fopen(Outfile, "w+")) == NULL)
+    else if ((Outf = fopen(output_filename, "w+")) == NULL)
     {
-        perror(Outfile);
+        perror(output_filename);
         exit(1);
     }
 #define err_fread(a, b, c, d)                                                  \
