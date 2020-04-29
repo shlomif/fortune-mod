@@ -36,20 +36,6 @@
  * SUCH DAMAGE.
  */
 
-#if 0
-#ifndef lint
-static char copyright[] =
-"@(#) Copyright (c) 1991, 1993\n\
-        The Regents of the University of California.  All rights reserved.\n";
-
-#endif /* not lint */
-
-#ifndef lint
-static char sccsid[] = "@(#)unstr.c     8.1 (Berkeley) 5/31/93";
-
-#endif /* not lint */
-#endif /* comment out the dreck, kill the warnings */
-
 /*
  *    This program un-does what "strfile" makes, thereby obtaining the
  * original file again.  This can be invoked with the name of the output

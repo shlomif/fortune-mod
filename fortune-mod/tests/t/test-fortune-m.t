@@ -14,15 +14,6 @@ use Test::More tests => 3;
     my $IS_WIN   = ( $^O eq "MSWin32" );
     my @cmd      = ( $inst_dir->child( 'games', 'fortune' ), '-m', 'giants' );
 
-    # Does not help:
-    # if ($IS_WIN)
-    if (0)
-    {
-        print "IS_WIN=1\n";
-        $cmd[0] = ( "$cmd[0]" =~ s#/#\\\\#gr );
-        $cmd[0] .= ".exe";
-        print "TransformedRun [@cmd]\n";
-    }
     print "Running [@cmd]\n";
     my $text = `@cmd`;
     my $rc   = $?;
@@ -37,15 +28,6 @@ use Test::More tests => 3;
     my $IS_WIN   = ( $^O eq "MSWin32" );
     my @cmd = ( $inst_dir->child( 'games', 'fortune' ), '-m', '"wet paint"' );
 
-    # Does not help:
-    # if ($IS_WIN)
-    if (0)
-    {
-        print "IS_WIN=1\n";
-        $cmd[0] = ( "$cmd[0]" =~ s#/#\\\\#gr );
-        $cmd[0] .= ".exe";
-        print "TransformedRun [@cmd]\n";
-    }
     print "Running [@cmd]\n";
     my $text = `@cmd`;
     my $rc   = $?;

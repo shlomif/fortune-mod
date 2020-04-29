@@ -77,25 +77,6 @@
  * Added to debian by Alastair McKinstry, <mckinstry@computer.org>, 2002-07-31
  */
 
-#if 0 /* comment out the stuff here, and get rid of silly warnings */
-#ifndef lint
-static char copyright[] =
-"@(#) Copyright (c) 1986, 1993\n\
-        The Regents of the University of California.  All rights reserved.\n";
-
-#endif /* not lint */
-
-#ifndef lint
-#if 0
-static char sccsid[] = "@(#)fortune.c   8.1 (Berkeley) 5/31/93";
-
-#else
-static char rcsid[] = "$NetBSD: fortune.c,v 1.8 1995/03/23 08:28:40 cgd Exp $";
-
-#endif
-#endif /* not lint */
-#endif /* killing warnings */
-
 #define PROGRAM_NAME "fortune-mod"
 
 #include "fortune-mod-common.h"
@@ -1334,24 +1315,6 @@ static void get_tbl(FILEDESC *fp)
         return;
     if (fp->child == NULL)
     {
-#if 0
-        /* This should not be needed anymore since add_file takes care of
-         * empty directories now (Torsten Landschoff <torsten@debian.org>)
-         */
-
-        /*
-         * Only the local fortune dir and the local offensive dir are
-         * allowed to be empty.  Don't try and fetch their tables if
-         * they have no children (i.e. are empty).
-         *  - Brian Bassett (brianb@debian.org) 1999/07/31
-         */
-        if (strcmp(LOCFORTDIR, fp->path) == 0 || strcmp(LOCOFFDIR, fp->path) == 0)
-        {
-            fp->read_tbl = TRUE;        /* Make it look like we've read it. */
-            return;
-        }
-        /* End */
-#endif
         if ((fd = open(fp->datfile, O_RDONLY | O_BINARY)) < 0)
         {
             perror(fp->datfile);
