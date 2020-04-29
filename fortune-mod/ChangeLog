@@ -1,6 +1,14 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+April 29, 2020 (fortune-mod 2.22.0)
+
+	SECURITY: Avoid some hypothetical buffer overflows in unstr, and randstr.
+
+	Modernize and refactor the code.
+
+	Avoid build targets' proliferation in CMake.
+
 April 04, 2020 (fortune-mod 2.20.0)
 
 	Further avoid double traversal if FORTDIR == LOCFORTDIR.
