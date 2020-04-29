@@ -233,16 +233,13 @@ static void fix_last_offset(FILE *fp, int32_t off)
  */
 static int cmp_str(const void *v1, const void *v2)
 {
-    int c1, c2;
-    const STR *p1, *p2;
-
 #define SET_N(nf, ch) (nf = (ch == '\n'))
 #define IS_END(ch, nf) (ch == Delimch && nf)
 
-    p1 = (const STR *)v1;
-    p2 = (const STR *)v2;
-    c1 = p1->first;
-    c2 = p2->first;
+    const STR *p1 = (const STR *)v1;
+    const STR *p2 = (const STR *)v2;
+    int c1 = p1->first;
+    int c2 = p2->first;
     if (c1 != c2)
         return c1 - c2;
 
@@ -285,10 +282,6 @@ static int cmp_str(const void *v1, const void *v2)
  */
 static void do_order(void)
 {
-    long i;
-    int32_t *lp;
-    STR *fp;
-
     Sort_1 = fopen(Infile, "r");
     Sort_2 = fopen(Infile, "r");
     qsort(
@@ -297,40 +290,15 @@ static void do_order(void)
      * Fucking brilliant.  Tbl.str_numstr was initialized to zero, and is still
      * zero
      */
-    i = Num_pts - 1;
-    lp = Seekpts;
-    fp = Firstch;
+    long i = Num_pts - 1;
+    int32_t *lp = Seekpts;
+    STR *fp = Firstch;
     while (i--)
         *lp++ = fp++->pos;
     fclose(Sort_1);
     fclose(Sort_2);
     Tbl.str_flags |= STR_ORDERED;
 }
-
-#if 0
-static char *
-  unctrl(char c)
-{
-    static char buf[3];
-
-    if (isprint(c))
-    {
-        buf[0] = c;
-        buf[1] = '\0';
-    }
-    else if (c == 0177)
-    {
-        buf[0] = '^';
-        buf[1] = '?';
-    }
-    else
-    {
-        buf[0] = '^';
-        buf[1] = c + 'A' - 1;
-    }
-    return buf;
-}
-#endif
 
 /*
  * randomize:
@@ -340,10 +308,6 @@ static char *
  */
 static void randomize(void)
 {
-    int cnt, i;
-    int32_t tmp;
-    int32_t *sp;
-
     srandom((unsigned int)(time((time_t *)NULL) + getpid()));
 
     Tbl.str_flags |= STR_RANDOM;
@@ -351,16 +315,17 @@ static void randomize(void)
      * See comment above.  Isn't this stuff distributed worldwide?  How
      * embarrassing!
      */
-    cnt = (int)Num_pts;
+    int cnt = (int)Num_pts;
 
     /*
      * move things around randomly
      */
 
-    for (sp = Seekpts; cnt > 0; cnt--, sp++)
+    int32_t *sp = Seekpts;
+    for (; cnt > 0; cnt--, sp++)
     {
-        i = random() % cnt;
-        tmp = sp[0];
+        const int i = random() % cnt;
+        const int32_t tmp = sp[0];
         sp[0] = sp[i];
         sp[i] = tmp;
     }
