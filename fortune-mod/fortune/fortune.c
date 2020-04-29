@@ -360,41 +360,14 @@ static char *conv_pat(char *orig)
  */
 static void *do_malloc(size_t size)
 {
-    void *new;
+    void *new_buf = malloc(size);
 
-    if ((new = malloc(size)) == NULL)
+    if (!new_buf)
     {
         (void)fprintf(stderr, "fortune: out of memory.\n");
         exit(1);
     }
-    return new;
-}
-
-/*
- * do_free:
- *      Free malloc'ed space, if any.
- */
-static void do_free(void *ptr)
-{
-    if (ptr != NULL)
-        free(ptr);
-}
-
-/*
- * copy:
- *      Return a malloc()'ed copy of the string
- */
-static char *copy(char *str, unsigned int len)
-{
-    char *new, *sp;
-
-    new = do_malloc(len + 1);
-    sp = new;
-    do
-    {
-        *sp++ = *str;
-    } while (*str++);
-    return new;
+    return new_buf;
 }
 
 /*
@@ -491,18 +464,16 @@ static int is_existant(char *file)
  *      overhead.  Files which start with ".", or which have "illegal"
  *      suffixes, as contained in suflist[], are ruled out.
  */
-static int is_fortfile(char *file, char **datp)
+static int is_fortfile(const char *const file, char **datp)
 {
-    int i;
-    char *sp;
-    char *datfile;
+    const char *sp = strrchr(file, '/');
     static const char *suflist[] = {/* list of "illegal" suffixes" */
         "dat", "pos", "c", "h", "p", "i", "f", "pas", "ftn", "ins.c", "ins,pas",
         "ins.ftn", "sml", NULL};
 
     DPRINTF(2, (stderr, "is_fortfile(%s) returns ", file));
 
-    if ((sp = strrchr(file, '/')) == NULL)
+    if (!sp)
         sp = file;
     else
         sp++;
@@ -514,7 +485,7 @@ static int is_fortfile(char *file, char **datp)
     if ((sp = strrchr(sp, '.')) != NULL)
     {
         sp++;
-        for (i = 0; suflist[i] != NULL; i++)
+        for (int i = 0; suflist[i] != NULL; i++)
             if (strcmp(sp, suflist[i]) == 0)
             {
                 DPRINTF(2, (stderr, "FALSE (file has suffix \".%s\")\n", sp));
@@ -522,8 +493,8 @@ static int is_fortfile(char *file, char **datp)
             }
     }
 
-    datfile = copy(file, (unsigned int)(strlen(file) + 4)); /* +4 for ".dat" */
-    strcat(datfile, ".dat");
+    char *const datfile = do_malloc((unsigned int)(strlen(file) + 6));
+    sprintf(datfile, "%s.dat", file);
     if (access(datfile, R_OK) < 0)
     {
         free(datfile);
@@ -701,10 +672,10 @@ static int add_file(int percent, const char *file, const char *dir,
                 stderr, "fortune:%s not a fortune file or directory\n", path);
         free(path);
         path = NULL;
-        do_free(fp->datfile);
-        do_free(fp->posfile);
-        do_free(fp->name);
-        do_free(fp->path);
+        free(fp->datfile);
+        free(fp->posfile);
+        free(fp->name);
+        free(fp->path);
         if (fp->fd >= 0)
             close(fp->fd);
         free(fp);
@@ -718,10 +689,10 @@ static int add_file(int percent, const char *file, const char *dir,
     {
         free(path);
         path = NULL;
-        do_free(fp->datfile);
-        do_free(fp->posfile);
-        do_free(fp->name);
-        do_free(fp->path);
+        free(fp->datfile);
+        free(fp->posfile);
+        free(fp->name);
+        free(fp->path);
         if (fp->fd >= 0)
             close(fp->fd);
         free(fp);
@@ -1754,10 +1725,10 @@ static void free_desc(FILEDESC *ptr)
     while (ptr)
     {
         free_desc(ptr->child);
-        do_free(ptr->datfile);
-        do_free(ptr->posfile);
-        do_free(ptr->name);
-        do_free(ptr->path);
+        free(ptr->datfile);
+        free(ptr->posfile);
+        free(ptr->name);
+        free(ptr->path);
         if (ptr->inf)
         {
             fclose(ptr->inf);
