@@ -176,7 +176,9 @@ static void getargs(int argc, char **argv)
     {
         Infile = *argv;
         if (*++argv)
+        {
             (void)strcpy(Outfile, *argv);
+        }
     }
     if (!Infile)
     {
@@ -242,7 +244,9 @@ static int cmp_str(const void *v1, const void *v2)
     int c1 = p1->first;
     int c2 = p2->first;
     if (c1 != c2)
+    {
         return c1 - c2;
+    }
 
     fseek(Sort_1, p1->pos, 0);
     fseek(Sort_2, p2->pos, 0);
@@ -264,16 +268,22 @@ static int cmp_str(const void *v1, const void *v2)
                 c2 = tolower(c2);
         }
         if (c1 != c2)
+        {
             return c1 - c2;
+        }
         SET_N(n1, c1);
         SET_N(n2, c2);
         c1 = getc(Sort_1);
         c2 = getc(Sort_2);
     }
     if (IS_END(c1, n1))
+    {
         c1 = 0;
+    }
     if (IS_END(c2, n2))
+    {
         c2 = 0;
+    }
     return c1 - c2;
 }
 
@@ -295,7 +305,9 @@ static void do_order(void)
     int32_t *lp = Seekpts;
     STR *fp = Firstch;
     while (i--)
+    {
         *lp++ = fp++->pos;
+    }
     fclose(Sort_1);
     fclose(Sort_2);
     Tbl.str_flags |= STR_ORDERED;
@@ -365,7 +377,9 @@ int main(int ac, char **av)
         exit(1);
     }
     if (!storing_ptrs())
+    {
         (void)fseek(outf, sizeof Tbl, 0);
+    }
 
     /*
      * Write the strings onto the file
@@ -410,9 +424,13 @@ int main(int ac, char **av)
             else
             {
                 if ((int)Tbl.str_longlen < length)
+                {
                     Tbl.str_longlen = (uint32_t)length;
+                }
                 if (Tbl.str_shortlen > (uint32_t)length)
+                {
                     Tbl.str_shortlen = (uint32_t)length;
+                }
             }
             first = Oflag;
         }
@@ -437,24 +455,36 @@ int main(int ac, char **av)
     fclose(inf);
 
     if (Oflag)
+    {
         do_order();
+    }
     else if (Rflag)
+    {
         randomize();
+    }
 
     if (Xflag)
+    {
         Tbl.str_flags |= STR_ROTATED;
+    }
 
     if (!Sflag)
     {
         printf("\"%s\" created\n", Outfile);
         if (Num_pts == 1)
+        {
             puts("There was no string");
+        }
         else
         {
             if (Num_pts == 2)
+            {
                 puts("There was 1 string");
+            }
             else
+            {
                 printf("There were %ld strings\n", Num_pts - 1);
+            }
             printf("Longest string: %lu byte%s\n",
                 (unsigned long)(Tbl.str_longlen),
                 Tbl.str_longlen == 1 ? "" : "s");
