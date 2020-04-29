@@ -1628,7 +1628,10 @@ static void matches_in_list(FILEDESC *list)
                 }
 
                 if (fp->utf8_charset && (!No_recode))
+                {
                     free(output);
+                    output = NULL;
+                }
 
                 sp = Fortbuf;
             }
