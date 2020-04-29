@@ -11,6 +11,10 @@ addons:
             - valgrind
             - xz-utils
             - zip
+cache:
+    directories:
+        - $HOME/perl_modules
+        - $HOME/tidyall_d
 os: linux
 dist: bionic
 before_install:
@@ -18,7 +22,7 @@ before_install:
     - eval "$(perl -Mlocal::lib=$HOME/perl_modules)"
     - cpanm Code::TidyAll::Plugin::ClangFormat Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount File::Find::Object List::Util Path::Tiny Perl::Critic Perl::Tidy Test::Code::TidyAll Test::Differences Test::RunValgrind
 install:
-    # Required to avoid defaul travis "cpanm ." booboo.
+    # Required to avoid default travis "cpanm ." booboo.
     - true
 language: perl
 perl:
@@ -27,4 +31,3 @@ script:
     - "export FORTUNE_TEST_TIDY=1"
     - "perl CI-testing/continuous-integration-testing.pl"
     - "rm -fr B"
-sudo: false
