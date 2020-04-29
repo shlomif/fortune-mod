@@ -42,7 +42,7 @@ February 23, 2020 (fortune-mod 2.14.0)
 
 December 18, 2019 (fortune-mod 2.12.0)
 
-	Extract rinutils as aa package and require it as a dep:
+	Extract rinutils as a package and require it as a dep:
 	https://github.com/shlomif/rinutils/ .
 
 	Move some jokes to the offensive collection:

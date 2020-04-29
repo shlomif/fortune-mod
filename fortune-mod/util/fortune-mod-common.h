@@ -64,3 +64,5 @@
 #define srandom(x) srand(x)
 #define sleep(n) Sleep((n)*1000)
 #endif
+#include <rinutils/count.h>
+#include <rinutils/unused.h>

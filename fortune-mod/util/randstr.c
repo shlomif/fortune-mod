@@ -87,12 +87,9 @@
  */
 
 #include "fortune-mod-common.h"
-#include <rinutils/count.h>
-#include <rinutils/unused.h>
 
-char *Infile,             /* name of input file */
-    Datafile[MAXPATHLEN], /* name of data file */
-    Delimch;              /* delimiter character */
+char *input_filename, data_filename[MAXPATHLEN],
+    Delimch; /* delimiter character */
 
 FILE *Inf, *Dataf, *Outf;
 
@@ -104,22 +101,22 @@ static void getargs(char *av[])
 
     if (*av)
     {
-        Infile = *av;
-        if (strlen(Infile) > COUNT(Datafile) - 10)
+        input_filename = *av;
+        if (strlen(input_filename) > COUNT(data_filename) - 10)
         {
             perror("input is too long");
             exit(1);
         }
         /* Hmm.  Don't output anything if we can help it.
-         * fprintf(stderr, "Input file: %s\n",Infile); */
-        char *const extc = strrchr(Infile, '.');
+         * fprintf(stderr, "Input file: %s\n",input_filename); */
+        char *const extc = strrchr(input_filename, '.');
         if (!extc)
         {
-            sprintf(Datafile, "%s.dat", Infile);
+            sprintf(data_filename, "%s.dat", input_filename);
         }
         else
         {
-            strcpy(Datafile, Infile);
+            strcpy(data_filename, input_filename);
             *extc = '\0';
         }
     }
@@ -191,14 +188,14 @@ int main(int ac GCC_UNUSED, char **av)
     static STRFILE tbl; /* description table */
 
     getargs(av);
-    if ((Inf = fopen(Infile, "r")) == NULL)
+    if ((Inf = fopen(input_filename, "r")) == NULL)
     {
-        perror(Infile);
+        perror(input_filename);
         exit(1);
     }
-    if ((Dataf = fopen(Datafile, "r")) == NULL)
+    if ((Dataf = fopen(data_filename, "r")) == NULL)
     {
-        perror(Datafile);
+        perror(data_filename);
         exit(1);
     }
     if (!fread((char *)&tbl, sizeof tbl, 1, Dataf))

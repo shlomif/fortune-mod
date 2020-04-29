@@ -54,7 +54,6 @@
  */
 
 #include "fortune-mod-common.h"
-#include <rinutils/count.h>
 
 /*
  *    This program takes a file composed of strings separated by

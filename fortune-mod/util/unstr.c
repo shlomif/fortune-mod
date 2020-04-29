@@ -91,8 +91,8 @@ static char sccsid[] = "@(#)unstr.c     8.1 (Berkeley) 5/31/93";
 
 #include "fortune-mod-common.h"
 
-static char *input_filename, Datafile[MAXPATHLEN], /* name of data file */
-    Delimch,                                       /* delimiter character */
+static char *input_filename, data_filename[MAXPATHLEN],
+    Delimch, /* delimiter character */
     output_filename[MAXPATHLEN];
 
 static char NewDelch = '\0'; /* a replacement delimiter character */
@@ -102,7 +102,6 @@ static FILE *Inf, *Dataf, *Outf;
 /* ARGSUSED */
 static void getargs(int ac, char *av[])
 {
-    char *extc;
     int ch;
 
     while ((ch = getopt(ac, av, "c:")) != EOF)
@@ -129,15 +128,19 @@ static void getargs(int ac, char *av[])
     {
         input_filename = *av;
         fprintf(stderr, "Input file: %s\n", input_filename);
+        if (strlen(input_filename) > COUNT(data_filename) - 10)
+        {
+            perror("input is too long");
+            exit(1);
+        }
         if (!strrchr(input_filename, '.'))
         {
-            strcpy(Datafile, input_filename);
-            strcat(Datafile, ".dat");
+            sprintf(data_filename, "%s.dat", input_filename);
         }
         else
         {
-            strcpy(Datafile, input_filename);
-            extc = strrchr(input_filename, '.');
+            strcpy(data_filename, input_filename);
+            char *extc = strrchr(input_filename, '.');
             *extc = '\0';
         }
         if (*++av)
@@ -206,9 +209,9 @@ int main(int ac, char **av)
         perror(input_filename);
         exit(1);
     }
-    if ((Dataf = fopen(Datafile, "r")) == NULL)
+    if ((Dataf = fopen(data_filename, "r")) == NULL)
     {
-        perror(Datafile);
+        perror(data_filename);
         exit(1);
     }
     if (*output_filename == '\0')
