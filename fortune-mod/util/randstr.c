@@ -87,7 +87,8 @@
  */
 
 #include "fortune-mod-common.h"
-#include "rinutils/unused.h"
+#include <rinutils/count.h>
+#include <rinutils/unused.h>
 
 char *Infile,             /* name of input file */
     Datafile[MAXPATHLEN], /* name of data file */
@@ -99,24 +100,26 @@ off_t pos, Seekpts[2]; /* seek pointers to fortunes */
 
 static void getargs(char *av[])
 {
-    char *extc;
-
     av += optind + 1;
 
     if (*av)
     {
         Infile = *av;
+        if (strlen(Infile) > COUNT(Datafile) - 10)
+        {
+            perror("input is too long");
+            exit(1);
+        }
         /* Hmm.  Don't output anything if we can help it.
          * fprintf(stderr, "Input file: %s\n",Infile); */
-        if (!strrchr(Infile, '.'))
+        char *const extc = strrchr(Infile, '.');
+        if (!extc)
         {
-            strcpy(Datafile, Infile);
-            strcat(Datafile, ".dat");
+            sprintf(Datafile, "%s.dat", Infile);
         }
         else
         {
             strcpy(Datafile, Infile);
-            extc = strrchr(Infile, '.');
             *extc = '\0';
         }
     }
