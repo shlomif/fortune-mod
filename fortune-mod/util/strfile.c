@@ -84,7 +84,6 @@
  *
  */
 
-#define STORING_PTRS (Oflag || Rflag)
 #define CHUNKSIZE 512
 
 #define ALWAYS 1
@@ -119,6 +118,8 @@ static bool Iflag = false; /* ignore case flag */
 static bool Rflag = false; /* randomize order flag */
 static bool Xflag = false; /* set rotated bit */
 static long Num_pts = 0;   /* number of pointers/strings */
+
+static bool storing_ptrs(void) { return (Oflag || Rflag); }
 
 static int32_t *Seekpts;
 
@@ -197,7 +198,7 @@ static void getargs(int argc, char **argv)
  */
 static void add_offset(FILE *fp, int32_t off)
 {
-    if (!STORING_PTRS)
+    if (!storing_ptrs())
     {
         uint32_t net;
         net = htonl((uint32_t)off);
@@ -217,7 +218,7 @@ static void add_offset(FILE *fp, int32_t off)
  */
 static void fix_last_offset(FILE *fp, int32_t off)
 {
-    if (!STORING_PTRS)
+    if (!storing_ptrs())
     {
         uint32_t net = htonl((uint32_t)off);
         fseek(fp, -(long)(sizeof net), SEEK_CUR);
@@ -363,7 +364,7 @@ int main(int ac, char **av)
         perror(Outfile);
         exit(1);
     }
-    if (!STORING_PTRS)
+    if (!storing_ptrs())
         (void)fseek(outf, sizeof Tbl, 0);
 
     /*
@@ -477,7 +478,7 @@ int main(int ac, char **av)
     fwrite(&Tbl.str_shortlen, sizeof Tbl.str_shortlen, 1, outf);
     fwrite(&Tbl.str_flags, sizeof Tbl.str_flags, 1, outf);
     fwrite(Tbl.stuff, sizeof Tbl.stuff, 1, outf);
-    if (STORING_PTRS)
+    if (storing_ptrs())
     {
         for (p = Seekpts, cnt = (int)Num_pts; cnt--; ++p)
         {
