@@ -362,7 +362,6 @@ int main(int ac, char **av)
 {
     char *sp;
     FILE *inf, *outf;
-    STR *fp;
     bool len_was_set = false;
 
     getargs(ac, av); /* evalute arguments */
@@ -444,7 +443,7 @@ int main(int ac, char **av)
             {
             }
             ALLOC(Firstch, Num_pts);
-            fp = &Firstch[Num_pts - 1];
+            STR *const fp = &Firstch[Num_pts - 1];
             fp->first =
                 ((Iflag && isupper(*nsp)) ? ((char)tolower(*nsp)) : (*nsp));
             fp->pos = Seekpts[Num_pts - 1];
