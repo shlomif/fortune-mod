@@ -118,14 +118,14 @@ static void getargs(int ac, char *av[])
             perror("input is too long");
             exit(1);
         }
-        if (!strrchr(input_filename, '.'))
+        char *const extc = strrchr(input_filename, '.');
+        if (!extc)
         {
             sprintf(data_filename, "%s.dat", input_filename);
         }
         else
         {
             strcpy(data_filename, input_filename);
-            char *extc = strrchr(input_filename, '.');
             *extc = '\0';
         }
         if (*++av)
