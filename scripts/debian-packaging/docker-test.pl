@@ -1,11 +1,5 @@
 #! /usr/bin/env perl
-#
-# Short description for docker-test.pl
-#
-# Author Shlomi Fish <shlomif@cpan.org>
-# Version 0.0.1
-# Copyright (C) 2019 Shlomi Fish <shlomif@cpan.org>
-#
+
 use strict;
 use warnings;
 use 5.014;
