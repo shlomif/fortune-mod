@@ -1592,7 +1592,7 @@ static void matches_in_list(FILEDESC *list)
 #ifdef WITH_RECODE
                     output = recode_string(request, (const char *)Fortbuf);
 #else
-                    output = strdup(Fortbuf);
+                    output = strdup((const char *)Fortbuf);
 #endif
                 }
                 else
@@ -1686,7 +1686,7 @@ static void display(FILEDESC *fp)
 #ifdef WITH_RECODE
             output = recode_string(request, (const char *)line);
 #else
-            output = strdup(line);
+            output = strdup((const char *)line);
 #endif
             fputs(output, stdout);
             free(output);
@@ -1746,7 +1746,6 @@ static void free_desc(FILEDESC *ptr)
 int main(int ac, char *av[])
 {
     const char *ctype;
-    char *crequest;
     int exit_code = 0;
     env_lang = getenv("LC_ALL");
     if (!env_lang)
@@ -1787,7 +1786,7 @@ int main(int ac, char *av[])
 #endif
 
 #ifdef WITH_RECODE
-    crequest = malloc(strlen(ctype) + 7 + 1);
+    char *crequest = malloc(strlen(ctype) + 7 + 1);
     sprintf(crequest, "UTF-8..%s", ctype);
     recode_scan_request(request, crequest);
     free(crequest);
