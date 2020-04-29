@@ -581,7 +581,6 @@ static int add_file(int percent, const char *file, const char *dir,
     FILEDESC *fp;
     int fd = -1;
     char *path, *testpath;
-    bool was_malloc;
     char *sp;
     bool found;
     struct stat statbuf;
@@ -589,26 +588,22 @@ static int add_file(int percent, const char *file, const char *dir,
     if (dir == NULL)
     {
         path = strdup(file);
-        was_malloc = TRUE;
     }
     else
     {
         path = do_malloc((unsigned int)(strlen(dir) + strlen(file) + 2));
-        (void)strcat(strcat(strcpy(path, dir), "/"), file);
-        was_malloc = TRUE;
+        sprintf(path, "%s/%s", dir, file);
     }
     if (*path == '/' &&
         !is_existant(path)) /* If doesn't exist, don't do anything. */
     {
-        if (was_malloc)
-            free(path);
+        free(path);
         return FALSE;
     }
     const int isdir = is_dir(path);
     if ((isdir > 0 && parent != NULL) || (isdir < 0))
     {
-        if (was_malloc)
-            free(path);
+        free(path);
         return FALSE; /* don't recurse */
     }
 
@@ -690,8 +685,8 @@ static int add_file(int percent, const char *file, const char *dir,
             }
         }
 
-        if (was_malloc)
-            free(path);
+        free(path);
+        path = NULL;
         return found;
     }
 
@@ -723,8 +718,8 @@ static int add_file(int percent, const char *file, const char *dir,
         if (parent == NULL)
             fprintf(
                 stderr, "fortune:%s not a fortune file or directory\n", path);
-        if (was_malloc)
-            free(path);
+        free(path);
+        path = NULL;
         do_free(fp->datfile);
         do_free(fp->posfile);
         do_free(fp->name);
@@ -740,8 +735,8 @@ static int add_file(int percent, const char *file, const char *dir,
      * empty directory... */
     if (isdir && fp->num_children == 0)
     {
-        if (was_malloc)
-            free(path);
+        free(path);
+        path = NULL;
         do_free(fp->datfile);
         do_free(fp->posfile);
         do_free(fp->name);
@@ -768,11 +763,8 @@ static int add_file(int percent, const char *file, const char *dir,
         *head = fp;
     }
 
-    if (was_malloc)
-    {
-        free(path);
-        path = NULL;
-    }
+    free(path);
+    path = NULL;
 
     return TRUE;
 }
