@@ -86,9 +86,7 @@
 
 #define CHUNKSIZE 512
 
-#define ALWAYS 1
 #define ALLOC(ptr, sz)                                                         \
-    if (ALWAYS)                                                                \
     {                                                                          \
         if (ptr == NULL)                                                       \
             ptr = malloc((unsigned int)(CHUNKSIZE * sizeof *ptr));             \
