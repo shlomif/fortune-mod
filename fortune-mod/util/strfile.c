@@ -214,7 +214,7 @@ static void add_offset(FILE *fp, int32_t off)
  * fix_last_offset:
  *     Used when we have two separators in a row.
  */
-static void fix_last_offset(FILE *fp, int32_t off)
+static void fix_last_offset(FILE *const fp, const int32_t off)
 {
     if (!storing_ptrs())
     {
@@ -223,7 +223,9 @@ static void fix_last_offset(FILE *fp, int32_t off)
         fwrite(&net, 1, sizeof net, fp);
     }
     else
+    {
         Seekpts[Num_pts - 1] = off;
+    }
 }
 
 /*
@@ -391,7 +393,9 @@ int main(int ac, char **av)
              */
             {
                 if (pos - last_off == 2)
+                {
                     fix_last_offset(outf, pos);
+                }
                 last_off = pos;
                 continue;
             }
@@ -415,13 +419,12 @@ int main(int ac, char **av)
         else if (first)
         {
             for (nsp = sp; !isalnum(*nsp); nsp++)
-                continue;
+            {
+            }
             ALLOC(Firstch, Num_pts);
             fp = &Firstch[Num_pts - 1];
-            if (Iflag && isupper(*nsp))
-                fp->first = (char)tolower(*nsp);
-            else
-                fp->first = *nsp;
+            fp->first =
+                ((Iflag && isupper(*nsp)) ? ((char)tolower(*nsp)) : (*nsp));
             fp->pos = Seekpts[Num_pts - 1];
             first = false;
         }
