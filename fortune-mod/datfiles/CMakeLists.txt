@@ -1,5 +1,6 @@
 SET (_strfile  "${CMAKE_CURRENT_BINARY_DIR}/../strfile")
 SET (_unrot_cookies )
+SET (_install_unrot_cookies )
 FOREACH(c ${COOKIES})
     SET(DEST "${c}.dat")
     SET(SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/${c}")
@@ -37,17 +38,17 @@ FOREACH(c ${COOKIES})
     endif()
 
     LIST(APPEND _unrot_cookies "${DEST}" "${LINK}")
-
-    INSTALL(
-        FILES "${c}" "${CMAKE_CURRENT_BINARY_DIR}/${DEST}" "${CMAKE_CURRENT_BINARY_DIR}/${LINK}"
-        DESTINATION "${LOCALDIR}"
-    )
+    LIST(APPEND _install_unrot_cookies "${c}" "${CMAKE_CURRENT_BINARY_DIR}/${DEST}" "${CMAKE_CURRENT_BINARY_DIR}/${LINK}")
 
 ENDFOREACH()
 
 ADD_CUSTOM_TARGET(
     plain_cookies ALL
     DEPENDS ${_unrot_cookies}
+)
+INSTALL(
+    FILES ${_install_unrot_cookies}
+    DESTINATION "${LOCALDIR}"
 )
 
 IF (NOT "${NO_OFFENSIVE}")
