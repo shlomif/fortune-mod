@@ -11,20 +11,20 @@ addons:
             - valgrind
             - xz-utils
             - zip
-cache:
-    directories:
-        - $HOME/perl_modules
-        - $HOME/tidyall_d
-os: linux
-dist: bionic
 before_install:
     - cpanm local::lib
     - eval "$(perl -Mlocal::lib=$HOME/perl_modules)"
     - cpanm Code::TidyAll::Plugin::ClangFormat Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount File::Find::Object List::Util Path::Tiny Perl::Critic Perl::Tidy Test::Code::TidyAll Test::Differences Test::RunValgrind
+cache:
+    directories:
+        - $HOME/perl_modules
+        - $HOME/tidyall_d
+dist: bionic
 install:
     # Required to avoid default travis "cpanm ." booboo.
     - true
 language: perl
+os: linux
 perl:
     - "5.30"
 script:

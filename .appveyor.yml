@@ -17,9 +17,6 @@ install:
     - SET PERL_MB_OPT=--install_base C:/Perl5
     - SET PERL_MM_OPT=INSTALL_BASE=C:/Perl5
     - cpanm --notest Env::Path IO::All Perl::Tidy Pod::Coverage::TrustPod String::ShellQuote Test::Code::TidyAll Test::Differences Test::EOL Test::Pod Test::Pod::Coverage Test::RunValgrind Test::TrailingSpace Test::Trap
-    # - git clone https://github.com/rrthomas/Recode ./recode
-    # - C:\msys64\usr\bin\bash.exe -l -x -c "test -e /mingw64/include/recode.h || bash -x c:/projects/fortune-mod/recode/build-aux/appveyor-install.sh"
-    # - C:\msys64\usr\bin\bash.exe -x -lc "test -e /mingw64/include/recode.h || cd c:/projects/fortune-mod/recode && ./bootstrap && ./configure --enable-silent-rules %CONFIGURE_FLAGS% && make && make install"
 build: off
 test_script:
     - set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe
@@ -32,9 +29,6 @@ test_script:
     - SET PATH=%PATH%;C:\Python35-x64
     - SET FORTUNE_TEST_DEBUG=1
     - perl CI-testing/continuous-integration-testing.pl --gen="MSYS Makefiles"
-    - perl -E "exit(system(qq#perl CI-testing/continuous-integration-testing.pl --gen=@{[chr(34)]}MSYS Makefiles@{[chr(34)]}#) ? -1 : 0)"
-    # - curl -fsS -o Dependencies_x64_Release.zip "https://github.com/lucasg/Dependencies/releases/download/v1.10/Dependencies_x64_Release.zip"
-    # - c:\foo\games\fortune
 cache:
    - C:\msys64\mingw64
 shallow_clone: true
