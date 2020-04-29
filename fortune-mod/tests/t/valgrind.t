@@ -10,7 +10,7 @@ if ( $^O eq "MSWin32" )
 {
     plan skip_all => 'valgrind is not available on Windows';
 }
-plan tests => 5;
+plan tests => 6;
 
 my $obj = Test::RunValgrind->new( {} );
 
@@ -61,5 +61,15 @@ $obj->run(
         prog   => './strfile',
         argv   => [ scalar( "AAAAAAAAAAAAAAAA/" x 1000 ) ],
         blurb  => 'strfile overflow test',
+    }
+);
+
+# TEST
+$obj->run(
+    {
+        log_fn => './fortune--unstr-buffer-overflow.valgrind-log',
+        prog   => './unstr',
+        argv   => [ scalar( "AAAAAAAAAAAAAAAA/" x 1000 ) ],
+        blurb  => 'unstr overflow test',
     }
 );
