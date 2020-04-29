@@ -357,11 +357,8 @@ int main(int ac, char **av)
 {
     char *sp;
     FILE *inf, *outf;
-    int32_t last_off, length, pos, *p;
-    int cnt;
-    char *nsp;
+    int32_t *p;
     STR *fp;
-    static char string[257];
     bool len_was_set = false;
 
     getargs(ac, av); /* evalute arguments */
@@ -391,14 +388,16 @@ int main(int ac, char **av)
     Tbl.str_version = STRFILE_VERSION;
     bool first = Oflag;
     add_offset(outf, (int32_t)ftell(inf));
-    last_off = 0;
+    int32_t last_off = 0;
     do
     {
+        char string[257];
         sp = fgets(string, 256, inf);
         if (sp == NULL || STR_ENDSTRING(sp, Tbl))
         {
-            pos = (int32_t)ftell(inf);
-            length = pos - last_off - (int32_t)(sp ? strlen(sp) : 0);
+            const int32_t pos = (int32_t)ftell(inf);
+            const int32_t length =
+                pos - last_off - (int32_t)(sp ? strlen(sp) : 0);
             if (!length)
             /* Here's where we go back and fix things, if the
              * 'fortune' just read was the null string.
@@ -436,7 +435,8 @@ int main(int ac, char **av)
         }
         else if (first)
         {
-            for (nsp = sp; !isalnum(*nsp); nsp++)
+            char *nsp = sp;
+            for (; !isalnum(*nsp); ++nsp)
             {
             }
             ALLOC(Firstch, Num_pts);
@@ -511,7 +511,8 @@ int main(int ac, char **av)
     fwrite(Tbl.stuff, sizeof Tbl.stuff, 1, outf);
     if (storing_ptrs())
     {
-        for (p = Seekpts, cnt = (int)Num_pts; cnt--; ++p)
+        int cnt = (int)Num_pts;
+        for (p = Seekpts; cnt--; ++p)
         {
             *p = (int32_t)htonl((uint32_t)*p);
             fwrite(p, sizeof *p, 1, outf);
