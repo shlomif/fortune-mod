@@ -53,25 +53,6 @@
  * one) to be certain to put the delimiters in the right places.
  */
 
-/*
- *
- #ifndef lint
- static char copyright[] =
- "@(#) Copyright (c) 1989, 1993\n\
- The Regents of the University of California.  All rights reserved.\n";
- #endif / * not lint * /
-
- #ifndef lint
- #if 0
- static char sccsid[] = "@(#)strfile.c  8.1 (Berkeley) 5/31/93";
- #else
- static char rcsid[] = "$NetBSD: strfile.c,v 1.3 1995/03/23 08:28:47 cgd Exp $";
- #endif
- #endif / * not lint * /
- *
- *I haven't the faintest flipping idea what all that is, so kill the warnings
- */
-
 #include "fortune-mod-common.h"
 
 /*
@@ -103,8 +84,6 @@
  *
  */
 
-#define FALSE 0
-
 #define STORING_PTRS (Oflag || Rflag)
 #define CHUNKSIZE 512
 
@@ -134,12 +113,12 @@ static char *Infile = NULL,   /* input file name */
     Outfile[MAXPATHLEN] = "", /* output file name */
     Delimch = '%';            /* delimiting character */
 
-static int Sflag = FALSE; /* silent run flag */
-static int Oflag = FALSE; /* ordering flag */
-static int Iflag = FALSE; /* ignore case flag */
-static int Rflag = FALSE; /* randomize order flag */
-static int Xflag = FALSE; /* set rotated bit */
-static long Num_pts = 0;  /* number of pointers/strings */
+static bool Sflag = false; /* silent run flag */
+static bool Oflag = false; /* ordering flag */
+static bool Iflag = false; /* ignore case flag */
+static bool Rflag = false; /* randomize order flag */
+static bool Xflag = false; /* set rotated bit */
+static long Num_pts = 0;   /* number of pointers/strings */
 
 static int32_t *Seekpts;
 
@@ -174,19 +153,19 @@ static void getargs(int argc, char **argv)
             }
             break;
         case 'i': /* ignore case in ordering */
-            Iflag++;
+            Iflag = true;
             break;
         case 'o': /* order strings */
-            Oflag++;
+            Oflag = true;
             break;
         case 'r': /* randomize pointers */
-            Rflag++;
+            Rflag = true;
             break;
         case 's': /* silent */
-            Sflag++;
+            Sflag = true;
             break;
         case 'x': /* set the rotated bit */
-            Xflag++;
+            Xflag = true;
             break;
         case '?':
         default:
@@ -255,7 +234,6 @@ static void fix_last_offset(FILE *fp, int32_t off)
 static int cmp_str(const void *v1, const void *v2)
 {
     int c1, c2;
-    int n1, n2;
     const STR *p1, *p2;
 
 #define SET_N(nf, ch) (nf = (ch == '\n'))
@@ -271,8 +249,8 @@ static int cmp_str(const void *v1, const void *v2)
     fseek(Sort_1, p1->pos, 0);
     fseek(Sort_2, p2->pos, 0);
 
-    n1 = FALSE;
-    n2 = FALSE;
+    bool n1 = false;
+    bool n2 = false;
     while (!isalnum(c1 = getc(Sort_1)) && c1 != '\0')
         SET_N(n1, c1);
     while (!isalnum(c2 = getc(Sort_2)) && c2 != '\0')
@@ -402,7 +380,7 @@ int main(int ac, char **av)
     char *sp;
     FILE *inf, *outf;
     int32_t last_off, length, pos, *p;
-    int first, cnt;
+    int cnt;
     char *nsp;
     STR *fp;
     static char string[257];
@@ -431,7 +409,7 @@ int main(int ac, char **av)
     Tbl.str_shortlen = (unsigned int)0xffffffff;
     Tbl.str_delim = (uint8_t)Delimch;
     Tbl.str_version = STRFILE_VERSION;
-    first = Oflag;
+    bool first = Oflag;
     add_offset(outf, (int32_t)ftell(inf));
     last_off = 0;
     do
@@ -481,7 +459,7 @@ int main(int ac, char **av)
             else
                 fp->first = *nsp;
             fp->pos = Seekpts[Num_pts - 1];
-            first = FALSE;
+            first = false;
         }
     } while (sp != NULL);
 
