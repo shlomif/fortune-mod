@@ -54,6 +54,7 @@
  */
 
 #include "fortune-mod-common.h"
+#include <rinutils/count.h>
 
 /*
  *    This program takes a file composed of strings separated by
@@ -106,9 +107,8 @@ typedef struct
     int32_t pos;
 } STR;
 
-static char *Infile = NULL,   /* input file name */
-    Outfile[MAXPATHLEN] = "", /* output file name */
-    Delimch = '%';            /* delimiting character */
+static char *input_filename = NULL, output_filename[MAXPATHLEN] = "";
+static char Delimch = '%'; /* delimiting character */
 
 static bool Sflag = false; /* silent run flag */
 static bool Oflag = false; /* ordering flag */
@@ -174,21 +174,26 @@ static void getargs(int argc, char **argv)
 
     if (*argv)
     {
-        Infile = *argv;
+        input_filename = *argv;
         if (*++argv)
         {
-            (void)strcpy(Outfile, *argv);
+            (void)strncpy(output_filename, *argv, sizeof(output_filename));
+            LAST(output_filename) = '\0';
         }
     }
-    if (!Infile)
+    if (!input_filename)
     {
         puts("No input file name");
         usage();
     }
-    if (*Outfile == '\0')
+    if (*output_filename == '\0')
     {
-        strcpy(Outfile, Infile);
-        strcat(Outfile, ".dat");
+        if (strlen(input_filename) > MAXPATHLEN - 10)
+        {
+            puts("input file name too long!");
+            usage();
+        }
+        sprintf(output_filename, "%s.dat", input_filename);
     }
 }
 
@@ -293,8 +298,8 @@ static int cmp_str(const void *v1, const void *v2)
  */
 static void do_order(void)
 {
-    Sort_1 = fopen(Infile, "r");
-    Sort_2 = fopen(Infile, "r");
+    Sort_1 = fopen(input_filename, "r");
+    Sort_2 = fopen(input_filename, "r");
     qsort(
         (char *)Firstch, (size_t)((int)Num_pts - 1), sizeof *Firstch, cmp_str);
     /*      i = Tbl.str_numstr;
@@ -361,15 +366,15 @@ int main(int ac, char **av)
     bool len_was_set = false;
 
     getargs(ac, av); /* evalute arguments */
-    if ((inf = fopen(Infile, "r")) == NULL)
+    if ((inf = fopen(input_filename, "r")) == NULL)
     {
-        perror(Infile);
+        perror(input_filename);
         exit(1);
     }
 
-    if ((outf = fopen(Outfile, "w")) == NULL)
+    if ((outf = fopen(output_filename, "w")) == NULL)
     {
-        perror(Outfile);
+        perror(output_filename);
         exit(1);
     }
     if (!storing_ptrs())
@@ -469,7 +474,7 @@ int main(int ac, char **av)
 
     if (!Sflag)
     {
-        printf("\"%s\" created\n", Outfile);
+        printf("\"%s\" created\n", output_filename);
         if (Num_pts == 1)
         {
             puts("There was no string");
