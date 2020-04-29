@@ -91,11 +91,10 @@ static char sccsid[] = "@(#)unstr.c     8.1 (Berkeley) 5/31/93";
 
 #include "fortune-mod-common.h"
 
-static char *input_filename, data_filename[MAXPATHLEN],
-    Delimch, /* delimiter character */
+static char *input_filename, data_filename[MAXPATHLEN], delimiter_char,
     output_filename[MAXPATHLEN];
 
-static char NewDelch = '\0'; /* a replacement delimiter character */
+static char new_delimiter_char = '\0';
 
 static FILE *Inf, *Dataf, *Outf;
 
@@ -108,11 +107,11 @@ static void getargs(int ac, char *av[])
         switch (ch)
         {
         case 'c':
-            NewDelch = *optarg;
-            if (!isascii(NewDelch))
+            new_delimiter_char = *optarg;
+            if (!isascii(new_delimiter_char))
             {
                 fprintf(stderr, "Bad delimiting characher: '\\%o'\n",
-                    (unsigned int)NewDelch);
+                    (unsigned int)new_delimiter_char);
             }
             break;
         case '?':
@@ -187,7 +186,7 @@ static void order_unstr(STRFILE *tbl)
             if (sp == NULL || STR_ENDSTRING(sp, *tbl))
             {
                 if (sp || printedsome)
-                    fprintf(Outf, "%c\n", Delimch);
+                    fprintf(Outf, "%c\n", delimiter_char);
                 break;
             }
             else
@@ -233,15 +232,15 @@ int main(int ac, char **av)
     err_fread(&tbl.str_shortlen, sizeof(tbl.str_shortlen), 1, Dataf);
     err_fread(&tbl.str_flags, sizeof(tbl.str_flags), 1, Dataf);
     err_fread(tbl.stuff, sizeof(tbl.stuff), 1, Dataf);
-    if (!(tbl.str_flags & (STR_ORDERED | STR_RANDOM)) && (!NewDelch))
+    if (!(tbl.str_flags & (STR_ORDERED | STR_RANDOM)) && (!new_delimiter_char))
     {
         fprintf(stderr, "nothing to do -- table in file order\n");
         exit(1);
     }
-    if (NewDelch)
-        Delimch = NewDelch;
+    if (new_delimiter_char)
+        delimiter_char = new_delimiter_char;
     else
-        Delimch = (char)tbl.str_delim;
+        delimiter_char = (char)tbl.str_delim;
     order_unstr(&tbl);
     fclose(Inf);
     fclose(Dataf);

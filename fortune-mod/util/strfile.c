@@ -107,7 +107,7 @@ typedef struct
 } STR;
 
 static char *input_filename = NULL, output_filename[MAXPATHLEN] = "";
-static char Delimch = '%'; /* delimiting character */
+static char delimiter_char = '%';
 
 static bool Sflag = false; /* silent run flag */
 static bool Oflag = false; /* ordering flag */
@@ -143,11 +143,11 @@ static void getargs(int argc, char **argv)
         switch (ch)
         {
         case 'c': /* new delimiting char */
-            Delimch = *optarg;
-            if (!isascii(Delimch))
+            delimiter_char = *optarg;
+            if (!isascii(delimiter_char))
             {
                 printf("bad delimiting character: '\\%o\n'",
-                    (unsigned int)Delimch);
+                    (unsigned int)delimiter_char);
             }
             break;
         case 'i': /* ignore case in ordering */
@@ -241,7 +241,7 @@ static void fix_last_offset(FILE *const fp, const int32_t off)
 static int cmp_str(const void *v1, const void *v2)
 {
 #define SET_N(nf, ch) (nf = (ch == '\n'))
-#define IS_END(ch, nf) (ch == Delimch && nf)
+#define IS_END(ch, nf) (ch == delimiter_char && nf)
 
     const STR *p1 = (const STR *)v1;
     const STR *p2 = (const STR *)v2;
@@ -386,7 +386,7 @@ int main(int ac, char **av)
 
     Tbl.str_longlen = 0;
     Tbl.str_shortlen = (unsigned int)0xffffffff;
-    Tbl.str_delim = (uint8_t)Delimch;
+    Tbl.str_delim = (uint8_t)delimiter_char;
     Tbl.str_version = STRFILE_VERSION;
     bool first = Oflag;
     add_offset(outf, (int32_t)ftell(inf));

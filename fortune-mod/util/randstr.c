@@ -88,12 +88,11 @@
 
 #include "fortune-mod-common.h"
 
-char *input_filename, data_filename[MAXPATHLEN],
-    Delimch; /* delimiter character */
+static char *input_filename, data_filename[MAXPATHLEN];
 
-FILE *Inf, *Dataf, *Outf;
+static FILE *Inf, *Dataf, *Outf;
 
-off_t pos, Seekpts[2]; /* seek pointers to fortunes */
+static off_t pos, Seekpts[2]; /* seek pointers to fortunes */
 
 static void getargs(char *av[])
 {
