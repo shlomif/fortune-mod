@@ -4,13 +4,13 @@ use strict;
 use warnings;
 
 use Test::More;
-use Test::RunValgrind;
+use Test::RunValgrind ();
 
 if ( $^O eq "MSWin32" )
 {
     plan skip_all => 'valgrind is not available on Windows';
 }
-plan tests => 4;
+plan tests => 5;
 
 my $obj = Test::RunValgrind->new( {} );
 
@@ -51,5 +51,15 @@ $obj->run(
         prog   => './fortune',
         argv   => [qw/-i -m foobarbazINGAMINGATONGALKIYRE/],
         blurb  => 'fortune -i -m valgrind test',
+    }
+);
+
+# TEST
+$obj->run(
+    {
+        log_fn => './fortune--strfile-buffer-overflow.valgrind-log',
+        prog   => './strfile',
+        argv   => [ scalar( "AAAAAAAAAAAAAAAA/" x 1000 ) ],
+        blurb  => 'strfile overflow test',
     }
 );
