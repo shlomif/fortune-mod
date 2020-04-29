@@ -357,7 +357,6 @@ int main(int ac, char **av)
 {
     char *sp;
     FILE *inf, *outf;
-    int32_t *p;
     STR *fp;
     bool len_was_set = false;
 
@@ -512,7 +511,7 @@ int main(int ac, char **av)
     if (storing_ptrs())
     {
         int cnt = (int)Num_pts;
-        for (p = Seekpts; cnt--; ++p)
+        for (int32_t *p = Seekpts; cnt--; ++p)
         {
             *p = (int32_t)htonl((uint32_t)*p);
             fwrite(p, sizeof *p, 1, outf);
