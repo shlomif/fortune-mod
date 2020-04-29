@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use autodie;
 
+use File::Basename qw / dirname /;
+use File::Path qw / mkpath /;
 use Getopt::Long qw/ GetOptions /;
 
 my $output_fn;
@@ -32,6 +34,12 @@ my $OFF = ( !$no_offensive );
 if ( $OFF and !defined($ocookiedir) )
 {
     die "Please specify ocookiedir";
+}
+
+my $dirname = dirname($output_fn);
+if ( $dirname and ( !-e $dirname ) )
+{
+    mkpath($dirname);
 }
 
 # The :raw is to prevent CRs on Win32/etc.
