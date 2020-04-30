@@ -132,6 +132,8 @@ static void __attribute__((noreturn)) usage(void)
     exit(1);
 }
 
+#include "fortune-util-set-outfn.h"
+
 /*
  *    This routine evaluates arguments from the command line
  */
@@ -174,11 +176,7 @@ static void getargs(int argc, char **argv)
     if (*argv)
     {
         input_filename = *argv;
-        if (*++argv)
-        {
-            (void)strncpy(output_filename, *argv, sizeof(output_filename));
-            LAST(output_filename) = '\0';
-        }
+        set_output_filename(*++argv);
     }
     if (!input_filename)
     {

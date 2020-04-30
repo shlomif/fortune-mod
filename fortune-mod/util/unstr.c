@@ -85,6 +85,7 @@ static char new_delimiter_char = '\0';
 static FILE *Inf, *Dataf, *Outf;
 
 #include "fortune-util.h"
+#include "fortune-util-set-outfn.h"
 
 /* ARGSUSED */
 static void getargs(int ac, char *av[])
@@ -115,11 +116,7 @@ static void getargs(int ac, char *av[])
     {
         input_filename = *av;
         input_fn_2_data_fn();
-        if (*++av)
-        {
-            strcpy(output_filename, *av);
-            fprintf(stderr, "Output file: %s\n", output_filename);
-        }
+        set_output_filename(*++av);
     }
     else
     {
