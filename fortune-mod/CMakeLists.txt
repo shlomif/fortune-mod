@@ -131,6 +131,8 @@ ENDIF ()
 
 # So it can find config.h
 INCLUDE_DIRECTORIES(BEFORE "${CMAKE_CURRENT_BINARY_DIR}")
+INCLUDE(CheckSymbolExists)
+check_symbol_exists("snprintf" "stdio.h" HAVE_SNPRINTF)
 
 MACRO(my_exe exe c_file dir)
     SET(_files "${c_file}")
