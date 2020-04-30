@@ -107,9 +107,6 @@
 
 #include "config.h"
 
-#define TRUE 1
-#define FALSE 0
-
 #define MINW 6   /* minimum wait if desired */
 #define CPERS 20 /* # of chars for each sec */
 
@@ -145,25 +142,25 @@ typedef struct fd
 static char *env_lang;
 
 static bool Found_one;           /* did we find a match? */
-static bool Find_files = FALSE;  /* just find a list of proper fortune files */
-static bool Wait = FALSE;        /* wait desired after fortune */
-static bool Short_only = FALSE;  /* short fortune desired */
-static bool Long_only = FALSE;   /* long fortune desired */
-static bool Offend = FALSE;      /* offensive fortunes only */
-static bool All_forts = FALSE;   /* any fortune allowed */
-static bool Equal_probs = FALSE; /* scatter un-allocated prob equally */
-static bool Show_filename = FALSE;
-static bool No_recode = FALSE; /* Do we want to stop recoding from occuring */
+static bool Find_files = false;  /* just find a list of proper fortune files */
+static bool Wait = false;        /* wait desired after fortune */
+static bool Short_only = false;  /* short fortune desired */
+static bool Long_only = false;   /* long fortune desired */
+static bool Offend = false;      /* offensive fortunes only */
+static bool All_forts = false;   /* any fortune allowed */
+static bool Equal_probs = false; /* scatter un-allocated prob equally */
+static bool Show_filename = false;
+static bool No_recode = false; /* Do we want to stop recoding from occuring */
 
 static bool ErrorMessage =
-    FALSE; /* Set to true if an error message has been displayed */
+    false; /* Set to true if an error message has been displayed */
 
 #ifndef NO_REGEX
-static bool Match = FALSE; /* dump fortunes matching a pattern */
+static bool Match = false; /* dump fortunes matching a pattern */
 
 #endif
 #ifdef DEBUG
-static bool Debug = FALSE; /* print debug messages */
+static bool Debug = false; /* print debug messages */
 
 #endif
 
@@ -384,7 +381,7 @@ static FILEDESC *new_fp(void)
     fp->inf = NULL;
     fp->fd = -1;
     fp->percent = NO_PROB;
-    fp->read_tbl = FALSE;
+    fp->read_tbl = false;
     fp->tbl.str_version = 0;
     fp->tbl.str_numstr = 0;
     fp->tbl.str_longlen = 0;
@@ -420,7 +417,7 @@ static inline void debugprint(const char *msg, ...)
 #endif
 /*
  * is_dir:
- *      Return TRUE if the file is a directory, FALSE otherwise.
+ *      Return true if the file is a directory, false otherwise.
  */
 static int is_dir(const char *const file)
 {
@@ -431,26 +428,26 @@ static int is_dir(const char *const file)
         debugprint("is_dir failed for file=<%s>\n", file);
         return -1;
     }
-    const bool ret = ((sbuf.st_mode & S_IFDIR) ? true : false);
+    const bool ret = (S_ISDIR(sbuf.st_mode) ? true : false);
     debugprint("is_dir for file=<%s> gave ret=<%d>\n", file, ret);
     return ret;
 }
 
 /*
  * is_existant:
- *      Return TRUE if the file exists, FALSE otherwise.
+ *      Return true if the file exists, false otherwise.
  */
 static int is_existant(char *file)
 {
     struct stat staat;
 
     if (stat(file, &staat) == 0)
-        return TRUE;
+        return true;
     switch (errno)
     {
     case ENOENT:
     case ENOTDIR:
-        return FALSE;
+        return false;
     default:
         perror("fortune: bad juju in is_existant");
         exit(1);
@@ -459,7 +456,7 @@ static int is_existant(char *file)
 
 /*
  * is_fortfile:
- *      Return TRUE if the file is a fortune database file.  We try and
+ *      Return true if the file is a fortune database file.  We try and
  *      exclude files without reading them if possible to avoid
  *      overhead.  Files which start with ".", or which have "illegal"
  *      suffixes, as contained in suflist[], are ruled out.
@@ -479,8 +476,8 @@ static int is_fortfile(const char *const file, char **datp)
         sp++;
     if (*sp == '.')
     {
-        DPRINTF(2, (stderr, "FALSE (file starts with '.')\n"));
-        return FALSE;
+        DPRINTF(2, (stderr, "false (file starts with '.')\n"));
+        return false;
     }
     if ((sp = strrchr(sp, '.')) != NULL)
     {
@@ -488,8 +485,8 @@ static int is_fortfile(const char *const file, char **datp)
         for (int i = 0; suflist[i] != NULL; i++)
             if (strcmp(sp, suflist[i]) == 0)
             {
-                DPRINTF(2, (stderr, "FALSE (file has suffix \".%s\")\n", sp));
-                return FALSE;
+                DPRINTF(2, (stderr, "false (file has suffix \".%s\")\n", sp));
+                return false;
             }
     }
 
@@ -498,15 +495,15 @@ static int is_fortfile(const char *const file, char **datp)
     if (access(datfile, R_OK) < 0)
     {
         free(datfile);
-        DPRINTF(2, (stderr, "FALSE (no \".dat\" file)\n"));
-        return FALSE;
+        DPRINTF(2, (stderr, "false (no \".dat\" file)\n"));
+        return false;
     }
     if (datp != NULL)
         *datp = datfile;
     else
         free(datfile);
-    DPRINTF(2, (stderr, "TRUE\n"));
-    return TRUE;
+    DPRINTF(2, (stderr, "true\n"));
+    return true;
 }
 
 static bool path_is_absolute(const char *const path)
@@ -532,9 +529,8 @@ static int add_file(int percent, const char *file, const char *dir,
 {
     FILEDESC *fp;
     int fd = -1;
-    char *path, *testpath;
+    char *path;
     char *sp;
-    bool found;
     struct stat statbuf;
 
     if (dir == NULL)
@@ -550,13 +546,13 @@ static int add_file(int percent, const char *file, const char *dir,
         !is_existant(path)) /* If doesn't exist, don't do anything. */
     {
         free(path);
-        return FALSE;
+        return false;
     }
     const int isdir = is_dir(path);
     if ((isdir > 0 && parent != NULL) || (isdir < 0))
     {
         free(path);
-        return FALSE; /* don't recurse */
+        return false; /* don't recurse */
     }
 
     DPRINTF(1, (stderr, "trying to add file \"%s\"\n", path));
@@ -569,7 +565,7 @@ static int add_file(int percent, const char *file, const char *dir,
     {
         debugprint("sarahhhhh fd=%d path=<%s> dir=<%s> file=<%s> percent=%d\n",
             fd, path, dir, file, percent);
-        found = FALSE;
+        bool found = false;
         if (dir == NULL && (strchr(file, '/') == NULL))
         {
             if (((sp = strrchr(file, '-')) != NULL) && (strcmp(sp, "-o") == 0))
@@ -652,12 +648,12 @@ static int add_file(int percent, const char *file, const char *dir,
     fp->path = strdup(path);
 
     // FIXME
-    fp->utf8_charset = FALSE;
-    testpath = do_malloc(strlen(path) + 4UL);
+    fp->utf8_charset = false;
+    char *testpath = do_malloc(strlen(path) + 4UL);
     sprintf(testpath, "%s.u8", path);
     //    fprintf(stderr, "State mal: %s\n", testpath);
     if (stat(testpath, &statbuf) == 0)
-        fp->utf8_charset = TRUE;
+        fp->utf8_charset = true;
 
     free(testpath);
     testpath = NULL;
@@ -679,7 +675,7 @@ static int add_file(int percent, const char *file, const char *dir,
         if (fp->fd >= 0)
             close(fp->fd);
         free(fp);
-        return FALSE;
+        return false;
     }
 
     /* This is a hack to come around another hack - add_dir returns success
@@ -696,7 +692,7 @@ static int add_file(int percent, const char *file, const char *dir,
         if (fp->fd >= 0)
             close(fp->fd);
         free(fp);
-        return TRUE;
+        return true;
     }
     /* End hack. */
 
@@ -718,7 +714,7 @@ static int add_file(int percent, const char *file, const char *dir,
     free(path);
     path = NULL;
 
-    return TRUE;
+    return true;
 }
 
 static int names_compare(const void *a, const void *b)
@@ -742,7 +738,7 @@ int add_dir(FILEDESC *fp)
     {
         debugprint("yonah\n");
         perror(fp->path);
-        return FALSE;
+        return false;
     }
     FILEDESC *tailp = NULL;
     DPRINTF(1, (stderr, "adding dir \"%s\"\n", fp->path));
@@ -797,13 +793,13 @@ int add_dir(FILEDESC *fp)
         if (strcmp(LOCFORTDIR, fp->path) == 0 ||
             strcmp(LOCOFFDIR, fp->path) == 0)
         {
-            return TRUE;
+            return true;
         }
         fprintf(
             stderr, "fortune: %s: No fortune files in directory.\n", fp->path);
-        return FALSE;
+        return false;
     }
-    return TRUE;
+    return true;
 }
 
 /*
@@ -924,14 +920,14 @@ static int form_file_list(char **files, int file_cnt)
             if (percent > 100)
             {
                 fprintf(stderr, "percentages must be <= 100\n");
-                ErrorMessage = TRUE;
-                return FALSE;
+                ErrorMessage = true;
+                return false;
             }
             if (*sp == '.')
             {
                 fprintf(stderr, "percentages must be integers\n");
-                ErrorMessage = TRUE;
-                return FALSE;
+                ErrorMessage = true;
+                return false;
             }
             /*
              * If the number isn't followed by a '%', then
@@ -948,8 +944,8 @@ static int form_file_list(char **files, int file_cnt)
                 if (++i >= file_cnt)
                 {
                     fprintf(stderr, "percentages must precede files\n");
-                    ErrorMessage = TRUE;
-                    return FALSE;
+                    ErrorMessage = true;
+                    return false;
                 }
                 sp = files[i];
             }
@@ -1034,7 +1030,7 @@ static int form_file_list(char **files, int file_cnt)
             }
             if (!ret)
             {
-                return FALSE;
+                return false;
             }
             if (strncmp(fullpathname, locpathname, sizeof(fullpathname)) &&
                 strcmp(sp, "all") == 0)
@@ -1045,9 +1041,9 @@ static int form_file_list(char **files, int file_cnt)
         }
         else if (!add_file(
                      percent, fullpathname, NULL, &File_list, &File_tail, NULL))
-            return FALSE;
+            return false;
     }
-    return TRUE;
+    return true;
 }
 
 /*
@@ -1055,7 +1051,7 @@ static int form_file_list(char **files, int file_cnt)
  */
 static void getargs(int argc, char **argv)
 {
-    int ignore_case = FALSE;
+    int ignore_case = false;
 
 #ifndef NO_REGEX
     char *pat = NULL;
@@ -1080,7 +1076,7 @@ static void getargs(int argc, char **argv)
         switch (ch)
         {
         case 'a': /* any fortune */
-            All_forts = TRUE;
+            All_forts = true;
             break;
 #ifdef DEBUG
         case 'D':
@@ -1088,29 +1084,29 @@ static void getargs(int argc, char **argv)
             break;
 #endif /* DEBUG */
         case 'e':
-            Equal_probs = TRUE; /* scatter un-allocted prob equally */
+            Equal_probs = true; /* scatter un-allocted prob equally */
             break;
         case 'f': /* find fortune files */
-            Find_files = TRUE;
+            Find_files = true;
             break;
         case 'l': /* long ones only */
-            Long_only = TRUE;
-            Short_only = FALSE;
+            Long_only = true;
+            Short_only = false;
             break;
         case 'n':
             SLEN = atoi(optarg);
             break;
 #ifndef NO_OFFENSIVE
         case 'o': /* offensive ones only */
-            Offend = TRUE;
+            Offend = true;
             break;
 #endif
         case 's': /* short ones only */
-            Short_only = TRUE;
-            Long_only = FALSE;
+            Short_only = true;
+            Long_only = false;
             break;
         case 'w': /* give time to read */
-            Wait = TRUE;
+            Wait = true;
             break;
 #ifdef NO_REGEX
         case 'i': /* case-insensitive match */
@@ -1120,7 +1116,7 @@ static void getargs(int argc, char **argv)
             exit(0);
 #else             /* NO_REGEX */
         case 'm': /* dump out the fortunes */
-            Match = TRUE;
+            Match = true;
             pat = optarg;
             break;
         case 'i': /* case-insensitive match */
@@ -1128,13 +1124,13 @@ static void getargs(int argc, char **argv)
             break;
 #endif            /* NO_REGEX */
         case 'u': /* Don't recode the fortune */
-            No_recode = TRUE;
+            No_recode = true;
             break;
         case 'v':
             (void)printf("%s\n", program_version());
             exit(0);
         case 'c':
-            Show_filename = TRUE;
+            Show_filename = true;
             break;
         case '?':
         default:
@@ -1343,7 +1339,7 @@ static void get_tbl(FILEDESC *fp)
             sum_tbl(&fp->tbl, &child->tbl);
         }
     }
-    fp->read_tbl = TRUE;
+    fp->read_tbl = true;
 }
 
 /*
@@ -1352,7 +1348,7 @@ static void get_tbl(FILEDESC *fp)
  */
 static void sum_noprobs(FILEDESC *fp)
 {
-    static bool did_noprobs = FALSE;
+    static bool did_noprobs = false;
 
     if (did_noprobs)
         return;
@@ -1366,7 +1362,7 @@ static void sum_noprobs(FILEDESC *fp)
             sum_tbl(&Noprob_tbl, &fp->tbl);
         fp = fp->next;
     }
-    did_noprobs = TRUE;
+    did_noprobs = true;
 }
 
 /*
@@ -1575,7 +1571,7 @@ static void matches_in_list(FILEDESC *list)
         DPRINTF(1, (stderr, "searching in %s\n", fp->path));
         open_fp(fp);
         sp = Fortbuf;
-        in_file = FALSE;
+        in_file = false;
         while (fgets((char *)sp, Fort_len, fp->inf) != NULL)
         {
             if (!STR_ENDSTRING(sp, fp->tbl))
@@ -1620,8 +1616,8 @@ static void matches_in_list(FILEDESC *list)
                     {
                         fprintf(
                             stderr, "(%s)\n%c\n", fp->name, fp->tbl.str_delim);
-                        Found_one = TRUE;
-                        in_file = TRUE;
+                        Found_one = true;
+                        in_file = true;
                     }
                     fputs(output, stdout);
                     printf("%c\n", fp->tbl.str_delim);
@@ -1650,7 +1646,7 @@ static int find_matches(void)
     /* extra length, "%\n" is appended */
     Fortbuf = do_malloc((unsigned int)Fort_len + 10);
 
-    Found_one = FALSE;
+    Found_one = false;
     matches_in_list(File_list);
     return Found_one;
     /* NOTREACHED */
@@ -1663,7 +1659,7 @@ static void display(FILEDESC *fp)
     unsigned char line[BUFSIZ];
 
     open_fp(fp);
-    fseek(fp->inf, (long)Seekpts[0], 0);
+    fseek(fp->inf, (long)Seekpts[0], SEEK_SET);
     if (Show_filename)
         printf("(%s)\n%%\n", fp->name);
     for (Fort_len = 0; fgets((char *)line, sizeof line, fp->inf) != NULL &&
@@ -1711,7 +1707,7 @@ static int fortlen(void)
     else
     {
         open_fp(Fortfile);
-        fseek(Fortfile->inf, (long)Seekpts[0], 0);
+        fseek(Fortfile->inf, (long)Seekpts[0], SEEK_SET);
         nchar = 0;
         while (fgets(line, sizeof line, Fortfile->inf) != NULL &&
                !STR_ENDSTRING(line, Fortfile->tbl))

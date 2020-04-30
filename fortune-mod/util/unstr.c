@@ -164,7 +164,7 @@ static void order_unstr(STRFILE *tbl)
         {
             exit(1);
         }
-        fseek(Inf, ntohl((uint32_t)pos), 0);
+        fseek(Inf, ntohl((uint32_t)pos), SEEK_SET);
         printedsome = 0;
         for (;;)
         {

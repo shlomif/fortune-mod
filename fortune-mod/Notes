@@ -18,7 +18,7 @@ Warning:
 	By default, fortune retrieves its fortune files from the directory
 /usr/local/share/games/fortune.  A fortune file has two parts: the source file
 (which contains the fortunes themselves) and the data file which describes
-the fortunes.  The data fil always has the same name as the fortune file
+the fortunes.  The data file always has the same name as the fortune file
 with the string ".dat" concatenated, e.g. if "fort" is a standard fortune
 database, then "fort.dat" is the data file which describes it.  See
 strfile(8) for more information on creating the data files.
@@ -105,10 +105,6 @@ Limericks are indented as follows, all lines capitalized:
 		But this output can be
 		No more than debris,
 	If the input was short of exact.
-
-Accents precede the letter they are over, e.g., "`^He" for e with a grave
-accent.  Underlining is done on a word-by-word basis, with the underlines
-preceding the word, e.g., "__^H^Hhi ____^H^H^H^Hthere".
 
 No fortune should run beyond 72 characters on a single line without good
 justification (er, no pun intended).  And no right margin justification,

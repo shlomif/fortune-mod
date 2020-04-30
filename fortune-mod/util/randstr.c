@@ -149,7 +149,7 @@ static void get_pos(STRFILE *fp)
 static void get_fort(STRFILE fp)
 {
     get_pos(&fp);
-    fseek(Dataf, (long)(sizeof fp + pos * sizeof Seekpts[0]), 0);
+    fseek(Dataf, (long)(sizeof fp + pos * sizeof Seekpts[0]), SEEK_SET);
     if (!fread(Seekpts, sizeof Seekpts, 1, Dataf))
     {
         exit(1);
@@ -164,7 +164,7 @@ static void display(FILE *fp, STRFILE table)
     char line[BUFSIZ];
     int i;
 
-    fseek(fp, (long)Seekpts[0], 0);
+    fseek(fp, (long)Seekpts[0], SEEK_SET);
     for (i = 0;
          fgets(line, sizeof line, fp) != NULL && !STR_ENDSTRING(line, table);
          i++)

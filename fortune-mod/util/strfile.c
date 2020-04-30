@@ -252,8 +252,8 @@ static int cmp_str(const void *v1, const void *v2)
         return c1 - c2;
     }
 
-    fseek(Sort_1, p1->pos, 0);
-    fseek(Sort_2, p2->pos, 0);
+    fseek(Sort_1, p1->pos, SEEK_SET);
+    fseek(Sort_2, p2->pos, SEEK_SET);
 
     bool n1 = false;
     bool n2 = false;
@@ -377,7 +377,7 @@ int main(int ac, char **av)
     }
     if (!storing_ptrs())
     {
-        (void)fseek(outf, sizeof Tbl, 0);
+        (void)fseek(outf, sizeof Tbl, SEEK_SET);
     }
 
     /*
@@ -496,7 +496,7 @@ int main(int ac, char **av)
         }
     }
 
-    fseek(outf, (off_t)0, 0);
+    fseek(outf, (off_t)0, SEEK_SET);
     Tbl.str_version = htonl(Tbl.str_version);
     Tbl.str_numstr = htonl((uint32_t)(Num_pts - 1));
     /* Look, Ma!  After using the variable three times, let's store
