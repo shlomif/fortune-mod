@@ -1,9 +1,19 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+April 30, 2020 (fortune-mod 2.24.0)
+
+	SECURITY: Avoid some potential buffer overflows in unstr, strfile and randstr.
+		- This was found to exist in NetBSD's fortune, and FreeBSD's fortune
+		as well (OpenBSD's fortune appear to have been fixed).
+
+	Add regression valgrind tests for the buffer overflows.
+
+	Some cleanups inspired by OpenBSD'd fortune.
+
 April 29, 2020 (fortune-mod 2.22.0)
 
-	SECURITY: Avoid some hypothetical buffer overflows in unstr, and randstr.
+	SECURITY: Avoid some hypothetical buffer overflows in unstr, strfile and randstr.
 
 	Modernize and refactor the code.
 
