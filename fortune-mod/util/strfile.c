@@ -106,7 +106,6 @@ typedef struct
     int32_t pos;
 } STR;
 
-static char *input_filename = NULL, output_filename[MAXPATHLEN] = "";
 static char delimiter_char = '%';
 
 static bool Sflag = false; /* silent run flag */

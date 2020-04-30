@@ -76,16 +76,15 @@
  */
 
 #include "fortune-mod-common.h"
+#include "fortune-util-set-outfn.h"
 
-static char *input_filename, data_filename[MAXPATHLEN], delimiter_char,
-    output_filename[MAXPATHLEN];
+static char data_filename[MAXPATHLEN], delimiter_char;
 
 static char new_delimiter_char = '\0';
 
 static FILE *Inf, *Dataf, *Outf;
 
 #include "fortune-util.h"
-#include "fortune-util-set-outfn.h"
 
 /* ARGSUSED */
 static void getargs(int ac, char *av[])

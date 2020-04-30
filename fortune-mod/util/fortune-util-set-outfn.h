@@ -1,5 +1,6 @@
 #pragma once
 
+static char *input_filename = NULL, output_filename[MAXPATHLEN] = "";
 static void set_output_filename(const char *s)
 {
     if (s)
