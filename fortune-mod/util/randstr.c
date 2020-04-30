@@ -151,8 +151,7 @@ static void display(FILE *fp, STRFILE table)
     int i;
 
     fseek(fp, (long)Seekpts[0], SEEK_SET);
-    for (i = 0;
-         fgets(line, sizeof line, fp) != NULL && !STR_ENDSTRING(line, table);
+    for (i = 0; fgets(line, sizeof line, fp) && !STR_ENDSTRING(line, table);
          i++)
     {
         if (table.str_flags & STR_ROTATED)
@@ -173,12 +172,12 @@ int main(int ac GCC_UNUSED, char **av)
     static STRFILE tbl; /* description table */
 
     getargs(av);
-    if ((Inf = fopen(input_filename, "r")) == NULL)
+    if (!(Inf = fopen(input_filename, "r")))
     {
         perror(input_filename);
         exit(1);
     }
-    if ((Dataf = fopen(data_filename, "r")) == NULL)
+    if (!(Dataf = fopen(data_filename, "r")))
     {
         perror(data_filename);
         exit(1);

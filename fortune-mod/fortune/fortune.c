@@ -253,7 +253,7 @@ static void __attribute__((noreturn)) usage(void)
     exit(1);
 }
 
-#define STR(str) ((str) == NULL ? "NULL" : (str))
+#define STR(str) ((!str) ? "NULL" : (str))
 
 /*
  * calc_equal_probs:
@@ -264,7 +264,7 @@ static void calc_equal_probs(void)
 {
     Num_files = Num_kids = 0;
     FILEDESC *fiddlylist = File_list;
-    while (fiddlylist != NULL)
+    while (fiddlylist)
     {
         Num_files++;
         Num_kids += fiddlylist->num_children;
@@ -278,7 +278,7 @@ static void calc_equal_probs(void)
  */
 static void print_list(FILEDESC *list, int lev)
 {
-    while (list != NULL)
+    while (list)
     {
         fprintf(stderr, "%*s", lev * 4, "");
         if (list->percent == NO_PROB)
@@ -298,7 +298,7 @@ static void print_list(FILEDESC *list, int lev)
         DPRINTF(1, (stderr, " (%s, %s, %s)\n", STR(list->path),
                        STR(list->datfile), STR(list->posfile)));
         putc('\n', stderr);
-        if (list->child != NULL)
+        if (list->child)
             print_list(list->child, lev + 1);
         list = list->next;
     }
@@ -313,7 +313,7 @@ static char *conv_pat(char *orig)
 {
     char *sp;
     unsigned int cnt;
-    char *new;
+    char *new_buf;
 
     cnt = 1; /* allow for '\0' */
     for (sp = orig; *sp != '\0'; sp++)
@@ -321,13 +321,13 @@ static char *conv_pat(char *orig)
             cnt += 4;
         else
             cnt++;
-    if ((new = malloc(cnt)) == NULL)
+    if (!(new_buf = malloc(cnt)))
     {
         fprintf(stderr, "pattern too long for ignoring case\n");
         exit(1);
     }
 
-    for (sp = new; *orig != '\0'; orig++)
+    for (sp = new_buf; *orig != '\0'; orig++)
     {
         if (islower(*orig))
         {
@@ -347,7 +347,7 @@ static char *conv_pat(char *orig)
             *sp++ = *orig;
     }
     *sp = '\0';
-    return new;
+    return new_buf;
 }
 #endif /* NO_REGEX */
 
@@ -479,10 +479,10 @@ static int is_fortfile(const char *const file, char **datp)
         DPRINTF(2, (stderr, "false (file starts with '.')\n"));
         return false;
     }
-    if ((sp = strrchr(sp, '.')) != NULL)
+    if ((sp = strrchr(sp, '.')))
     {
         sp++;
-        for (int i = 0; suflist[i] != NULL; i++)
+        for (int i = 0; suflist[i]; ++i)
             if (strcmp(sp, suflist[i]) == 0)
             {
                 DPRINTF(2, (stderr, "false (file has suffix \".%s\")\n", sp));
@@ -498,7 +498,7 @@ static int is_fortfile(const char *const file, char **datp)
         DPRINTF(2, (stderr, "false (no \".dat\" file)\n"));
         return false;
     }
-    if (datp != NULL)
+    if (datp)
         *datp = datfile;
     else
         free(datfile);
@@ -533,7 +533,7 @@ static int add_file(int percent, const char *file, const char *dir,
     char *sp;
     struct stat statbuf;
 
-    if (dir == NULL)
+    if (!dir)
     {
         path = strdup(file);
     }
@@ -549,7 +549,7 @@ static int add_file(int percent, const char *file, const char *dir,
         return false;
     }
     const int isdir = is_dir(path);
-    if ((isdir > 0 && parent != NULL) || (isdir < 0))
+    if ((isdir > 0 && parent) || (isdir < 0))
     {
         free(path);
         return false; /* don't recurse */
@@ -566,7 +566,7 @@ static int add_file(int percent, const char *file, const char *dir,
         debugprint("sarahhhhh fd=%d path=<%s> dir=<%s> file=<%s> percent=%d\n",
             fd, path, dir, file, percent);
         bool found = false;
-        if (dir == NULL && (strchr(file, '/') == NULL))
+        if (!dir && (!strchr(file, '/')))
         {
             if (((sp = strrchr(file, '-')) != NULL) && (strcmp(sp, "-o") == 0))
             {
@@ -594,7 +594,7 @@ static int add_file(int percent, const char *file, const char *dir,
 #undef COND_CALL__add_file
 #undef CALL__add_file
         }
-        if (!found && parent == NULL && dir == NULL)
+        if (!found && !parent && !dir)
         { /* don't display an error when trying language specific files */
             if (env_lang)
             {
@@ -663,7 +663,7 @@ static int add_file(int percent, const char *file, const char *dir,
 
     if ((isdir && !add_dir(fp)) || (!isdir && !is_fortfile(path, &fp->datfile)))
     {
-        if (parent == NULL)
+        if (!parent)
             fprintf(
                 stderr, "fortune:%s not a fortune file or directory\n", path);
         free(path);
@@ -696,7 +696,7 @@ static int add_file(int percent, const char *file, const char *dir,
     }
     /* End hack. */
 
-    if (*head == NULL)
+    if (!(*head))
         *head = *tail = fp;
     else if (fp->percent == NO_PROB)
     {
@@ -734,7 +734,7 @@ int add_dir(FILEDESC *fp)
 
     close(fp->fd);
     fp->fd = -1;
-    if ((dir = opendir(fp->path)) == NULL)
+    if (!(dir = opendir(fp->path)))
     {
         debugprint("yonah\n");
         perror(fp->path);
@@ -752,7 +752,7 @@ int add_dir(FILEDESC *fp)
         perror("Out of RAM!");
         exit(-1);
     }
-    while ((dirent = readdir(dir)) != NULL)
+    while ((dirent = readdir(dir)))
     {
         if (dirent->d_name[0] == 0)
             continue;
@@ -1151,7 +1151,7 @@ static void getargs(int argc, char **argv)
 #endif /* DEBUG */
 /* If (Find_files) print_list() moved to main */
 #ifndef NO_REGEX
-    if (pat != NULL)
+    if (pat)
     {
         if (ignore_case)
             pat = conv_pat(pat);
@@ -1183,7 +1183,7 @@ static void init_prob(void)
      * (if any).
      */
     FILEDESC *last = NULL;
-    for (fp = File_tail; fp != NULL; fp = fp->prev)
+    for (fp = File_tail; fp; fp = fp->prev)
         if (fp->percent == NO_PROB)
         {
             num_noprob++;
@@ -1280,7 +1280,7 @@ static void get_tbl(FILEDESC *fp)
 
     if (fp->read_tbl)
         return;
-    if (fp->child == NULL)
+    if (!(fp->child))
     {
         if ((fd = open(fp->datfile, O_RDONLY | O_BINARY)) < 0)
         {
@@ -1333,7 +1333,7 @@ static void get_tbl(FILEDESC *fp)
     else
     {
         zero_tbl(&fp->tbl);
-        for (child = fp->child; child != NULL; child = child->next)
+        for (child = fp->child; child; child = child->next)
         {
             get_tbl(child);
             sum_tbl(&fp->tbl, &child->tbl);
@@ -1353,7 +1353,7 @@ static void sum_noprobs(FILEDESC *fp)
     if (did_noprobs)
         return;
     zero_tbl(&Noprob_tbl);
-    while (fp != NULL)
+    while (fp)
     {
         get_tbl(fp);
         /* This conditional should help us return correct values for -f
@@ -1442,7 +1442,7 @@ static void get_fort(void)
     FILEDESC *fp;
     int choice;
 
-    if (File_list->next == NULL || File_list->percent == NO_PROB)
+    if (!File_list->next || File_list->percent == NO_PROB)
         fp = File_list;
     else
     {
@@ -1464,7 +1464,7 @@ static void get_fort(void)
         get_tbl(fp);
     else
     {
-        if (fp->next != NULL)
+        if (fp->next)
         {
             sum_noprobs(fp);
             choice = (int)(my_random(Noprob_tbl.str_numstr));
@@ -1487,7 +1487,7 @@ static void get_fort(void)
         fprintf(stderr, "fortune: no fortune found\n");
         exit(1);
     }
-    if (fp->child != NULL)
+    if (fp->child)
     {
         DPRINTF(1, (stderr, "picking child\n"));
         fp = pick_child(fp);
@@ -1512,7 +1512,7 @@ static void get_fort(void)
  */
 static void open_fp(FILEDESC *fp)
 {
-    if (fp->inf == NULL && (fp->inf = fdopen(fp->fd, "r")) == NULL)
+    if (!fp->inf && !(fp->inf = fdopen(fp->fd, "r")))
     {
         perror(fp->path);
         exit(1);
@@ -1529,9 +1529,9 @@ static int maxlen_in_list(FILEDESC *list)
     FILEDESC *fp;
     int len, maxlen = 0;
 
-    for (fp = list; fp != NULL; fp = fp->next)
+    for (fp = list; fp; fp = fp->next)
     {
-        if (fp->child != NULL)
+        if (fp->child)
         {
             if ((len = maxlen_in_list(fp->child)) > maxlen)
                 maxlen = len;
@@ -1561,9 +1561,9 @@ static void matches_in_list(FILEDESC *list)
     int in_file, nchar;
     char *output;
 
-    for (fp = list; fp != NULL; fp = fp->next)
+    for (fp = list; fp; fp = fp->next)
     {
-        if (fp->child != NULL)
+        if (fp->child)
         {
             matches_in_list(fp->child);
             continue;
@@ -1572,7 +1572,7 @@ static void matches_in_list(FILEDESC *list)
         open_fp(fp);
         sp = Fortbuf;
         in_file = false;
-        while (fgets((char *)sp, Fort_len, fp->inf) != NULL)
+        while (fgets((char *)sp, Fort_len, fp->inf))
         {
             if (!STR_ENDSTRING(sp, fp->tbl))
             {
@@ -1662,7 +1662,7 @@ static void display(FILEDESC *fp)
     fseek(fp->inf, (long)Seekpts[0], SEEK_SET);
     if (Show_filename)
         printf("(%s)\n%%\n", fp->name);
-    for (Fort_len = 0; fgets((char *)line, sizeof line, fp->inf) != NULL &&
+    for (Fort_len = 0; fgets((char *)line, sizeof line, fp->inf) &&
                        !STR_ENDSTRING(line, fp->tbl);
          Fort_len++)
     {
@@ -1709,7 +1709,7 @@ static int fortlen(void)
         open_fp(Fortfile);
         fseek(Fortfile->inf, (long)Seekpts[0], SEEK_SET);
         nchar = 0;
-        while (fgets(line, sizeof line, Fortfile->inf) != NULL &&
+        while (fgets(line, sizeof line, Fortfile->inf) &&
                !STR_ENDSTRING(line, Fortfile->tbl))
             nchar += strlen(line);
     }

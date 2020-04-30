@@ -135,13 +135,11 @@ static void getargs(int ac, char *av[])
 
 static void order_unstr(STRFILE *tbl)
 {
-    uint32_t i;
-    char *sp;
     int32_t pos;
     char buf[BUFSIZ];
     int printedsome;
 
-    for (i = 0; i <= tbl->str_numstr; i++)
+    for (uint32_t i = 0; i <= tbl->str_numstr; ++i)
     {
         if (!fread((char *)&pos, 1, sizeof pos, Dataf))
         {
@@ -151,8 +149,8 @@ static void order_unstr(STRFILE *tbl)
         printedsome = 0;
         for (;;)
         {
-            sp = fgets(buf, sizeof buf, Inf);
-            if (sp == NULL || STR_ENDSTRING(sp, *tbl))
+            char *const sp = fgets(buf, sizeof buf, Inf);
+            if ((!sp) || STR_ENDSTRING(sp, *tbl))
             {
                 if (sp || printedsome)
                     fprintf(Outf, "%c\n", delimiter_char);
@@ -172,19 +170,19 @@ int main(int ac, char **av)
     static STRFILE tbl; /* description table */
 
     getargs(ac, av);
-    if ((Inf = fopen(input_filename, "r")) == NULL)
+    if (!(Inf = fopen(input_filename, "r")))
     {
         perror(input_filename);
         exit(1);
     }
-    if ((Dataf = fopen(data_filename, "r")) == NULL)
+    if (!(Dataf = fopen(data_filename, "r")))
     {
         perror(data_filename);
         exit(1);
     }
     if (*output_filename == '\0')
         Outf = stdout;
-    else if ((Outf = fopen(output_filename, "w+")) == NULL)
+    else if (!(Outf = fopen(output_filename, "w+")))
     {
         perror(output_filename);
         exit(1);

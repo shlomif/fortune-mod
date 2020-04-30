@@ -88,12 +88,12 @@
 
 #define ALLOC(ptr, sz)                                                         \
     {                                                                          \
-        if (ptr == NULL)                                                       \
+        if (!ptr)                                                              \
             ptr = malloc((unsigned int)(CHUNKSIZE * sizeof *ptr));             \
         else if (((sz) + 1) % CHUNKSIZE == 0)                                  \
             ptr = realloc((void *)ptr,                                         \
                 ((unsigned int)((sz) + CHUNKSIZE) * sizeof *ptr));             \
-        if (ptr == NULL)                                                       \
+        if (!ptr)                                                              \
         {                                                                      \
             fprintf(stderr, "out of space\n");                                 \
             exit(1);                                                           \
@@ -361,13 +361,13 @@ int main(int ac, char **av)
     bool len_was_set = false;
 
     getargs(ac, av); /* evalute arguments */
-    if ((inf = fopen(input_filename, "r")) == NULL)
+    if (!(inf = fopen(input_filename, "r")))
     {
         perror(input_filename);
         exit(1);
     }
 
-    if ((outf = fopen(output_filename, "w")) == NULL)
+    if (!(outf = fopen(output_filename, "w")))
     {
         perror(output_filename);
         exit(1);
@@ -392,7 +392,7 @@ int main(int ac, char **av)
     {
         char string[257];
         sp = fgets(string, 256, inf);
-        if (sp == NULL || STR_ENDSTRING(sp, Tbl))
+        if ((!sp) || STR_ENDSTRING(sp, Tbl))
         {
             const int32_t pos = (int32_t)ftell(inf);
             const int32_t length =
@@ -445,7 +445,7 @@ int main(int ac, char **av)
             fp->pos = Seekpts[Num_pts - 1];
             first = false;
         }
-    } while (sp != NULL);
+    } while (sp);
 
     /*
      * write the tables in
