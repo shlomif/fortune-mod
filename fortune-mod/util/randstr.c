@@ -94,6 +94,8 @@ static FILE *Inf, *Dataf, *Outf;
 
 static off_t pos, Seekpts[2]; /* seek pointers to fortunes */
 
+#include "fortune-util.h"
+
 static void getargs(char *av[])
 {
     av += optind + 1;
@@ -101,23 +103,7 @@ static void getargs(char *av[])
     if (*av)
     {
         input_filename = *av;
-        if (strlen(input_filename) > COUNT(data_filename) - 10)
-        {
-            perror("input is too long");
-            exit(1);
-        }
-        /* Hmm.  Don't output anything if we can help it.
-         * fprintf(stderr, "Input file: %s\n",input_filename); */
-        char *const extc = strrchr(input_filename, '.');
-        if (!extc)
-        {
-            sprintf(data_filename, "%s.dat", input_filename);
-        }
-        else
-        {
-            strcpy(data_filename, input_filename);
-            *extc = '\0';
-        }
+        input_fn_2_data_fn();
     }
     else
         /*    {

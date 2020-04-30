@@ -84,6 +84,8 @@ static char new_delimiter_char = '\0';
 
 static FILE *Inf, *Dataf, *Outf;
 
+#include "fortune-util.h"
+
 /* ARGSUSED */
 static void getargs(int ac, char *av[])
 {
@@ -112,22 +114,7 @@ static void getargs(int ac, char *av[])
     if (*av)
     {
         input_filename = *av;
-        fprintf(stderr, "Input file: %s\n", input_filename);
-        if (strlen(input_filename) > COUNT(data_filename) - 10)
-        {
-            perror("input is too long");
-            exit(1);
-        }
-        char *const extc = strrchr(input_filename, '.');
-        if (!extc)
-        {
-            sprintf(data_filename, "%s.dat", input_filename);
-        }
-        else
-        {
-            strcpy(data_filename, input_filename);
-            *extc = '\0';
-        }
+        input_fn_2_data_fn();
         if (*++av)
         {
             strcpy(output_filename, *av);
