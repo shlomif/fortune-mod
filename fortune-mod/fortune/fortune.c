@@ -226,7 +226,7 @@ fallback:
 static char *program_version(void)
 {
     static char buf[BUFSIZ];
-    (void)sprintf(buf, "%s version %s", PROGRAM_NAME, VERSION);
+    (void)snprintf(buf, sizeof(buf), "%s version %s", PROGRAM_NAME, VERSION);
     return buf;
 }
 
@@ -490,8 +490,9 @@ static int is_fortfile(const char *const file, char **datp)
             }
     }
 
-    char *const datfile = do_malloc((unsigned int)(strlen(file) + 6));
-    sprintf(datfile, "%s.dat", file);
+    const size_t do_len = (strlen(file) + 6);
+    char *const datfile = do_malloc(do_len);
+    snprintf(datfile, do_len - 1, "%s.dat", file);
     if (access(datfile, R_OK) < 0)
     {
         free(datfile);
@@ -539,8 +540,9 @@ static int add_file(int percent, const char *file, const char *dir,
     }
     else
     {
-        path = do_malloc((unsigned int)(strlen(dir) + strlen(file) + 2));
-        sprintf(path, "%s/%s", dir, file);
+        const size_t do_len = (strlen(dir) + strlen(file) + 2);
+        path = do_malloc(do_len + 1);
+        snprintf(path, do_len, "%s/%s", dir, file);
     }
     if (*path == '/' &&
         !is_existant(path)) /* If doesn't exist, don't do anything. */
@@ -649,8 +651,9 @@ static int add_file(int percent, const char *file, const char *dir,
 
     // FIXME
     fp->utf8_charset = false;
-    char *testpath = do_malloc(strlen(path) + 4UL);
-    sprintf(testpath, "%s.u8", path);
+    const size_t do_len = (strlen(path) + 5);
+    char *testpath = do_malloc(do_len + 1);
+    snprintf(testpath, do_len, "%s.u8", path);
     //    fprintf(stderr, "State mal: %s\n", testpath);
     if (stat(testpath, &statbuf) == 0)
         fp->utf8_charset = true;
@@ -1782,8 +1785,9 @@ int main(int ac, char *av[])
 #endif
 
 #ifdef WITH_RECODE
-    char *crequest = malloc(strlen(ctype) + 7 + 1);
-    sprintf(crequest, "UTF-8..%s", ctype);
+    const size_t do_len = strlen(ctype) + 7 + 1;
+    char *crequest = do_malloc(do_len + 1);
+    snprintf(crequest, do_len, "UTF-8..%s", ctype);
     recode_scan_request(request, crequest);
     free(crequest);
 #endif

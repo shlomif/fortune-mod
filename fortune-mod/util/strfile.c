@@ -189,12 +189,8 @@ static void getargs(int argc, char **argv)
             puts("input file name too long!");
             usage();
         }
-#ifdef HAVE_SNPRINTF
         snprintf(
             output_filename, COUNT(output_filename), "%s.dat", input_filename);
-#else
-        sprintf(output_filename, "%s.dat", input_filename);
-#endif
     }
 }
 

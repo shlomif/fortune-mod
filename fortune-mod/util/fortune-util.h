@@ -12,11 +12,7 @@ static void input_fn_2_data_fn(void)
     char *const extc = strrchr(input_filename, '.');
     if (!extc)
     {
-#ifdef HAVE_SNPRINTF
         snprintf(data_filename, COUNT(data_filename), "%s.dat", input_filename);
-#else
-        sprintf(data_filename, "%s.dat", input_filename);
-#endif
     }
     else
     {
