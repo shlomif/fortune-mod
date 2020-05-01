@@ -917,12 +917,32 @@ static int form_file_list(char **files, int file_cnt)
             sp = files[i];
         else
         {
+            const int MAX_PERCENT = 100;
+            bool percent_has_overflowed = false;
             percent = 0;
             for (sp = files[i]; isdigit(*sp); sp++)
+            {
                 percent = percent * 10 + *sp - '0';
-            if (percent > 100)
+                percent_has_overflowed = (percent > MAX_PERCENT);
+                if (percent_has_overflowed)
+                {
+                    break;
+                }
+            }
+            if (percent_has_overflowed || (percent > 100))
             {
                 fprintf(stderr, "percentages must be <= 100\n");
+                fprintf(stderr,
+                    "Overflow percentage detected at argument \"%s\"!\n",
+                    files[i]);
+                ErrorMessage = true;
+                return false;
+            }
+            if (percent < 0)
+            {
+                fprintf(stderr,
+                    "Overflow percentage detected at argument \"%s\"!\n",
+                    files[i]);
                 ErrorMessage = true;
                 return false;
             }
