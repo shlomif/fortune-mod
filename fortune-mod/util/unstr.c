@@ -104,8 +104,8 @@ static void getargs(int ac, char *av[])
             break;
         case '?':
         default:
-            fprintf(
-                stderr, "Usage:\n\tunstr [-c C] datafile[.ext] [outputfile]\n");
+            fprintf(stderr, "%s",
+                "Usage:\n\tunstr [-c C] datafile[.ext] [outputfile]\n");
             exit(1);
         }
 
@@ -119,8 +119,9 @@ static void getargs(int ac, char *av[])
     }
     else
     {
-        fprintf(stderr, "No input file name\n");
-        fprintf(stderr, "Usage:\n\tunstr [-c C] datafile[.ext] [outputfile]\n");
+        fprintf(stderr, "%s", "No input file name\n");
+        fprintf(stderr, "%s",
+            "Usage:\n\tunstr [-c C] datafile[.ext] [outputfile]\n");
         exit(1);
     }
     if (!strcmp(input_filename, output_filename))

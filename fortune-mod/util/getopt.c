@@ -98,9 +98,13 @@ int getopt(int nargc, char *const nargv[], const char *ostr)
         { /* no arg */
             place = EMSG;
             if (*ostr == ':')
+            {
                 return (BADARG);
+            }
             if (opterr)
+            {
                 (void)printf("option requires an argument -- %c\n", optopt);
+            }
             return (BADCH);
         }
         else /* white space */

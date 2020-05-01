@@ -127,7 +127,7 @@ static STR *Firstch; /* first chars of each string */
 
 static void __attribute__((noreturn)) usage(void)
 {
-    fprintf(stderr, "strfile [-iorsx] [-c char] sourcefile [datafile]\n");
+    fprintf(stderr, "%s", "strfile [-iorsx] [-c char] sourcefile [datafile]\n");
     exit(1);
 }
 

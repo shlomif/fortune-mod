@@ -233,23 +233,23 @@ static char *program_version(void)
 static void __attribute__((noreturn)) usage(void)
 {
     (void)fprintf(stderr, "%s\n", program_version());
-    (void)fprintf(stderr, "fortune [-a");
+    (void)fprintf(stderr, "%s", "fortune [-a");
 #ifdef DEBUG
-    (void)fprintf(stderr, "D");
+    (void)fprintf(stderr, "%s", "D");
 #endif /* DEBUG */
-    (void)fprintf(stderr, "f");
+    (void)fprintf(stderr, "%s", "f");
 #ifndef NO_REGEX
-    (void)fprintf(stderr, "i");
+    (void)fprintf(stderr, "%s", "i");
 #endif /* NO_REGEX */
-    (void)fprintf(stderr, "l");
+    (void)fprintf(stderr, "%s", "l");
 #ifndef NO_OFFENSIVE
-    (void)fprintf(stderr, "o");
+    (void)fprintf(stderr, "%s", "o");
 #endif
-    (void)fprintf(stderr, "sw]");
+    (void)fprintf(stderr, "%s", "sw]");
 #ifndef NO_REGEX
-    (void)fprintf(stderr, " [-m pattern]");
+    (void)fprintf(stderr, "%s", " [-m pattern]");
 #endif /* NO_REGEX */
-    (void)fprintf(stderr, " [-n number] [ [#%%] file/directory/all]\n");
+    (void)fprintf(stderr, "%s", " [-n number] [ [#%] file/directory/all]\n");
     exit(1);
 }
 
@@ -323,7 +323,7 @@ static char *conv_pat(char *orig)
             cnt++;
     if (!(new_buf = malloc(cnt)))
     {
-        fprintf(stderr, "pattern too long for ignoring case\n");
+        fprintf(stderr, "%s", "pattern too long for ignoring case\n");
         exit(1);
     }
 
@@ -361,7 +361,7 @@ static void *do_malloc(size_t size)
 
     if (!new_buf)
     {
-        (void)fprintf(stderr, "fortune: out of memory.\n");
+        (void)fprintf(stderr, "%s", "fortune: out of memory.\n");
         exit(1);
     }
     return new_buf;
@@ -476,7 +476,7 @@ static int is_fortfile(const char *const file, char **datp)
         sp++;
     if (*sp == '.')
     {
-        DPRINTF(2, (stderr, "false (file starts with '.')\n"));
+        DPRINTF(2, (stderr, "%s", "false (file starts with '.')\n"));
         return false;
     }
     if ((sp = strrchr(sp, '.')))
@@ -491,19 +491,19 @@ static int is_fortfile(const char *const file, char **datp)
     }
 
     const size_t do_len = (strlen(file) + 6);
-    char *const datfile = do_malloc(do_len);
-    snprintf(datfile, do_len - 1, "%s.dat", file);
+    char *const datfile = do_malloc(do_len + 1);
+    snprintf(datfile, do_len, "%s.dat", file);
     if (access(datfile, R_OK) < 0)
     {
         free(datfile);
-        DPRINTF(2, (stderr, "false (no \".dat\" file)\n"));
+        DPRINTF(2, (stderr, "%s", "false (no \".dat\" file)\n"));
         return false;
     }
     if (datp)
         *datp = datfile;
     else
         free(datfile);
-    DPRINTF(2, (stderr, "true\n"));
+    DPRINTF(2, (stderr, "%s", "true\n"));
     return true;
 }
 
@@ -928,7 +928,7 @@ static int form_file_list(char **files, int file_cnt)
             }
             if (*sp == '.')
             {
-                fprintf(stderr, "percentages must be integers\n");
+                fprintf(stderr, "%s", "percentages must be integers\n");
                 ErrorMessage = true;
                 return false;
             }
@@ -946,7 +946,7 @@ static int form_file_list(char **files, int file_cnt)
             {
                 if (++i >= file_cnt)
                 {
-                    fprintf(stderr, "percentages must precede files\n");
+                    fprintf(stderr, "%s", "percentages must precede files\n");
                     ErrorMessage = true;
                     return false;
                 }
@@ -1114,7 +1114,7 @@ static void getargs(int argc, char **argv)
 #ifdef NO_REGEX
         case 'i': /* case-insensitive match */
         case 'm': /* dump out the fortunes */
-            (void)fprintf(stderr,
+            (void)fprintf(stderr, "%s",
                 "fortune: can't match fortunes on this system (Sorry)\n");
             exit(0);
 #else             /* NO_REGEX */
@@ -1145,7 +1145,9 @@ static void getargs(int argc, char **argv)
     if (!form_file_list(argv, argc))
     {
         if (!ErrorMessage)
-            fprintf(stderr, "No fortunes found\n");
+        {
+            fprintf(stderr, "%s", "No fortunes found\n");
+        }
         exit(1); /* errors printed through form_file_list() */
     }
 #ifdef DEBUG
@@ -1240,7 +1242,7 @@ static void init_prob(void)
                            percent));
         }
     }
-    DPRINTF(1, (stderr, "\n"));
+    DPRINTF(1, (stderr, "%s", "\n"));
 
 #ifdef DEBUG
 /*      if (Debug >= 1)
@@ -1487,12 +1489,12 @@ static void get_fort(void)
     }
     if (fp->tbl.str_numstr == 0)
     {
-        fprintf(stderr, "fortune: no fortune found\n");
+        fprintf(stderr, "%s", "fortune: no fortune found\n");
         exit(1);
     }
     if (fp->child)
     {
-        DPRINTF(1, (stderr, "picking child\n"));
+        DPRINTF(1, (stderr, "%s", "picking child\n"));
         fp = pick_child(fp);
     }
     Fortfile = fp;
