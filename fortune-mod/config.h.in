@@ -16,8 +16,6 @@ extern "C" {
 #define OFFDIR "${OCOOKIEDIR}"
 #define FORTDIR "${COOKIEDIR}"
 
-#cmakedefine HAVE_SNPRINTF
-
 #ifdef __cplusplus
 }
 #endif
