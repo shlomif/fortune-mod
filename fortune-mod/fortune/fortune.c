@@ -1074,7 +1074,7 @@ static int form_file_list(char **files, int file_cnt)
  */
 static void getargs(int argc, char **argv)
 {
-    int ignore_case = false;
+    bool ignore_case = false;
 
 #ifndef NO_REGEX
     char *pat = NULL;
@@ -1143,7 +1143,7 @@ static void getargs(int argc, char **argv)
             pat = optarg;
             break;
         case 'i': /* case-insensitive match */
-            ignore_case++;
+            ignore_case = true;
             break;
 #endif            /* NO_REGEX */
         case 'u': /* Don't recode the fortune */
