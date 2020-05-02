@@ -312,15 +312,23 @@ static void print_list(FILEDESC *list, int lev)
 static char *conv_pat(char *orig)
 {
     char *sp;
-    unsigned int cnt;
     char *new_buf;
 
-    cnt = 1; /* allow for '\0' */
+    size_t cnt = 1; /* allow for '\0' */
     for (sp = orig; *sp != '\0'; sp++)
+    {
+        const size_t prev_cnt = cnt;
         if (isalpha(*sp))
             cnt += 4;
         else
             cnt++;
+        if (prev_cnt >= cnt)
+        {
+            fprintf(stderr, "%s",
+                "pattern too long for ignoring case; overflow!\n");
+            exit(1);
+        }
+    }
     if (!(new_buf = malloc(cnt)))
     {
         fprintf(stderr, "%s", "pattern too long for ignoring case\n");
