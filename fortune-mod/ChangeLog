@@ -1,6 +1,15 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+May 02, 2020 (fortune-mod 2.26.0)
+
+	SECURITY: Avoid integer overflow in parsing the percentages which caused
+	using negative integers.
+
+	https://metacpan.org/pod/Test::Trap is a new tests' dependency
+
+	Format strings cleanups in C.
+
 April 30, 2020 (fortune-mod 2.24.0)
 
 	SECURITY: Avoid some potential buffer overflows in unstr, strfile and randstr.
