@@ -22,12 +22,16 @@ sub do_system
     }
 }
 
+# to avoid paths that start with "./fortune"
+my $BASE_PATH_PREFIX = "TEMP-DIR-";
+
 sub install
 {
-    my ($basepath) = @_;
-    my $cwd        = cwd->absolute;
-    my $build_dir  = $cwd->child("$basepath-build-dir");
-    my $inst_dir   = $cwd->child("$basepath-INST_DIR");
+    my ($basebasepath) = @_;
+    my $basepath       = $BASE_PATH_PREFIX . $basebasepath;
+    my $cwd            = cwd->absolute;
+    my $build_dir      = $cwd->child("$basepath-build-dir");
+    my $inst_dir       = $cwd->child("$basepath-INST_DIR");
     rmtree( $build_dir, 0, 0 );
     rmtree( $inst_dir,  0, 0 );
     mkpath($build_dir);
