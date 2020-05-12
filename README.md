@@ -97,7 +97,7 @@ as the tag <code>fortune-mod-1.99.1</code>.
 9. Added valgrind tests and fixed some memory leaks.
 
 10. Released fortune-mod-1.99.3, fortune-mod-1.99.4, v2.0.0 and up to
-version 2.16.0
+version 2.26.0
 
 11. Fixed some C compiler warnings encountered with the GCC compiler flags of
 [Shlomif_Common](https://bitbucket.org/shlomif/shlomif-cmake-modules/overview).
@@ -114,6 +114,18 @@ by a set of patches on the Fedora package.
 
 16. Got the build and tests to pass on [AppVeyor/MS Windows](https://ci.appveyor.com/project/shlomif/fortune-mod)
 (with some appreciated help).
+
+17. Found and fixed some security issues:
+    - Seems to affect some Linux distributions as well as FreeBSD and NetBSD.
+        - Was already fixed in OpenBSD
+    - https://bugs.mageia.org/show_bug.cgi?id=26567
+    - https://advisories.mageia.org/MGASA-2020-0199.html
+    - https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=246050
+    - https://github.com/shlomif/fortune-mod/commit/fe182a25663261be6e632a2824f6fd653d1d8f45
+    - https://github.com/shlomif/fortune-mod/commit/540c495f57e441b745038061a3cfa59e3a97bf33
+    - https://github.com/shlomif/fortune-mod/commit/acd338098071bddfa1d21f87e1813727031428ea
+
+18. Reformatted the C code using [clang-format](https://clang.llvm.org/docs/ClangFormat.html).
 
 # What remains to be done.
 
