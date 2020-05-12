@@ -19,3 +19,12 @@ providing patches and fixes.
 
 * https://src.fedoraproject.org/rpms/fortune-mod[Fedora packagers]:
 providing patches and fixes.
+
+* Pull Requests sent:
+** https://github.com/shlomif/fortune-mod/pull/39
+** https://github.com/shlomif/fortune-mod/pull/38
+** https://github.com/shlomif/fortune-mod/pull/36
+** https://github.com/shlomif/fortune-mod/pull/32
+** https://github.com/shlomif/fortune-mod/pull/31
+** https://github.com/shlomif/fortune-mod/pull/30
+** And others
