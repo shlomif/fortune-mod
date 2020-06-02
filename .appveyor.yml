@@ -6,6 +6,7 @@ environment:
     global:
         MSYSTEM: MINGW64
         VERBOSE: 1
+image: Visual Studio 2019
 install:
     - choco install strawberryperl
     - SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%

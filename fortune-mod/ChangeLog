@@ -1,6 +1,14 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+June 02, 2020 (fortune-mod 2.28.0)
+
+	SECURITY [low risk]: avoid overflow with the -i flag
+
+	Correct attributions and typos (Thanks to Tobin Yehle.)
+
+	Small code cleanups.
+
 May 02, 2020 (fortune-mod 2.26.0)
 
 	SECURITY: Avoid integer overflow in parsing the percentages which caused
