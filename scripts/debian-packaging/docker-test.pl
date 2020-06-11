@@ -9,24 +9,51 @@ use Path::Tiny qw/ cwd /;
 use Docker::CLI::Wrapper::Container v0.0.4 ();
 
 my $obj = Docker::CLI::Wrapper::Container->new(
-    { container => "fortune-mod--deb--test-build", sys => "debian:sid", } );
+    { container => "wml--deb--test-build", sys => "docker.io/debian:sid", } );
+if (0)
+{
+    print $obj->docker_cmd_line_prefix;
 
+    # unshift @{ $obj->{docker_cmd_line_prefix} }, 'sudo';
+    print $obj->docker_cmd_line_prefix;
+}
 my $USER    = "mygbp";
 my $HOMEDIR = "/home/$USER";
 
 $obj->clean_up();
 $obj->run_docker();
-my $REPO = 'fortune-mod';
-my $URL  = "https://salsa.debian.org/shlomif-guest/$REPO";
+my $REPO = 'wml';
+my $URL  = "https://salsa.debian.org/debian/$REPO";
 
+my $BRANCH = "2.20.4-pkg-incomplete";
 if ( !-e $REPO )
 {
-    $obj->do_system( { cmd => [ "git", "clone", $URL, ] } );
+    $obj->do_system( { cmd => [ "git", "clone", '-b', $BRANCH, $URL, ] } );
 }
 my $cwd = cwd;
 chdir "./$REPO";
 $obj->do_system( { cmd => [ "git", "pull", "--ff-only", ] } );
 chdir $cwd;
+
+my @DEPS = qw/
+    eperl
+    freetable
+    libbit-vector-perl
+    libcarp-always-perl
+    libcode-tidyall-perl
+    libgd-gd2-perl
+    libhtml-clean-perl
+    libimage-size-perl
+    libio-all-perl
+    libperl-critic-perl
+    linklint
+    lynx
+    mp4h
+    slice
+    txt2html
+    weblint-perl
+    zlib1g-dev
+    /;
 
 my $LOG_FN = "git-buildpackage-log.txt";
 
@@ -37,7 +64,7 @@ my $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 apt-get -y update
 apt-get -y install eatmydata sudo
-sudo eatmydata apt -y install build-essential chrpath cmake git-buildpackage librecode-dev perl recode
+sudo eatmydata apt -y install build-essential chrpath cmake git-buildpackage librecode-dev perl recode @DEPS
 sudo adduser --disabled-password --gecos '' "$USER"
 sudo usermod -a -G sudo "$USER"
 echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
@@ -57,7 +84,7 @@ $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 cd "$HOMEDIR/$REPO"
 git clean -dxf .
-(if ! gbp buildpackage 2>&1 ; then cat /tmp/fort*diff* ; exit 1 ; fi) | tee ~/"$LOG_FN"
+(if ! gbp buildpackage --git-debian-branch="$BRANCH" 2>&1 ; then cat /tmp/fort*diff* ; exit 1 ; fi) | tee ~/"$LOG_FN"
 EOSCRIPTTTTTTT
 
 $obj->exe_bash_code(
