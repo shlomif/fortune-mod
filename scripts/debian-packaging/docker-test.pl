@@ -26,13 +26,17 @@ my $REPO = 'wml';
 my $URL  = "https://salsa.debian.org/debian/$REPO";
 
 my $BRANCH = "2.20.4-pkg-incomplete";
+$BRANCH = "shlomify2";
 if ( !-e $REPO )
 {
     $obj->do_system( { cmd => [ "git", "clone", '-b', $BRANCH, $URL, ] } );
 }
 my $cwd = cwd;
 chdir "./$REPO";
-$obj->do_system( { cmd => [ "git", "pull", "--ff-only", ] } );
+if (0)
+{
+    $obj->do_system( { cmd => [ "git", "pull", "--ff-only", ] } );
+}
 chdir $cwd;
 
 my @DEPS = qw/
