@@ -28,6 +28,24 @@ $URL = "https://salsa.debian.org/shlomif-guest/$REPO";
 
 my $BRANCH = "2.20.4-pkg-incomplete";
 $BRANCH = "shlomify4";
+my $tarball = "wml_2.28.0~ds1.orig.tar.xz";
+if ( !-e $tarball )
+{
+    $obj->do_system(
+        {
+            cmd => [
+                "wget",
+                "-O",
+                $tarball,
+"https://github.com/thewml/website-meta-language/releases/download/releases%2Fwml-2.28.0/wml-2.28.0.tar.xz"
+            ]
+        }
+    );
+}
+if ( !-e $tarball )
+{
+    die qq#"$tarball" was not found!"#;
+}
 if ( !-e $REPO )
 {
     $obj->do_system( { cmd => [ "git", "clone", '-b', $BRANCH, $URL, ] } );
@@ -80,7 +98,6 @@ $obj->exe_bash_code( { code => $script, } );
 
 $obj->docker(
     { cmd => [ 'cp', "./$REPO", $obj->container() . ":$HOMEDIR/$REPO", ] } );
-my $tarball = "wml_2.28.0~ds1.orig.tar.xz";
 $obj->docker(
     {
         cmd => [ 'cp', "./$tarball", $obj->container() . ":$HOMEDIR/$tarball", ]
