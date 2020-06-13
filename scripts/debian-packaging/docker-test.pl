@@ -24,9 +24,10 @@ $obj->clean_up();
 $obj->run_docker();
 my $REPO = 'wml';
 my $URL  = "https://salsa.debian.org/debian/$REPO";
+$URL = "https://salsa.debian.org/shlomif-guest/$REPO";
 
 my $BRANCH = "2.20.4-pkg-incomplete";
-$BRANCH = "shlomify2";
+$BRANCH = "shlomify4";
 if ( !-e $REPO )
 {
     $obj->do_system( { cmd => [ "git", "clone", '-b', $BRANCH, $URL, ] } );
@@ -53,6 +54,7 @@ my @DEPS = qw/
     linklint
     lynx
     mp4h
+    rsync
     slice
     txt2html
     weblint-perl
@@ -78,6 +80,12 @@ $obj->exe_bash_code( { code => $script, } );
 
 $obj->docker(
     { cmd => [ 'cp', "./$REPO", $obj->container() . ":$HOMEDIR/$REPO", ] } );
+my $tarball = "wml_2.28.0~ds1.orig.tar.xz";
+$obj->docker(
+    {
+        cmd => [ 'cp', "./$tarball", $obj->container() . ":$HOMEDIR/$tarball", ]
+    }
+);
 $obj->exe_bash_code(
     {
         code => "$BASH_SAFETY chown -R $USER:$USER $HOMEDIR",
