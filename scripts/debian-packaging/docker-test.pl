@@ -59,18 +59,22 @@ if (0)
 chdir $cwd;
 
 my @DEPS = qw/
+    debhelper-compat
     eperl
     freetable
     libbit-vector-perl
     libcarp-always-perl
+    libclass-xsaccessor-perl
     libcode-tidyall-perl
     libgd-gd2-perl
     libhtml-clean-perl
     libimage-size-perl
     libio-all-perl
     libperl-critic-perl
+    libterm-readkey-perl
     linklint
     lynx
+    m4
     mp4h
     rsync
     slice
@@ -88,7 +92,7 @@ my $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 apt-get -y update
 apt-get -y install eatmydata sudo
-sudo eatmydata apt -y install build-essential chrpath cmake git-buildpackage librecode-dev perl recode @DEPS
+sudo eatmydata apt -y install --no-install-recommends build-essential chrpath cmake git-buildpackage librecode-dev perl recode @DEPS
 sudo adduser --disabled-password --gecos '' "$USER"
 sudo usermod -a -G sudo "$USER"
 echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
