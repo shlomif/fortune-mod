@@ -45,6 +45,6 @@ __PACKAGE__->do_system(
 );
 
 path("${CMAKE_CURRENT_SOURCE_DIR}/util/strfile.man")
-    ->spew_utf8(
-    cwd()->child("strfile.1")->slurp_utf8() =~ s#^\s+(\.RE|\.PP)\s*$#$1#gmsr =~
-        s#^\s+$##gmsr );
+    ->spew_utf8( cwd()->child("strfile.1")->slurp_utf8() =~
+        s#^[\t ]+(\.RE|\.PP)[\t ]*$#$1#gmrs =~ s#^[\t ]+$##gmrs =~
+        s#\n\n+#\n\n#gmrs );
