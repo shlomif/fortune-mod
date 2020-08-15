@@ -200,6 +200,7 @@ ADD_CUSTOM_TARGET(
     generate_man_page
     ALL DEPENDS "${_my_man_page}"
 )
+INSTALL_RENAME_MAN("fortune.6" "6" "fortune" "${_my_man_page_dir}")
 
 SET (_my_man_page_dir "${CMAKE_CURRENT_SOURCE_DIR}/util")
 SET (_my_man_page "${_my_man_page_dir}/strfile.man")
@@ -214,7 +215,6 @@ ADD_CUSTOM_COMMAND(
 )
 
 INSTALL_RENAME_MAN("strfile.man" "1" "strfile" "util")
-INSTALL_RENAME_MAN("fortune.6" "6" "fortune" "${_my_man_page_dir}")
 
 INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/util")
 
