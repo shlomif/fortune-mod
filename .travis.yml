@@ -1,20 +1,25 @@
 addons:
     apt:
         packages:
+            - asciidoc
             - cmake
             - cpanminus
+            - dbtoepub
+            - docbook-xsl
+            - docbook-xsl-ns
             - gcc
             - libperl-dev
             - librecode-dev
-            - perl
             - make
+            - perl
             - valgrind
+            - xsltproc
             - xz-utils
             - zip
 before_install:
     - cpanm local::lib
     - eval "$(perl -Mlocal::lib=$HOME/perl_modules)"
-    - cpanm Code::TidyAll::Plugin::ClangFormat Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount File::Find::Object List::Util Path::Tiny Perl::Critic Perl::Tidy Test::Code::TidyAll Test::Differences Test::RunValgrind Test::Trap
+    - cpanm App::Docmake Code::TidyAll::Plugin::ClangFormat Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount File::Find::Object List::Util Path::Tiny Perl::Critic Perl::Tidy Test::Code::TidyAll Test::Differences Test::RunValgrind Test::Trap
 cache:
     directories:
         - $HOME/perl_modules
