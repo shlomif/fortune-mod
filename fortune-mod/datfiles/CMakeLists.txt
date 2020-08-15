@@ -37,7 +37,8 @@ FOREACH(c ${COOKIES})
     )
     endif()
 
-    LIST(APPEND _unrot_cookies "${DEST}" "${LINK}")
+    SET(_targets_on_build_stage_for_avoiding_broken_symlinks_which_regenerate "${c}")
+    LIST(APPEND _unrot_cookies ${_targets_on_build_stage_for_avoiding_broken_symlinks_which_regenerate} "${DEST}" "${LINK}")
     LIST(APPEND _install_unrot_cookies "${c}" "${CMAKE_CURRENT_BINARY_DIR}/${DEST}" "${CMAKE_CURRENT_BINARY_DIR}/${LINK}")
 
 ENDFOREACH()
