@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- lifted from man+troff by doclifter -->
+<refentry xmlns='http://docbook.org/ns/docbook' version='5.0' xml:lang='en' xml:id='randstrman'>
+
+<!-- Randstr: grab a random text string from a specified text file
+Amy A. Lewis, October, 1995 -->
+
+<refmeta>
+<refentrytitle>RANDSTR</refentrytitle>
+<manvolnum>1</manvolnum>
+<refmiscinfo class='source'>October 1995</refmiscinfo>
+<refmiscinfo class='manual'>Linux hackery</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>randstr</refname>
+<refpurpose>fetch a random text string from a specified file</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+
+<refsect1 xml:id='synopis'><title>SYNOPIS</title>
+<para><emphasis role='strong' remap='B'>randstr </emphasis><emphasis remap='I'>filename</emphasis></para>
+</refsect1>
+
+<refsect1 xml:id='description'><title>DESCRIPTION</title>
+<para>In essence,
+<emphasis role='strong' remap='B'>randstr</emphasis>
+is a stripped-down, minimalist version of the popular
+<citerefentry><refentrytitle>fortune</refentrytitle><manvolnum>6</manvolnum></citerefentry>
+program.</para>
+
+<para>It reads files with the same structure as the fortunes databases, and
+displays a random string.</para>
+
+<refsect2 xml:id='usage'><title>Usage</title>
+<para><emphasis role='strong' remap='B'>randstr</emphasis>
+might be used, with a database of signatures created with a text editor
+and the
+<citerefentry><refentrytitle>strfile</refentrytitle><manvolnum>8</manvolnum></citerefentry> and <citerefentry><refentrytitle>unstr</refentrytitle><manvolnum>8</manvolnum></citerefentry>
+utilities, to randomly change the
+<emphasis remap='I'>$HOME/.signature</emphasis>
+file.  To do so, create the necessary database as, for example,
+<emphasis remap='I'>signatures</emphasis> and <emphasis remap='I'>signatures.dat</emphasis>
+in the home directory, and add the following line to
+<markup>.profile</markup> or <markup>.login</markup>:</para>
+  <blockquote remap='RS'>
+<para><emphasis role='strong' remap='B'>randstr </emphasis><emphasis remap='I'>signatures</emphasis>
+&gt;<markup>.signature</markup>
+  </para></blockquote> <!-- remap='RE' -->
+
+<para>As superuser, a similar sort of thing could be placed in the
+<citerefentry><refentrytitle>Pnews</refentrytitle><manvolnum>1</manvolnum></citerefentry> or <citerefentry><refentrytitle>Rnmail</refentrytitle><manvolnum>1</manvolnum></citerefentry>
+scripts, although it should certainly test to be certain that the files
+exist, and creating the files of signatures might require a good deal of
+help for a lot of users.</para>
+
+<para>Also as superuser, one might use
+<emphasis role='strong' remap='B'>randstr</emphasis>
+with a shell or
+<emphasis role='strong' remap='B'>Perl</emphasis>
+script to read the
+<emphasis remap='I'>etc/passwd</emphasis>
+database and create a
+<emphasis remap='I'>strfile</emphasis>
+type database, and use this database to run a monthly lottery.</para>
+</refsect2>
+</refsect1>
+
+<refsect1 xml:id='bugs'><title>BUGS</title>
+<para>None known.</para>
+</refsect1>
+
+<refsect1 xml:id='see_also'><title>SEE ALSO</title>
+<para><citerefentry><refentrytitle>fortune</refentrytitle><manvolnum>6</manvolnum></citerefentry>, <citerefentry><refentrytitle>strfile</refentrytitle><manvolnum>1</manvolnum></citerefentry></para>
+</refsect1>
+</refentry>
+
