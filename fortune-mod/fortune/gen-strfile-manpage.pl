@@ -14,7 +14,7 @@ my $ocookiedir;
 my $no_offensive = 0;
 my $CMAKE_CURRENT_SOURCE_DIR;
 GetOptions(
-    '--src-dir'            => \$CMAKE_CURRENT_SOURCE_DIR,
+    '--src-dir=s'          => \$CMAKE_CURRENT_SOURCE_DIR,
     '--cookiedir=s'        => \$cookiedir,
     '--ocookiedir=s'       => \$ocookiedir,
     '--without-offensive!' => \$no_offensive,
@@ -27,6 +27,7 @@ system( qw# docmake manpages #,
 
 use Path::Tiny qw/ path tempdir tempfile cwd /;
 
-path("${CMAKE_CURRENT_SOURCE_DIR}/strfile.man")
+path("${CMAKE_CURRENT_SOURCE_DIR}/util/strfile.man")
     ->spew_utf8(
-    path("./strfile.1")->slurp_utf8() =~ s#^\s+(\.RE|\.PP)\s*$#$1#gmsr );
+    path("./strfile.1")->slurp_utf8() =~ s#^\s+(\.RE|\.PP)\s*$#$1#gmsr =~
+        s#^\s+$##gmsr );
