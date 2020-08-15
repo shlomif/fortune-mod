@@ -7,6 +7,20 @@ use autodie;
 use Getopt::Long qw/ GetOptions /;
 use Path::Tiny qw/ path tempdir tempfile cwd /;
 
+sub do_system
+{
+    my ( $self, $args ) = @_;
+
+    my $cmd = $args->{cmd};
+    print "Running [@$cmd]\n";
+    if ( system(@$cmd) )
+    {
+        die "Running [@$cmd] failed!";
+    }
+
+    return;
+}
+
 my $output_fn;
 my $cookiedir;
 my $ocookiedir;
@@ -21,9 +35,14 @@ GetOptions(
 ) or die "Wrong options - $!";
 
 die "missing --src-dir" if ( not $CMAKE_CURRENT_SOURCE_DIR );
-system( qw# docmake manpages #,
-    "${CMAKE_CURRENT_SOURCE_DIR}/util/strfile.docbook5.xml" )
-    and die "system failed";
+__PACKAGE__->do_system(
+    {
+        cmd => [
+            "docmake", "manpages",
+            "${CMAKE_CURRENT_SOURCE_DIR}/util/strfile.docbook5.xml",
+        ],
+    },
+);
 
 path("${CMAKE_CURRENT_SOURCE_DIR}/util/strfile.man")
     ->spew_utf8(
