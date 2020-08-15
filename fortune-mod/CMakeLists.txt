@@ -205,11 +205,11 @@ SET (_my_man_page_dir "${CMAKE_CURRENT_SOURCE_DIR}/util")
 SET (_my_man_page "${_my_man_page_dir}/strfile.man")
 SET (_my_man_docbook "${_my_man_page_dir}/strfile.docbook5.xml")
 SET (_my_man_gen "${CMAKE_CURRENT_SOURCE_DIR}/fortune/gen-strfile-manpage.pl")
-SET (_my_args "--src-dir" "${CMAKE_CURRENT_SOURCE_DIR}")
+SET (_my_args "-I${CMAKE_CURRENT_SOURCE_DIR}/util" "-MFortuneMod_GenManPage_App" "-E" "FortuneMod_GenManPage_App-\\>run" "--" "--src-dir" "${CMAKE_CURRENT_SOURCE_DIR}" "--basename=strfile")
 ADD_CUSTOM_COMMAND(
     OUTPUT "${_my_man_page}"
     COMMAND "${PERL_EXECUTABLE}"
-    ARGS "${_my_man_gen}" ${_my_args}
+    ARGS ${_my_args}
     DEPENDS "${_my_man_gen}" "${_my_man_docbook}"
 )
 
