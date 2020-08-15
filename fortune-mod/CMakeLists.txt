@@ -210,11 +210,25 @@ ADD_CUSTOM_COMMAND(
     OUTPUT "${_my_man_page}"
     COMMAND "${PERL_EXECUTABLE}"
     ARGS "${_my_man_gen}" ${_my_args}
-    DEPENDS "${_my_man_gen}"
+    DEPENDS "${_my_man_gen}" "${_my_man_docbook}"
 )
 
 LIST(APPEND _my_man_pages_list "${_my_man_page}")
 INSTALL_RENAME_MAN("strfile.man" "1" "strfile" "${_my_man_page_dir}")
+
+SET (_my_man_page_dir "${CMAKE_CURRENT_SOURCE_DIR}/util")
+SET (_my_man_page "${_my_man_page_dir}/randstr.man")
+SET (_my_man_docbook "${_my_man_page_dir}/randstr.docbook5.xml")
+SET (_my_man_gen "${CMAKE_CURRENT_SOURCE_DIR}/fortune/gen-randstr-manpage.pl")
+SET (_my_args "--src-dir" "${CMAKE_CURRENT_SOURCE_DIR}")
+ADD_CUSTOM_COMMAND(
+    OUTPUT "${_my_man_page}"
+    COMMAND "${PERL_EXECUTABLE}"
+    ARGS "${_my_man_gen}" ${_my_args}
+    DEPENDS "${_my_man_gen}" "${_my_man_docbook}"
+)
+
+LIST(APPEND _my_man_pages_list "${_my_man_page}")
 ADD_CUSTOM_TARGET(
     generate_man_page
     ALL DEPENDS ${_my_man_pages_list}
