@@ -201,33 +201,26 @@ LIST(APPEND _my_man_pages_list "${_my_man_page}")
 
 INSTALL_RENAME_MAN("fortune.6" "6" "fortune" "${_my_man_page_dir}")
 
-SET (_my_man_page_dir "${CMAKE_CURRENT_SOURCE_DIR}/util")
-SET (_my_man_page "${_my_man_page_dir}/strfile.man")
-SET (_my_man_docbook "${_my_man_page_dir}/strfile.docbook5.xml")
-SET (_my_args "-I${CMAKE_CURRENT_SOURCE_DIR}/util" "-MFortuneMod_GenManPage_App" "-E" "FortuneMod_GenManPage_App-\\>run" "--" "--src-dir" "${CMAKE_CURRENT_SOURCE_DIR}" "--basename=strfile")
-ADD_CUSTOM_COMMAND(
-    OUTPUT "${_my_man_page}"
-    COMMAND "${PERL_EXECUTABLE}"
-    ARGS ${_my_args}
-    DEPENDS "${_my_man_docbook}"
-)
+MACRO(_fortune__generate_manpage basename)
 
-LIST(APPEND _my_man_pages_list "${_my_man_page}")
+    SET (_my_man_page_dir "${CMAKE_CURRENT_SOURCE_DIR}/util")
+    SET (_my_man_page "${_my_man_page_dir}/${basename}.man")
+    SET (_my_man_docbook "${_my_man_page_dir}/${basename}.docbook5.xml")
+    SET (_my_args "-I${CMAKE_CURRENT_SOURCE_DIR}/util" "-MFortuneMod_GenManPage_App" "-E" "FortuneMod_GenManPage_App-\\>run" "--" "--src-dir" "${CMAKE_CURRENT_SOURCE_DIR}" "--basename=${basename}")
+    ADD_CUSTOM_COMMAND(
+        OUTPUT "${_my_man_page}"
+        COMMAND "${PERL_EXECUTABLE}"
+        ARGS ${_my_args}
+        DEPENDS "${_my_man_docbook}"
+    )
+
+    LIST(APPEND _my_man_pages_list "${_my_man_page}")
+ENDMACRO()
+
+_fortune__generate_manpage("strfile")
 INSTALL_RENAME_MAN("strfile.man" "1" "strfile" "${_my_man_page_dir}")
+_fortune__generate_manpage("randstr")
 
-SET (_my_man_page_dir "${CMAKE_CURRENT_SOURCE_DIR}/util")
-SET (_my_man_page "${_my_man_page_dir}/randstr.man")
-SET (_my_man_docbook "${_my_man_page_dir}/randstr.docbook5.xml")
-SET (_my_args "--src-dir" "${CMAKE_CURRENT_SOURCE_DIR}")
-SET (_my_args "-I${CMAKE_CURRENT_SOURCE_DIR}/util" "-MFortuneMod_GenManPage_App" "-E" "FortuneMod_GenManPage_App-\\>run" "--" "--src-dir" "${CMAKE_CURRENT_SOURCE_DIR}" "--basename=randstr")
-ADD_CUSTOM_COMMAND(
-    OUTPUT "${_my_man_page}"
-    COMMAND "${PERL_EXECUTABLE}"
-    ARGS ${_my_args}
-    DEPENDS  "${_my_man_docbook}"
-)
-
-LIST(APPEND _my_man_pages_list "${_my_man_page}")
 ADD_CUSTOM_TARGET(
     generate_man_page
     ALL DEPENDS ${_my_man_pages_list}
