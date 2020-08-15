@@ -195,11 +195,10 @@ ADD_CUSTOM_COMMAND(
     ARGS "${_my_man_gen}" ${_my_args}
     DEPENDS "${_my_man_gen}"
 )
+SET (_my_man_pages_list)
 
-ADD_CUSTOM_TARGET(
-    generate_man_page
-    ALL DEPENDS "${_my_man_page}"
-)
+LIST(APPEND _my_man_pages_list "${_my_man_page}")
+
 INSTALL_RENAME_MAN("fortune.6" "6" "fortune" "${_my_man_page_dir}")
 
 SET (_my_man_page_dir "${CMAKE_CURRENT_SOURCE_DIR}/util")
@@ -214,7 +213,12 @@ ADD_CUSTOM_COMMAND(
     DEPENDS "${_my_man_gen}"
 )
 
-INSTALL_RENAME_MAN("strfile.man" "1" "strfile" "util")
+LIST(APPEND _my_man_pages_list "${_my_man_page}")
+INSTALL_RENAME_MAN("strfile.man" "1" "strfile" "${_my_man_page_dir}")
+ADD_CUSTOM_TARGET(
+    generate_man_page
+    ALL DEPENDS ${_my_man_pages_list}
+)
 
 INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/util")
 
