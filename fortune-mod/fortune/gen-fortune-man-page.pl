@@ -116,6 +116,7 @@ into those which are potentially offensive and those which are not."
 );
 
 $out->print(<<'END_OF_STRING');
+
 .SS Options
 The options are as follows:
 .TP
@@ -135,6 +136,7 @@ EOF
 );
 
 $out->print(<<'END_OF_STRING');
+
 .TP
 .B -c
 Show the cookie file from which the fortune came.
@@ -187,6 +189,7 @@ END_OF_STRING
 if ($OFF)
 {
     $out->print(<<'END_OF_STRING');
+
 .B -o
 Choose only from potentially offensive aphorisms.  The -o option is
 ignored if a fortune directory is specified.
@@ -214,6 +217,7 @@ END_OF_STRING
 }
 
 $out->print(<<'END_OF_STRING');
+
 .B -s
 Short apothegms only.  See
 .B -n
@@ -317,6 +321,7 @@ END_OF_STRING
 }
 
 $out->print(<<'END_OF_STRING');
+
 .SH FILES
 Note: these are the defaults as defined at compile time.
 .PP
@@ -325,6 +330,7 @@ Note: these are the defaults as defined at compile time.
 END_OF_STRING
 
 $out->print(<<"EOF");
+
 .I $cookiedir
 Directory for innoffensive fortunes.
 .TP
@@ -333,12 +339,14 @@ EOF
 if ($OFF)
 {
     $out->print(<<"EOF");
+
 .I $ocookiedir
 Directory for offensive fortunes.
 EOF
 }
 
 $out->print(<<'END_OF_STRING');
+
 .PD
 .PP
 If a particular set of fortunes is particularly unwanted, there is an
@@ -395,6 +403,7 @@ EOF
 );
 
 $out->print(<<'END_OF_STRING');
+
 .SH HISTORY
 This version of fortune is based on the NetBSD fortune 1.4, but with a
 number of bug fixes and enhancements.
