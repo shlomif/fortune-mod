@@ -1,2 +1,8 @@
-fortune-mod/cmake/Shlomif_Common.cmake
-fortune-mod/fortune/fortune.6
+/fortune-mod/cmake/Shlomif_Common.cmake
+/fortune-mod/fortune/fortune.6
+/fortune-mod/fortune/fortune_with_offensive.docbook5.xml
+/fortune-mod/fortune/fortune_with_offensive.template.man
+/fortune-mod/fortune/fortune_without_offensive.docbook5.xml
+/fortune-mod/fortune/fortune_without_offensive.template.man
+/fortune-mod/util/randstr.man
+/fortune-mod/util/strfile.man
