@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 use autodie;
+use utf8;
 
 use File::Basename qw / dirname /;
 use File::Path qw / mkpath /;
@@ -43,7 +44,7 @@ if ( $dirname and ( !-e $dirname ) )
 }
 
 # The :raw is to prevent CRs on Win32/etc.
-open my $out, '>:raw', $output_fn;
+open my $out, '>:encoding(utf-8)', $output_fn;
 
 $out->print(<<'END_OF_STRING');
 <?xml version="1.0" encoding="UTF-8"?>
@@ -185,7 +186,7 @@ print a fortune.</para>
   <listitem>
 <para>Long dictums only.  See
 <emphasis role='strong' remap='B'>-n</emphasis>
-on how &ldquo;long&rdquo; is defined in this sense.</para>
+on how “long” is defined in this sense.</para>
   </listitem>
   </varlistentry>
   <varlistentry>
@@ -206,7 +207,7 @@ result is a valid fortunes database file.  If standard error is
 <emphasis remap='I'>also</emphasis>
 redirected to this file, the result is
 <emphasis remap='I'>still valid</emphasis>,
-<emphasis role='strong' remap='B'>but there will be &ldquo;bogus&rdquo;</emphasis>
+<emphasis role='strong' remap='B'>but there will be “bogus”</emphasis>
 <emphasis role='strong' remap='B'>fortunes</emphasis>,
 i.e. the filenames themselves, in parentheses.  This can be useful if you
 wish to remove the gathered matches from their original files, since each
@@ -218,8 +219,8 @@ filename-record will precede the records from the file it names.
   <term><emphasis role='strong' remap='B'>-n </emphasis><emphasis remap='I'>length</emphasis></term>
   <listitem>
 <para>Set the longest fortune length (in characters) considered to be
-&ldquo;short&rdquo; (the default is 160).  All fortunes longer than this are
-considered &ldquo;long&rdquo;.  Be careful!  If you set the length too short and
+“short” (the default is 160).  All fortunes longer than this are
+considered “long”.  Be careful!  If you set the length too short and
 ask for short fortunes, or too long and ask for long ones, fortune goes
 into a never-ending thrash loop.</para>
 
@@ -260,7 +261,7 @@ $out->print(<<'END_OF_STRING');
 <para><emphasis role='strong' remap='B'>-s</emphasis>
 Short apothegms only.  See
 <emphasis role='strong' remap='B'>-n</emphasis>
-on which fortunes are considered &ldquo;short&rdquo;.</para>
+on which fortunes are considered “short”.</para>
   </listitem>
   </varlistentry>
   <varlistentry>
@@ -318,7 +319,7 @@ two-thirds of the time.  The command</para>
   </para></blockquote> <!-- remap='RE' -->
 <para>will pick out 90% of its fortunes from
 <emphasis remap='I'>funny</emphasis>
-(the &ldquo;10% not-funny&rdquo; is unnecessary, since 10% is all that's left).</para>
+(the “10% not-funny” is unnecessary, since 10% is all that's left).</para>
 
 <para>The
 <emphasis role='strong' remap='B'>-e</emphasis>
@@ -343,12 +344,12 @@ if ($OFF)
     $out->print(<<'END_OF_STRING');
 
 
-<para>This fortune also supports the BSD method of appending &ldquo;-o&rdquo; to
+<para>This fortune also supports the BSD method of appending “-o” to
 database names to specify offensive fortunes.  However this is
 <emphasis role='strong' remap='B'>not</emphasis>
 how fortune stores them: offensive fortunes are stored in a separate
-directory without the &ldquo;-o&rdquo; infix.  A plain name (i.e., not a path to a
-file or directory) that ends in &ldquo;-o&rdquo; will be assumed to be an
+directory without the “-o” infix.  A plain name (i.e., not a path to a
+file or directory) that ends in “-o” will be assumed to be an
 offensive database, and will have its suffix stripped off and be
 searched in the offensive directory (even if the neither of the
 <option>-a</option> or <option>-o</option>
