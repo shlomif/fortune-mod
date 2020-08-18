@@ -201,6 +201,26 @@ LIST(APPEND _my_man_pages_list "${_my_man_page}")
 
 INSTALL_RENAME_MAN("fortune.6" "6" "fortune" "${_my_man_page_dir}")
 
+MACRO(_fortune__generate_docbook basename offensive_flags)
+
+    SET (_my_man_page_dir "${CMAKE_CURRENT_SOURCE_DIR}/fortune")
+    # SET (_my_man_page "${_my_man_page_dir}/${basename}.man")
+    SET (_my_man_docbook "${_my_man_page_dir}/${basename}.docbook5.xml")
+    SET (_my_man_prog "${_my_man_page_dir}/gen-fortune-docbook-page.pl")
+    SET (_my_args "${_my_man_prog}" "--output" "${_my_man_docbook}" --cookiedir "[[cookiedir_placeholder]]" --ocookiedir "[[ocookiedir_placeholder]]" ${offensive_flags})
+    ADD_CUSTOM_COMMAND(
+        OUTPUT "${_my_man_docbook}"
+        COMMAND "${PERL_EXECUTABLE}"
+        ARGS ${_my_args}
+        DEPENDS "${_my_man_prog}"
+    )
+
+    LIST(APPEND _my_man_pages_list "${_my_man_docbook}")
+ENDMACRO()
+
+_fortune__generate_docbook("fortune_with_offensive" "")
+_fortune__generate_docbook("fortune_without_offensive" "--without-offensive")
+
 MACRO(_fortune__generate_manpage basename)
 
     SET (_my_man_page_dir "${CMAKE_CURRENT_SOURCE_DIR}/util")
