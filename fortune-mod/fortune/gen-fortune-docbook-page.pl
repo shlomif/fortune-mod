@@ -381,7 +381,7 @@ $out->print(<<"END_OF_STRING");
 
 <!-- PD 0 -->
 
-<para><emphasis remap='I'>[[cookiedir placeholder]]</emphasis>
+<para><emphasis remap='I'>${cookiedir}</emphasis>
 Directory for innoffensive fortunes.</para>
 
 END_OF_STRING
@@ -390,7 +390,7 @@ if ($OFF)
 {
     $out->print(<<"EOF");
 
-<para><emphasis remap='I'>[[ocookiedir placeholder]]</emphasis>
+<para><emphasis remap='I'>${ocookiedir}</emphasis>
 Directory for offensive fortunes.</para>
 EOF
 }
