@@ -182,18 +182,22 @@ my_exe(
 
 SET (_my_man_page_dir "${CMAKE_CURRENT_BINARY_DIR}/manpages")
 SET (_my_man_page "${_my_man_page_dir}/fortune.6")
-SET (_my_man_gen "${CMAKE_CURRENT_SOURCE_DIR}/fortune/gen-fortune-man-page.pl")
+SET (_my_man_gen "${CMAKE_CURRENT_SOURCE_DIR}/fortune/process-fortune-man-template.pl")
 SET (_my_args)
 LIST(APPEND _my_args "--cookiedir" "${COOKIEDIR}" "--ocookiedir" "${OCOOKIEDIR}" "--output" "${_my_man_page}")
 IF ("${NO_OFFENSIVE}")
     LIST(APPEND _my_args "--without-offensive")
+    SET(_MY_IN "${CMAKE_CURRENT_SOURCE_DIR}/fortune/fortune_with_offensive.template.man")
+ELSE()
+    SET(_MY_IN "${CMAKE_CURRENT_SOURCE_DIR}/fortune/fortune_without_offensive.template.man")
 ENDIF()
+LIST(APPEND _my_args "--input" "${_MY_IN}")
 
 ADD_CUSTOM_COMMAND(
     OUTPUT "${_my_man_page}"
     COMMAND "${PERL_EXECUTABLE}"
     ARGS "${_my_man_gen}" ${_my_args}
-    DEPENDS "${_my_man_gen}"
+    DEPENDS "${_my_man_gen}" "${_MY_IN}"
 )
 SET (_my_man_pages_list)
 
