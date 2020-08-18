@@ -2,14 +2,11 @@
 select = **/*.{c,h}
 
 [PerlTidy]
+argv = -ci=4 -bl -cti=0 --character-encoding=none
 select = **/*.{pl,pm,t}
-argv = -ci=4 -bl -cti=0
-ignore =
 
 [PerlCritic]
 select = **/*.{pl,pm,t}
-ignore =
 
 [TestCount]
 select = **/*.t
-ignore =
