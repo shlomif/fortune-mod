@@ -1,6 +1,18 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+August 20, 2020 (fortune-mod 2.29.0)
+
+	DEVELOPMENT RELEASE
+
+	Convert the documentation from troff to DocBook 5/XML using
+	doclifter ( http://www.catb.org/~esr/doclifter/ ). The resultant troff
+	man pages are included in the source release tarball.
+
+	Fix formatting of several cookies.
+
+	Minor build fixes (avoid rebuilding the symlinks).
+
 June 02, 2020 (fortune-mod 2.28.0)
 
 	SECURITY [low risk]: avoid overflow with the -i flag
