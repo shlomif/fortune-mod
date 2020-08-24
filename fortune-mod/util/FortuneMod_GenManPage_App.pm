@@ -42,15 +42,22 @@ sub run
     $out_basename  = $basename if ( not defined $out_basename );
 
     die "missing --src-dir" if ( not $CMAKE_CURRENT_SOURCE_DIR );
-    __PACKAGE__->do_system(
+    {
+        local %ENV = %ENV;
+        if ( my $path_prefix = delete( $ENV{DOCMAKE_PATH_PREFIX} ) )
         {
-            cmd => [
-                "docmake",
-                "manpages",
+            $ENV{PATH} = $path_prefix . $ENV{PATH};
+        }
+        __PACKAGE__->do_system(
+            {
+                cmd => [
+                    "docmake",
+                    "manpages",
 "${CMAKE_CURRENT_SOURCE_DIR}/${subdir}/${basename}.docbook5.xml",
-            ],
-        },
-    );
+                ],
+            },
+        );
+    }
 
     path("${CMAKE_CURRENT_SOURCE_DIR}/${subdir}/${dest_basename}.man")
         ->spew_utf8(

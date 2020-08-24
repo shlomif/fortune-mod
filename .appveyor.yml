@@ -30,6 +30,7 @@ test_script:
     # Python3 confuses the recode build so only add it here.
     - SET PATH=%PATH%;C:\Python35-x64
     - SET FORTUNE_TEST_DEBUG=1
+    - SET DOCMAKE_PATH_PREFIX="C:\cygwin64\bin;"
     - perl CI-testing/continuous-integration-testing.pl --gen="MSYS Makefiles"
 cache:
    - C:\msys64\mingw64
