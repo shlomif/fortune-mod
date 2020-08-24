@@ -139,9 +139,9 @@ typedef struct fd
     struct fd *next, *prev;
 } FILEDESC;
 
-static char *env_lang;
+static const char *env_lang = NULL;
 
-static bool Found_one;           /* did we find a match? */
+static bool Found_one = false;   /* did we find a match? */
 static bool Find_files = false;  /* just find a list of proper fortune files */
 static bool Wait = false;        /* wait desired after fortune */
 static bool Short_only = false;  /* short fortune desired */
