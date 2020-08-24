@@ -221,7 +221,8 @@ MACRO(_fortune__generate_docbook basename offensive_flags)
     )
 
     LIST(APPEND _my_man_pages_list "${_my_man_docbook}")
-    SET (_my_args "-I${CMAKE_CURRENT_SOURCE_DIR}/util" "-MFortuneMod_GenManPage_App" "-E" "FortuneMod_GenManPage_App-\\>run" "--" "--src-dir" "${CMAKE_CURRENT_SOURCE_DIR}" "--basename=${basename}" "--dest-basename=${_dest_basename}" "--out-section=6" "--out-basename=fortune" "--subdir=fortune")
+    SET (_util_dir "${CMAKE_CURRENT_SOURCE_DIR}/util")
+    SET (_my_args "-I${_util_dir}" "${_util_dir}/fortmod_gen_manpage.pl" "--src-dir" "${CMAKE_CURRENT_SOURCE_DIR}" "--basename=${basename}" "--dest-basename=${_dest_basename}" "--out-section=6" "--out-basename=fortune" "--subdir=fortune")
     ADD_CUSTOM_COMMAND(
         OUTPUT "${_my_man_page}"
         COMMAND "${PERL_EXECUTABLE}"
@@ -240,7 +241,8 @@ MACRO(_fortune__generate_manpage basename)
     SET (_my_man_page_dir "${CMAKE_CURRENT_SOURCE_DIR}/util")
     SET (_my_man_page "${_my_man_page_dir}/${basename}.man")
     SET (_my_man_docbook "${_my_man_page_dir}/${basename}.docbook5.xml")
-    SET (_my_args "-I${CMAKE_CURRENT_SOURCE_DIR}/util" "-MFortuneMod_GenManPage_App" "-E" "FortuneMod_GenManPage_App-\\>run" "--" "--src-dir" "${CMAKE_CURRENT_SOURCE_DIR}" "--basename=${basename}")
+    SET (_util_dir "${CMAKE_CURRENT_SOURCE_DIR}/util")
+    SET (_my_args "-I${_util_dir}" "${_util_dir}/fortmod_gen_manpage.pl" "--src-dir" "${CMAKE_CURRENT_SOURCE_DIR}" "--basename=${basename}")
     ADD_CUSTOM_COMMAND(
         OUTPUT "${_my_man_page}"
         COMMAND "${PERL_EXECUTABLE}"
