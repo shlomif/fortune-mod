@@ -1774,7 +1774,10 @@ static void free_desc(FILEDESC *ptr)
 
 int main(int ac, char *av[])
 {
+#ifdef WITH_RECODE
     const char *ctype;
+#endif
+
     int exit_code = 0;
     env_lang = getenv("LC_ALL");
     if (!env_lang)
@@ -1800,6 +1803,8 @@ int main(int ac, char *av[])
 #endif
 
     setlocale(LC_ALL, "");
+
+#ifdef WITH_RECODE
 #ifdef _WIN32
     ctype = "C";
 #else
@@ -1813,8 +1818,6 @@ int main(int ac, char *av[])
         ctype = "ISO-8859-1";
     }
 #endif
-
-#ifdef WITH_RECODE
     const size_t do_len = strlen(ctype) + 7 + 1;
     char *crequest = do_malloc(do_len + 1);
     snprintf(crequest, do_len, "UTF-8..%s", ctype);
