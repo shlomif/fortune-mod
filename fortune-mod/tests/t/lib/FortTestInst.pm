@@ -7,7 +7,7 @@ use Path::Tiny qw/ path tempdir tempfile cwd /;
 use File::Path qw/mkpath rmtree/;
 
 my $IS_WIN = ( $^O eq "MSWin32" );
-my $SEP    = $IS_WIN ? "\\" : '/';
+my $SEP    = $IS_WIN ? "\\"    : '/';
 my $MAKE   = $IS_WIN ? 'gmake' : 'make';
 
 sub do_system
