@@ -18,6 +18,7 @@ install:
     - SET PERL_MB_OPT=--install_base C:/Perl5
     - SET PERL_MM_OPT=INSTALL_BASE=C:/Perl5
     - cpanm --notest App::Docmake Code::TidyAll::Plugin::ClangFormat Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount Env::Path File::Find::Object IO::All List::Util Path::Tiny Perl::Critic Perl::Tidy Pod::Coverage::TrustPod String::ShellQuote Test::Code::TidyAll Test::Differences Test::EOL Test::Pod Test::Pod::Coverage Test::RunValgrind Test::TrailingSpace Test::Trap
+    - C:\cygwin64\setup-x86_64.exe -qgnNdO -l C:\cygwin64\var\cache\setup -R c:\cygwin64 -s http://cygwin.mirror.constant.com -P docbook-xml -P docbook-xsl -P libxml2 -P libxslt
 build: off
 test_script:
     - set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe
