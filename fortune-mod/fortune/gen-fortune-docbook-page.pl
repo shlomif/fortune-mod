@@ -44,7 +44,7 @@ if ( $dirname and ( !-e $dirname ) )
 }
 
 # The :raw is to prevent CRs on Win32/etc.
-open my $out, '>:encoding(utf-8)', $output_fn;
+open my $out, '>:encoding(utf-8):raw', $output_fn;
 
 $out->print(<<'END_OF_STRING');
 <?xml version="1.0" encoding="UTF-8"?>
