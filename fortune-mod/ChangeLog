@@ -1,6 +1,14 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+August 30, 2020 (fortune-mod 2.29.1)
+
+	DEVELOPMENT RELEASE
+
+	Fix the build and tests on AppVeyor-CI / Windows
+
+	Fix some compiler warnings.
+
 August 20, 2020 (fortune-mod 2.29.0)
 
 	DEVELOPMENT RELEASE
