@@ -98,12 +98,6 @@
 #ifdef HAVE_REGEX_H
 #include <regex.h>
 #endif
-#ifdef HAVE_REGEXP_H
-#include <regexp.h>
-#endif
-#ifdef HAVE_RX_H
-#include <rx.h>
-#endif
 
 #include "config.h"
 
@@ -155,7 +149,18 @@ static bool No_recode = false; /* Do we want to stop recoding from occuring */
 static bool ErrorMessage =
     false; /* Set to true if an error message has been displayed */
 
-#ifndef NO_REGEX
+#ifdef POSIX_REGEX
+#define WITH_REGEX
+#define RE_COMP(p) regcomp(&Re_pat, (p), REG_NOSUB)
+#define BAD_COMP(f) ((f) != 0)
+#define RE_EXEC(p) (regexec(&Re_pat, (p), 0, NULL, 0) == 0)
+
+static regex_t Re_pat;
+#else
+#define NO_REGEX
+#endif /* POSIX_REGEX */
+
+#ifdef WITH_REGEX
 static bool Match = false; /* dump fortunes matching a pattern */
 
 #endif
@@ -177,16 +182,6 @@ static FILEDESC *File_list = NULL, /* Head of file list */
 static FILEDESC *Fortfile;         /* Fortune file to use */
 
 static STRFILE Noprob_tbl; /* sum of data for all no prob files */
-
-#ifdef POSIX_REGEX
-#define RE_COMP(p) regcomp(&Re_pat, (p), REG_NOSUB)
-#define BAD_COMP(f) ((f) != 0)
-#define RE_EXEC(p) (regexec(&Re_pat, (p), 0, NULL, 0) == 0)
-
-static regex_t Re_pat;
-#else
-#define NO_REGEX
-#endif /* POSIX_REGEX */
 
 #ifdef WITH_RECODE
 static RECODE_REQUEST request;
@@ -238,17 +233,17 @@ static void __attribute__((noreturn)) usage(void)
     (void)fprintf(stderr, "%s", "D");
 #endif /* DEBUG */
     (void)fprintf(stderr, "%s", "f");
-#ifndef NO_REGEX
+#ifdef WITH_REGEX
     (void)fprintf(stderr, "%s", "i");
-#endif /* NO_REGEX */
+#endif
     (void)fprintf(stderr, "%s", "l");
 #ifndef NO_OFFENSIVE
     (void)fprintf(stderr, "%s", "o");
 #endif
     (void)fprintf(stderr, "%s", "sw]");
-#ifndef NO_REGEX
+#ifdef WITH_REGEX
     (void)fprintf(stderr, "%s", " [-m pattern]");
-#endif /* NO_REGEX */
+#endif
     (void)fprintf(stderr, "%s", " [-n number] [ [#%] file/directory/all]\n");
     exit(1);
 }
@@ -304,7 +299,7 @@ static void print_list(FILEDESC *list, int lev)
     }
 }
 
-#ifndef NO_REGEX
+#ifdef WITH_REGEX
 /*
  * conv_pat:
  *      Convert the pattern to an ignore-case equivalent.
@@ -357,7 +352,7 @@ static char *conv_pat(char *orig)
     *sp = '\0';
     return new_buf;
 }
-#endif /* NO_REGEX */
+#endif
 
 /*
  * do_malloc:
@@ -1084,10 +1079,10 @@ static void getargs(int argc, char **argv)
 {
     bool ignore_case = false;
 
-#ifndef NO_REGEX
+#ifdef WITH_REGEX
     char *pat = NULL;
+#endif
 
-#endif /* NO_REGEX */
     int ch;
 
 #ifdef DEBUG
@@ -1182,8 +1177,9 @@ static void getargs(int argc, char **argv)
 /*      if (Debug >= 1)
  * print_list(File_list, 0); */
 #endif /* DEBUG */
+
 /* If (Find_files) print_list() moved to main */
-#ifndef NO_REGEX
+#ifdef WITH_REGEX
     if (pat)
     {
         if (ignore_case)
@@ -1198,7 +1194,7 @@ static void getargs(int argc, char **argv)
             free(pat);
         }
     }
-#endif /* NO_REGEX */
+#endif
 }
 
 /*
@@ -1552,7 +1548,7 @@ static void open_fp(FILEDESC *fp)
     }
 }
 
-#ifndef NO_REGEX
+#ifdef WITH_REGEX
 /*
  * maxlen_in_list
  *      Return the maximum fortune len in the file list.
@@ -1684,7 +1680,7 @@ static int find_matches(void)
     return Found_one;
     /* NOTREACHED */
 }
-#endif /* NO_REGEX */
+#endif
 
 static void display(FILEDESC *fp)
 {
@@ -1825,7 +1821,7 @@ int main(int ac, char *av[])
     free(crequest);
 #endif
 
-#ifndef NO_REGEX
+#ifdef WITH_REGEX
     if (Match)
     {
         exit_code = (find_matches() != 0);
@@ -1833,6 +1829,7 @@ int main(int ac, char *av[])
         goto cleanup;
     }
 #endif
+
     init_prob();
     if (Find_files)
     {
