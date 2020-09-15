@@ -190,7 +190,7 @@ static RECODE_OUTER outer;
 
 int add_dir(FILEDESC *);
 
-static unsigned long my_random(unsigned long base)
+static unsigned long my_random(const unsigned long base)
 {
     unsigned long long l = 0;
     char *hard_coded_val = getenv("FORTUNE_MOD_RAND_HARD_CODED_VALS");
