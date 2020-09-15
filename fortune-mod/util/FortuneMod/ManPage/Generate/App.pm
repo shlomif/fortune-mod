@@ -1,4 +1,4 @@
-package FortuneMod_GenManPage_App;
+package FortuneMod::ManPage::Generate::App;
 
 use strict;
 use warnings;
