@@ -24,7 +24,7 @@ cache:
     directories:
         - $HOME/perl_modules
         - $HOME/tidyall_d
-dist: bionic
+dist: focal
 install:
     # Required to avoid default travis "cpanm ." booboo.
     - true
