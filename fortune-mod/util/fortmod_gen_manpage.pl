@@ -14,5 +14,6 @@ use autodie;
 
 use Path::Tiny qw/ path tempdir tempfile cwd /;
 
-use FortuneMod_GenManPage_App ();
-FortuneMod_GenManPage_App->run();
+use FortuneMod::ManPage::Generate::App ();
+
+FortuneMod::ManPage::Generate::App->run();
