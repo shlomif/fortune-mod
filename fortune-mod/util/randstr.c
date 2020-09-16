@@ -124,7 +124,7 @@ static void getargs(char *av[])
 static void get_pos(STRFILE *fp)
 {
     pos = random() % fp->str_numstr;
-    if (++(pos) >= fp->str_numstr)
+    if (++(pos) >= (off_t)(fp->str_numstr))
         pos -= fp->str_numstr;
 }
 
