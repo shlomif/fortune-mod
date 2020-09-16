@@ -10,7 +10,7 @@ image: Visual Studio 2019
 install:
     # Trying to disable to check if it is already installed.
     # - choco install strawberryperl
-    - "if not exist C:\strawberry ( echo \"strawberryperl is not installed. Please fix appveyor.yml\"\nexit 1\n )"
+    - "if not exist C:\\strawberry ( echo \"strawberryperl is not installed. Please fix appveyor.yml\"\nexit 1\n )"
     - SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
     - perl -v
     - if not exist C:\Perl5 mkdir C:\Perl5
