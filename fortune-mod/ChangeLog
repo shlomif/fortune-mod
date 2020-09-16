@@ -1,6 +1,25 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+September 16, 2020 (fortune-mod 3.0.0)
+
+	Convert the documentation from troff to DocBook 5/XML using
+	doclifter ( http://www.catb.org/~esr/doclifter/ ). The resultant troff
+	man pages are included in the source release tarball.
+
+	Fix formatting of several cookies.
+
+	Minor build fixes (avoid rebuilding the symlinks).
+
+	Fix the build and tests on AppVeyor-CI / Windows
+
+	Fix some compiler warnings and modernise the code a little.
+
+	Add some new fortune cookies.
+
+	New major version digit just in time for Rosh Hashana
+	and Talk like a Pirate day. Happy new yea..arrrrrrrrr!
+
 August 30, 2020 (fortune-mod 2.29.1)
 
 	DEVELOPMENT RELEASE

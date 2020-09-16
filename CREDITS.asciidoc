@@ -11,6 +11,10 @@ from version 2.0.0 onwards.
 
 * Dennis L. Clark - contributing to the original fortune-mod.
 
+* https://en.wikipedia.org/wiki/Ken_Arnold[Ken Arnold] - writing
+the original "fortune" program for BSD which fortune-mod
+was derived from.
+
 * https://rrt.sc3d.org/[Reuben Thomas] - adopting
 https://github.com/rrthomas/recode[Recode] which made converting
 fortune-mod to avoid using it unnecessary.
@@ -34,6 +38,9 @@ the tests on Windows.
 
 * https://dave.org.uk/[Dave Cross] for introducing CI to Shlomi Fish
 in https://perlhacks.com/2012/03/you-must-hate-version-control-systems/[one of his blog posts]
+
+* https://metacpan.org/author/BINGOS[Chris Williams] - helping to
+fix the AppVeyor-CI build.
 
 * https://packages.debian.org/en/sid/fortune-mod[Debian packagers]:
 providing patches and fixes.
