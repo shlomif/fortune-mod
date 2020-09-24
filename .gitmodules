@@ -1,0 +1,3 @@
+[submodule "fortune-mod/rinutils"]
+	path = fortune-mod/rinutils
+	url = https://github.com/shlomif/rinutils
