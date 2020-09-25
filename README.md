@@ -45,11 +45,13 @@ sudo apt install fortune-mod
 Release tarballs can be found at [this directory](https://www.shlomifish.org/open-source/projects/fortune-mod/arcs/)
 for now.
 
-Reading from [this reported bug](https://github.com/shlomif/fortune-mod/issues/10):
+Based on [this reported bug](https://github.com/shlomif/fortune-mod/issues/10):
 
 One can find the official release tarballs of fortune-mod as prepared by CPack
-there. They have a proper containing directory. Please don't use GitHub's tags
-for that.
+there. They have a proper containing directory. One can also download these tarballs
+from the [GitHub releases page](https://github.com/shlomif/fortune-mod/releases)
+but please do not use the auto generated “Source code (zip)” and “Source code (tar.gz)”
+downloads which are both incomplete and have extra directories inside.
 
 ## Sample usage
 
@@ -74,6 +76,15 @@ This maintenance version was initiated by Shlomi Fish, who decided to maintain
 it out of being a fan of the fortune command. It started by importing the
 unpacked source of the fortune-mod-1.99.1.tar tarball from the Mageia Linux
 .src.rpm into an empty git repository and continuing from there.
+
+## What is the difference between fortune-mod and the "normal" fortune?
+
+fortune-mod (= "fortune modified") was the name of a fork of the original
+NetBSD fortune, which was done in order to port the code to Linux and apply some
+other changes. If you are using a Linux distribution chances are that
+the `fortune` executable's package **is** fortune-mod (although in the
+case of Debian-and-derivatives it is likely very out-of-date as of September
+2020).
 
 # What was already done.
 
@@ -143,5 +154,4 @@ by a set of patches on the Fedora package.
 
 * [Shlomi Fish’s Fortune Cookie Files](https://www.shlomifish.org/humour/fortunes/) - on his site, containing links to many other collections of fortune cookies.
 * [XML-Grammar-Fortune](https://web-cpan.shlomifish.org/modules/XML-Grammar-Fortune/) - an XML grammar for collections of quotes, allowing one to generate XHTML or plaintext.
-* [Anvari.org’s web interface to fortune](http://www.anvari.org/fortune/) - with
-many collections.
+* [Anvari.org’s web interface to fortune](http://www.anvari.org/fortune/) - with many collections.
