@@ -7,10 +7,16 @@ Quick and Dirty Compilation
 ---------------------------
 
 fortune-mod uses CMake ( http://www.cmake.org/ )
-for its build system. Version 3 or later is required.
+for its build system. Version 3.2 or later is required.
 
-You will also need librecode (= the "recode" library) from
-https://github.com/rrthomas/Recode - version 3.7 or later.
+You will also need:
+
+1. librecode (= the "recode" library) from https://github.com/rrthomas/Recode - version 3.7 or later.
+
+2. rinutils from https://github.com/shlomif/rinutils (should be bundled with
+fortune-mod's source.
+
+3. cmocka from https://cmocka.org/ (for testing only).
 
 Next, run:
 
@@ -41,7 +47,8 @@ Testing
 
 The tests require the File::Find::Object Perl module
 (libfile-find-object-perl in Debian and derivatives), Test::Differences
-(libtest-differences-perl) and Test::RunValgrind (from CPAN).
+(libtest-differences-perl),
+Path::Tiny ( libpath-tiny-perl ), and Test::RunValgrind (from CPAN).
 
 To test fortune-mod, you need to:
 
