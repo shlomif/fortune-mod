@@ -89,7 +89,9 @@
 #ifndef _WIN32
 #include <langinfo.h>
 #define O_BINARY 0
+#ifdef HAVE_RECODE_H
 #define WITH_RECODE
+#endif
 #endif
 #ifdef WITH_RECODE
 #include <recode.h>
