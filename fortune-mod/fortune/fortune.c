@@ -188,6 +188,12 @@ static STRFILE Noprob_tbl; /* sum of data for all no prob files */
 #ifdef WITH_RECODE
 static RECODE_REQUEST request;
 static RECODE_OUTER outer;
+static inline char *my_recode_string(const char *s)
+{
+    return recode_string(request, (const char *)s);
+}
+#else
+static inline char *my_recode_string(const char *s) { return strdup(s); }
 #endif
 
 int add_dir(FILEDESC *);
@@ -1616,11 +1622,7 @@ static void matches_in_list(FILEDESC *list)
 
                 if (fp->utf8_charset && (!No_recode))
                 {
-#ifdef WITH_RECODE
-                    output = recode_string(request, (const char *)Fortbuf);
-#else
-                    output = strdup((const char *)Fortbuf);
-#endif
+                    output = my_recode_string((const char *)Fortbuf);
                 }
                 else
                 {
@@ -1709,12 +1711,7 @@ static void display(FILEDESC *fp)
         }
         if (fp->utf8_charset && (!No_recode))
         {
-            char *output;
-#ifdef WITH_RECODE
-            output = recode_string(request, (const char *)line);
-#else
-            output = strdup((const char *)line);
-#endif
+            char *output = my_recode_string((const char *)line);
             fputs(output, stdout);
             free(output);
         }
