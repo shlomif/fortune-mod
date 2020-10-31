@@ -86,6 +86,31 @@ the `fortune` executable's package **is** fortune-mod (although in the
 case of Debian-and-derivatives it is likely very out-of-date as of September
 2020).
 
+## Why is it written in C? Can't it be written in Perl, awk, Python, etc.?
+
+The answer has several parts:
+
+First of all note that according to [the wikipedia page](https://en.wikipedia.org/wiki/Fortune_%28Unix%29)
+the original fortune was created in 1979, before the first version of perl was
+released (or python, ruby or Lua which came later) which followed and when UNIX-running
+computers were more underpowered.
+
+Secondly, you can find some reimplementations of fortune here:
+
+* [perl](https://metacpan.org/pod/distribution/PerlPowerTools/bin/fortune)
+* [python](https://github.com/bmc/fortune)
+
+Thirdly, most of the value (and hard disk consumption) of the tarball is in the
+quotes collection.
+
+Fourthly, a native executable may still give a [better user experience](https://tonsky.me/blog/disenchantment/)
+(I have yet to perform a stresstest benchmark though, and I doubt it will matter too much
+for fortune's common use case.)
+
+Finally note that the runtime algorithm is not as straightforward as one may
+believe, making use of dat files that contain counts and offsets of the fortune
+"cookies".
+
 # What was already done.
 
 1. fortune-mod-1.99.1 was imported into the repository from the Mageia tarball
