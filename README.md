@@ -92,15 +92,19 @@ The answer has several parts:
 
 First of all note that according to [the wikipedia page](https://en.wikipedia.org/wiki/Fortune_%28Unix%29)
 the original fortune was created in 1979, before the first version of perl was
-released (or python, ruby or Lua which came later) which followed and when UNIX-running
-computers were more underpowered.
+released in 1987, or python, ruby or Lua which were released later, and when UNIX-running
+computers were more underpowered than they are today.
 
 Secondly, you can find some reimplementations of fortune here:
 
 * [perl](https://metacpan.org/pod/distribution/PerlPowerTools/bin/fortune)
 * [python](https://github.com/bmc/fortune)
 
-Thirdly, most of the value (and hard disk consumption) of the tarball is in the
+You may be able to get them to work with the data files of fortune-mod and
+other fortune collections, but note that we have not closely reviewed their
+source codes.
+
+Thirdly, most of the value (and relative data size) of the tarball is in the
 quotes collection.
 
 Fourthly, a native executable may still give a [better user experience](https://tonsky.me/blog/disenchantment/)
