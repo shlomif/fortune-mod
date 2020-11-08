@@ -1,6 +1,15 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+November 8, 2020 (fortune-mod 3.4.0)
+
+	Made the compile-time dependency on lib-recode optional ;
+	handle the missing librinutils better.
+	( https://github.com/shlomif/fortune-mod/issues/44 )
+
+	Add some quotes (Thanks in part to @RashadSaleh :
+	https://github.com/shlomif/fortune-mod/pull/43 )
+
 September 24, 2020 (fortune-mod 3.2.0)
 
 	Include rinutils in the source tarball / git checkout.
