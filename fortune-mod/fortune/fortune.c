@@ -79,6 +79,7 @@
 
 #define PROGRAM_NAME "fortune-mod"
 
+#include "config.h"
 #include "fortune-mod-common.h"
 
 #include <dirent.h>
@@ -100,8 +101,6 @@
 #ifdef HAVE_REGEX_H
 #include <regex.h>
 #endif
-
-#include "config.h"
 
 #define MINW 6   /* minimum wait if desired */
 #define CPERS 20 /* # of chars for each sec */

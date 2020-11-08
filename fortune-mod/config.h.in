@@ -16,6 +16,9 @@ extern "C" {
 #define OFFDIR "${OCOOKIEDIR}"
 #define FORTDIR "${COOKIEDIR}"
 
+/* Defined if you have recode */
+#cmakedefine HAVE_RECODE_H
+
 #ifdef __cplusplus
 }
 #endif
