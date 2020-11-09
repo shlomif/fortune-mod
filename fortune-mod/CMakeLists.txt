@@ -150,7 +150,7 @@ SET(_r "stdbool.h" "stdio.h" "recode.h")
 CHECK_INCLUDE_FILES("${_r}" HAVE_RECODE_H)
 IF (NOT "${HAVE_RECODE_H}")
     IF (NOT WIN32)
-        MESSAGE(WARNING "Cannot find recode.h anywhere - for an improved user experience please install the recode library: https://github.com/rrthomas/recode")
+        MESSAGE(WARNING "Cannot find recode.h anywhere; it is usually unnecessary, but you may opt to install a source release tarball of the recode library from https://github.com/rrthomas/recode")
     ENDIF ()
 ENDIF ()
 
