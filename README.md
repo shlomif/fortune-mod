@@ -1,6 +1,8 @@
 # fortune-mod Maintenance Version and Ongoing Development
 
-[![Build Status](https://travis-ci.org/shlomif/fortune-mod.svg?branch=master)](https://travis-ci.org/shlomif/fortune-mod)
+[![Travis-CI Build Status](https://travis-ci.org/shlomif/fortune-mod.svg?branch=master)](https://travis-ci.org/shlomif/fortune-mod)
+
+[![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/0pbvqd1xa7777aoo/branch/master?svg=true)](https://ci.appveyor.com/project/shlomif/fortune-mod/branch/master)
 
 This GitHub repository maintains the sources for fortune-mod, a
 version of
