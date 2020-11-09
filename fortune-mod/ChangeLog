@@ -1,6 +1,13 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+November 9, 2020 (fortune-mod 3.4.1)
+
+	Some lib-recode handling fixes:
+	( https://github.com/shlomif/fortune-mod/pull/46 ; thanks to @heirecka )
+
+	Add a quotation.
+
 November 8, 2020 (fortune-mod 3.4.0)
 
 	Made the compile-time dependency on lib-recode optional ;
