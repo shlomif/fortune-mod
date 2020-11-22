@@ -57,7 +57,7 @@ $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 cd "$HOMEDIR/$REPO"
 git clean -dxf .
-gbp buildpackage 2>&1 | tee ~/"$LOG_FN"
+(if ! gbp buildpackage 2>&1 ; then cat /tmp/fort*diff* ; exit 1 ; fi) | tee ~/"$LOG_FN"
 EOSCRIPTTTTTTT
 
 $obj->exe_bash_code(
