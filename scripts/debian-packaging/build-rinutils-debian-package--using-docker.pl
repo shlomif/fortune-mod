@@ -57,7 +57,8 @@ $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 cd "$HOMEDIR/$REPO"
 git clean -dxf .
-(if ! gbp buildpackage 2>&1 ; then cat /tmp/fort*diff* ; exit 1 ; fi) | tee ~/"$LOG_FN"
+(if ! gbp buildpackage 2>&1 ; then cat /tmp/rinutils*diff* ; exit 1 ; fi) | tee ~/"$LOG_FN"
+sudo dpkg -i ~/librinutils-dev_0.6.0-0.1_amd64.deb
 EOSCRIPTTTTTTT
 
 $obj->exe_bash_code(
