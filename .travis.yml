@@ -33,6 +33,7 @@ os: linux
 perl:
     - "5.30"
 script:
+    - "perl -ln -i -E 'print unless /^\\[ClangFormat\\]$/../^$/' fortune-mod/.tidyallrc"
     - "export FORTUNE_TEST_TIDY=1"
     - "perl CI-testing/continuous-integration-testing.pl"
     - "rm -fr B"
