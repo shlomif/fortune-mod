@@ -121,7 +121,11 @@ IF ("$ENV{FCS_GCC}")
         ADD_DEFINITIONS("-O1")
 ENDIF ()
 
+# Either or both of CheckIncludeFile
+# and CheckIncludeFiles may be needed for
+# CHECK_INCLUDE_FILES and CHECK_INCLUDE_FILE
 INCLUDE(CheckIncludeFile)
+INCLUDE(CheckIncludeFiles)
 SET(_r "stdbool.h" "stdio.h" "recode.h")
 CHECK_INCLUDE_FILES("${_r}" HAVE_RECODE_H)
 IF (NOT "${HAVE_RECODE_H}")
