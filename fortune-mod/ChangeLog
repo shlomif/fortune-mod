@@ -1,6 +1,22 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+April 20, 2021 (fortune-mod 3.6.0)
+
+	Some lib-recode handling fixes.
+
+	rinutils_bootstrap.
+
+	Move some stuff to off.
+	( https://github.com/shlomif/fortune-mod/pull/51 ; thanks to
+	@tristanbatchler )
+
+	Fix typos.
+	( https://github.com/shlomif/fortune-mod/pull/49 ; thanks to
+	@cchristiansen )
+
+	Add quotes.
+
 November 9, 2020 (fortune-mod 3.4.1)
 
 	Some lib-recode handling fixes:
