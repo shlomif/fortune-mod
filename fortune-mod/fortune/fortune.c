@@ -1147,7 +1147,7 @@ static void getargs(int argc, char **argv)
             (void)fprintf(stderr, "%s",
                 "fortune: can't match fortunes on this system (Sorry)\n");
             exit(0);
-#else /* NO_REGEX */
+#else             /* NO_REGEX */
         case 'm': /* dump out the fortunes */
             Match = true;
             pat = optarg;
@@ -1155,7 +1155,7 @@ static void getargs(int argc, char **argv)
         case 'i': /* case-insensitive match */
             ignore_case = true;
             break;
-#endif /* NO_REGEX */
+#endif            /* NO_REGEX */
         case 'u': /* Don't recode the fortune */
             No_recode = true;
             break;

@@ -1,6 +1,12 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+May 31, 2021 (fortune-mod 3.6.1)
+
+	Fix missing rinutils in release tarball.
+	( https://github.com/shlomif/fortune-mod/issues/52 ; thanks
+	to @Vonfry )
+
 April 20, 2021 (fortune-mod 3.6.0)
 
 	Some lib-recode handling fixes.

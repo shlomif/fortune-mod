@@ -33,13 +33,13 @@ SET(CPACK_SOURCE_GENERATOR "TXZ")
 SET (base_with_ver "fortune-mod-[0-9]+\\\\.[0-9]+\\\\.[0-9]+")
 
 SET(CPACK_SOURCE_IGNORE_FILES
-    "/.deps/"
+    "/\\\\.deps/"
     "/\\\\.git/"
     "/\\\\.tidyall\\\\.d/"
     "~$"
     "\\\\.pyc$"
     "/tags$"
-    "/(build|BUILD|B)/"
+    # "/(build|BUILD|B)/"
 )
 
 IF(WIN32 AND NOT UNIX)
