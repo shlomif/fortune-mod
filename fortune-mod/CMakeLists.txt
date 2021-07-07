@@ -317,6 +317,7 @@ SET (COOKIES
     pratchett
     riddles
     science
+    shingeki-no-kyojin
     songs-poems
     sports
     startrek
@@ -356,6 +357,7 @@ SET (OFFENSIVE_COOKIES
     religion
     riddles
     sex
+    shingeki-no-kyojin
     songs-poems
     vulgarity
     zippy
