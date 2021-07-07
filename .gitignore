@@ -6,3 +6,5 @@
 /fortune-mod/fortune/fortune_without_offensive.template.man
 /fortune-mod/util/randstr.man
 /fortune-mod/util/strfile.man
+/.metadata/
+/fortune-mod-test
