@@ -3,9 +3,8 @@
 [link=https://travis-ci.com/shlomif/fortune-mod]
 image::https://travis-ci.com/shlomif/fortune-mod.svg?branch=master[Travis-CI Build Status]
 
-https://ci.appveyor.com/project/shlomif/fortune-mod/branch/master[![AppVeyor
-Build
-status](https://ci.appveyor.com/api/projects/status/0pbvqd1xa7777aoo/branch/master?svg=true)]
+[link=https://ci.appveyor.com/project/shlomif/fortune-mod/branch/master]
+image::https://ci.appveyor.com/api/projects/status/0pbvqd1xa7777aoo/branch/master?svg=true[AppVeyor Build status]
 
 This GitHub repository maintains the sources for fortune-mod, a version
 of https://en.wikipedia.org/wiki/Fortune_%28Unix%29[the UNIX fortune
