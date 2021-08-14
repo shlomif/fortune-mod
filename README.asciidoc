@@ -128,6 +128,13 @@ Finally note that the runtime algorithm is not as straightforward as one
 may believe, making use of dat files that contain counts and offsets of
 the fortune "cookies".
 
+=== Why did you convert the buildsystem to CMake?
+
+See:
+
+* https://github.com/shlomif/fortune-mod/pull/54
+* https://twitter.com/shlomif/status/1330457762191511554
+
 == What was already done.
 
 . fortune-mod-1.99.1 was imported into the repository from the Mageia
