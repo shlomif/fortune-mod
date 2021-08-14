@@ -1,7 +1,7 @@
 == fortune-mod Maintenance Version and Ongoing Development
 
-https://travis-ci.org/shlomif/fortune-mod[![Travis-CI Build
-Status](https://travis-ci.org/shlomif/fortune-mod.svg?branch=master)]
+[link=https://travis-ci.com/shlomif/fortune-mod]
+image::https://travis-ci.com/shlomif/fortune-mod.svg?branch=master[Travis-CI Build Status]
 
 https://ci.appveyor.com/project/shlomif/fortune-mod/branch/master[![AppVeyor
 Build
