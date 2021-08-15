@@ -16,12 +16,13 @@ my $HOMEDIR = "/home/$USER";
 
 $obj->clean_up();
 $obj->run_docker();
-my $REPO = 'rinutils';
-my $URL  = "https://salsa.debian.org/shlomif-guest/$REPO";
+my $REPO   = 'rinutils';
+my $BRANCH = 'master';
+my $URL    = "https://salsa.debian.org/shlomif-guest/$REPO";
 
 if ( !-e $REPO )
 {
-    $obj->do_system( { cmd => [ "git", "clone", $URL, ] } );
+    $obj->do_system( { cmd => [ "git", "clone", "-b", $BRANCH, $URL, ] } );
 }
 my $cwd = cwd;
 chdir "./$REPO";
