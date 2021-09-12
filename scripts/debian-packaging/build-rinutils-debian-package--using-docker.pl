@@ -59,8 +59,9 @@ $BASH_SAFETY
 cd "$HOMEDIR/$REPO"
 git clean -dxf .
 (if ! gbp buildpackage 2>&1 ; then cat /tmp/rinutils*diff* ; exit 1 ; fi) | tee ~/"$LOG_FN"
-sudo dpkg -i ~/librinutils-dev_0.8.0-0.1_amd64.deb
+sudo dpkg -i ~/librinutils-dev_0.10.0-0.1_all.deb
 test -f /usr/include/rinutils/rinutils.h
+test -f /usr/include/rinutils/alloc_wrap.h
 EOSCRIPTTTTTTT
 
 $obj->exe_bash_code(
