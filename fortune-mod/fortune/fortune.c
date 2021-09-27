@@ -195,7 +195,7 @@ static inline char *my_recode_string(const char *s)
 static inline char *my_recode_string(const char *s) { return strdup(s); }
 #endif
 
-int add_dir(FILEDESC *);
+static int add_dir(FILEDESC *);
 
 static unsigned long my_random(const unsigned long base)
 {
@@ -738,7 +738,7 @@ static int names_compare(const void *a, const void *b)
  * add_dir:
  *      Add the contents of an entire directory.
  */
-int add_dir(FILEDESC *fp)
+static int add_dir(FILEDESC *const fp)
 {
     DIR *dir;
     struct dirent *dirent;
