@@ -30,6 +30,8 @@ On Fedora and other rpm-based distributions:
 sudo dnf install fortune-mod
 ....
 
+( RHEL and CentOS users may opt to try https://github.com/shlomif/fortune-mod/issues/47#issuecomment-917565752[the EPEL packages]. )
+
 On Arch Linux and derivatives:
 
 ....
