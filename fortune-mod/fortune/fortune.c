@@ -581,7 +581,7 @@ static int add_file(int percent, const char *file, const char *dir,
             ((fd = open4read(path)) < 0)) ||
         !path_is_absolute(path))
     {
-        debugprint("sarahhhhh fd=%d path=<%s> dir=<%s> file=<%s> percent=%d\n",
+        debugprint("check file fd=%d path=<%s> dir=<%s> file=<%s> percent=%d\n",
             fd, path, dir, file, percent);
         bool found = false;
         if (!dir && (!strchr(file, '/')))
@@ -640,13 +640,11 @@ static int add_file(int percent, const char *file, const char *dir,
                 }
                 if (!ret)
                 {
-                    debugprint("moshe\n");
                     perror(path);
                 }
             }
             else
             {
-                debugprint("abe\n");
                 perror(path);
             }
         }
@@ -755,7 +753,6 @@ static int add_dir(FILEDESC *const fp)
     fp->fd = -1;
     if (!(dir = opendir(fp->path)))
     {
-        debugprint("yonah\n");
         perror(fp->path);
         return false;
     }
@@ -767,7 +764,6 @@ static int add_dir(FILEDESC *const fp)
     names = malloc(sizeof(names[0]) * max_count_names);
     if (!names)
     {
-        debugprint("zach\n");
         perror("Out of RAM!");
         exit(-1);
     }
@@ -782,7 +778,6 @@ static int add_dir(FILEDESC *const fp)
             names = realloc(names, sizeof(names[0]) * max_count_names);
             if (!names)
             {
-                debugprint("rebecca\n");
                 perror("Out of RAM!");
                 exit(-1);
             }
