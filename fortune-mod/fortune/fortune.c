@@ -531,6 +531,12 @@ static bool path_is_absolute(const char *const path)
 #endif
     return false;
 }
+
+static int open4read(const char const *path)
+{
+    return open(path, O_RDONLY | O_BINARY);
+}
+
 /*
  * add_file:
  *      Add a file to the file list.
@@ -572,7 +578,7 @@ static int add_file(int percent, const char *file, const char *dir,
 #ifdef _WIN32
             (!isdir) &&
 #endif
-            ((fd = open(path, O_RDONLY | O_BINARY)) < 0)) ||
+            ((fd = open4read(path)) < 0)) ||
         !path_is_absolute(path))
     {
         debugprint("sarahhhhh fd=%d path=<%s> dir=<%s> file=<%s> percent=%d\n",
@@ -1318,7 +1324,7 @@ static void get_tbl(FILEDESC *fp)
         return;
     if (!(fp->child))
     {
-        if ((fd = open(fp->datfile, O_RDONLY | O_BINARY)) < 0)
+        if ((fd = open4read(fp->datfile)) < 0)
         {
             perror(fp->datfile);
             exit(1);
@@ -1445,8 +1451,7 @@ static FILEDESC *pick_child(FILEDESC *parent)
  */
 static void open_dat(FILEDESC *fp)
 {
-    if (fp->datfd < 0 &&
-        (fp->datfd = open(fp->datfile, O_RDONLY | O_BINARY)) < 0)
+    if (fp->datfd < 0 && (fp->datfd = open4read(fp->datfile)) < 0)
     {
         exit(1);
     }
