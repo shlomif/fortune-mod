@@ -165,7 +165,7 @@ preventing a switch to something else.
 https://ci.appveyor.com/project/shlomif/fortune-mod[AppVeyor/MS Windows]
 (with some appreciated help).
 . Found and fixed some security issues:
-* Seems to affect some Linux distributions as well as FreeBSD and
+* Seem to have affected some Linux distributions as well as FreeBSD and
 NetBSD.
 ** Was already fixed in OpenBSD
 * https://bugs.mageia.org/show_bug.cgi?id=26567
@@ -179,10 +179,8 @@ https://clang.llvm.org/docs/ClangFormat.html[clang-format].
 
 == What remains to be done.
 
-. See if there are any more downstream patches to apply.
-. Fix more typos (reports and pull-requests are welcome.)
-. Perhaps modernize the code a little.
-. Add more quotes / fortune cookies.
+. Fix more typos (issue reports and pull-requests are welcome.)
+. Add more quotes / fortune cookies (issue reports and pull-requests are welcome.).
 . Prepare packages for the new releases for
 https://pkgs.org/download/fortune-mod[downstream distributions/Operating
 Systems].
