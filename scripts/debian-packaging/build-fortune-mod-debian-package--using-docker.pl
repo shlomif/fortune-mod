@@ -23,6 +23,10 @@ if ( !-e $REPO )
 {
     $obj->do_system( { cmd => [ "git", "clone", $URL, ] } );
 }
+if ( !-e "$REPO/.git" )
+{
+    die "$REPO is not a git repository!";
+}
 my $cwd = cwd;
 chdir "./$REPO";
 $obj->do_system( { cmd => [ "git", "pull", "--ff-only", ] } );
