@@ -27,6 +27,10 @@ if ( !-e "$REPO/.git" )
 {
     die "$REPO is not a git repository!";
 }
+if ( !-f "$REPO/debian/rules" )
+{
+    die "$REPO is not a debian git repository!";
+}
 my $cwd = cwd;
 chdir "./$REPO";
 $obj->do_system( { cmd => [ "git", "pull", "--ff-only", ] } );
