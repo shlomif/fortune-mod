@@ -87,11 +87,11 @@ static FILE *Inf, *Dataf, *Outf;
 #include "fortune-util.h"
 
 /* ARGSUSED */
-static void getargs(int ac, char *av[])
+static void getargs(int argc, char *argv[])
 {
     int ch;
 
-    while ((ch = getopt(ac, av, "c:")) != EOF)
+    while ((ch = getopt(argc, argv, "c:")) != EOF)
         switch (ch)
         {
         case 'c':
@@ -109,13 +109,13 @@ static void getargs(int ac, char *av[])
             exit(1);
         }
 
-    av += optind;
+    argv += optind;
 
-    if (*av)
+    if (*argv)
     {
-        input_filename = *av;
+        input_filename = *argv;
         input_fn_2_data_fn();
-        set_output_filename(*++av);
+        set_output_filename(*++argv);
     }
     else
     {
@@ -166,11 +166,11 @@ static void order_unstr(STRFILE *tbl)
     }
 }
 
-int main(int ac, char **av)
+int main(int argc, char **argv)
 {
     static STRFILE tbl; /* description table */
 
-    getargs(ac, av);
+    getargs(argc, argv);
     if (!(Inf = fopen(input_filename, "r")))
     {
         perror(input_filename);

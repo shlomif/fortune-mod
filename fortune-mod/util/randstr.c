@@ -96,13 +96,13 @@ static off_t pos, Seekpts[2]; /* seek pointers to fortunes */
 
 #include "fortune-util.h"
 
-static void getargs(char *av[])
+static void getargs(char *argv[])
 {
-    av += optind + 1;
+    argv += optind + 1;
 
-    if (*av)
+    if (*argv)
     {
-        input_filename = *av;
+        input_filename = *argv;
         input_fn_2_data_fn();
     }
     else
@@ -167,11 +167,11 @@ static void display(FILE *fp, STRFILE table)
     fflush(stdout);
 }
 
-int main(int ac GCC_UNUSED, char **av)
+int main(int argc GCC_UNUSED, char **argv)
 {
     static STRFILE tbl; /* description table */
 
-    getargs(av);
+    getargs(argv);
     if (!(Inf = fopen(input_filename, "r")))
     {
         perror(input_filename);
