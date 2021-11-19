@@ -87,13 +87,18 @@
 #include <assert.h>
 #include <errno.h>
 #include <locale.h>
+
 #ifndef _WIN32
+
 #include <langinfo.h>
 #define O_BINARY 0
+
 #ifdef HAVE_RECODE_H
 #define WITH_RECODE
 #endif
+
 #endif
+
 #ifdef WITH_RECODE
 #include <recode.h>
 #endif
@@ -163,11 +168,10 @@ static regex_t Re_pat;
 
 #ifdef WITH_REGEX
 static bool Match = false; /* dump fortunes matching a pattern */
-
 #endif
+
 #ifdef DEBUG
 static bool Debug = false; /* print debug messages */
-
 #endif
 
 static unsigned char *Fortbuf = NULL; /* fortune buffer for -m */
@@ -311,13 +315,13 @@ static void print_list(FILEDESC *list, int lev)
  * conv_pat:
  *      Convert the pattern to an ignore-case equivalent.
  */
-static char *conv_pat(char *orig)
+static char *conv_pat(const char *const orig_str)
 {
-    char *sp;
+    const char *sp;
     char *new_buf;
 
     size_t cnt = 1; /* allow for '\0' */
-    for (sp = orig; *sp != '\0'; sp++)
+    for (sp = orig_str; *sp != '\0'; sp++)
     {
         const size_t prev_cnt = cnt;
         if (isalpha(*sp))
@@ -337,26 +341,28 @@ static char *conv_pat(char *orig)
         exit(1);
     }
 
-    for (sp = new_buf; *orig != '\0'; orig++)
+    char *dest_ptr;
+    const char *orig = orig_str;
+    for (dest_ptr = new_buf; *orig != '\0'; ++orig)
     {
         if (islower(*orig))
         {
-            *sp++ = '[';
-            *sp++ = *orig;
-            *sp++ = (char)toupper(*orig);
-            *sp++ = ']';
+            *dest_ptr++ = '[';
+            *dest_ptr++ = *orig;
+            *dest_ptr++ = (char)toupper(*orig);
+            *dest_ptr++ = ']';
         }
         else if (isupper(*orig))
         {
-            *sp++ = '[';
-            *sp++ = *orig;
-            *sp++ = (char)tolower(*orig);
-            *sp++ = ']';
+            *dest_ptr++ = '[';
+            *dest_ptr++ = *orig;
+            *dest_ptr++ = (char)tolower(*orig);
+            *dest_ptr++ = ']';
         }
         else
-            *sp++ = *orig;
+            *dest_ptr++ = *orig;
     }
-    *sp = '\0';
+    *dest_ptr = '\0';
     return new_buf;
 }
 #endif
@@ -365,7 +371,7 @@ static char *conv_pat(char *orig)
  * do_malloc:
  *      Do a malloc, checking for NULL return.
  */
-static void *do_malloc(size_t size)
+static void *do_malloc(const size_t size)
 {
     void *new_buf = malloc(size);
 
@@ -1182,9 +1188,12 @@ static void getargs(int argc, char **argv)
         exit(1); /* errors printed through form_file_list() */
     }
 #ifdef DEBUG
-/*      if (Debug >= 1)
- * print_list(File_list, 0); */
-#endif /* DEBUG */
+#if 0
+      if (Debug >= 1)
+ print_list(File_list, 0); /* Causes crash with new %% code */
+
+#endif
+#endif
 
 /* If (Find_files) print_list() moved to main */
 #ifdef WITH_REGEX
@@ -1277,8 +1286,11 @@ static void init_prob(void)
     DPRINTF(1, (stderr, "%s", "\n"));
 
 #ifdef DEBUG
-/*      if (Debug >= 1)
- * print_list(File_list, 0); *//* Causes crash with new %% code */
+#if 0
+      if (Debug >= 1)
+ print_list(File_list, 0); /* Causes crash with new %% code */
+
+#endif
 #endif
 }
 
@@ -1766,7 +1778,7 @@ static void free_desc(FILEDESC *ptr)
     }
 }
 
-int main(int ac, char *av[])
+int main(int argc, char *argv[])
 {
 #ifdef WITH_RECODE
     const char *ctype;
@@ -1788,7 +1800,7 @@ int main(int ac, char *av[])
 #endif
 
 #ifndef DONT_CALL_GETARGS
-    getargs(ac, av);
+    getargs(argc, argv);
 #endif
 
 #ifdef WITH_RECODE
