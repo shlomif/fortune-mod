@@ -355,13 +355,13 @@ static void randomize(void)
  *      CHUNKSIZE blocks; if the latter, we just write each pointer,
  *      and then seek back to the beginning to write in the table.
  */
-int main(int ac, char **av)
+int main(int argc, char **argv)
 {
     char *sp;
     FILE *inf, *outf;
     bool len_was_set = false;
 
-    getargs(ac, av); /* evalute arguments */
+    getargs(argc, argv); /* evalute arguments */
     if (!(inf = fopen(input_filename, "r")))
     {
         perror(input_filename);
