@@ -38,10 +38,15 @@
 #pragma once
 #include <sys/types.h>
 #include <sys/stat.h>
-/* For ntohl() */
 #ifdef _WIN32
+/* For ntohl() */
 #include <winsock2.h>
 #define getpid() 0
+#include <windows.h>
+#include "getopt.h"
+#define random(x) rand(x)
+#define srandom(x) srand(x)
+#define sleep(n) Sleep((n)*1000)
 #else
 #include <arpa/inet.h>
 #include <unistd.h>
@@ -57,12 +62,5 @@
 #ifndef MAXPATHLEN
 #define MAXPATHLEN 1024
 #endif /* MAXPATHLEN */
-#if defined(_WIN32)
-#include <windows.h>
-#include "getopt.h"
-#define random(x) rand(x)
-#define srandom(x) srand(x)
-#define sleep(n) Sleep((n)*1000)
-#endif
 #include <rinutils/count.h>
 #include <rinutils/unused.h>
