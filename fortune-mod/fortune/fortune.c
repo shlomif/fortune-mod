@@ -1799,10 +1799,7 @@ int main(int argc, char *argv[])
     }
 #endif
 
-#ifndef DONT_CALL_GETARGS
     getargs(argc, argv);
-#endif
-
 #ifdef WITH_RECODE
     outer = recode_new_outer(true);
     request = recode_new_request(outer);
