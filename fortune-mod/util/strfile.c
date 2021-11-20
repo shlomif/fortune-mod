@@ -323,8 +323,7 @@ static void do_order(void)
  */
 static void randomize(void)
 {
-    srandom((unsigned int)(time((time_t *)NULL) + getpid()));
-
+    call_srandom();
     Tbl.str_flags |= STR_RANDOM;
     /*      cnt = Tbl.str_numstr;
      * See comment above.  Isn't this stuff distributed worldwide?  How

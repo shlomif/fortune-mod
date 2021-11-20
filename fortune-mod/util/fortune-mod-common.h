@@ -64,3 +64,7 @@
 #endif /* MAXPATHLEN */
 #include <rinutils/count.h>
 #include <rinutils/unused.h>
+static void call_srandom(void)
+{
+    srandom((unsigned)(time((time_t *)NULL) + getpid()));
+}

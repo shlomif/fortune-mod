@@ -192,7 +192,7 @@ int main(int argc GCC_UNUSED, char **argv)
     tbl.str_shortlen = ntohl(tbl.str_shortlen);
     tbl.str_flags = ntohl(tbl.str_flags);
 
-    srandom((int)(time((time_t *)NULL) + getpid()));
+    call_srandom();
     get_fort(tbl);
     display(Inf, tbl);
 

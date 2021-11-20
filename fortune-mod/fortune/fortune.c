@@ -1850,7 +1850,7 @@ int main(int argc, char *argv[])
     }
     else
     {
-        srandom((unsigned int)(time((time_t *)NULL) + getpid()));
+        call_srandom();
         do
         {
             get_fort();
