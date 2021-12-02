@@ -18,9 +18,11 @@ sub check_file
     {
         return "Fortune cookie file does not end in a single %";
     }
-    if ( any { length($_) > 80 } @l )
+    my $MAX_LEN = 80;
+    if ( any { length($_) > $MAX_LEN } @l )
     {
-        return "Fortune cookie file contains a line longer than 78 characters";
+        return
+"Fortune cookie file contains a line longer than $MAX_LEN characters";
     }
     if ( any { /\r/ } @l )
     {
