@@ -454,14 +454,6 @@ How do I type "for i in *.dvi do xdvi $i done" in a GUI?
 That's a city in Bosnia.  Right?
 	-- Discussion in comp.os.linux.misc on the intuitiveness of commands
 %
-Who wants to remember that escape-x-alt-control-left shift-b puts you into
-super-edit-debug-compile mode?
-	-- Discussion on the intuitiveness of commands, especially Emacs
-%
-Anyone who thinks UNIX is intuitive should be forced to write 5000 lines of
-code using nothing but vi or emacs.  AAAAACK!
-	-- Discussion on the intuitiveness of commands, especially Emacs
-%
 Now, it we had this sort of thing:
   yield -a     for yield to all traffic
   yield -t     for yield to trucks

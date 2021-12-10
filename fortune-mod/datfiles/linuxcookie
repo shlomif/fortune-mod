@@ -27,11 +27,6 @@ on it, you know they are just evil lies."
 outside"
 (By Linus Torvalds)
 %
-"And the next time you consider complaining that running Lucid Emacs
-19.05 via NFS from a remote Linux machine in Paraguay doesn't seem to
-get the background colors right, you'll know who to thank."
-(By Matt Welsh)
-%
 > : Any porters out there should feel happier knowing that DEC is shipping
 > : me an AlphaPC that I intend to try getting linux running on: this will
 > : definitely help flush out some of the most flagrant unportable stuff.
@@ -155,10 +150,6 @@ high grade for such a design :-)
 10 minutes listening to Musak waiting for technical support which isn't."
 (By Dr. Greg Wettstein, Roger Maris Cancer Center)
 %
-"I'd crawl over an acre of 'Visual This++' and 'Integrated Development
-That' to get to gcc, Emacs, and gdb.  Thank you."
-(By Vance Petree, Virginia Power)
-%
 "I'm an idiot.. At least this one [bug] took about 5 minutes to find.."
 (Linus Torvalds in response to a bug report.)
 
@@ -208,11 +199,6 @@ the NII] looks like something from Microsoft, it will never work."
 "If you want to travel around the world and be invited to speak at a lot
 of different places, just write a Unix operating system."
 (By Linus Torvalds)
-%
-"[In 'Doctor' mode], I spent a good ten minutes telling Emacs what I
-thought of it.  (The response was, 'Perhaps you could try to be less
-abusive.')"
-(By Matt Welsh)
 %
 In most countries selling harmful things like drugs is punishable.
 Then howcome people can sell Microsoft software and go unpunished?
@@ -303,10 +289,6 @@ Now, it we had this sort of thing:
 ...you'd have a lot of dead people at intersections, and traffic jams you
 wouldn't believe...
 (Discussion in comp.os.linux.misc on the intuitiveness of commands.)
-%
-"On a normal ascii line, the only safe condition to detect is a 'BREAK'
-- everything else having been assigned functions by Gnu EMACS."
-(By Tarl Neustaedter)
 %
 "On the Internet, no one knows you're using Windows NT"
 (Submitted by Ramiro Estrugo, restrugo@fateware.com)
@@ -484,10 +466,6 @@ speak from experience."
 sit in front of your linux computer playing with the
 all-new-and-improved linux kernel version."
 (By Linus Torvalds)
-%
-Your job is being a professor and researcher: That's one hell of a good excuse
-for some of the brain-damages of minix.
-(Linus Torvalds to Andrew Tanenbaum)
 %
 I've heard a Jew and a Muslim argue in a Damascus cafe with less passion
 than the emacs wars."
