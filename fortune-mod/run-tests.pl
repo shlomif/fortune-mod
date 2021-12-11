@@ -37,6 +37,11 @@ sub do_system
 
 do_system(
     {
+        cmd => [ $^X, "$src_dir/tests/scripts/split-valgrind.pl", ]
+    }
+);
+do_system(
+    {
         cmd => [
             'prove', ( $IS_WIN ? ("-v") : () ), glob("$src_dir/tests/t/*.t")
         ]

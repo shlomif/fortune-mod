@@ -75,7 +75,7 @@ foreach my $prog (qw/ unstr /)
 {
     $obj->run(
         {
-            log_fn => "./fortune--$prog-buffer-overflow.valgrind-log",
+            log_fn => "./fortune--$prog-buffer-overflow--extended.valgrind-log",
             prog   => "./$prog",
             argv   => [
                 scalar( "AAAAAAAAAAAAAAAA/" x 1000 ),

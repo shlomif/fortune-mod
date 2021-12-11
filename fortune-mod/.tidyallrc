@@ -3,7 +3,7 @@ select = **/*.{c,h}
 
 [PerlTidy]
 argv = -ci=4 -bl -cti=0 --character-encoding=none
-ignore = rinutils/run-tests.pl
+ignore = rinutils/run-tests.pl **/t/valgrind*.t
 select = **/*.{pl,pm,t}
 
 [PerlCritic]
