@@ -21,29 +21,15 @@ Avoid the Gates of Hell.  Use Linux
 "It's God.  No, not Richard Stallman, or Linus Torvalds, but God."
 (By Matt Welsh)
 %
-"...[Linux's] capacity to talk via any medium except smoke signals."
-(By Dr. Greg Wettstein, Roger Maris Cancer Center)
-%
 linux: because a PC is a terrible thing to waste
 (ksh@cis.ufl.edu put this on T-shirts in '93)
 %
 Linux: Because a PC is a terrible thing to waste.
 (By komarimf@craft.camp.clarkson.edu, Mark Komarinski)
 %
-linux: the choice of a GNU generation
-(ksh@cis.ufl.edu put this on Tshirts in '93)
-%
 "Linux: the operating system with a CLUE...
 Command Line User Environment".
 (seen in a posting in comp.software.testing)
-%
-lp1 on fire
-(One of the more obfuscated kernel messages)
-%
-Microsoft is not the answer.
-Microsoft is the question.
-NO (or Linux) is the answer.
-(Taken from a .signature from someone from the UK, source unknown)
 %
 'Mounten' wird fuer drei Dinge benutzt: 'Aufsitzen' auf Pferde, 'einklinken'
 von Festplatten in Dateisysteme, und, nun, 'besteigen' beim Sex.
@@ -51,70 +37,13 @@ von Festplatten in Dateisysteme, und, nun, 'besteigen' beim Sex.
 climbing on a horse, linking in a hard disk unit in data systems, and, well,
 mounting during sex".)
 %
-"MSDOS didn't get as bad as it is overnight -- it took over ten years
-of careful development."
-(By dmeggins@aix1.uottawa.ca)
-%
-"Never make any mistaeks."
-(Anonymous, in a mail discussion about to a kernel bug report.)
-%
-> No manual is ever necessary.
-May I politely interject here: BULLSHIT.  That's the biggest Apple lie of all!
-(Discussion in comp.os.linux.misc on the intuitiveness of interfaces.)
-%
-Not me, guy. I read the Bash man page each day like a Jehovah's Witness reads
-the Bible. No wait, the Bash man page IS the bible. Excuse me...
-(More on confusing aliases, taken from comp.os.linux.misc)
-%
 "Note that if I can get you to \"su and say\" something just by asking,
 you have a very serious security problem on your system and you should
 look into it."
 (By Paul Vixie, vixie-cron 3.0.1 installation notes)
 %
-Now I know someone out there is going to claim, "Well then, UNIX is intuitive,
-because you only need to learn 5000 commands, and then everything else follows
-from that! Har har har!"
-(Andy Bates in comp.os.linux.misc, on "intuitive interfaces", slightly
-defending Macs.)
-%
-Now, it we had this sort of thing:
-  yield -a     for yield to all traffic
-  yield -t     for yield to trucks
-  yield -f     for yield to people walking (yield foot)
-  yield -d t*  for yield on days starting with t
-...you'd have a lot of dead people at intersections, and traffic jams you
-wouldn't believe...
-(Discussion in comp.os.linux.misc on the intuitiveness of commands.)
-%
 "On the Internet, no one knows you're using Windows NT"
 (Submitted by Ramiro Estrugo, restrugo@fateware.com)
-%
-Once upon a time there was a DOS user who saw Unix, and saw that it was
-good. After typing cp on his DOS machine at home, he downloaded GNU's
-unix tools ported to DOS and installed them. He rm'd, cp'd, and mv'd
-happily for many days, and upon finding elvis, he vi'd and was happy. After
-a long day at work (on a Unix box) he came home, started editing a file,
-and couldn't figure out why he couldn't suspend vi (w/ ctrl-z) to do
-a compile.
-(By ewt@tipper.oit.unc.edu (Erik Troan)
-%
-> > Other than the fact Linux has a cool name, could someone explain why I
-> > should use Linux over BSD?
->
-> No.  That's it.  The cool name, that is.  We worked very hard on
-> creating a name that would appeal to the majority of people, and it
-> certainly paid off: thousands of people are using linux just to be able
-> to say "OS/2? Hah.  I've got Linux.  What a cool name".  386BSD made the
-> mistake of putting a lot of numbers and weird abbreviations into the
-> name, and is scaring away a lot of people just because it sounds too
-> technical.
-(Linus Torvalds' follow-up to a question about Linux)
-%
-Personally, I think my choice in the mostest-superlative-computer wars has to
-be the HP-48 series of calculators.  They'll run almost anything.  And if they
-can't, while I'll just plug a Linux box into the serial port and load up the
-HP-48 VT-100 emulator.
-(By jdege@winternet.com, Jeff Dege)
 %
 There are no threads in a.b.p.erotica,  so there's no  gain in using a
 threaded news reader.
@@ -140,10 +69,6 @@ be able to drive backwards with the handbrake on.
 Sigh.  I like to think it's just the Linux people who want to be on
 the "leading edge" so bad they walk right off the precipice.
 (Craig E. Groeschel)
-%
-The chat program is in public domain. This is not the GNU public license. If
-it breaks then you get to keep both pieces.
-(Copyright notice for the chat program)
 %
 > The day people think linux would be better served by somebody else (FSF
 > being the natural alternative), I'll "abdicate".  I don't think that

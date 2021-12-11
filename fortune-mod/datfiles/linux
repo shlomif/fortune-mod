@@ -468,7 +468,7 @@ Now, it we had this sort of thing:
 
 ...you'd have a lot of dead people at intersections, and traffic jams you
 wouldn't believe...
-		-- Discussion on the intuitiveness of commands
+		-- Discussion on the intuitiveness of commands, comp.os.linux.misc
 %
 Not me, guy.  I read the Bash man page each day like a Jehovah's Witness reads
 the Bible.  No wait, the Bash man page IS the bible.  Excuse me...
@@ -491,7 +491,7 @@ Surely, Linus is talking about the kind of idiocy that others aspire to :-).
 		-- Bruce Perens in response to Linus Torvalds's
 %
 Never make any mistaeks.
-		-- Anonymous, in a mail discussion about to a kernel bug report
+		-- Anonymous, in a mail discussion about a kernel bug report
 %
 +#if defined(__alpha__) && defined(CONFIG_PCI)
 +       /*
