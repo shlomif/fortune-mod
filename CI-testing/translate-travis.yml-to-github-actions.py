@@ -196,6 +196,7 @@ def generate_windows_yaml(plat, output_path, is_act):
             if cmd.startswith("C:\\cygwin64\\setup"):
                 continue
             cmd = cmd.replace("cygwin64", "cygwin")
+            cmd = cmd.replace("MSYS Makefiles", "MinGW Makefiles")
             if cmd.startswith("cpanm "):
                 words = cmd.split(' ')[1:]
                 dw = []

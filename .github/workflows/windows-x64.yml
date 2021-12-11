@@ -200,7 +200,7 @@ jobs:
 
                 SET SKIP_RINUTILS_INSTALL=1
 
-                perl CI-testing/continuous-integration-testing.pl --gen="MSYS Makefiles"
+                perl CI-testing/continuous-integration-testing.pl --gen="MinGW Makefiles"
                 || ( echo Failed & exit /B 1 )
 
                 '
