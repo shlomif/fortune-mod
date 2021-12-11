@@ -18,13 +18,6 @@ reliable, well-engineered commercial software?"
 Avoid the Gates of Hell.  Use Linux
 (Unknown source)
 %
-Be warned that typing \fBkillall \fIname\fP may not have the desired
-effect on non-Linux systems, especially when done by a privileged user.
-(From the killall manual page)
-%
-But what can you do with it?  -- ubiquitous cry from Linux-user partner.
-(Submitted by Andy Pearce, ajp@hpopd.pwd.hp.com)
-%
 /*
  * Oops. The kernel tried to access some bad page. We'll have to
  * terminate things with extreme prejudice.
@@ -35,9 +28,6 @@ die_if_kernel("Oops", regs, error_code);
 "...Deep Hack Mode--that mysterious and frightening state of
 consciousness where Mortal Users fear to tread."
 (By Matt Welsh)
-%
-Dijkstra probably hates me
-(Linus Torvalds, in kernel/sched.c)
 %
 DOS: n., A small annoying boot virus that causes random spontaneous system
      crashes, usually just before saving a massive project.  Easily cured by
