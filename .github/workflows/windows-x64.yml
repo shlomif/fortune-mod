@@ -20,7 +20,6 @@ jobs:
                 submodules: 'true'
         -   name: perl -V
             run: perl -V
-        -   run: git config --global core.autocrlf input
         -   uses: cygwin/cygwin-install-action@master
             with:
                 packages: docbook-xml docbook-xsl libxml2 libxslt

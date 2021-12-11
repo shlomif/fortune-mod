@@ -140,7 +140,8 @@ def generate_windows_yaml(plat, output_path, is_act):
     step = {
         "run": "git config --global core.autocrlf input",
     }
-    steps.append(step)
+    if 0:
+        steps.append(step)
     step = {
         "uses": "cygwin/cygwin-install-action@master",
         "with": {
