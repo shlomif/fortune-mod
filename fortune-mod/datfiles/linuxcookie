@@ -18,55 +18,8 @@ reliable, well-engineered commercial software?"
 Avoid the Gates of Hell.  Use Linux
 (Unknown source)
 %
-/*
- * Oops. The kernel tried to access some bad page. We'll have to
- * terminate things with extreme prejudice.
-*/
-die_if_kernel("Oops", regs, error_code);
-(From linux/arch/i386/mm/fault.c)
-%
-"...Deep Hack Mode--that mysterious and frightening state of
-consciousness where Mortal Users fear to tread."
-(By Matt Welsh)
-%
-DOS: n., A small annoying boot virus that causes random spontaneous system
-     crashes, usually just before saving a massive project.  Easily cured by
-     UNIX.  See also MS-DOS, IBM-DOS, DR-DOS.
-(from David Vicker's .plan)
-%
-/*
- * [...] Note that 120 sec is defined in the protocol as the maximum
- * possible RTT.  I guess we'll have to use something other than TCP
- * to talk to the University of Mars.
- * PAWS allows us longer timeouts and large windows, so once implemented
- * ftp to mars will work nicely.
- */
-(from /usr/src/linux/net/inet/tcp.c, concerning RTT [retransmission timeout])
-%
-"Even more amazing was the realization that God has Internet access.  I
-wonder if He has a full newsfeed?"
-(By Matt Welsh)
-%
->Ever heard of .cshrc?
-That's a city in Bosnia.  Right?
-(Discussion in comp.os.linux.misc on the intuitiveness of commands.)
-%
 Fatal Error: Found [MS-Windows] System -> Repartitioning Disk for Linux...
 (By cbbrown@io.org, Christopher Browne)
-%
-How do I type "for i in *.dvi do xdvi i done" in a GUI?
-(Discussion in comp.os.linux.misc on the intuitiveness of interfaces.)
-%
-"How should I know if it works?  That's what beta testers are for.  I only
-coded it."
-(Attributed to Linus Torvalds, somewhere in a posting)
-%
-----==-- _                     / /  \
----==---(_)__  __ ____  __    / / /\ \
---==---/ / _ \/ // /\ \/ /   / /_/\ \ \
--=====/_/_//_/\_,_/ /_/\_\  /______\ \ \
-A proud member of TeamLinux \_________\/
-(By CHaley (HAC), haley@unm.edu, ch008cth@pi.lanl.gov)
 %
 I develop for Linux for a living, I used to develop for DOS.
 Going from DOS to Linux is like trading a glider for an F117.
