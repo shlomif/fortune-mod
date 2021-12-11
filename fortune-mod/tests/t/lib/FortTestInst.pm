@@ -3,11 +3,10 @@ package FortTestInst;
 use strict;
 use warnings;
 
-use Path::Tiny qw/ path tempdir tempfile cwd /;
-use File::Path qw/mkpath rmtree/;
+use Path::Tiny qw/ cwd /;
+use File::Path qw/ mkpath rmtree /;
 
 my $IS_WIN = ( $^O eq "MSWin32" );
-my $SEP    = $IS_WIN ? "\\"    : '/';
 my $MAKE   = $IS_WIN ? 'gmake' : 'make';
 
 sub do_system
@@ -54,7 +53,6 @@ sub install
             ]
         }
     );
-    do_system( { cmd => [$MAKE] } );
     do_system( { cmd => [ $MAKE, 'install', ] } );
     chdir($cwd);
 

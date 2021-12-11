@@ -11,7 +11,6 @@ use Test::More tests => 3;
 
 {
     my $inst_dir = FortTestInst::install("fortune-m");
-    my $IS_WIN   = ( $^O eq "MSWin32" );
     my @cmd      = ( $inst_dir->child( 'games', 'fortune' ), '-m', 'giants' );
 
     print "Running [@cmd]\n";
@@ -25,7 +24,6 @@ use Test::More tests => 3;
 
 {
     my $inst_dir = FortTestInst::install("fortune-m");
-    my $IS_WIN   = ( $^O eq "MSWin32" );
     my @cmd = ( $inst_dir->child( 'games', 'fortune' ), '-m', '"wet paint"' );
 
     print "Running [@cmd]\n";
