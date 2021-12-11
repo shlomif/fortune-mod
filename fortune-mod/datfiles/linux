@@ -200,6 +200,7 @@ you blankly and say "Hey, I got those with the system, *for free*".
 %
 We come to bury DOS, not to praise it.
 	-- Paul Vojta, vojta@math.berkeley.edu
+    ( paraphrasing a quote of Shakespeare)
 %
 Be warned that typing \fBkillall \fIname\fP may not have the desired
 effect on non-Linux systems, especially when done by a privileged user.
