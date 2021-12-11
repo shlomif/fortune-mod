@@ -18,50 +18,8 @@ reliable, well-engineered commercial software?"
 Avoid the Gates of Hell.  Use Linux
 (Unknown source)
 %
-Fatal Error: Found [MS-Windows] System -> Repartitioning Disk for Linux...
-(By cbbrown@io.org, Christopher Browne)
-%
-+#if defined(__alpha__) && defined(CONFIG_PCI)
-+       /*
-+        * The meaning of life, the universe, and everything. Plus
-+        * this makes the year come out right.
-+        */
-+       year -= 42;
-+#endif
-(From the patch for 1.3.2: (kernel/time.c), submitted by Marcus Meissner)
-%
-"If the future navigation system [for interactive networked services on
-the NII] looks like something from Microsoft, it will never work."
-(Chairman of Walt Disney Television & Telecommunications)
-%
-"If you want to travel around the world and be invited to speak at a lot
-of different places, just write a Unix operating system."
-(By Linus Torvalds)
-%
-In most countries selling harmful things like drugs is punishable.
-Then howcome people can sell Microsoft software and go unpunished?
-(By hasku@rost.abo.fi, Hasse Skrifvars)
-%
-Intel engineering seem to have misheard Intel marketing strategy. The phrase
-was "Divide and conquer" not "Divide and cock up"
-(By iialan@www.linux.org.uk, Alan Cox)
-%
 "It's God.  No, not Richard Stallman, or Linus Torvalds, but God."
 (By Matt Welsh)
-%
-LILO, you've got me on my knees!
-(from David Black, dblack@pilot.njin.net, with apologies to Derek and the
-Dominos, and Werner Almsberger)
-%
-Linux is obsolete
-(Andrew Tanenbaum)
-%
-"Linux poses a real challenge for those with a taste for late-night
-hacking (and/or conversations with God)."
-(By Matt Welsh)
-%
-Linux!  Guerrilla UNIX Development     Venimus, Vidimus, Dolavimus.
-(By mah@ka4ybr.com, Mark A. Horton KA4YBR)
 %
 "...[Linux's] capacity to talk via any medium except smoke signals."
 (By Dr. Greg Wettstein, Roger Maris Cancer Center)
