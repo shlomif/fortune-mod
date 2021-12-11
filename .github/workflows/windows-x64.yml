@@ -78,6 +78,9 @@ jobs:
                 IF NOT EXIST C:\strawberry ( echo "strawberryperl is not installed.
                 Please fix appveyor.yml" exit 1 ) || ( echo Failed & exit /B 1 )
 
+                c:\msys64\usr\bin\bash -lc "pacman --noconfirm -Syuu" || ( echo Failed
+                & exit /B 1 )
+
                 SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
 
                 perl -v || ( echo Failed & exit /B 1 )
@@ -85,7 +88,7 @@ jobs:
                 IF NOT EXIST C:\Perl5 mkdir C:\Perl5 || ( echo Failed & exit /B 1
                 )
 
-                SET PATH=C:\msys64\bin;C:\Perl5\bin;C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
+                SET PATH=C:\msys64\mingw64\bin;C:\msys64\bin;C:\Perl5\bin;C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
 
                 SET PERL5LIB=C:/Perl5/lib/perl5
 

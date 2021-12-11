@@ -14,10 +14,11 @@ install:
         echo \"strawberryperl is not installed. Please fix appveyor.yml\"
         exit 1
         )"
+    - c:\msys64\usr\bin\bash -lc "pacman --noconfirm -Syuu"
     - SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
     - perl -v
     - IF NOT EXIST C:\Perl5 mkdir C:\Perl5
-    - SET PATH=C:\msys64\bin;C:\Perl5\bin;C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
+    - SET PATH=C:\msys64\mingw64\bin;C:\msys64\bin;C:\Perl5\bin;C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
     - SET PERL5LIB=C:/Perl5/lib/perl5
     - SET PERL_LOCAL_LIB_ROOT=C:/Perl5
     - SET PERL_MB_OPT=--install_base C:/Perl5
