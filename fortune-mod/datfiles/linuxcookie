@@ -21,68 +21,6 @@ Avoid the Gates of Hell.  Use Linux
 Fatal Error: Found [MS-Windows] System -> Repartitioning Disk for Linux...
 (By cbbrown@io.org, Christopher Browne)
 %
-I develop for Linux for a living, I used to develop for DOS.
-Going from DOS to Linux is like trading a glider for an F117.
-(By entropy@world.std.com, Lawrence Foard)
-%
-I did this 'cause Linux gives me a woody.  It doesn't generate revenue.
-(Dave '-ddt->` Taylor, announcing DOOM for Linux)
-%
-Feel free to contact me (flames about my english and the useless of this
-driver will be redirected to /dev/null, oh no, it's full...).
-(Michael Beck, describing the PC-speaker sound device)
-%
-"I don't know why, but first C programs tend to look a lot worse than
-first programs in any other language (maybe except for fortran, but then
-I suspect all fortran programs look like `firsts')"
-(By Olaf Kirch)
-%
-"I once witnessed a long-winded, month-long flamewar over the use of
-mice vs. trackballs...It was very silly."
-(By Matt Welsh)
-%
-I still maintain the point that designing a monolithic kernel in 1991 is a
-fundamental error.  Be thankful you are not my student.  You would not get a
-high grade for such a design :-)
-(Andrew Tanenbaum to Linus Torvalds)
-%
-"I would rather spend 10 hours reading someone else's source code than
-10 minutes listening to Musak waiting for technical support which isn't."
-(By Dr. Greg Wettstein, Roger Maris Cancer Center)
-%
-"I'm an idiot.. At least this one [bug] took about 5 minutes to find.."
-(Linus Torvalds in response to a bug report.)
-
-> I'm an idiot.. At least this [bug] took about 5 minutes to find..
-Disquieting ...
-(Gonzalo Tornaria in response to Linus Torvalds's mailing about a kernel bug.)
-
-> I'm an idiot.. At least this [bug] took about 5 minutes to find..
-We need to find some new terms to describe the rest of us mere mortals
-then.
-(Craig Schlenter in response to Linus Torvalds's mailing about a kernel bug.)
-
-> I'm an idiot.. At least this [bug] took about 5 minutes to find..
-Surely, Linus is talking about the kind of idiocy that others aspire to :-).
-(Bruce Perens in response to Linus Torvalds's mailing about a kernel bug.)
-%
-I've run DOOM more in the last few days than I have the last few
-months.  I just love debugging ;-)
-(Linus Torvalds)
-%
-Microsoft Corp., concerned by the growing popularity of the free 32-bit
-operating system for Intel systems, Linux, has employed a number of top
-programmers from the underground world of virus development. Bill Gates stated
-yesterday: "World domination, fast -- it's either us or Linus". Mr. Torvalds
-was unavailable for comment ...
-(rjm@swift.eng.ox.ac.uk (Robert Manners), in comp.os.linux.setup)
-%
-    if (argc > 1 && strcmp(argv[1], "-advice") == 0) {
-	printf("Don't Panic!\n");
-	exit(42);
-    }
-(Arnold Robbins in the LJ of February '95, describing RCS)
-%
 +#if defined(__alpha__) && defined(CONFIG_PCI)
 +       /*
 +        * The meaning of life, the universe, and everything. Plus

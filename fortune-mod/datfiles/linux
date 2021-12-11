@@ -58,6 +58,7 @@ driver will be redirected to /dev/null, oh no, it's full...).
 	printf("Don't Panic!\n");
 	exit(42);
     }
+
 	-- Arnold Robbins in the LJ of February '95, describing RCS
 %
 lp1 on fire
