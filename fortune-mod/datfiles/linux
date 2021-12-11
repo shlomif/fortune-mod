@@ -436,7 +436,7 @@ After watching my newly-retired dad spend two weeks learning how to make a new
 folder, it became obvious that "intuitive" mostly means "what the writer or
 speaker of intuitive likes".
     -- Bruce Ediger, bediger@teal.csn.org, on X the intuitiveness of a Mac
-    interface
+    interface on comp.os.linux.misc.
 %
 Now I know someone out there is going to claim, "Well then, UNIX is intuitive,
 because you only need to learn 5000 commands, and then everything else follows
@@ -463,10 +463,6 @@ Now, it we had this sort of thing:
 ...you'd have a lot of dead people at intersections, and traffic jams you
 wouldn't believe...
 		-- Discussion on the intuitiveness of commands
-%
-Actually, typing random strings in the Finder does the equivalent of
-filename completion.
-		-- Discussion on file completion vs. the Mac Finder
 %
 Not me, guy.  I read the Bash man page each day like a Jehovah's Witness reads
 the Bible.  No wait, the Bash man page IS the bible.  Excuse me...

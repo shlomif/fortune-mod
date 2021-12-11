@@ -1,20 +1,7 @@
-A Linux machine! because a 486 is a terrible thing to waste!
-(By jjs@wintermute.ucr.edu, Joe Sloan)
-%
-"Absolutely nothing should be concluded from these figures except that
-no conclusion can be drawn from them."
-(By Joseph L. Brothers, Linux/PowerPC Project)
-%
 Actually, typing random strings in the Finder does the equivalent of
 filename completion.
-(Discussion in comp.os.linux.misc on the intuitiveness of commands: file
-completion vs. the Mac Finder.)
-%
-After watching my newly-retired dad spend two weeks learning how to make a new
-folder, it became obvious that "intuitive" mostly means "what the writer or
-speaker of intuitive likes".
-(Bruce Ediger, bediger@teal.csn.org, in comp.os.linux.misc, on X the
-intuitiveness of a Mac interface.)
+    -- Discussion in comp.os.linux.misc on the intuitiveness of commands: file
+       completion vs. the Mac Finder.
 %
 "All language designers are arrogant.  Goes with the territory..."
 (By Larry Wall)
@@ -22,10 +9,6 @@ intuitiveness of a Mac interface.)
 And 1.1.81 is officially BugFree(tm), so if you receive any bug-reports
 on it, you know they are just evil lies."
 (By Linus Torvalds, Linus.Torvalds@cs.helsinki.fi)
-%
-"...and scantily clad females, of course.  Who cares if it's below zero
-outside"
-(By Linus Torvalds)
 %
 > : Any porters out there should feel happier knowing that DEC is shipping
 > : me an AlphaPC that I intend to try getting linux running on: this will
