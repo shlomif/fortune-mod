@@ -208,6 +208,8 @@ def generate_windows_yaml(plat, output_path, is_act):
                 continue
             if re.search("copy.*?python\\.exe", cmd):
                 continue
+            if "strawberry" in cmd:
+                continue
             if "choco install strawberryperl" not in cmd:
                 if 0:
                     r = re.sub(
