@@ -12,7 +12,7 @@ use warnings;
 use 5.014;
 use autodie;
 
-use Path::Tiny qw/ path tempdir tempfile cwd /;
+use Path::Tiny qw/ path /;
 
 use FindBin;
 my $code = path("$FindBin::Bin/../data/valgrind.t")->slurp_utf8();
@@ -51,11 +51,7 @@ while ( $code =~ m#\G.*?^(foreach|\$obj->run)#gms )
         my ( $list, $params ) = ( $1, $2 );
         foreach my $prog ( $list =~ /(\S+)/g )
         {
-            out(
-                "        foreach my \$prog (qw/ $prog /) {
-
-    \$obj->run($params);}\n"
-            );
+            out("\nforeach my \$prog (qw/ $prog /) { \$obj->run($params); }\n");
         }
     }
     else
@@ -65,8 +61,7 @@ while ( $code =~ m#\G.*?^(foreach|\$obj->run)#gms )
         my ($params) = ($1);
         foreach my $prog (1)
         {
-            out( "
-    \$obj->run($params);\n" );
+            out("\n\$obj->run($params);\n");
         }
     }
 }
