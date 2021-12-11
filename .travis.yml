@@ -27,7 +27,7 @@ cache:
 dist: focal
 install:
     # Required to avoid default travis "cpanm ." booboo.
-    - true
+    - "true"
 language: perl
 os: linux
 perl:

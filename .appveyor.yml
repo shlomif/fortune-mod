@@ -5,7 +5,7 @@ clone_folder: c:\projects\fortune-mod
 environment:
     global:
         MSYSTEM: MINGW64
-        VERBOSE: 1
+        VERBOSE: "1"
 image: Visual Studio 2019
 install:
     # Trying to disable to check if it is already installed.

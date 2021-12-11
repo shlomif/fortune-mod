@@ -1,0 +1,51 @@
+name: windows
+'on':
+  push:
+    branches:
+      - '*'
+    tags-ignore:
+      - '*'
+  pull_request:
+jobs:
+  perl:
+    runs-on: windows-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        perl-version:
+          - '5.30'
+          # - '5.28'
+          # - '5.26'
+          # - '5.24'
+          # - '5.22'
+          # - '5.20'
+          # - '5.18'
+          # - '5.16'
+          # - '5.14'
+    steps:
+      - name: Setup perl
+        uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: ${{ matrix.perl-version }}
+          distribution: strawberry
+      - name: Set git to use LF
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+      - uses: actions/checkout@v2
+        with:
+          submodules: "true"
+      - name: perl -V
+        run: perl -V
+      - name: Install Alien::libuv
+        run: |
+          cpanm ExtUtils::Manifest App::cpanminus
+          cpanm --notest Alien::Base::Wrapper
+          cpanm --notest --installdeps Alien::libuv
+          cpanm --notest Alien::libuv
+      - name: Install Module::Build::Using::PkgConfig
+        run: cpanm --notest Module::Build::Using::PkgConfig
+      - name: Install Dependencies
+        run: cpanm --notest --installdeps -v .
+      - name: Run Tests
+        run: cpanm --testonly -v .
