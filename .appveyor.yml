@@ -32,11 +32,6 @@ install:
     # - SET PERL_MB_OPT=--install_base C:/_P5
     # - SET PERL_MM_OPT=INSTALL_BASE=C:/_P5
     - perl -v
-    # - if not exist C:\libtap\gperf-3.0.4.tar.gz curl -o C:\libtap\gperf-3.0.4.tar.gz http://ftp.gnu.org/pub/gnu/gperf/gperf-3.0.4.tar.gz
-    - curl -o C:\libtap\gperf-3.0.4.tar.gz http://ftp.gnu.org/pub/gnu/gperf/gperf-3.0.4.tar.gz
-    - copy C:\libtap\gperf-3.0.4.tar.gz .
-    - tar -xvf gperf-3.0.4.tar.gz
-    - cd gperf-3.0.4 && perl -e "if (-e qq#C:\\libtap\\bin\\gperf.exe#) { exit(0); } $ENV{PATH} = qq#C:\\msys64\\mingw64\\bin;$ENV{PATH}#; system('sh configure --prefix=C:/libtap') or system('gmake') or system('gmake install');" && cd ..
     - git clone https://github.com/clibs/cmocka libtap
     - mkdir libtap\b
     - cd libtap\b
