@@ -1835,3 +1835,23 @@ Emacs is a nice operating system, but what it lacks, in order to compete with
 Linux, is a good text editor.
     — based on https://en.wikiquote.org/wiki/Emacs
 %
+> > You can easily install the binary distribution of Mozilla (from
+> > mozilla.org) on a different prefix, possibly under your home directory.
+> > Please install it and use it instead of Mozilla 1.1, at least when
+> > verifying if problems indeed exist. I do not wish to tolerate any more
+> > reports of problems when using Mozilla 1.1, because I can't tell if it's a
+> > bug that was fixed by then, or if it's an actual issue with Mozilla.
+> >
+> > On a slightly different note: my machine crashed the other day when
+> > using it with kernel 2.6.0. Can anyone help?
+>
+> I do not wish to tolerate any reports of problems when using kernel
+> 2.6.0, because I can't tell if it's a bug that was fixed by then, or
+> if it's an actual issue with the kernel.
+
+My Commodore 64 is suffering from slowness and insufficiency of memory;
+and its display device is grievously short of pixels. Can anyone help?
+
+    -- Shlomi Fish, Muli Ben Yehuda and Omer Zak on discussions@hamakor.org.il.
+    -- https://is.gd/tAZmZD
+%
