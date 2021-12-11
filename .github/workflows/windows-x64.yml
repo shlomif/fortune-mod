@@ -97,6 +97,93 @@ jobs:
 
                 SET PERL_MM_OPT=INSTALL_BASE=C:/Perl5
 
+                if not exist C:\libtap mkdir C:\libtap || ( echo Failed & exit /B
+                1 )
+
+                copy C:\msys64\mingw64\bin\mingw32-make.exe C:\msys64\mingw64\bin\make.exe
+                || ( echo Failed & exit /B 1 )
+
+                SET PERL5LIB=C:/_P5/lib/perl5
+
+                SET PERL_LOCAL_LIB_ROOT=C:/_P5
+
+                SET PERL_MB_OPT=--install_base C:/_P5
+
+                SET PERL_MM_OPT=INSTALL_BASE=C:/_P5
+
+                perl -v || ( echo Failed & exit /B 1 )
+
+                curl -o C:\libtap\gperf-3.0.4.tar.gz http://ftp.gnu.org/pub/gnu/gperf/gperf-3.0.4.tar.gz
+                || ( echo Failed & exit /B 1 )
+
+                copy C:\libtap\gperf-3.0.4.tar.gz . || ( echo Failed & exit /B 1 )
+
+                tar -xvf gperf-3.0.4.tar.gz || ( echo Failed & exit /B 1 )
+
+                cd gperf-3.0.4 && perl -e "if (-e qq#C:\\libtap\\bin\\gperf.exe#)
+                { exit(0); } $ENV{PATH} = qq#C:\\msys64\\mingw64\\bin;$ENV{PATH}#;
+                system(''sh configure --prefix=C:/libtap'') or system(''gmake'') or
+                system(''gmake install'');" && cd .. || ( echo Failed & exit /B 1
+                )
+
+                git clone https://github.com/clibs/cmocka libtap || ( echo Failed
+                & exit /B 1 )
+
+                mkdir libtap\b || ( echo Failed & exit /B 1 )
+
+                cd libtap\b || ( echo Failed & exit /B 1 )
+
+                set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe
+
+                cmake -G "MinGW Makefiles" -DCMAKE_MAKE_PROGRAM=%CMAKE_MAKE_PROGRAM%
+                -DCMAKE_INSTALL_PREFIX=C:\libtap .. || ( echo Failed & exit /B 1 )
+
+                echo %PATH% || ( echo Failed & exit /B 1 )
+
+                gmake || ( echo Failed & exit /B 1 )
+
+                gmake install || ( echo Failed & exit /B 1 )
+
+                cd ..\..\ || ( echo Failed & exit /B 1 )
+
+                git clone https://github.com/shlomif/rinutils rinutils || ( echo Failed
+                & exit /B 1 )
+
+                mkdir rinutils\b || ( echo Failed & exit /B 1 )
+
+                cd rinutils\b || ( echo Failed & exit /B 1 )
+
+                set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe
+
+                cmake -G "MinGW Makefiles" -DWITH_TEST_SUITE=OFF -DCMAKE_MAKE_PROGRAM=%CMAKE_MAKE_PROGRAM%
+                -DCMAKE_INSTALL_PREFIX=C:\libtap .. || ( echo Failed & exit /B 1 )
+
+                echo %PATH% || ( echo Failed & exit /B 1 )
+
+                gmake || ( echo Failed & exit /B 1 )
+
+                gmake install || ( echo Failed & exit /B 1 )
+
+                SET MYOLDPATH_=%PATH%
+
+                mkdir ..\b32 || ( echo Failed & exit /B 1 )
+
+                cd ..\b32 || ( echo Failed & exit /B 1 )
+
+                cmake -G "MinGW Makefiles" -DWITH_TEST_SUITE=OFF -DCMAKE_MAKE_PROGRAM=%CMAKE_MAKE_PROGRAM%
+                -DCMAKE_INSTALL_PREFIX=C:\libtap32 .. || ( echo Failed & exit /B 1
+                )
+
+                echo %PATH% || ( echo Failed & exit /B 1 )
+
+                gmake || ( echo Failed & exit /B 1 )
+
+                gmake install || ( echo Failed & exit /B 1 )
+
+                SET PATH=%MYOLDPATH_%
+
+                cd ..\..\ || ( echo Failed & exit /B 1 )
+
                 set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe
 
                 set CPATH=c:\mingw64\include;c:\msys64\mingw64\include
@@ -110,6 +197,8 @@ jobs:
                 SET FORTUNE_TEST_DEBUG=1
 
                 SET DOCMAKE_PATH_PREFIX="C:\cygwin\bin;"
+
+                SET SKIP_RINUTILS_INSTALL=1
 
                 perl CI-testing/continuous-integration-testing.pl --gen="MSYS Makefiles"
                 || ( echo Failed & exit /B 1 )

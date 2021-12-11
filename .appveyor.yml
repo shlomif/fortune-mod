@@ -24,6 +24,46 @@ install:
     - SET PERL_MB_OPT=--install_base C:/Perl5
     - SET PERL_MM_OPT=INSTALL_BASE=C:/Perl5
     - cpanm --notest App::Docmake Code::TidyAll::Plugin::ClangFormat Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount Env::Path File::Find::Object IO::All List::Util Path::Tiny Perl::Critic Perl::Tidy Pod::Coverage::TrustPod String::ShellQuote Test::Code::TidyAll Test::Differences Test::EOL Test::Pod Test::Pod::Coverage Test::RunValgrind Test::TrailingSpace Test::Trap
+    - if not exist C:\libtap mkdir C:\libtap
+    - copy C:\msys64\mingw64\bin\mingw32-make.exe C:\msys64\mingw64\bin\make.exe
+    # - SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
+    - SET PERL5LIB=C:/_P5/lib/perl5
+    - SET PERL_LOCAL_LIB_ROOT=C:/_P5
+    - SET PERL_MB_OPT=--install_base C:/_P5
+    - SET PERL_MM_OPT=INSTALL_BASE=C:/_P5
+    - perl -v
+    # - if not exist C:\libtap\gperf-3.0.4.tar.gz curl -o C:\libtap\gperf-3.0.4.tar.gz http://ftp.gnu.org/pub/gnu/gperf/gperf-3.0.4.tar.gz
+    - curl -o C:\libtap\gperf-3.0.4.tar.gz http://ftp.gnu.org/pub/gnu/gperf/gperf-3.0.4.tar.gz
+    - copy C:\libtap\gperf-3.0.4.tar.gz .
+    - tar -xvf gperf-3.0.4.tar.gz
+    - cd gperf-3.0.4 && perl -e "if (-e qq#C:\\libtap\\bin\\gperf.exe#) { exit(0); } $ENV{PATH} = qq#C:\\msys64\\mingw64\\bin;$ENV{PATH}#; system('sh configure --prefix=C:/libtap') or system('gmake') or system('gmake install');" && cd ..
+    - git clone https://github.com/clibs/cmocka libtap
+    - mkdir libtap\b
+    - cd libtap\b
+    - set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe
+    - cmake -G "MinGW Makefiles" -DCMAKE_MAKE_PROGRAM=%CMAKE_MAKE_PROGRAM% -DCMAKE_INSTALL_PREFIX=C:\libtap ..
+    - echo %PATH%
+    - gmake
+    - gmake install
+    - cd ..\..\
+    - git clone https://github.com/shlomif/rinutils rinutils
+    - mkdir rinutils\b
+    - cd rinutils\b
+    - set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe
+    - cmake -G "MinGW Makefiles" -DWITH_TEST_SUITE=OFF -DCMAKE_MAKE_PROGRAM=%CMAKE_MAKE_PROGRAM% -DCMAKE_INSTALL_PREFIX=C:\libtap ..
+    - echo %PATH%
+    - gmake
+    - gmake install
+    - SET MYOLDPATH_=%PATH%
+    # - SET PATH=C:\MinGW\bin;%PATH%
+    - mkdir ..\b32
+    - cd ..\b32
+    - cmake -G "MinGW Makefiles" -DWITH_TEST_SUITE=OFF -DCMAKE_MAKE_PROGRAM=%CMAKE_MAKE_PROGRAM% -DCMAKE_INSTALL_PREFIX=C:\libtap32 ..
+    - echo %PATH%
+    - gmake
+    - gmake install
+    - SET PATH=%MYOLDPATH_%
+    - cd ..\..\
     - C:\cygwin64\setup-x86_64.exe -qgnNdO -l C:\cygwin64\var\cache\setup -R c:\cygwin64 -s http://cygwin.mirror.constant.com -P docbook-xml -P docbook-xsl -P libxml2 -P libxslt
 build: off
 test_script:
@@ -37,5 +77,6 @@ test_script:
     - SET PATH=%PATH%;C:\Python35-x64
     - SET FORTUNE_TEST_DEBUG=1
     - SET DOCMAKE_PATH_PREFIX="C:\cygwin64\bin;"
+    - SET SKIP_RINUTILS_INSTALL=1
     - perl CI-testing/continuous-integration-testing.pl --gen="MSYS Makefiles"
 shallow_clone: true
