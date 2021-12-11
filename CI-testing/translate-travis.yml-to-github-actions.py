@@ -210,6 +210,7 @@ def generate_windows_yaml(plat, output_path, is_act):
                 continue
             if "strawberry" in cmd:
                 continue
+            cmd = re.sub("\\S*CMAKE_MAKE_PROGRAM\\S*", "", cmd)
             if "choco install strawberryperl" not in cmd:
                 if 0:
                     r = re.sub(

@@ -108,8 +108,8 @@ jobs:
 
                 cd libtap\b || ( echo Failed & exit /B 1 )
 
-                cmake -G "MinGW Makefiles" -DCMAKE_MAKE_PROGRAM=%CMAKE_MAKE_PROGRAM%
-                -DCMAKE_INSTALL_PREFIX=C:\libtap .. || ( echo Failed & exit /B 1 )
+                cmake -G "MinGW Makefiles"  -DCMAKE_INSTALL_PREFIX=C:\libtap .. ||
+                ( echo Failed & exit /B 1 )
 
                 echo %PATH% || ( echo Failed & exit /B 1 )
 
@@ -126,8 +126,8 @@ jobs:
 
                 cd rinutils\b || ( echo Failed & exit /B 1 )
 
-                cmake -G "MinGW Makefiles" -DWITH_TEST_SUITE=OFF -DCMAKE_MAKE_PROGRAM=%CMAKE_MAKE_PROGRAM%
-                -DCMAKE_INSTALL_PREFIX=C:\libtap .. || ( echo Failed & exit /B 1 )
+                cmake -G "MinGW Makefiles" -DWITH_TEST_SUITE=OFF  -DCMAKE_INSTALL_PREFIX=C:\libtap
+                .. || ( echo Failed & exit /B 1 )
 
                 echo %PATH% || ( echo Failed & exit /B 1 )
 
@@ -141,9 +141,8 @@ jobs:
 
                 cd ..\b32 || ( echo Failed & exit /B 1 )
 
-                cmake -G "MinGW Makefiles" -DWITH_TEST_SUITE=OFF -DCMAKE_MAKE_PROGRAM=%CMAKE_MAKE_PROGRAM%
-                -DCMAKE_INSTALL_PREFIX=C:\libtap32 .. || ( echo Failed & exit /B 1
-                )
+                cmake -G "MinGW Makefiles" -DWITH_TEST_SUITE=OFF  -DCMAKE_INSTALL_PREFIX=C:\libtap32
+                .. || ( echo Failed & exit /B 1 )
 
                 echo %PATH% || ( echo Failed & exit /B 1 )
 
