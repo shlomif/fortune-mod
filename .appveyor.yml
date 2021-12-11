@@ -19,18 +19,18 @@ install:
     - perl -v
     - IF NOT EXIST C:\Perl5 mkdir C:\Perl5
     - SET PATH=C:\msys64\mingw64\bin;C:\msys64\bin;C:\Perl5\bin;C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
-    - SET PERL5LIB=C:/Perl5/lib/perl5
+    - SET PERL5LIB=%PERL5LIB%;C:/Perl5/lib/perl5
     - SET PERL_LOCAL_LIB_ROOT=C:/Perl5
     - SET PERL_MB_OPT=--install_base C:/Perl5
     - SET PERL_MM_OPT=INSTALL_BASE=C:/Perl5
-    - cpanm --notest App::Docmake Code::TidyAll::Plugin::ClangFormat Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount Env::Path File::Find::Object IO::All List::Util Path::Tiny Perl::Critic Perl::Tidy Pod::Coverage::TrustPod String::ShellQuote Test::Code::TidyAll Test::Differences Test::EOL Test::Pod Test::Pod::Coverage Test::RunValgrind Test::TrailingSpace Test::Trap
+    - cpanm --notest App::Docmake Code::TidyAll::Plugin::ClangFormat Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount Env::Path File::Find::Object List::Util Path::Tiny Perl::Critic Perl::Tidy String::ShellQuote Test::Code::TidyAll Test::Differences Test::RunValgrind Test::TrailingSpace Test::Trap
     - if not exist C:\libtap mkdir C:\libtap
     - copy C:\msys64\mingw64\bin\mingw32-make.exe C:\msys64\mingw64\bin\make.exe
     # - SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
-    - SET PERL5LIB=C:/_P5/lib/perl5
-    - SET PERL_LOCAL_LIB_ROOT=C:/_P5
-    - SET PERL_MB_OPT=--install_base C:/_P5
-    - SET PERL_MM_OPT=INSTALL_BASE=C:/_P5
+    # - SET PERL5LIB=%PERL5LIB%;C:/_P5/lib/perl5
+    # - SET PERL_LOCAL_LIB_ROOT=C:/_P5
+    # - SET PERL_MB_OPT=--install_base C:/_P5
+    # - SET PERL_MM_OPT=INSTALL_BASE=C:/_P5
     - perl -v
     # - if not exist C:\libtap\gperf-3.0.4.tar.gz curl -o C:\libtap\gperf-3.0.4.tar.gz http://ftp.gnu.org/pub/gnu/gperf/gperf-3.0.4.tar.gz
     - curl -o C:\libtap\gperf-3.0.4.tar.gz http://ftp.gnu.org/pub/gnu/gperf/gperf-3.0.4.tar.gz

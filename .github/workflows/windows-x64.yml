@@ -38,8 +38,6 @@ jobs:
 
                     File::Find::Object
 
-                    IO::All
-
                     List::Util
 
                     Path::Tiny
@@ -48,19 +46,11 @@ jobs:
 
                     Perl::Tidy
 
-                    Pod::Coverage::TrustPod
-
                     String::ShellQuote
 
                     Test::Code::TidyAll
 
                     Test::Differences
-
-                    Test::EOL
-
-                    Test::Pod
-
-                    Test::Pod::Coverage
 
                     Test::RunValgrind
 
@@ -89,7 +79,7 @@ jobs:
 
                 SET PATH=C:\msys64\mingw64\bin;C:\msys64\bin;C:\Perl5\bin;C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
 
-                SET PERL5LIB=C:/Perl5/lib/perl5
+                SET PERL5LIB=%PERL5LIB%;C:/Perl5/lib/perl5
 
                 SET PERL_LOCAL_LIB_ROOT=C:/Perl5
 
@@ -102,14 +92,6 @@ jobs:
 
                 copy C:\msys64\mingw64\bin\mingw32-make.exe C:\msys64\mingw64\bin\make.exe
                 || ( echo Failed & exit /B 1 )
-
-                SET PERL5LIB=C:/_P5/lib/perl5
-
-                SET PERL_LOCAL_LIB_ROOT=C:/_P5
-
-                SET PERL_MB_OPT=--install_base C:/_P5
-
-                SET PERL_MM_OPT=INSTALL_BASE=C:/_P5
 
                 perl -v || ( echo Failed & exit /B 1 )
 
