@@ -498,7 +498,7 @@ Never make any mistaeks.
 %
 As usual, this being a 1.3.x release, I haven't even compiled this
 kernel yet.  So if it works, you should be doubly impressed.
-	-- Linus Torvalds, announcing kernel 1.3.3
+	-- Linus Torvalds, announcing kernel 1.3.3 on LKML
 %
 People disagree with me.  I just ignore them.
 	-- Linus Torvalds, regarding the use of C++ for the Linux kernel

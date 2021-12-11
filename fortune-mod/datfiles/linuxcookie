@@ -6,21 +6,6 @@ filename completion.
 "All language designers are arrogant.  Goes with the territory..."
 (By Larry Wall)
 %
-And 1.1.81 is officially BugFree(tm), so if you receive any bug-reports
-on it, you know they are just evil lies."
-(By Linus Torvalds, Linus.Torvalds@cs.helsinki.fi)
-%
-> : Any porters out there should feel happier knowing that DEC is shipping
-> : me an AlphaPC that I intend to try getting linux running on: this will
-> : definitely help flush out some of the most flagrant unportable stuff.
-> : The Alpha is much more different from the i386 than the 68k stuff is, so
-> : it's likely to get most of the stuff fixed.
->
-> It's posts like this that almost convince us non-believers that there
-> really is a god.
-(A follow-up by alovell@kerberos.demon.co.uk, Anthony Lovell, to Linus's
-remarks about porting)
-%
 Anyone who thinks UNIX is intuitive should be forced to write 5000 lines of
 code using nothing but vi or emacs. AAAAACK!
 (Discussion in comp.os.linux.misc on the intuitiveness of commands, especially
@@ -30,10 +15,6 @@ Emacs.)
 reliable, well-engineered commercial software?"
 (By Matt Welsh)
 %
-As usual, this being a 1.3.x release, I haven't even compiled this
-kernel yet.  So if it works, you should be doubly impressed.
-(Linus Torvalds, announcing kernel 1.3.3 on the linux-kernel mailing list.)
-%
 Avoid the Gates of Hell.  Use Linux
 (Unknown source)
 %
@@ -41,15 +22,8 @@ Be warned that typing \fBkillall \fIname\fP may not have the desired
 effect on non-Linux systems, especially when done by a privileged user.
 (From the killall manual page)
 %
-"Besides, I think [Slackware] sounds better than 'Microsoft,' don't you?"
-(By Patrick Volkerding)
-%
 But what can you do with it?  -- ubiquitous cry from Linux-user partner.
 (Submitted by Andy Pearce, ajp@hpopd.pwd.hp.com)
-%
-"By golly, I'm beginning to think Linux really *is* the best thing since
-sliced bread."
-(By Vance Petree, Virginia Power)
 %
 /*
  * Oops. The kernel tried to access some bad page. We'll have to
