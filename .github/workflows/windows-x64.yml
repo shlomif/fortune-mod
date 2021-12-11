@@ -20,6 +20,14 @@ jobs:
                 submodules: 'true'
         -   name: perl -V
             run: perl -V
+        -   run: git config --global core.autocrlf input
+        -   uses: cygwin/cygwin-install-action@master
+            with:
+                packages:
+                - docbook-xml
+                - docbook-xsl
+                - libxml2
+                - libxslt
         -   name: install cpanm and mult modules
             uses: perl-actions/install-with-cpanm@v1
             with:
@@ -91,11 +99,6 @@ jobs:
 
                 SET PERL_MM_OPT=INSTALL_BASE=C:/Perl5
 
-                C:\cygwin64\setup-x86_64.exe -qgnNdO -l C:\cygwin64\var\cache\setup
-                -R c:\cygwin64 -s http://cygwin.mirror.constant.com -P docbook-xml
-                -P docbook-xsl -P libxml2 -P libxslt || ( echo Failed & exit /B 1
-                )
-
                 set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe
 
                 set CPATH=c:\mingw64\include;c:\msys64\mingw64\include
@@ -108,7 +111,7 @@ jobs:
 
                 SET FORTUNE_TEST_DEBUG=1
 
-                SET DOCMAKE_PATH_PREFIX="C:\cygwin64\bin;"
+                SET DOCMAKE_PATH_PREFIX="C:\cygwin\bin;"
 
                 perl CI-testing/continuous-integration-testing.pl --gen="MSYS Makefiles"
                 || ( echo Failed & exit /B 1 )

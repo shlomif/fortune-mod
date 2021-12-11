@@ -137,6 +137,17 @@ def generate_windows_yaml(plat, output_path, is_act):
     while steps[-1]['name'] != 'perl -V':
         steps.pop()
 
+    step = {
+        "run": "git config --global core.autocrlf input",
+    }
+    steps.append(step)
+    step = {
+        "uses": "cygwin/cygwin-install-action@master",
+        "with": {
+            "packages": "docbook-xml docbook-xsl libxml2 libxslt".split(" "),
+        },
+    }
+    steps.append(step)
     cpanm_step = {
         "name": "install cpanm and mult modules",
         "uses": "perl-actions/install-with-cpanm@v1",
@@ -180,6 +191,9 @@ def generate_windows_yaml(plat, output_path, is_act):
             cmds.insert(idx, "SET CC=cc")
 
         for cmd in cmds:
+            if cmd.startswith("C:\\cygwin64\\setup"):
+                continue
+            cmd = cmd.replace("cygwin64", "cygwin")
             if cmd.startswith("cpanm "):
                 words = cmd.split(' ')[1:]
                 dw = []
@@ -249,11 +263,12 @@ def main():
         output_path=".act-github/workflows/use-github-actions.yml",
         is_act=True,
     )
-    generate_windows_yaml(
-        plat='x86',
-        output_path=".github/workflows/windows-x86.yml",
-        is_act=False,
-    )
+    if 0:
+        generate_windows_yaml(
+            plat='x86',
+            output_path=".github/workflows/windows-x86.yml",
+            is_act=False,
+        )
     generate_windows_yaml(
         plat='x64',
         output_path=".github/workflows/windows-x64.yml",
