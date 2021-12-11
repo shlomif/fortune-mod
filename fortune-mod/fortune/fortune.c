@@ -538,7 +538,7 @@ static bool path_is_absolute(const char *const path)
     return false;
 }
 
-static int open4read(const char const *path)
+static int open4read(const char *const path)
 {
     return open(path, O_RDONLY | O_BINARY);
 }
