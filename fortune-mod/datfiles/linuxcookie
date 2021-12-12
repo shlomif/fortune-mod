@@ -1,35 +1,8 @@
-Actually, typing random strings in the Finder does the equivalent of
-filename completion.
-    -- Discussion in comp.os.linux.misc on the intuitiveness of commands: file
-       completion vs. the Mac Finder.
-%
-"All language designers are arrogant.  Goes with the territory..."
-(By Larry Wall)
-%
-Anyone who thinks UNIX is intuitive should be forced to write 5000 lines of
-code using nothing but vi or emacs. AAAAACK!
-(Discussion in comp.os.linux.misc on the intuitiveness of commands, especially
-Emacs.)
-%
-"Are [Linux users] lemmings collectively jumping off of the cliff of
-reliable, well-engineered commercial software?"
-(By Matt Welsh)
-%
-Avoid the Gates of Hell.  Use Linux
-(Unknown source)
-%
-"It's God.  No, not Richard Stallman, or Linus Torvalds, but God."
-(By Matt Welsh)
-%
 linux: because a PC is a terrible thing to waste
 (ksh@cis.ufl.edu put this on T-shirts in '93)
 %
 Linux: Because a PC is a terrible thing to waste.
 (By komarimf@craft.camp.clarkson.edu, Mark Komarinski)
-%
-"Linux: the operating system with a CLUE...
-Command Line User Environment".
-(seen in a posting in comp.software.testing)
 %
 'Mounten' wird fuer drei Dinge benutzt: 'Aufsitzen' auf Pferde, 'einklinken'
 von Festplatten in Dateisysteme, und, nun, 'besteigen' beim Sex.
@@ -37,23 +10,8 @@ von Festplatten in Dateisysteme, und, nun, 'besteigen' beim Sex.
 climbing on a horse, linking in a hard disk unit in data systems, and, well,
 mounting during sex".)
 %
-"Note that if I can get you to \"su and say\" something just by asking,
-you have a very serious security problem on your system and you should
-look into it."
-(By Paul Vixie, vixie-cron 3.0.1 installation notes)
-%
 "On the Internet, no one knows you're using Windows NT"
 (Submitted by Ramiro Estrugo, restrugo@fateware.com)
-%
-There are no threads in a.b.p.erotica,  so there's no  gain in using a
-threaded news reader.
-(Unknown source)
-%
-quit   When the quit statement is read, the  bc  processor
-       is  terminated, regardless of where the quit state-
-       ment is found.  For example, "if  (0  ==  1)  quit"
-       will cause bc to terminate.
-(Seen in the manpage for "bc". Note the "if" statement's logic)
 %
 Running Windows on a Pentium is like having a brand new Porsche but only
 be able to drive backwards with the handbrake on.
@@ -115,12 +73,6 @@ the Ugly)."
 noted exceptions: being struck by lightning, or worse, your *computer*
 being struck by lightning."
 (By Matt Welsh)
-%
-"Waving away a cloud of smoke, I look up, and am blinded by a bright, white
-light. It's God. No, not Richard Stallman, or Linus Torvalds, but God. In
-a booming voice, He says: "THIS IS A SIGN. USE LINUX, THE FREE UNIX SYSTEM
-FOR THE 386."
-(Matt Welsh)
 %
 "We all know Linux is great...it does infinite loops in 5 seconds."
 (Linus Torvalds about the superiority of Linux on the Amsterdam
