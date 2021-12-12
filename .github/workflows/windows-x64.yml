@@ -34,8 +34,6 @@ jobs:
 
                     Code::TidyAll::Plugin::TestCount
 
-                    Env::Path
-
                     File::Find::Object
 
                     List::Util
@@ -45,8 +43,6 @@ jobs:
                     Perl::Critic
 
                     Perl::Tidy
-
-                    String::ShellQuote
 
                     Test::Code::TidyAll
 

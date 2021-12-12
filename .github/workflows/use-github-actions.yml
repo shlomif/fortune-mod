@@ -18,7 +18,7 @@ jobs:
                 } ; local_lib_shim ; cpanm App::Docmake Code::TidyAll::Plugin::ClangFormat
                 Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount File::Find::Object
                 List::Util Path::Tiny Perl::Critic Perl::Tidy Test::Code::TidyAll
-                Test::Differences Test::RunValgrind Test::Trap
+                Test::Differences Test::RunValgrind Test::TrailingSpace Test::Trap
         -   run: local_lib_shim() { eval "$(perl -Mlocal::lib=$HOME/perl_modules)";
                 } ; local_lib_shim ; true
         -   run: local_lib_shim() { eval "$(perl -Mlocal::lib=$HOME/perl_modules)";
