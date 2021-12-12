@@ -446,7 +446,7 @@ was unavailable for comment ...
 	-- Robert Manners, rjm@swift.eng.ox.ac.uk, in comp.os.linux.setup
 %
 The only "intuitive" interface is the nipple.  After that, it's all learned.
-	-- Bruce Ediger, bediger@teal.csn.org, on X interfaces
+	-- Bruce Ediger, bediger@teal.csn.org, on X interfaces in c.o.l.misc
 %
 After watching my newly-retired dad spend two weeks learning how to make a new
 folder, it became obvious that "intuitive" mostly means "what the writer or
@@ -1913,4 +1913,11 @@ The nice thing about Windows is - It does not just crash, it displays a
 dialog box and lets you press 'OK' first.
 
     -- Arno Schaefer's .sig
+%
+What's this script do?
+    unzip ; touch ; finger ; mount ; gasp ; yes ; umount ; sleep
+Hint for the answer: not everything is computer-oriented. Sometimes you're
+in a sleeping bag, camping out.
+
+    -- (Contributed by Frans van der Zande.)
 %
