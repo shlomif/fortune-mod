@@ -302,7 +302,6 @@ SET (COOKIES
     humorists
     kids
     law
-    linuxcookie
     literature
     love
     magic

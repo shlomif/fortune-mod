@@ -396,14 +396,14 @@ If it breaks then you get to keep both pieces.
 %
 'Mounten' wird für drei Dinge benutzt: 'Aufsitzen' auf Pferde, 'einklinken'
 von Festplatten in Dateisysteme, und, nun, 'besteigen' beim Sex.
+
+'Mounting' is used for three things: climbing on a horse, linking in a
+hard disk unit in data systems, and, well, mounting during sex.
+
 	-- Christa Keil
 %
 Manchmal stehe nachts auf und installier's mir einfach...
 	-- H0arry @ IRC
-%
-'Mounting' is used for three things: climbing on a horse, linking in a
-hard disk unit in data systems, and, well, mounting during sex.
-	-- Christa Keil
 %
 We are using Linux daily to UP our productivity - so UP yours!
 	-- Adapted from Pat Paulsen by Joe Sloan
@@ -994,8 +994,9 @@ S:      Buried alive in email
 Netscape is not a newsreader, and probably never shall be.
 	-- Tom Christiansen
 %
-I think it's time to remove Qt and Qt-derived applications from the distributon.
-By distributing it, we only encourage authors to create restrictive licenses.
+I think it's time to remove Qt and Qt-derived applications from the
+distribution.  By distributing it, we only encourage authors to create
+restrictive licenses.
 	-- Bruce Perens
 %
 If someone can point me to a good and _FREE_ backup software that keeps
