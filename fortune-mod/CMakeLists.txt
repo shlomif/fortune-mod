@@ -7,6 +7,9 @@ SHLOMIF_COMMON_SETUP("${private_mod_path}")
 
 CMAKE_POLICY(SET CMP0054 NEW)
 
+# see: https://cmake.org/cmake/help/latest/variable/CMAKE_CROSSCOMPILING.html
+SET (IS_CROSS "${CMAKE_CROSSCOMPILING}")
+
 INCLUDE(FindPkgConfig)
 
 SET (PKGDATADIR_SUBDIR "fortune-mod")

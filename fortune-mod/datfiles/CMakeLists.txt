@@ -1,4 +1,9 @@
-SET (_strfile  "${CMAKE_CURRENT_BINARY_DIR}/../strfile")
+# See: https://github.com/shlomif/fortune-mod/issues/58
+if ("${IS_CROSS}")
+    SET (_strfile  "strfile")
+else()
+    SET (_strfile  "${CMAKE_CURRENT_BINARY_DIR}/../strfile")
+endif()
 SET (_unrot_cookies )
 SET (_install_unrot_cookies )
 FOREACH(c ${COOKIES})

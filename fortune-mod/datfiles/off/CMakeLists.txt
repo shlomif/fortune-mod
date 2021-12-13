@@ -1,5 +1,9 @@
-SET (_strfile  "${CMAKE_CURRENT_BINARY_DIR}/../../strfile")
-SET (_rot  "${CMAKE_CURRENT_BINARY_DIR}/../../rot")
+# See: https://github.com/shlomif/fortune-mod/issues/58
+if ("${IS_CROSS}")
+    SET (_rot  "rot")
+else()
+    SET (_rot  "${CMAKE_CURRENT_BINARY_DIR}/../../rot")
+endif()
 SET (rot_dir "${CMAKE_CURRENT_BINARY_DIR}/rotated")
 FILE(MAKE_DIRECTORY "${rot_dir}")
 SET (_rotated_cookies )
