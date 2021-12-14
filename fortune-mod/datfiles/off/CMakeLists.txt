@@ -1,6 +1,6 @@
 # See: https://github.com/shlomif/fortune-mod/issues/58
 SET (_target_rot  "${CMAKE_CURRENT_BINARY_DIR}/../../rot")
-if ("${IS_CROSS}")
+if (IS_CROSS)
     SET (_rot ${PERL_EXECUTABLE} "${CMAKE_CURRENT_SOURCE_DIR}/../../util/rot.pl")
 else()
     SET (_rot  "${_target_rot}")
@@ -30,11 +30,11 @@ FOREACH(c ${OFFENSIVE_COOKIES})
     SET(LINK "${c}.u8")
     SET(rot_LINK "${rot_dir}/${LINK}")
     if (WIN32)
-    ADD_CUSTOM_COMMAND(
-        OUTPUT "${rot_LINK}"
-        COMMAND ${CMAKE_COMMAND} -E copy "${rot_dest}" "${rot_LINK}"
-        DEPENDS "${rot_dest}"
-    )
+        ADD_CUSTOM_COMMAND(
+            OUTPUT "${rot_LINK}"
+            COMMAND ${CMAKE_COMMAND} -E copy "${rot_dest}" "${rot_LINK}"
+            DEPENDS "${rot_dest}"
+        )
     else()
         ADD_CUSTOM_COMMAND(
             OUTPUT "${rot_LINK}"

@@ -1,8 +1,8 @@
 # See: https://github.com/shlomif/fortune-mod/issues/58
-if ("${IS_CROSS}")
+if (IS_CROSS)
     SET (_strfile  "strfile")
     find_program(_found "${_strfile}")
-    if (NOT "${_found}")
+    if (NOT _found)
         MESSAGE(FATAL_ERROR "\"strfile\" must be in the executables' path for cross-compiling builds. You can get it from a native install of fortune-mod: https://superuser.com/questions/284342/what-are-path-and-other-environment-variables-and-how-can-i-set-or-use-them . Also see https://github.com/shlomif/fortune-mod/issues/58 .")
     endif()
 else()
@@ -61,6 +61,6 @@ INSTALL(
     DESTINATION "${LOCALDIR}"
 )
 
-IF (NOT "${NO_OFFENSIVE}")
+IF (NOT NO_OFFENSIVE)
     ADD_SUBDIRECTORY("off")
 ENDIF()
