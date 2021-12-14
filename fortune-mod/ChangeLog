@@ -1,6 +1,23 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+December 14, 2021 (fortune-mod 3.8.0)
+
+	Try to fix crosscompiling builds
+	( https://github.com/shlomif/fortune-mod/issues/58 ; thanks
+	to @leleliu008 )
+
+	Merged datfiles/linuxcookie into datfiles/linux
+	while removing duplicates.
+
+	New cookies.
+
+	Tests suite's speed optimizations.
+
+	Code cleanups / refactoring.
+
+	Generate GitHub Actions' scripts.
+
 May 31, 2021 (fortune-mod 3.6.1)
 
 	Fix missing rinutils in release tarball.
