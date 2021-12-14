@@ -2,8 +2,10 @@
 #
 # Short description for rot.pl
 #
-# rot13 for cross compiling builds:
+# rot13 fallback for cross compiling builds:
+#
 # https://github.com/shlomif/fortune-mod/issues/58
+#
 # Version 0.0.1
 # Copyright (C) 2021 Shlomi Fish < https://www.shlomifish.org/ >
 #
