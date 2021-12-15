@@ -1,6 +1,16 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+December 15, 2021 (fortune-mod 3.10.0)
+
+	More fixes crosscompiling builds
+	( https://github.com/shlomif/fortune-mod/issues/58 ; thanks
+	to @leleliu008 )
+
+	Added datfiles/rules-of-acquisition (based on
+	https://github.com/JKirchartz/fortunes ; thanks
+	@JKirchartz ). Under the Unlicense.
+
 December 14, 2021 (fortune-mod 3.8.0)
 
 	Try to fix crosscompiling builds
