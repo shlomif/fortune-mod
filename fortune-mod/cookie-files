@@ -12,120 +12,120 @@ https://www.shlomifish.org/me/contact-me/
 Offensive fortunes are installed by default.  To *not* install them,
 use the "-D NO_OFFENSIVE=TRUE" option to cmake.
 
-./datfiles/	: the directory for inoffensive fortunes
+./datfiles/     : the directory for inoffensive fortunes
 
-art		: Broadly construed; it includes television and celebrities.
-ascii-art	: each one worth a thousand words, I guess.
-computers	: various fortunes that are computer-related.  This includes
-		  the 'joke' fortunes that are supposed to emulate system
-		  error messages, as well as some neat stuff.
-cookie		: Cookie file from Karl Lehenbauer's postings to alt.sources
-definitions	: It ought to be all the 'definitions,' but what it really
-		  is, is all the definitions that have a first line ending
-		  with a colon.
-disclaimer	: Disclaimer texts found on products and advertisements.
-		  Work well after corporate mandated login banners.
-drugs		: Alcohol and cigarettes, mostly.  Legal chemicals.
-education	: Schools, teachers, and scholarship, mostly not complimentary.
-ethnic		: Jokes that are about groups of people, but aren't making
-		  fun of them.  Laughing with instead of at.
-food		: Recipes, diets, and more about food.
-fortunes	: Yes, the old file name, but this contains predictions,
-		  evaluations of character, and the kind of stuff that you
-		  actually expect to get when you want to know your fortune.
-goedel		: Meta-fortunes.  Incomplete, of course.  :-)
-humorists	: Stand-up comedians, and people like Dave Barry.  Especially
-		  stuff that doesn't fit into another category (almost anything
-		  that Steven Wright says doesn't fit a category).
-kids		: Real advice and cynical observations on children, parenting,
-		  and family life.
-law		: Stupid laws, stupider lawyers.  *No* joke about a lawyer
-		  is *ever* offensive (except to lawyers, and who cares?).
-linux	: From the collection at ftp.icce.rug.nl.  Linux-related.
-		  It probably ought to go in with 'computers,' but it's
-		  archived separately, so I'm keeping it separate.
-literature	: Mostly classic authors; a few newbies.  And Bulwer-Lytton.
-		  It should contain more on writing and by writers, but a lot
-		  of that somehow got into art.
-love		: What no one gets enough of, I guess.
-magic		: Abracadabra.
-medicine	: Doctors and cures.  And other contradictory juxtapositions.
-		  Exercise.
-men-women	: And the relations between them.
-miscellaneous	: Whatever's left over.
-news		: On journalism, and the unintentionally amusing bits of
-		  journalism.
-people		: You know, humans.  Personality, appearance, relationships,
-		  and all the other evilness of which humans are capable.
-		  It should probably be several smaller files (personality,
-		  appearance, relationships ...)
-pets		: Mostly cats and dogs, with some goldfish.  And penguins.
-		  And a rubber duck.
-platitudes	: The meaning of life, and of other things, including all those
-		  stupid little sayings, and variants on them.
-politics	: Comments on man as a political animal.  Also police,
-		  soldiers, and other criminals.
-riddles		: Not really riddles, necessarily, but mostly Q: A:
+art             : Broadly construed; it includes television and celebrities.
+ascii-art       : each one worth a thousand words, I guess.
+computers       : various fortunes that are computer-related.  This includes
+                  the 'joke' fortunes that are supposed to emulate system
+                  error messages, as well as some neat stuff.
+cookie          : Cookie file from Karl Lehenbauer's postings to alt.sources
+definitions     : It ought to be all the 'definitions,' but what it really
+                  is, is all the definitions that have a first line ending
+                  with a colon.
+disclaimer      : Disclaimer texts found on products and advertisements.
+                  Work well after corporate mandated login banners.
+drugs           : Alcohol and cigarettes, mostly.  Legal chemicals.
+education       : Schools, teachers, and scholarship, mostly not complimentary.
+ethnic          : Jokes that are about groups of people, but aren't making
+                  fun of them.  Laughing with instead of at.
+food            : Recipes, diets, and more about food.
+fortunes        : Yes, the old file name, but this contains predictions,
+                  evaluations of character, and the kind of stuff that you
+                  actually expect to get when you want to know your fortune.
+goedel          : Meta-fortunes.  Incomplete, of course.  :-)
+humorists       : Stand-up comedians, and people like Dave Barry.  Especially
+                  stuff that doesn't fit into another category (almost anything
+                  that Steven Wright says doesn't fit a category).
+kids            : Real advice and cynical observations on children, parenting,
+                  and family life.
+law             : Stupid laws, stupider lawyers.  *No* joke about a lawyer
+                  is *ever* offensive (except to lawyers, and who cares?).
+linux   : From the collection at ftp.icce.rug.nl.  Linux-related.
+                  It probably ought to go in with 'computers,' but it's
+                  archived separately, so I'm keeping it separate.
+literature      : Mostly classic authors; a few newbies.  And Bulwer-Lytton.
+                  It should contain more on writing and by writers, but a lot
+                  of that somehow got into art.
+love            : What no one gets enough of, I guess.
+magic           : Abracadabra.
+medicine        : Doctors and cures.  And other contradictory juxtapositions.
+                  Exercise.
+men-women       : And the relations between them.
+miscellaneous   : Whatever's left over.
+news            : On journalism, and the unintentionally amusing bits of
+                  journalism.
+people          : You know, humans.  Personality, appearance, relationships,
+                  and all the other evilness of which humans are capable.
+                  It should probably be several smaller files (personality,
+                  appearance, relationships ...)
+pets            : Mostly cats and dogs, with some goldfish.  And penguins.
+                  And a rubber duck.
+platitudes      : The meaning of life, and of other things, including all those
+                  stupid little sayings, and variants on them.
+politics        : Comments on man as a political animal.  Also police,
+                  soldiers, and other criminals.
+riddles         : Not really riddles, necessarily, but mostly Q: A:
 rules-of-acquisition : The Ferengi Rules of Acquisition. Based on
-          https://github.com/JKirchartz/fortunes , but formatted
-          the lines.
-science		: Largely math and engineering, but some other interesting
-		  and amusing sorts of science-related apothegms.  Also
-		  technology.
-songs-poems	: Stuff with meter, at least, and usually with rhymes.
-sports		: You know.  Like on television.  ;-)
-startrek	: Apparently quotes from Star Trek Classic.  Plus a bit.
-translate-me	: A small file containing non-English quotes without
-		  translations.
-wisdom		: Zen, the True Meaning of Life, and other stupid lies.
-work		: Really about the business world, and the pains of being a
-		  part of it.  The desperate problems of the wealthy.  Like
-		  that.
-zippy		: Quotes from the comic Zippy the Pinhead.
+                  https://github.com/JKirchartz/fortunes , but we formatted
+                  the lines.
+science         : Largely math and engineering, but some other interesting
+                  and amusing sorts of science-related apothegms.  Also
+                  technology.
+songs-poems     : Stuff with meter, at least, and usually with rhymes.
+sports          : You know.  Like on television.  ;-)
+startrek        : Apparently quotes from Star Trek Classic.  Plus a bit.
+translate-me    : A small file containing non-English quotes without
+                  translations.
+wisdom          : Zen, the True Meaning of Life, and other stupid lies.
+work            : Really about the business world, and the pains of being a
+                  part of it.  The desperate problems of the wealthy.  Like
+                  that.
+zippy           : Quotes from the comic Zippy the Pinhead.
 
 
-./datfiles/off/	: the directory for offensive fortunes, already rot13'd.
-		  they aren't distributed.  All the offensive fortunes,
-		  unrotated, are found in the subdirectory:
-./datfiles/off/unrotated/	: unrotated, offensive fortunes*
+./datfiles/off/ : the directory for offensive fortunes, already rot13'd.
+                  they aren't distributed.  All the offensive fortunes,
+                  unrotated, are found in the subdirectory:
+./datfiles/off/unrotated/       : unrotated, offensive fortunes*
 
-atheism		: Wayne Aiken's atheism cookie file, from:
+atheism         : Wayne Aiken's atheism cookie file, from:
                   http://www4.ncsu.edu/~aiken/
-astrology	: Like in the daily newspapers, except nastier.  More would
-		  be nice.  A few comments *about* astrology.
-black-humor	: Death, violence-as-humor, and the like.  Really sick stuff.
-definitions	: Like the inoffensive; first line ends with a colon and
-		  it looks sorta like a definition.
-drugs		: Various references to illegal herbs and chemicals.
-ethnic		: Nasty slams at particular ethnic groups.  'Ethnic' actually
-		  includes regionalist jokes in America.
-hphobia		: Slams at gays and lesbians.
-limerick	: There once was a file named limerick, / the contents of
-		  which were pretty slick. / Each fortune five lines, /
-		  with execrable rhymes, / And contents t'offend the fanatick.
-misandry	: Anti-man stuff.  Smaller than 'misogyny.'  Wotta surprise.
-miscellaneous	: It has everything that doesn't fit in other categories.
-misogyny	: Jokes that women encounter as real attitudes daily.  Real
-		  attitudes that women have to pretend are jokes daily.
-politics	: The great wonder about the offensive political file is
-		  that it mostly contains direct quotes by politicians
-		  who *weren't* trying to be funny.
-privates	: No, not promoted recruits.  The naughty bits, that people
-		  aren't supposed to talk about.  Body parts and functions.
-		  (Note that "size" has nothing to do with sex, so size
-		  jokes are all in here).
-racism		: Racism.  I suppose it's funny to *someone*.  I hope I
-		  never meet him.
-religion	: Stuff that might offend religious people, mostly Christians.
-riddles		: Not really riddles, but usually the question format,
-		  some Q&A and some just leading/rhetorical questions.
-sex		: Uhh.  Well, you see, son, there are, umm, birds, and bees...
-		  This ranges from outrageously frank to moderately suggestive.
-songs-poems	: Filthy, bawdy, naughty songs and poems!  Licentious, I tell
-		  tell you!  The programmer must be spanked!  First the
-		  spanking ....
-vulgarity	: Jokes in which the 'humor' is bad language, plus some
-		  genuinely funny things that happen to contain bad language.
+astrology       : Like in the daily newspapers, except nastier.  More would
+                  be nice.  A few comments *about* astrology.
+black-humor     : Death, violence-as-humor, and the like.  Really sick stuff.
+definitions     : Like the inoffensive; first line ends with a colon and
+                  it looks sorta like a definition.
+drugs           : Various references to illegal herbs and chemicals.
+ethnic          : Nasty slams at particular ethnic groups.  'Ethnic' actually
+                  includes regionalist jokes in America.
+hphobia         : Slams at gays and lesbians.
+limerick        : There once was a file named limerick, / the contents of
+                  which were pretty slick. / Each fortune five lines, /
+                  with execrable rhymes, / And contents t'offend the fanatick.
+misandry        : Anti-man stuff.  Smaller than 'misogyny.'  Wotta surprise.
+miscellaneous   : It has everything that doesn't fit in other categories.
+misogyny        : Jokes that women encounter as real attitudes daily.  Real
+                  attitudes that women have to pretend are jokes daily.
+politics        : The great wonder about the offensive political file is
+                  that it mostly contains direct quotes by politicians
+                  who *weren't* trying to be funny.
+privates        : No, not promoted recruits.  The naughty bits, that people
+                  aren't supposed to talk about.  Body parts and functions.
+                  (Note that "size" has nothing to do with sex, so size
+                  jokes are all in here).
+racism          : Racism.  I suppose it's funny to *someone*.  I hope I
+                  never meet him.
+religion        : Stuff that might offend religious people, mostly Christians.
+riddles         : Not really riddles, but usually the question format,
+                  some Q&A and some just leading/rhetorical questions.
+sex             : Uhh.  Well, you see, son, there are, umm, birds, and bees...
+                  This ranges from outrageously frank to moderately suggestive.
+songs-poems     : Filthy, bawdy, naughty songs and poems!  Licentious, I tell
+                  tell you!  The programmer must be spanked!  First the
+                  spanking ....
+vulgarity       : Jokes in which the 'humor' is bad language, plus some
+                  genuinely funny things that happen to contain bad language.
 
 The intention throughout has been to create something a bit more
 manageable and maintainable, without notable success in most cases.  A
