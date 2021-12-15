@@ -39,9 +39,10 @@ SET(CPACK_SOURCE_IGNORE_FILES
     "/\\\\.deps/"
     "/\\\\.git/"
     "/\\\\.tidyall\\\\.d/"
-    "~$"
-    "\\\\.pyc$"
+    "/t/valgrind[0-9]+\\\\,t$"
     "/tags$"
+    "\\\\.pyc$"
+    "~$"
     # "/(build|BUILD|B)/"
 )
 
