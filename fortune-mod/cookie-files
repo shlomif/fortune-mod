@@ -66,6 +66,9 @@ platitudes	: The meaning of life, and of other things, including all those
 politics	: Comments on man as a political animal.  Also police,
 		  soldiers, and other criminals.
 riddles		: Not really riddles, necessarily, but mostly Q: A:
+rules-of-acquisition : The Ferengi Rules of Acquisition. Based on
+          https://github.com/JKirchartz/fortunes , but formatted
+          the lines.
 science		: Largely math and engineering, but some other interesting
 		  and amusing sorts of science-related apothegms.  Also
 		  technology.
