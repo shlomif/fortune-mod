@@ -11,6 +11,8 @@ December 15, 2021 (fortune-mod 3.10.0)
 	https://github.com/JKirchartz/fortunes ; thanks
 	@JKirchartz ). Under the Unlicense.
 
+	cookie-files file: Tabs to spaces.
+
 December 14, 2021 (fortune-mod 3.8.0)
 
 	Try to fix crosscompiling builds
