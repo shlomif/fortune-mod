@@ -64,7 +64,10 @@
 #endif /* MAXPATHLEN */
 #include <rinutils/count.h>
 #include <rinutils/unused.h>
+
+#ifndef FORTUNE_EXCLUDE_SRANDOM
 static void call_srandom(void)
 {
     srandom((unsigned)(time((time_t *)NULL) + getpid()));
 }
+#endif

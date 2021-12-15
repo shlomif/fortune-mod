@@ -75,6 +75,7 @@
  * For the gory details, and lots of cussing, see strfile.c
  */
 
+#define FORTUNE_EXCLUDE_SRANDOM 1
 #include "fortune-mod-common.h"
 #include "fortune-util-set-outfn.h"
 
