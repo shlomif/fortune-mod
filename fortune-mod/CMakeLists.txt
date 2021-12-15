@@ -318,6 +318,7 @@ SET (COOKIES
     politics
     pratchett
     riddles
+    rules-of-acquisition
     science
     songs-poems
     sports
