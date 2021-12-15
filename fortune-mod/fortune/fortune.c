@@ -547,6 +547,7 @@ static int open4read(const char *const path)
  * add_file:
  *      Add a file to the file list.
  */
+#define GCC_SNPRINTF_MARGIN 10
 static int add_file(int percent, const char *file, const char *dir,
     FILEDESC **head, FILEDESC **tail, FILEDESC *parent)
 {
@@ -562,7 +563,8 @@ static int add_file(int percent, const char *file, const char *dir,
     }
     else
     {
-        const size_t do_len = (strlen(dir) + strlen(file) + 2);
+        const size_t do_len =
+            (strlen(dir) + strlen(file) + (2 + GCC_SNPRINTF_MARGIN));
         path = do_malloc(do_len + 1);
         snprintf(path, do_len, "%s/%s", dir, file);
     }
@@ -1821,7 +1823,7 @@ int main(int argc, char *argv[])
         ctype = "ISO-8859-1";
     }
 #endif
-    const size_t do_len = strlen(ctype) + 7 + 1;
+    const size_t do_len = strlen(ctype) + (7 + 1 + GCC_SNPRINTF_MARGIN);
     char *crequest = do_malloc(do_len + 1);
     snprintf(crequest, do_len, "UTF-8..%s", ctype);
     recode_scan_request(request, crequest);
