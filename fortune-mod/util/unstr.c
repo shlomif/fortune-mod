@@ -93,6 +93,7 @@ static void getargs(int argc, char *argv[])
     int ch;
 
     while ((ch = getopt(argc, argv, "c:")) != EOF)
+    {
         switch (ch)
         {
         case 'c':
@@ -109,6 +110,7 @@ static void getargs(int argc, char *argv[])
                 "Usage:\n\tunstr [-c C] datafile[.ext] [outputfile]\n");
             exit(1);
         }
+    }
 
     argv += optind;
 
@@ -183,7 +185,9 @@ int main(int argc, char **argv)
         exit(1);
     }
     if (*output_filename == '\0')
+    {
         Outf = stdout;
+    }
     else if (!(Outf = fopen(output_filename, "w+")))
     {
         perror(output_filename);
@@ -207,9 +211,13 @@ int main(int argc, char **argv)
         exit(1);
     }
     if (new_delimiter_char)
+    {
         delimiter_char = new_delimiter_char;
+    }
     else
+    {
         delimiter_char = (char)tbl.str_delim;
+    }
     order_unstr(&tbl);
     fclose(Inf);
     fclose(Dataf);

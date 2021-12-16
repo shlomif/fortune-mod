@@ -106,6 +106,7 @@ static void getargs(char *argv[])
         input_fn_2_data_fn();
     }
     else
+    {
         /*    {
          * Don't write out errors here, either; trust in exit codes and sh
          * fprintf(stderr, "No input file name\n");
@@ -113,7 +114,8 @@ static void getargs(char *argv[])
          * [outputfile]\n");
          */
         exit(1);
-    /*    } */
+        /*    } */
+    }
 }
 
 /*
@@ -125,7 +127,9 @@ static void get_pos(STRFILE *fp)
 {
     pos = random() % fp->str_numstr;
     if (++(pos) >= (off_t)(fp->str_numstr))
+    {
         pos -= fp->str_numstr;
+    }
 }
 
 /*
@@ -155,13 +159,19 @@ static void display(FILE *fp, STRFILE table)
          i++)
     {
         if (table.str_flags & STR_ROTATED)
+        {
             for (p = line; (ch = *p); ++p)
             {
                 if (isupper(ch))
+                {
                     *p = 'A' + (ch - 'A' + 13) % 26;
+                }
                 else if (islower(ch))
+                {
                     *p = 'a' + (ch - 'a' + 13) % 26;
+                }
             }
+        }
         fputs(line, stdout);
     }
     fflush(stdout);
