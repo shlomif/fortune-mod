@@ -228,7 +228,7 @@ static unsigned long my_random(const unsigned long base)
     fclose(fp);
     return l % base;
 fallback:
-    return random() % base;
+    return (((unsigned long)random()) % base);
 }
 
 static char *program_version(void)
@@ -1524,7 +1524,7 @@ static FILEDESC *pick_child(FILEDESC *parent)
 
     if (Equal_probs)
     {
-        choice = my_random(parent->num_children);
+        choice = (int)my_random((unsigned long)parent->num_children);
         DPRINTF(1, (stderr, "    choice = %d (of %d)\n", choice,
                        parent->num_children));
         for (fp = parent->child; choice--; fp = fp->next)
@@ -1600,7 +1600,7 @@ static void get_fort(void)
     }
     else
     {
-        choice = my_random(100);
+        choice = (int)my_random(100);
         DPRINTF(1, (stderr, "choice = %d\n", choice));
         for (fp = File_list; fp->percent != NO_PROB; fp = fp->next)
         {

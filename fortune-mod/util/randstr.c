@@ -90,7 +90,7 @@
 
 static char *input_filename, data_filename[MAXPATHLEN];
 
-static FILE *Inf, *Dataf, *Outf;
+static FILE *Inf, *Dataf;
 
 static off_t pos, Seekpts[2]; /* seek pointers to fortunes */
 
@@ -139,13 +139,14 @@ static void get_pos(STRFILE *fp)
 static void get_fort(STRFILE fp)
 {
     get_pos(&fp);
-    fseek(Dataf, (long)(sizeof fp + pos * sizeof Seekpts[0]), SEEK_SET);
+    fseek(Dataf, (long)((long)sizeof(fp) + pos * (long)sizeof(Seekpts[0])),
+        SEEK_SET);
     if (!fread(Seekpts, sizeof Seekpts, 1, Dataf))
     {
         exit(1);
     }
-    Seekpts[0] = ntohl(Seekpts[0]);
-    Seekpts[1] = ntohl(Seekpts[1]);
+    Seekpts[0] = ntohl((uint32_t)Seekpts[0]);
+    Seekpts[1] = ntohl((uint32_t)Seekpts[1]);
 }
 
 static void display(FILE *fp, STRFILE table)
@@ -206,10 +207,8 @@ int main(int argc GCC_UNUSED, char **argv)
     get_fort(tbl);
     display(Inf, tbl);
 
-    exit(0);
-
     fclose(Inf);
     fclose(Dataf);
-    fclose(Outf);
-    exit(0);
+
+    return 0;
 }
