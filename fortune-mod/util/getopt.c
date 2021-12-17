@@ -77,23 +77,33 @@ int getopt(int nargc, char *const nargv[], const char *ostr)
          * assume it means -1.
          */
         if (optopt == (int)'-')
+        {
             return (-1);
+        }
         if (!*place)
+        {
             ++optind;
+        }
         if (opterr && *ostr != ':')
+        {
             (void)printf("illegal option -- %c\n", optopt);
+        }
         return (BADCH);
     }
     if (*++oli != ':')
     { /* don't need argument */
         optarg = NULL;
         if (!*place)
+        {
             ++optind;
+        }
     }
     else
     {               /* need an argument */
         if (*place) /* no white space */
+        {
             optarg = place;
+        }
         else if (nargc <= ++optind)
         { /* no arg */
             place = EMSG;
@@ -108,7 +118,9 @@ int getopt(int nargc, char *const nargv[], const char *ostr)
             return (BADCH);
         }
         else /* white space */
+        {
             optarg = nargv[optind];
+        }
         place = EMSG;
         ++optind;
     }
