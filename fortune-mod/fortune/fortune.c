@@ -411,7 +411,7 @@ static FILEDESC *new_fp(void)
 {
     FILEDESC *fp;
 
-    fp = (FILEDESC *)do_malloc(sizeof *fp);
+    fp = do_malloc(sizeof *fp);
     fp->datfd = -1;
     fp->pos = POS_UNKNOWN;
     fp->inf = NULL;
