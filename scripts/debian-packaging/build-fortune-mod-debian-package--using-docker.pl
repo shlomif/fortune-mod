@@ -61,14 +61,16 @@ $obj->exe_bash_code(
     }
 );
 
+my $verrel = "3.10.0-0.1";
 $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 cd "$HOMEDIR/$REPO"
 git clean -dxf .
 (if ! gbp buildpackage 2>&1 ; then cat /tmp/fort*diff* ; exit 1 ; fi) | tee ~/"$LOG_FN"
-sudo dpkg -i ~/fortune-mod_3.4.1-0.1_amd64.deb
-sudo dpkg -i ~/fortunes-min_3.4.1-0.1_all.deb
-sudo dpkg -i ~/fortunes_3.4.1-0.1_all.deb
+verrel="$verrel"
+sudo dpkg -i ~/fortune-mod_"\$verrel"_amd64.deb
+sudo dpkg -i ~/fortunes-min_"\$verrel"_all.deb
+sudo dpkg -i ~/fortunes_"\$verrel"_all.deb
 f=/usr/games/fortune
 test -x "\$f"
 "\$f"
