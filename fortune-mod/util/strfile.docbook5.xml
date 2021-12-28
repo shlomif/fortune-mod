@@ -47,7 +47,7 @@ macros for Linux systems. -->
 <refmeta>
 <refentrytitle>STRFILE</refentrytitle>
 <manvolnum>1</manvolnum>
-<refmiscinfo class='source'>June 9, 1993 [Apr. '97]</refmiscinfo>
+<refmiscinfo class='source'>June 9, 1993 [Apr. 1997]</refmiscinfo>
 <refmiscinfo class='manual'>4th Berkeley Distribution</refmiscinfo>
 </refmeta>
 <refnamediv>
@@ -270,4 +270,3 @@ the code more generic, and has so far been tested to work with SunOS
 4.x.  More platforms are expected to be supported as work continues.</para>
 </refsect1>
 </refentry>
-
