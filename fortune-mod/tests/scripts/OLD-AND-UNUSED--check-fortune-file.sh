@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# WARNING!!! This script is no longer used. See
+# ../t/check-cookies.t instead.
+#
+# (Reference: https://github.com/shlomif/fortune-mod/pull/60 )
+
 i="$1"
 shift
 
