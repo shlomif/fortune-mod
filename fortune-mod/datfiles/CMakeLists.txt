@@ -10,6 +10,16 @@ else()
 endif()
 SET (_unrot_cookies )
 SET (_install_unrot_cookies )
+SET(cr "rules-of-acquisition")
+SET(crfull "${CMAKE_CURRENT_SOURCE_DIR}/${cr}")
+SET(SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/data/rules-of-acquisition.csv")
+SET(script "${CMAKE_CURRENT_SOURCE_DIR}/data/rules-of-acquisition-gen.sh")
+ADD_CUSTOM_COMMAND(
+    OUTPUT "${crfull}"
+    COMMAND "sh" "${script}" "${SOURCE}" "${crfull}"
+    DEPENDS "${script}" "${SOURCE}"
+    VERBATIM
+)
 FOREACH(c ${COOKIES})
     SET(DEST "${c}.dat")
     SET(SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/${c}")
