@@ -1,6 +1,18 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+December 29, 2021 (fortune-mod 3.12.0)
+
+	Generate a newer and more canonical datfiles/rules-of-acquisition
+	from a CSV and a script ( https://github.com/shlomif/fortune-mod/pull/60 ;
+	thanks to @fonic . )
+
+	Eliminate some GCC, clang, perl, and nroff warnings.
+
+	Add curly braces to clauses in C code.
+
+	New cookies.
+
 December 15, 2021 (fortune-mod 3.10.0)
 
 	More fixes crosscompiling builds
