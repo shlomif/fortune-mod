@@ -1183,7 +1183,7 @@ static void getargs(int argc, char **argv)
 #endif
 
     while ((ch = getopt(argc, argv,
-                "ac" DEBUG_GETOPT "efilm:n:" OFFENSIVE_GETOPT "suvw")) != EOF)
+                "ac" DEBUG_GETOPT "efhilm:n:" OFFENSIVE_GETOPT "suvw")) != EOF)
     {
         switch (ch)
         {
@@ -1245,6 +1245,7 @@ static void getargs(int argc, char **argv)
         case 'c':
             Show_filename = true;
             break;
+        case 'h':
         case '?':
         default:
             usage();
