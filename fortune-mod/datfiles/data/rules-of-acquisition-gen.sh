@@ -16,15 +16,15 @@ footer_template="%%"
 line_maxlen=78
 
 # Check command line
-if [ $# -ne 2 ]
-then
-	echo "Usage: ${0##*/} INFILE OUTFILE"
-	exit 2
-fi
 infile="$1"
 shift
 outfile="$1"
 shift
+if test "$#" -ne 0
+then
+	echo "Usage: $0 INFILE OUTFILE"
+	exit 2
+fi
 
 # Convert CSV to DAT + wrap long lines + remove trailing whitespace
 while IFS="${csv_delimiter}" read -r number rule source
