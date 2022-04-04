@@ -143,7 +143,6 @@ typedef struct fd
 
 static const char *env_lang = NULL;
 
-static bool Found_one = false;   /* did we find a match? */
 static bool Find_files = false;  /* just find a list of proper fortune files */
 static bool Wait = false;        /* wait desired after fortune */
 static bool Short_only = false;  /* short fortune desired */
@@ -1714,7 +1713,7 @@ static int maxlen_in_list(FILEDESC *list)
  * matches_in_list
  *      Print out the matches from the files in the list.
  */
-static void matches_in_list(FILEDESC *list)
+static void matches_in_list(FILEDESC *list, bool *const Found_one_ptr)
 {
     unsigned char *sp;
     unsigned char *p; /* -allover */
@@ -1727,7 +1726,7 @@ static void matches_in_list(FILEDESC *list)
     {
         if (fp->child)
         {
-            matches_in_list(fp->child);
+            matches_in_list(fp->child, Found_one_ptr);
             continue;
         }
         DPRINTF(1, (stderr, "searching in %s\n", fp->path));
@@ -1778,7 +1777,7 @@ static void matches_in_list(FILEDESC *list)
                     {
                         fprintf(
                             stderr, "(%s)\n%c\n", fp->name, fp->tbl.str_delim);
-                        Found_one = true;
+                        (*Found_one_ptr) = true;
                         in_file = true;
                     }
                     fputs(output, stdout);
@@ -1802,15 +1801,15 @@ static void matches_in_list(FILEDESC *list)
  *      Find all the fortunes which match the pattern we've been
  * given.
  */
-static int find_matches(void)
+static bool find_matches(void)
 {
     Fort_len = maxlen_in_list(File_list);
     DPRINTF(2, (stderr, "Maximum length is %d\n", Fort_len));
     /* extra length, "%\n" is appended */
     Fortbuf = do_malloc((unsigned int)Fort_len + 10);
 
-    Found_one = false;
-    matches_in_list(File_list);
+    bool Found_one = false;
+    matches_in_list(File_list, &Found_one);
     return Found_one;
     /* NOTREACHED */
 }
@@ -1966,7 +1965,7 @@ int main(int argc, char *argv[])
 #ifdef WITH_REGEX
     if (Match)
     {
-        exit_code = (find_matches() != 0);
+        exit_code = (find_matches() != false);
         regfree(&Re_pat);
         goto cleanup;
     }
