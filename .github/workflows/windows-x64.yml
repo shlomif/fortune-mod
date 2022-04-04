@@ -53,6 +53,10 @@ jobs:
                     Test::TrailingSpace
 
                     Test::Trap'
+        -   name: Set up MinGW
+            uses: egor-tensin/setup-mingw@v2
+            with:
+                platform: x64
         -   name: install and test_script code
             run: '@echo on
 
