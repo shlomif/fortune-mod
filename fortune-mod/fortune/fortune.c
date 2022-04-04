@@ -1162,9 +1162,8 @@ static int form_file_list(char **files, int file_cnt)
  */
 static void getargs(int argc, char **argv)
 {
-    bool ignore_case = false;
-
 #ifdef WITH_REGEX
+    bool ignore_case = false;
     char *pat = NULL;
 #endif
 
@@ -2000,7 +1999,10 @@ int main(int argc, char *argv[])
             sleep((unsigned int)mymax(Fort_len / CPERS, MINW));
         }
     }
+#ifdef WITH_REGEX
 cleanup:
+#endif
+
 #ifdef WITH_RECODE
     recode_delete_request(request);
     recode_delete_outer(outer);
