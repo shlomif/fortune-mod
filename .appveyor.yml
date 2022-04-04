@@ -29,7 +29,7 @@ install:
     - dir C:\msys64
     - dir C:\msys64\mingw64
     - dir C:\msys64\mingw64\bin
-    - dir C:\msys64\mingw64\bin\*make*.exe
+    # - dir C:\msys64\mingw64\bin\*make*.exe
     - copy C:\msys64\mingw64\bin\mingw32-make.exe C:\msys64\mingw64\bin\make.exe
     # - SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
     # - SET PERL5LIB=%PERL5LIB%;C:/_P5/lib/perl5

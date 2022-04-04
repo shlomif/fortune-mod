@@ -91,12 +91,6 @@ jobs:
 
                 dir C:\msys64\mingw64\bin || ( echo Failed & exit /B 1 )
 
-                dir C:\msys64\mingw64\bin\*make*.exe || ( echo Failed & exit /B 1
-                )
-
-                copy C:\msys64\mingw64\bin\mingw32-make.exe C:\msys64\mingw64\bin\make.exe
-                || ( echo Failed & exit /B 1 )
-
                 perl -v || ( echo Failed & exit /B 1 )
 
                 git clone https://github.com/clibs/cmocka libtap || ( echo Failed

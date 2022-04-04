@@ -194,6 +194,9 @@ def generate_windows_yaml(plat, output_path, is_act):
             cmds.insert(idx, "SET CC=cc")
 
         for cmd in cmds:
+            if cmd.startswith("copy C:\\msys64\\mingw64\\bin" +
+                              "\\mingw32-make.exe "):
+                continue
             if cmd.startswith("C:\\cygwin64\\setup"):
                 continue
             cmd = cmd.replace("cygwin64", "cygwin")
