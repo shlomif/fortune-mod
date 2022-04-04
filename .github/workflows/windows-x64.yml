@@ -79,6 +79,14 @@ jobs:
                 if not exist C:\libtap mkdir C:\libtap || ( echo Failed & exit /B
                 1 )
 
+                dir C:\ || ( echo Failed & exit /B 1 )
+
+                dir C:\msys64 || ( echo Failed & exit /B 1 )
+
+                dir C:\msys64\mingw64 || ( echo Failed & exit /B 1 )
+
+                dir C:\msys64\mingw64\bin || ( echo Failed & exit /B 1 )
+
                 dir C:\msys64\mingw64\bin\*make*.exe || ( echo Failed & exit /B 1
                 )
 

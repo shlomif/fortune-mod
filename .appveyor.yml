@@ -25,6 +25,10 @@ install:
     - SET PERL_MM_OPT=INSTALL_BASE=C:/Perl5
     - cpanm --notest App::Docmake Code::TidyAll::Plugin::ClangFormat Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount File::Find::Object List::Util Path::Tiny Perl::Critic Perl::Tidy Test::Code::TidyAll Test::Differences Test::RunValgrind Test::TrailingSpace Test::Trap
     - if not exist C:\libtap mkdir C:\libtap
+    - dir C:\
+    - dir C:\msys64
+    - dir C:\msys64\mingw64
+    - dir C:\msys64\mingw64\bin
     - dir C:\msys64\mingw64\bin\*make*.exe
     - copy C:\msys64\mingw64\bin\mingw32-make.exe C:\msys64\mingw64\bin\make.exe
     # - SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%

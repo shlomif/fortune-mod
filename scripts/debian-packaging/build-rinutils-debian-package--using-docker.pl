@@ -38,7 +38,7 @@ my $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 apt-get -y update
 apt-get -y install eatmydata sudo
-sudo eatmydata apt -y install build-essential chrpath cmake git-buildpackage librecode-dev perl recode
+sudo eatmydata apt -y install build-essential chrpath cmake dgit git-buildpackage librecode-dev perl recode
 sudo adduser --disabled-password --gecos '' "$USER"
 sudo usermod -a -G sudo "$USER"
 echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
@@ -58,7 +58,12 @@ $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 cd "$HOMEDIR/$REPO"
 git clean -dxf .
-(if ! gbp buildpackage 2>&1 ; then exit 0 || cat /tmp/rinutils*diff* ; exit 1 ; fi) | tee ~/"$LOG_FN"
+(if ! gbp buildpackage 2>&1 ; then cat /tmp/rinutils*diff* || true ; exit 0 ; fi) | tee -a ~/"$LOG_FN"
+(if ! dpkg-buildpackage --changes-option=-S 2>&1 ; then cat /tmp/rinutils*diff* || true; exit 0 ; fi) | tee -a ~/"$LOG_FN"
+( ls -lRA ) | tee -a ~/"$LOG_FN"
+(if ! debuild -i -us -uc -S 2>&1 ; then cat /tmp/rinutils*diff* ; exit 1 ; fi) | tee -a ~/"$LOG_FN"
+( ls -lRA ) | tee -a ~/"$LOG_FN"
+(if ! dgit push-source --gbp 2>&1 ; then exit 0 || cat /tmp/rinutils*diff* ; exit 1 ; fi) | tee -a ~/"$LOG_FN"
 sudo dpkg -i ~/librinutils-dev_0.10.0-2_all.deb
 test -f /usr/include/rinutils/rinutils.h
 test -f /usr/include/rinutils/alloc_wrap.h
