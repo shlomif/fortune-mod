@@ -188,10 +188,12 @@ def generate_windows_yaml(plat, output_path, is_act):
         for k, v in sorted(data['environment']['global'].items()):
             # batch += "SET " + k + "=\"" + v + "\"\n"
             batch += "SET " + k + "=" + v + "\n"
+        idx = 0
         if plat == 'x86':
-            idx = 0
             cmds.insert(idx, "SET CXX=c++")
             cmds.insert(idx, "SET CC=cc")
+        elif plat == 'x64':
+            cmds.insert(idx, "pacman -S mingw-w64-x86_64-libsystre")
 
         for cmd in cmds:
             if cmd.startswith("copy C:\\msys64\\mingw64\\bin" +
