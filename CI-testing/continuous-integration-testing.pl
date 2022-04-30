@@ -91,7 +91,7 @@ if ($IS_WIN)
 chdir($cwd);
 $cwd->child('B')->remove_tree( { safe => 0, } );
 
-my $W = "-DTARGET_ARCH=x86_64-w64-mingw32";    # -G Ninja ..
+my $WIN32_TARGET_ARCH = "-DTARGET_ARCH=x86_64-w64-mingw32";    # -G Ninja ..
 my $WIN32__DOUBLE_AMPERSAND__PROPER_HANDLING__NEEDED_PREFIX = "cd . &&";
 print "PATH = <<$ENV{PATH}>>\n";
 do_system(
@@ -107,9 +107,9 @@ do_system(
                 . (
                 $IS_WIN
                 ? ( $cmake_common_args
-                        . "$W -DCMAKE_INSTALL_PREFIX=c:/foo "
-                        . " -DUSE_WIN32_REGEX_LIBS=TRUE "
-                        . " ../fortune-mod && $MAKE && $MAKE install && $MAKE check"
+                        . " $WIN32_TARGET_ARCH -DCMAKE_INSTALL_PREFIX=c:/foo "
+                        . "-DUSE_WIN32_REGEX_LIBS=TRUE "
+                        . "../fortune-mod && $MAKE && $MAKE install && $MAKE check"
                     )
                 : ( $cmake_common_args
                         . " ../fortune-mod && $MAKE && $MAKE check" )
