@@ -64,8 +64,8 @@ jobs:
 
                 SET VERBOSE=1
 
-                pacman -S mingw-w64-x86_64-libsystre || ( echo Failed & exit /B 1
-                )
+                c:\msys64\usr\bin\bash -lc "pacman --noconfirm -Sy mingw-w64-x86_64-libsystre"
+                || ( echo Failed & exit /B 1 )
 
                 c:\msys64\usr\bin\bash -lc "pacman --noconfirm -Syuu" || ( echo Failed
                 & exit /B 1 )

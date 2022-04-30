@@ -193,7 +193,9 @@ def generate_windows_yaml(plat, output_path, is_act):
             cmds.insert(idx, "SET CXX=c++")
             cmds.insert(idx, "SET CC=cc")
         elif plat == 'x64':
-            cmds.insert(idx, "pacman -S mingw-w64-x86_64-libsystre")
+            cmds.insert(
+                idx, "c:\\msys64\\usr\\bin\\bash -lc "
+                "\"pacman --noconfirm -Sy mingw-w64-x86_64-libsystre\"")
 
         for cmd in cmds:
             if cmd.startswith("copy C:\\msys64\\mingw64\\bin" +
