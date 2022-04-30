@@ -5698,3 +5698,21 @@ and there was Wobbler. Currently, Wobbler was in front.
     -- Terry Pratchett
     -- Only You Can Save Mankind
 %
+In those days, I thought, golly, there are zillions of bug tracking packages
+out there. Every programmer has written a dinky bug tracking package. Why
+would anyone buy ours? I knew one thing: programmers who start businesses
+often have the bad habit of thinking everybody else is a programmer just like
+them and wants the same stuff as them, and so they have an unhealthy tendency
+to start businesses that sell programming tools. That’s why you see so many
+scrawny companies hawking source-code-generating geegaws, error catching and
+emailing geegaws, debugging geegaws, syntax-coloring editing tchotchkes,
+ftping baubles, and, ahem, bug tracking packages. All kinds of stuff that only
+a programmer could love. I had no intention of falling into that trap!
+
+Of course, nothing ever works out exactly as planned. FogBUGZ was popular.
+Really popular. It accounts for a significant chunk of Fog Creek’s revenue and
+sales are growing steadily. The People won’t stop buying it.
+
+    -- Joel Spolsky, "Rub a dub dub"
+    -- http://www.joelonsoftware.com/articles/fog0000000348.html
+%
