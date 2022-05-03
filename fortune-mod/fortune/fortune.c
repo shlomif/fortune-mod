@@ -1965,7 +1965,7 @@ int main(int argc, char *argv[])
 #ifdef WITH_REGEX
     if (Match)
     {
-        exit_code = (find_matches() != false);
+        exit_code = find_matches();
         regfree(&Re_pat);
         goto cleanup;
     }

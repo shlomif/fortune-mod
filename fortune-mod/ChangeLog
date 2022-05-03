@@ -1,6 +1,14 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+May 3, 2022 (fortune-mod 3.14.0)
+
+	Fix CI builds - especially on x86-64 MS Windows.
+
+	Add new quotes.
+
+	Minor code cleanups.
+
 December 29, 2021 (fortune-mod 3.12.0)
 
 	Generate a newer and more canonical datfiles/rules-of-acquisition

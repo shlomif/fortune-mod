@@ -95,7 +95,7 @@ SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 SET (WITH_TEST_SUITE CACHE BOOL "")
 SET (NO_OFFENSIVE CACHE BOOL "Exclude the offensive option.")
-SET (USE_WIN32_REGEX_LIBS TRUE CACHE BOOL "")
+SET (USE_WIN32_REGEX_LIBS TRUE CACHE BOOL "Link to the regex libraries (only affects MSWin builds)")
 SET (LOCALDIR "${CMAKE_INSTALL_PREFIX}/local/share/games/fortunes" CACHE STRING "LOCALDIR fortunes dir")
 SET (LOCALODIR "${LOCALDIR}/off" CACHE STRING "offensive fortunes localdir")
 SET (COOKIEDIR "${CMAKE_INSTALL_PREFIX}/share/games/fortunes" CACHE STRING  "cookie dir not under /usr/local")
