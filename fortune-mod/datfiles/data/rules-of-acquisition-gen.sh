@@ -26,9 +26,10 @@ then
 	exit 2
 fi
 
+format="${title_template}\\n${rule_template}\\n${source_template}\\n${footer_template}\\n"
+
 # Convert CSV to DAT + wrap long lines + remove trailing whitespace
 while IFS="${csv_delimiter}" read -r number rule source
 do
-	printf -- "${title_template}\\n${rule_template}\\n${source_template}\\n${footer_template}\\n" \
-        "${number}" "${rule}" "${source}"
+	printf -- "${format}" "${number}" "${rule}" "${source}"
 done < "${infile}" | fold -sw "${line_maxlen}" | sed -e 's/[[:space:]]*$//' > "${outfile}"
