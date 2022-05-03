@@ -150,7 +150,7 @@ https://en.wikipedia.org/wiki/CMake[CMake] .
 . Added https://travis-ci.org/[Travis-CI] testing.
 . Added valgrind tests and fixed some memory leaks.
 . Released fortune-mod-1.99.3, fortune-mod-1.99.4, v2.0.0 and up to
-version 2.26.0
+version 2.26.0 and beyond.
 . Fixed some C compiler warnings encountered with the GCC compiler flags
 of
 https://bitbucket.org/shlomif/shlomif-cmake-modules/overview[Shlomif_Common].
@@ -176,6 +176,8 @@ NetBSD.
 * https://github.com/shlomif/fortune-mod/commit/acd338098071bddfa1d21f87e1813727031428ea
 . Reformatted the C code using
 https://clang.llvm.org/docs/ClangFormat.html[clang-format].
+. Moved some cookies to/from the offensive collection.
+. Added new cookies.
 
 == What remains to be done.
 
