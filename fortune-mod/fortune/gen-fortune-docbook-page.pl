@@ -6,8 +6,8 @@ use autodie;
 use utf8;
 
 use File::Basename qw / dirname /;
-use File::Path qw / mkpath /;
-use Getopt::Long qw/ GetOptions /;
+use File::Path     qw / mkpath /;
+use Getopt::Long   qw/ GetOptions /;
 
 my $output_fn;
 my $cookiedir;
@@ -223,6 +223,8 @@ filename-record will precede the records from the file it names.
 considered “long”.  Be careful!  If you set the length too short and
 ask for short fortunes, or too long and ask for long ones, fortune goes
 into a never-ending thrash loop.</para>
+  </listitem>
+  </varlistentry>
 
 
 END_OF_STRING
@@ -231,10 +233,15 @@ if ($OFF)
 {
     $out->print(<<'END_OF_STRING');
 
-<para><emphasis role='strong' remap='B'>-o</emphasis>
+  <varlistentry>
+  <term>
+<emphasis role='strong' remap='B'>-o</emphasis>
 Choose only from potentially offensive aphorisms.  The -o option is
-ignored if a fortune directory is specified.</para>
+ignored if a fortune directory is specified.
+  </term>
 
+
+  <listitem>
 <para><emphasis role='strong' remap='B'>Please, please, please request a potentially</emphasis>
 <emphasis role='strong' remap='B'>offensive fortune if and only if</emphasis>
 <emphasis role='strong' remap='B'>you believe, deep in your heart,</emphasis>
@@ -253,12 +260,19 @@ needs be.  Needs be.</para>
 <para>--H. Allen Smith, "Rude Jokes"
       </para></blockquote> <!-- remap='RE' -->
     </blockquote> <!-- remap='RE' -->
+  </listitem>
+  </varlistentry>
 
 END_OF_STRING
 }
 
 $out->print(<<'END_OF_STRING');
-<para><emphasis role='strong' remap='B'>-s</emphasis>
+  <varlistentry>
+  <term>
+  <emphasis role='strong' remap='B'>-s</emphasis>
+  </term>
+  <listitem>
+<para>
 Short apothegms only.  See
 <emphasis role='strong' remap='B'>-n</emphasis>
 on which fortunes are considered “short”.</para>
