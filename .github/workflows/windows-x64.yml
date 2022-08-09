@@ -22,7 +22,7 @@ jobs:
             run: perl -V
         -   uses: cygwin/cygwin-install-action@master
             with:
-                packages: docbook-xml docbook-xsl libxml2 libxslt
+                packages: docbook-xml docbook-xsl doxygen libxml2 libxslt
         -   name: install cpanm and mult modules
             uses: perl-actions/install-with-cpanm@v1
             with:

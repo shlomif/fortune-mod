@@ -64,7 +64,7 @@ install:
     - gmake install
     - SET PATH=%MYOLDPATH_%
     - cd ..\..\
-    - C:\cygwin64\setup-x86_64.exe -qgnNdO -l C:\cygwin64\var\cache\setup -R c:\cygwin64 -s http://cygwin.mirror.constant.com -P docbook-xml -P docbook-xsl -P libxml2 -P libxslt
+    - C:\cygwin64\setup-x86_64.exe -qgnNdO -l C:\cygwin64\var\cache\setup -R c:\cygwin64 -s http://cygwin.mirror.constant.com -P docbook-xml -P docbook-xsl -P doxygen -P libxml2 -P libxslt
 build: off
 test_script:
     - set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe

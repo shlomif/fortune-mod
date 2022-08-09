@@ -146,7 +146,7 @@ def generate_windows_yaml(plat, output_path, is_act):
         "uses": "cygwin/cygwin-install-action@master",
         "with": {
             # .split(" "),
-            "packages": "docbook-xml docbook-xsl libxml2 libxslt",
+            "packages": "docbook-xml docbook-xsl doxygen libxml2 libxslt",
         },
     }
     steps.append(step)
