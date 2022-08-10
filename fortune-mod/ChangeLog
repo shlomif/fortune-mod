@@ -1,7 +1,7 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
-August 9, 2022 (fortune-mod 3.14.1)
+August 10, 2022 (fortune-mod 3.14.1)
 
 	Try to fix the manpage's docbook5/XML markup.
 	See https://bugzilla.redhat.com/show_bug.cgi?id=2107574 .
