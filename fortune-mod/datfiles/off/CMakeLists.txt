@@ -54,5 +54,5 @@ ADD_CUSTOM_TARGET(
 )
 INSTALL(
     FILES ${_install_rotated_cookies}
-    DESTINATION "${LOCALODIR}"
+    DESTINATION "${OCOOKIEDIR}"
 )

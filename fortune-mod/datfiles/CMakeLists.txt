@@ -68,7 +68,7 @@ ADD_CUSTOM_TARGET(
 )
 INSTALL(
     FILES ${_install_unrot_cookies}
-    DESTINATION "${LOCALDIR}"
+    DESTINATION "${COOKIEDIR}"
 )
 
 IF (NOT NO_OFFENSIVE)
