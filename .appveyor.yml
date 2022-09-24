@@ -37,7 +37,7 @@ install:
     # - SET PERL_MB_OPT=--install_base C:/_P5
     # - SET PERL_MM_OPT=INSTALL_BASE=C:/_P5
     - perl -v
-    - git clone https://github.com/clibs/cmocka libtap
+    - git clone https://gitlab.com/cmocka/cmocka libtap
     - mkdir libtap\b
     - cd libtap\b
     - set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe

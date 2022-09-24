@@ -96,7 +96,7 @@ jobs:
 
                 perl -v || ( echo Failed & exit /B 1 )
 
-                git clone https://github.com/clibs/cmocka libtap || ( echo Failed
+                git clone https://gitlab.com/cmocka/cmocka libtap || ( echo Failed
                 & exit /B 1 )
 
                 mkdir libtap\b || ( echo Failed & exit /B 1 )
