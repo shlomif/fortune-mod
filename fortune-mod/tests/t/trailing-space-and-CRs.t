@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use File::Find::Object ();
-use Path::Tiny qw/ path /;
+use Path::Tiny         qw/ path /;
 use Test::More tests => 3;
 use Test::Differences (qw( eq_or_diff ));
 

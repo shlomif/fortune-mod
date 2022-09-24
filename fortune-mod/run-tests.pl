@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use File::Spec ();
+use File::Spec   ();
 use Getopt::Long qw/ GetOptions /;
 
 my $src_dir;

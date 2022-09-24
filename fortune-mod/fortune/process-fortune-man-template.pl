@@ -20,8 +20,8 @@ sub _utf8_slurp
 }
 
 use File::Basename qw / dirname /;
-use File::Path qw / mkpath /;
-use Getopt::Long qw/ GetOptions /;
+use File::Path     qw / mkpath /;
+use Getopt::Long   qw/ GetOptions /;
 
 my $input_fn;
 my $output_fn;
