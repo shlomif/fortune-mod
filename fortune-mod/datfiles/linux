@@ -1927,3 +1927,12 @@ Linux: Because Software Problems Should Not Cost Money.
     -- Shlomi Fish
     -- https://www.shlomifish.org/art/linux_banner/
 %
+My friend Botje from freenode noted that some people on its #osdev chatroom,
+have implemented kernels from scratch, which supported enough of POSIX to
+bootstrap a GNU ( https://gnu.org/ ) system (as I suspected).
+
+Now try this with CSS2.1...
+
+    -- Shlomi Fish
+    -- https://twitter.com/shlomif/status/1542047869989011457
+%
