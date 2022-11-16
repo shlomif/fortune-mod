@@ -45,7 +45,8 @@ offensive version of a database.
 Other changes/fixes: Fortune is now consistent in how it determines a
 fortune's length (for -s and -l).  The -m can now be used together with
 -s or -l: only fortunes which match _BOTH_ the pattern and the length
-requirement will be printed.
+requirement will be printed. Offensive cookies and ROT13 are now disabled
+by default.
 
 Most of the other features over the usual BSD fortune are summarised in
 Amy's README.Linux, included below, and in the accompanying manual pages

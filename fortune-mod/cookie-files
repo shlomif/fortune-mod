@@ -9,8 +9,8 @@ One can also send me patches by E-mail / etc.:
 
 https://www.shlomifish.org/me/contact-me/
 
-Offensive fortunes are installed by default.  To *not* install them,
-use the "-D NO_OFFENSIVE=TRUE" option to cmake.
+Offensive fortunes are installed by default.  To install them, use
+the "-D OFFENSIVE=TRUE" option to cmake.
 
 ./datfiles/     : the directory for inoffensive fortunes
 

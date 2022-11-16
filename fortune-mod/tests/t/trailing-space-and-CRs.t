@@ -20,6 +20,8 @@ my %do_not_check = (
         )
 );
 
+my %temp_dirs = ( map { $_ => 1 } glob("TEMP-DIR-*") );
+
 my @cr_results;
 my @trailing_whitespace_results;
 my @tabs_results;
@@ -31,6 +33,7 @@ while ( my $r = $tree->next_obj() )
         if (
             not(   $r->basename =~ /\A\..*?\.swp\z/
                 or $r->basename =~ /\.(o|dat|valgrind-log)\z/
+                or exists( $temp_dirs{ @{ $r->full_components }[0] } )
                 or
                 exists( $do_not_check{ join '/', @{ $r->full_components } } ) )
             )

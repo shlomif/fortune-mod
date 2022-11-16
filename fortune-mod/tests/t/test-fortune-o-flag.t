@@ -19,14 +19,20 @@ if ( $^O eq "MSWin32" )
     plan skip_all => 'srandom() is different on MS Windows';
 }
 
+my $inst_dir = FortTestInst::install("fortune-o-flag");
+local $ENV{FORTUNE_MOD_RAND_HARD_CODED_VALS} = 240;
+my $inst_bin = $inst_dir->child( "games", "fortune" );
+
+if ( system("$inst_bin -o >/dev/null 2>&1") )
+{
+    plan skip_all => 'Skipping because offensive cookies not installed';
+}
+
 plan tests => 1;
 
 {
-    my $inst_dir = FortTestInst::install("fortune-o-rot");
-    local $ENV{FORTUNE_MOD_RAND_HARD_CODED_VALS} = 240;
-    my $inst_bin = $inst_dir->child( "games", "fortune" );
-    my $text     = `$inst_bin -o`;
+    my $text = `$inst_bin -o`;
 
     # TEST
-    like( $text, qr/\A"Prayer/, 'fortune -o was not rotated' );
+    like( $text, qr/\A"Prayer/, 'fortune -o did not output cleartext' );
 }

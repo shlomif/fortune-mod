@@ -1,14 +1,16 @@
 [ClangFormat]
 select = **/*.{c,h}
+ignore = TEMP-DIR-*/* TEMP-DIR-*/**/*
 
 [PerlTidy]
 argv = -ci=4 -bl -cti=0 --character-encoding=none
-ignore = rinutils/run-tests.pl **/t/valgrind*.t
+ignore = rinutils/run-tests.pl rinutils/t/lib/Rinutils/InlineWrap.pm **/t/valgrind*.t TEMP-DIR-*/* TEMP-DIR-*/**/*
 select = **/*.{pl,pm,t}
 
 [PerlCritic]
 select = **/*.{pl,pm,t}
-ignore = rinutils/t/lib/Rinutils/InlineWrap.pm
+ignore = rinutils/t/lib/Rinutils/InlineWrap.pm TEMP-DIR-*/* TEMP-DIR-*/**/*
 
 [TestCount]
 select = **/*.t
+ignore = TEMP-DIR-*/* TEMP-DIR-*/**/*

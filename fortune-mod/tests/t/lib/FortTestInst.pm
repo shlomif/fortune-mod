@@ -24,6 +24,20 @@ sub do_system
 # to avoid paths that start with "./fortune"
 my $BASE_PATH_PREFIX = "TEMP-DIR-";
 
+# check whether to test offensive cookies
+my $offensive_opt;
+if ( defined $ENV{FORTUNE_TEST_OFFENSIVE} && $ENV{FORTUNE_TEST_OFFENSIVE} )
+{
+    $offensive_opt = "-DOFFENSIVE=ON";
+}
+
+# check whether to test offensive cookies
+my $rot13_opt;
+if ( defined $ENV{FORTUNE_TEST_ROT13} && $ENV{FORTUNE_TEST_ROT13} )
+{
+    $rot13_opt = "-DROT13=ON";
+}
+
 sub install
 {
     my ($basebasepath) = @_;
@@ -48,7 +62,9 @@ sub install
                 ),
                 "-DCMAKE_INSTALL_PREFIX=$inst_dir",
                 "-DLOCALDIR=$inst_dir/share/games/fortunes",
-                ( $IS_WIN ? ("-DCMAKE_BUILD_TYPE=Debug") : () ),
+                ( $IS_WIN                 ? ("-DCMAKE_BUILD_TYPE=Debug") : () ),
+                ( defined($offensive_opt) ? ($offensive_opt)             : () ),
+                ( defined($rot13_opt)     ? ($rot13_opt)                 : () ),
                 $ENV{SRC_DIR}
             ]
         }

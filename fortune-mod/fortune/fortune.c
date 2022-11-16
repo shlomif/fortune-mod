@@ -152,6 +152,7 @@ static bool All_forts = false;   /* any fortune allowed */
 static bool Equal_probs = false; /* scatter un-allocated prob equally */
 static bool Show_filename = false;
 static bool No_recode = false; /* Do we want to stop recoding from occuring */
+static bool Enable_rotate = false; /* Enable ROT13 de/obfuscation */
 
 static bool ErrorMessage =
     false; /* Set to true if an error message has been displayed */
@@ -249,7 +250,7 @@ static void __attribute__((noreturn)) usage(void)
     (void)fprintf(stderr, "%s", "i");
 #endif
     (void)fprintf(stderr, "%s", "l");
-#ifndef NO_OFFENSIVE
+#ifdef OFFENSIVE
     (void)fprintf(stderr, "%s", "o");
 #endif
     (void)fprintf(stderr, "%s", "sw]");
@@ -1174,10 +1175,14 @@ static void getargs(int argc, char **argv)
 #define DEBUG_GETOPT
 #endif
 
-#ifdef NO_OFFENSIVE
-#define OFFENSIVE_GETOPT
-#else
+#ifdef OFFENSIVE
 #define OFFENSIVE_GETOPT "o"
+#else
+#define OFFENSIVE_GETOPT
+#endif
+
+#ifdef ROT13
+    Enable_rotate = true;
 #endif
 
     while ((ch = getopt(argc, argv,
@@ -1206,7 +1211,7 @@ static void getargs(int argc, char **argv)
         case 'n':
             SLEN = atoi(optarg);
             break;
-#ifndef NO_OFFENSIVE
+#ifdef OFFENSIVE
         case 'o': /* offensive ones only */
             Offend = true;
             break;
@@ -1754,7 +1759,7 @@ static void matches_in_list(FILEDESC *list, bool *const Found_one_ptr)
                 }
                 /* Should maybe rot13 Fortbuf -allover */
 
-                if (fp->tbl.str_flags & STR_ROTATED)
+                if (fp->tbl.str_flags & Enable_rotate & STR_ROTATED)
                 {
                     for (p = (unsigned char *)output; (ch = *p); ++p)
                     {
@@ -1830,7 +1835,7 @@ static void display(FILEDESC *fp)
                        !STR_ENDSTRING(line, fp->tbl);
          Fort_len++)
     {
-        if (fp->tbl.str_flags & STR_ROTATED)
+        if (fp->tbl.str_flags & Enable_rotate & STR_ROTATED)
         {
             for (p = (char *)line; (ch = *p); ++p)
             {

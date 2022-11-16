@@ -27,13 +27,13 @@ my $input_fn;
 my $output_fn;
 my $cookiedir;
 my $ocookiedir;
-my $no_offensive = 0;
+my $offensive = 0;
 GetOptions(
-    '--cookiedir=s'        => \$cookiedir,
-    '--ocookiedir=s'       => \$ocookiedir,
-    '--without-offensive!' => \$no_offensive,
-    '--output=s'           => \$output_fn,
-    '--input=s'            => \$input_fn,
+    '--cookiedir=s'     => \$cookiedir,
+    '--ocookiedir=s'    => \$ocookiedir,
+    '--with-offensive!' => \$offensive,
+    '--output=s'        => \$output_fn,
+    '--input=s'         => \$input_fn,
 ) or die "Wrong options - $!";
 
 if ( !defined($input_fn) )
@@ -50,7 +50,7 @@ if ( !defined($cookiedir) )
     die "Please specify cookiedir";
 }
 
-my $OFF = ( !$no_offensive );
+my $OFF = ($offensive);
 
 if ( $OFF and !defined($ocookiedir) )
 {
