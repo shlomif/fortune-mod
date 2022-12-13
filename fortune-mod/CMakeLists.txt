@@ -302,6 +302,7 @@ SET (COOKIES
     ascii-art
     computers
     cookie
+    debian
     definitions
     disclaimer
     drugs
@@ -312,7 +313,9 @@ SET (COOKIES
     goedel
     humorists
     kids
+    knghtbrd
     law
+    linux
     literature
     love
     magic
@@ -320,7 +323,9 @@ SET (COOKIES
     men-women
     miscellaneous
     news
+    paradoxum
     people
+    perl
     pets
     platitudes
     politics
@@ -335,12 +340,7 @@ SET (COOKIES
     translate-me
     wisdom
     work
-    linux
-    perl
-    knghtbrd
-    paradoxum
     zippy
-    debian
 )
 
 SET (OFFENSIVE_COOKIES
