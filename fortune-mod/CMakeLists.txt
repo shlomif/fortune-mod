@@ -333,6 +333,7 @@ SET (COOKIES
     riddles
     rules-of-acquisition
     science
+    shlomif-fav
     songs-poems
     sports
     startrek
