@@ -96,24 +96,6 @@ jobs:
 
                 perl -v || ( echo Failed & exit /B 1 )
 
-                git clone https://gitlab.com/cmocka/cmocka libtap || ( echo Failed
-                & exit /B 1 )
-
-                mkdir libtap\b || ( echo Failed & exit /B 1 )
-
-                cd libtap\b || ( echo Failed & exit /B 1 )
-
-                cmake -G "MinGW Makefiles"  -DCMAKE_INSTALL_PREFIX=C:\libtap .. ||
-                ( echo Failed & exit /B 1 )
-
-                echo %PATH% || ( echo Failed & exit /B 1 )
-
-                gmake || ( echo Failed & exit /B 1 )
-
-                gmake install || ( echo Failed & exit /B 1 )
-
-                cd ..\..\ || ( echo Failed & exit /B 1 )
-
                 git clone https://github.com/shlomif/rinutils rinutils || ( echo Failed
                 & exit /B 1 )
 

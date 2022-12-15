@@ -37,15 +37,15 @@ install:
     # - SET PERL_MB_OPT=--install_base C:/_P5
     # - SET PERL_MM_OPT=INSTALL_BASE=C:/_P5
     - perl -v
-    - git clone https://gitlab.com/cmocka/cmocka libtap
-    - mkdir libtap\b
-    - cd libtap\b
     - set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe
-    - cmake -G "MinGW Makefiles" -DCMAKE_MAKE_PROGRAM=%CMAKE_MAKE_PROGRAM% -DCMAKE_INSTALL_PREFIX=C:\libtap ..
-    - echo %PATH%
-    - gmake
-    - gmake install
-    - cd ..\..\
+    # - git clone https://gitlab.com/cmocka/cmocka libtap
+    # - mkdir libtap\b
+    # - cd libtap\b
+    # - cmake -G "MinGW Makefiles" -DCMAKE_MAKE_PROGRAM=%CMAKE_MAKE_PROGRAM% -DCMAKE_INSTALL_PREFIX=C:\libtap ..
+    # - echo %PATH%
+    # - gmake
+    # - gmake install
+    # - cd ..\..\
     - git clone https://github.com/shlomif/rinutils rinutils
     - mkdir rinutils\b
     - cd rinutils\b
