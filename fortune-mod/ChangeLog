@@ -1,6 +1,21 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+February 22, 2022 (fortune-mod 3.16.0)
+
+	Fix respecting LOCALDIR and COOKIEDIR
+	https://github.com/shlomif/fortune-mod/pull/69
+
+	Fix typos
+	https://github.com/shlomif/fortune-mod/issues/70
+
+	Make fortune.6 man page use correct template
+	https://github.com/shlomif/fortune-mod/pull/75
+
+	Add the shlomif-fav cookies' collection.
+
+	Bug-fixes.
+
 August 10, 2022 (fortune-mod 3.14.1)
 
 	Try to fix the manpage's docbook5/XML markup.
