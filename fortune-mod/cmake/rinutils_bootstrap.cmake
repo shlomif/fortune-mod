@@ -10,11 +10,13 @@ MACRO(RINUTILS_SET_UP_FLAGS)
             COMMAND "git" "clone" "-b" "${rinutils_git_tag}" "https://github.com/shlomif/rinutils.git" "${rinutils_dir}"
             WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
         )
-#       ELSE ()
-#           EXECUTE_PROCESS(
-#               COMMAND "git" "submodule" "update" "--init"
-#               WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
-#           )
+    ELSE ()
+        IF ()
+            EXECUTE_PROCESS(
+                COMMAND "git" "submodule" "update" "--init"
+                WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+            )
+        ENDIF ()
     ENDIF ()
 
     find_package(Rinutils QUIET)
