@@ -1,14 +1,14 @@
 [ClangFormat]
 select = **/*.{c,h}
 
+[PerlCritic]
+ignore = rinutils/t/lib/Rinutils/InlineWrap.pm
+select = **/*.{pl,pm,t}
+
 [PerlTidy]
 argv = -ci=4 -bl -cti=0 --character-encoding=none
 ignore = rinutils/run-tests.pl rinutils/t/lib/Rinutils/InlineWrap.pm **/t/valgrind*.t
 select = **/*.{pl,pm,t}
-
-[PerlCritic]
-select = **/*.{pl,pm,t}
-ignore = rinutils/t/lib/Rinutils/InlineWrap.pm
 
 [TestCount]
 select = **/*.t
