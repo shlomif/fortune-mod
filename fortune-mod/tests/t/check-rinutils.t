@@ -21,17 +21,18 @@ sub check_file
 sub mytest
 {
     my $dir = "$ENV{SRC_DIR}/rinutils";
-    if ( -e $dir )
+    if ( not -e $dir )
     {
-        # body...
-        foreach my $fn ("rinutils/include/rinutils/portable_time.h")
+        fail("-e $dir failed.");
+        return;
+    }
+    foreach my $fn ("rinutils/include/rinutils/portable_time.h")
+    {
+        my $err = check_file("${dir}/${fn}");
+        if ( $err ne '' )
         {
-            my $err = check_file("${dir}/${fn}");
-            if ( $err ne '' )
-            {
-                fail("$fn failed - $err.");
-                return;
-            }
+            fail("$fn failed - $err.");
+            return;
         }
     }
     pass("All are ok.");
