@@ -584,110 +584,24 @@ static int add_file(int percent, const char *file, const char *dir,
         path = do_malloc(do_len + 1);
         snprintf(path, do_len, "%s/%s", dir, file);
     }
-    if (*path == '/' &&
-        !is_existant(path)) /* If doesn't exist, don't do anything. */
+    if (!is_existant(path)) /* If doesn't exist, don't do anything. */
     {
+        DPRINTF(1, (stderr, "add_file: ignoring \"%s\": does not exist\n", path));
         free(path);
         return false;
     }
     const int isdir = is_dir(path);
     if ((isdir > 0 && parent) || (isdir < 0))
     {
+        DPRINTF(1, (stderr, "add_file: ignoring \"%s\": not recursing\n", path));
         free(path);
         return false; /* don't recurse */
     }
 
-    DPRINTF(1, (stderr, "trying to add file \"%s\"\n", path));
-    if ((
-#ifdef _WIN32
-            (!isdir) &&
-#endif
-            ((fd = open4read(path)) < 0)) ||
-        !path_is_absolute(path))
-    {
-        DPRINTF(2, (stderr, "check file fd=%d path=<%s> dir=<%s> file=<%s> percent=%d\n",
-            fd, path, dir, file, percent));
-        bool found = false;
-        if (!dir && (!strchr(file, '/')))
-        {
-            if (((sp = strrchr(file, '-')) != NULL) && (strcmp(sp, "-o") == 0))
-            {
-#define CALL__add_file(dir) add_file(percent, file, dir, head, tail, parent)
-#define COND_CALL__add_file(loc_dir, dir)                                      \
-    ((!strcmp((loc_dir), (dir))) ? 0 : CALL__add_file(dir))
-                /* BSD-style '-o' offensive file suffix */
-                *sp = '\0';
-                found = CALL__add_file(LOCOFFDIR) ||
-                        COND_CALL__add_file(LOCOFFDIR, OFFDIR);
-                /* put the suffix back in for better identification later */
-                *sp = '-';
-            }
-            else if (All_forts)
-            {
-                found =
-                    (CALL__add_file(LOCFORTDIR) || CALL__add_file(LOCOFFDIR) ||
-                        COND_CALL__add_file(LOCFORTDIR, FORTDIR) ||
-                        COND_CALL__add_file(LOCOFFDIR, OFFDIR));
-            }
-            else if (Offend)
-            {
-                found = (CALL__add_file(LOCOFFDIR) ||
-                         COND_CALL__add_file(LOCOFFDIR, OFFDIR));
-            }
-            else
-            {
-                found = (CALL__add_file(LOCFORTDIR) ||
-                         COND_CALL__add_file(LOCFORTDIR, FORTDIR));
-            }
-#undef COND_CALL__add_file
-#undef CALL__add_file
-        }
-        if (!found && !parent && !dir)
-        { /* don't display an error when trying language specific files */
-            if (env_lang)
-            {
-                char llang[512];
-                char langdir[1024];
-                int ret = 0;
-
-                strncpy(llang, env_lang, sizeof(llang));
-                llang[sizeof(llang) - 1] = '\0';
-                char *lang = llang;
-
-                /* the language string can be like "es:fr_BE:ga" */
-                while (!ret && lang && (*lang))
-                {
-                    char *p = strchr(lang, ':');
-                    if (p)
-                    {
-                        *p++ = '\0';
-                    }
-                    snprintf(langdir, sizeof(langdir), "%s/%s", FORTDIR, lang);
-
-                    if (strncmp(path, lang, 2) == 0)
-                    {
-                        ret = 1;
-                    }
-                    else if (strncmp(path, langdir, strlen(FORTDIR) + 3) == 0)
-                    {
-                        ret = 1;
-                    }
-                    lang = p;
-                }
-                if (!ret)
-                {
-                    perror(path);
-                }
-            }
-            else
-            {
-                perror(path);
-            }
-        }
-
-        free(path);
-        path = NULL;
-        return found;
+    DPRINTF(1, (stderr, "add_file: adding \"%s\"\n", path));
+    if (!isdir && (fd = open4read(path)) < 0) {
+        perror(path);
+        return false;
     }
 
     DPRINTF(2, (stderr, "path = \"%s\"\n", path));
@@ -864,41 +778,112 @@ static int add_dir(FILEDESC *const fp)
     return true;
 }
 
+// TODO inject from build system
+#define XDGFORTDIR "fortunes"
+#define XDGOFFDIR "fortunes/off"
+
+static bool add_to_dir_list(char*** dir_list, size_t* count, size_t* max_count, char* path)
+{
+    for (size_t i = 0; i < *count; ++i)
+    {
+        if (strcmp((*dir_list)[i], path) == 0)
+        {
+            return false;
+        }
+    }
+
+    if (*count == *max_count)
+    {
+        *max_count *= 2;
+        *dir_list = realloc(*dir_list, sizeof(char*) * (*max_count + 1));
+    }
+    (*dir_list)[(*count)++] = strdup(path);
+
+    return true;
+}
+
+/*
+ * form_dir_list:
+ *      Build a NULL-terminated list of paths to search in for fortunes.
+ */
+static char** form_dir_list(const char* dir, const char* locdir, const char* xdgdir)
+{
+    size_t count = 0;
+    size_t max_count = 2;
+    char** dir_list = malloc(sizeof(char*) * (max_count + 1)); // +1 for NULL terminator
+
+    if (xdgdir)
+    {
+        const char* data_dirs = getenv("XDG_DATA_DIRS")
+            ? getenv("XDG_DATA_DIRS")
+            : "/usr/local/share:/usr/share";
+
+        const char* data_dir = data_dirs;
+        while (data_dir && *data_dir)
+        {
+            const char* p = strchr(data_dir, ':');
+            int len = p ? p - data_dir : -1; // -1 as precision for printf means to ignore it
+
+            char path[512];
+            snprintf(path, sizeof(path), "%.*s/%s", len, data_dir, xdgdir);
+
+            // don't add duplicate dirs
+            add_to_dir_list(&dir_list, &count, &max_count, path);
+            data_dir = p ? p + 1 : NULL;
+        }
+    }
+
+    add_to_dir_list(&dir_list, &count, &max_count, dir);
+    add_to_dir_list(&dir_list, &count, &max_count, locdir);
+
+    dir_list[count] = NULL;
+    return dir_list;
+}
+
+/*
+ * fortdirs:
+ *      List of directories to search for unoffensive fortunes in.
+ */
+static char** fortdirs()
+{
+    static char** dir_list = NULL;
+    if (!dir_list)
+    {
+        dir_list = form_dir_list(FORTDIR, LOCFORTDIR,
+#ifdef XDGFORTDIR
+            XDGFORTDIR
+#else
+            NULL
+#endif
+        );
+    }
+    return dir_list;
+}
+
+/*
+ * offdirs:
+ *      List of directories to search for offensive fortunes in.
+ */
+static char** offdirs()
+{
+    static char** dir_list = NULL;
+    if (!dir_list)
+    {
+        dir_list = form_dir_list(OFFDIR, LOCOFFDIR,
+#ifdef XDGOFFDIR
+            XDGOFFDIR
+#else
+            NULL
+#endif
+        );
+    }
+    return dir_list;
+}
+
 /*
  * form_file_list:
  *      Form the file list from the file specifications.
  */
-
-static int top_level__add_file(const char *dirpath)
-{
-    return add_file(NO_PROB, dirpath, NULL, &File_list, &File_tail, NULL);
-}
-
-static int cond_top_level__add_file(
-    const char *dirpath, const char *possible_dup)
-{
-    if (!strcmp(dirpath, possible_dup))
-    {
-        return 0;
-    }
-    return top_level__add_file(dirpath);
-}
-
-static int cond_top_level__LOCFORTDIR(void)
-{
-    return cond_top_level__add_file(FORTDIR, LOCFORTDIR);
-}
-
-static int cond_top_level__OFFDIR(void)
-{
-    return cond_top_level__add_file(OFFDIR, LOCOFFDIR);
-}
-
-static int top_level_LOCFORTDIR(void)
-{
-    return (top_level__add_file(LOCFORTDIR) | cond_top_level__LOCFORTDIR());
-}
-
 static int form_file_list(char **files, int file_cnt)
 {
     int i, percent;
@@ -908,69 +893,25 @@ static int form_file_list(char **files, int file_cnt)
 
     if (file_cnt == 0)
     {
-        if (All_forts)
+        bool any_ok = true;
+        // TODO localisation
+        if (All_forts || !Offend)
         {
-            return (top_level__add_file(LOCFORTDIR) |
-                    top_level__add_file(LOCOFFDIR) |
-                    cond_top_level__LOCFORTDIR() | cond_top_level__OFFDIR());
-        }
-        else if (Offend)
-        {
-            return (top_level__add_file(LOCOFFDIR) | cond_top_level__OFFDIR());
-        }
-        else
-        {
-            if (env_lang)
+            for (char** dir = fortdirs(); *dir; ++dir)
             {
-                char *lang;
-                char llang[512];
-                int ret = 0;
-                char *p;
-
-                strncpy(llang, env_lang, sizeof(llang));
-                llang[sizeof(llang) - 1] = '\0';
-                lang = llang;
-
-                /* the language string can be like "es:fr_BE:ga" */
-                while (lang && (*lang))
-                {
-                    p = strchr(lang, ':');
-                    if (p)
-                    {
-                        *p++ = '\0';
-                    }
-
-                    /* first try full locale */
-                    ret = add_file(
-                        NO_PROB, lang, NULL, &File_list, &File_tail, NULL);
-
-                    /* if not try language name only (two first chars) */
-                    if (!ret)
-                    {
-                        char ll[3];
-
-                        strncpy(ll, lang, 2);
-                        ll[2] = '\0';
-                        ret = add_file(
-                            NO_PROB, ll, NULL, &File_list, &File_tail, NULL);
-                    }
-
-                    /* if we have found one we have finished */
-                    if (ret)
-                    {
-                        return ret;
-                    }
-                    lang = p;
-                }
-                /* default */
-                return top_level_LOCFORTDIR();
-            }
-            else
-            {
-                /* no locales available, use default */
-                return top_level_LOCFORTDIR();
+                bool ok = add_file(NO_PROB, *dir, NULL, &File_list, &File_tail, NULL);
+                any_ok = any_ok || ok;
             }
         }
+        if (All_forts || Offend)
+        {
+            for (char** dir = offdirs(); *dir; ++dir)
+            {
+                bool ok = add_file(NO_PROB, *dir, NULL, &File_list, &File_tail, NULL);
+                any_ok = any_ok || ok;
+            }
+        }
+        return any_ok;
     }
 
     for (i = 0; i < file_cnt; i++)
@@ -1038,104 +979,55 @@ static int form_file_list(char **files, int file_cnt)
                 sp = files[i];
             }
         }
+
+        if (strncmp(sp, "/", 1) == 0 || strncmp(sp, "./", 2) == 0 ||
+            strncmp(sp, "../", 3) == 0)
+        {
+            if (!add_file(percent, sp, NULL, &File_list, &File_tail, NULL))
+            {
+                return false;
+            }
+        }
+
+        /* BSD-style '-o' offensive file suffix */
+        size_t sp_len = strlen(sp);
+        bool offensive = false;
+        if (sp_len > 2 && sp[sp_len - 2] == '-' && sp[sp_len - 1] == 'o') {
+            offensive = true;
+            sp[sp_len - 2] = '\0';
+            sp_len -= 2;
+        }
+        // TODO restore -o in fp->name?
+
         if (strcmp(sp, "all") == 0)
         {
-            snprintf(fullpathname, sizeof(fullpathname), "%s", FORTDIR);
-            snprintf(locpathname, sizeof(locpathname), "%s", LOCFORTDIR);
+            bool any_ok = false;
+            for (char** dir = offensive ? offdirs() : fortdirs(); *dir; ++dir)
+            {
+                // TODO probability
+                bool ok = add_file(NO_PROB, *dir, NULL, &File_list, &File_tail, NULL);
+                any_ok = any_ok || ok;
+            }
+            if (!any_ok)
+            {
+                return false;
+            }
         }
-        /* if it isn't an absolute path or relative to . or ..
-           make it an absolute path relative to FORTDIR */
         else
         {
-            if (strncmp(sp, "/", 1) != 0 && strncmp(sp, "./", 2) != 0 &&
-                strncmp(sp, "../", 3) != 0)
+            bool ret = false;
+            for (char** dir = offensive ? offdirs() : fortdirs(); !ret && *dir; ++dir)
             {
-                snprintf(
-                    fullpathname, sizeof(fullpathname), "%s/%s", FORTDIR, sp);
-                snprintf(
-                    locpathname, sizeof(locpathname), "%s/%s", LOCFORTDIR, sp);
-            }
-            else
-            {
-                snprintf(fullpathname, sizeof(fullpathname), "%s", sp);
-                snprintf(locpathname, sizeof(locpathname), "%s", sp);
-            }
-        }
-
-        if (env_lang)
-        {
-            char llang[512];
-            int ret = 0;
-
-            strncpy(llang, env_lang, sizeof(llang));
-            llang[sizeof(llang) - 1] = '\0';
-            char *lang = llang;
-
-            /* the language string can be like "es:fr_BE:ga" */
-            while (!ret && lang && (*lang))
-            {
-                char *p = strchr(lang, ':');
-                if (p)
-                {
-                    *p++ = '\0';
-                }
-
-                /* first try full locale */
-                snprintf(
-                    langdir, sizeof(langdir), "%s/%s/%s", FORTDIR, lang, sp);
-                ret = add_file(
-                    percent, langdir, NULL, &File_list, &File_tail, NULL);
-
-                /* if not try language name only (two first chars) */
-                if (!ret)
-                {
-                    char ll[3];
-
-                    strncpy(ll, lang, 2);
-                    ll[2] = '\0';
-                    snprintf(
-                        langdir, sizeof(langdir), "%s/%s/%s", FORTDIR, ll, sp);
-                    ret = add_file(
-                        percent, langdir, NULL, &File_list, &File_tail, NULL);
-                }
-
-                lang = p;
-            }
-            /* default */
-            if (!ret)
-            {
-                ret = add_file(
-                    percent, fullpathname, NULL, &File_list, &File_tail, NULL);
-            }
-            if (!ret &&
-                strncmp(fullpathname, locpathname, sizeof(fullpathname)))
-            {
-                ret = add_file(
-                    percent, locpathname, NULL, &File_list, &File_tail, NULL);
+                ret = add_file(percent, sp, *dir, &File_list, &File_tail, NULL);
             }
             if (!ret)
             {
-                snprintf(locpathname, sizeof(locpathname), "%s/%s",
-                    getenv("PWD"), sp);
-
-                ret = add_file(
-                    percent, locpathname, NULL, &File_list, &File_tail, NULL);
+                ret = add_file(percent, sp, NULL, &File_list, &File_tail, NULL);
             }
             if (!ret)
             {
                 return false;
             }
-            if (strncmp(fullpathname, locpathname, sizeof(fullpathname)) &&
-                strcmp(sp, "all") == 0)
-            {
-                add_file(
-                    percent, locpathname, NULL, &File_list, &File_tail, NULL);
-            }
-        }
-        else if (!add_file(
-                     percent, fullpathname, NULL, &File_list, &File_tail, NULL))
-        {
-            return false;
         }
     }
     return true;
