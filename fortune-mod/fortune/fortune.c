@@ -435,21 +435,6 @@ static FILEDESC *new_fp(void)
     return fp;
 }
 
-#ifdef MYDEBUG
-static inline void debugprint(const char *msg, ...)
-{
-    va_list ap;
-
-    va_start(ap, msg);
-    vfprintf(stderr, msg, ap);
-    fflush(stderr);
-    va_end(ap);
-}
-#else
-#define debugprint(format, ...)                                                \
-    {                                                                          \
-    }
-#endif
 /*
  * is_dir:
  *      Return true if the file is a directory, false otherwise.
@@ -460,11 +445,11 @@ static int is_dir(const char *const file)
 
     if (stat(file, &sbuf) < 0)
     {
-        debugprint("is_dir failed for file=<%s>\n", file);
+        DPRINTF(1, (stderr, "is_dir failed for file=<%s>\n", file));
         return -1;
     }
     const bool ret = (S_ISDIR(sbuf.st_mode) ? true : false);
-    debugprint("is_dir for file=<%s> gave ret=<%d>\n", file, ret);
+    DPRINTF(1, (stderr, "is_dir for file=<%s> gave ret=<%d>\n", file, ret));
     return ret;
 }
 
@@ -620,8 +605,8 @@ static int add_file(int percent, const char *file, const char *dir,
             ((fd = open4read(path)) < 0)) ||
         !path_is_absolute(path))
     {
-        debugprint("check file fd=%d path=<%s> dir=<%s> file=<%s> percent=%d\n",
-            fd, path, dir, file, percent);
+        DPRINTF(2, (stderr, "check file fd=%d path=<%s> dir=<%s> file=<%s> percent=%d\n",
+            fd, path, dir, file, percent));
         bool found = false;
         if (!dir && (!strchr(file, '/')))
         {
