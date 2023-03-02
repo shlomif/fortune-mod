@@ -1019,10 +1019,23 @@ static int form_file_list(char **files, int file_cnt)
                 sp = files[i];
             }
         }
+
+        /* BSD-style '-o' offensive file suffix */
+        bool offensive = false;
+        const size_t sp_len = strlen(sp);
+        if (sp_len >= 3 && sp[sp_len - 2] == '-' && sp[sp_len - 1] == 'o')
+        {
+            sp[sp_len - 2] = '\0';
+            offensive = true;
+        }
+
+        const char* fulldir = offensive ? OFFDIR : FORTDIR;
+        const char* locdir = offensive ? LOCOFFDIR : LOCFORTDIR;
+
         if (strcmp(sp, "all") == 0)
         {
-            snprintf(fullpathname, sizeof(fullpathname), "%s", FORTDIR);
-            snprintf(locpathname, sizeof(locpathname), "%s", LOCFORTDIR);
+            snprintf(fullpathname, sizeof(fullpathname), "%s", fulldir);
+            snprintf(locpathname, sizeof(locpathname), "%s", locdir);
         }
         /* if it isn't an absolute path or relative to . or ..
            make it an absolute path relative to FORTDIR */
@@ -1032,9 +1045,9 @@ static int form_file_list(char **files, int file_cnt)
                 strncmp(sp, "../", 3) != 0)
             {
                 snprintf(
-                    fullpathname, sizeof(fullpathname), "%s/%s", FORTDIR, sp);
+                    fullpathname, sizeof(fullpathname), "%s/%s", fulldir, sp);
                 snprintf(
-                    locpathname, sizeof(locpathname), "%s/%s", LOCFORTDIR, sp);
+                    locpathname, sizeof(locpathname), "%s/%s", locdir, sp);
             }
             else
             {
@@ -1063,7 +1076,7 @@ static int form_file_list(char **files, int file_cnt)
 
                 /* first try full locale */
                 snprintf(
-                    langdir, sizeof(langdir), "%s/%s/%s", FORTDIR, lang, sp);
+                    langdir, sizeof(langdir), "%s/%s/%s", fulldir, lang, sp);
                 ret = add_file(
                     percent, langdir, NULL, &File_list, &File_tail, NULL);
 
@@ -1075,7 +1088,7 @@ static int form_file_list(char **files, int file_cnt)
                     strncpy(ll, lang, 2);
                     ll[2] = '\0';
                     snprintf(
-                        langdir, sizeof(langdir), "%s/%s/%s", FORTDIR, ll, sp);
+                        langdir, sizeof(langdir), "%s/%s/%s", fulldir, ll, sp);
                     ret = add_file(
                         percent, langdir, NULL, &File_list, &File_tail, NULL);
                 }
@@ -1094,8 +1107,19 @@ static int form_file_list(char **files, int file_cnt)
                 ret = add_file(
                     percent, locpathname, NULL, &File_list, &File_tail, NULL);
             }
+            if (strncmp(fullpathname, locpathname, sizeof(fullpathname)) &&
+                strcmp(sp, "all") == 0)
+            {
+                add_file(
+                    percent, locpathname, NULL, &File_list, &File_tail, NULL);
+            }
             if (!ret)
             {
+                if (offensive)
+                {
+                    // restore -o suffix
+                    sp[sp_len - 2] = '-';
+                }
                 snprintf(locpathname, sizeof(locpathname), "%s/%s",
                     getenv("PWD"), sp);
 
@@ -1105,12 +1129,6 @@ static int form_file_list(char **files, int file_cnt)
             if (!ret)
             {
                 return false;
-            }
-            if (strncmp(fullpathname, locpathname, sizeof(fullpathname)) &&
-                strcmp(sp, "all") == 0)
-            {
-                add_file(
-                    percent, locpathname, NULL, &File_list, &File_tail, NULL);
             }
         }
         else if (!add_file(
