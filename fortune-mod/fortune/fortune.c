@@ -1029,8 +1029,8 @@ static int form_file_list(char **files, int file_cnt)
             offensive = true;
         }
 
-        const char* fulldir = offensive ? OFFDIR : FORTDIR;
-        const char* locdir = offensive ? LOCOFFDIR : LOCFORTDIR;
+        const char *fulldir = offensive ? OFFDIR : FORTDIR;
+        const char *locdir = offensive ? LOCOFFDIR : LOCFORTDIR;
 
         if (strcmp(sp, "all") == 0)
         {
@@ -1046,8 +1046,7 @@ static int form_file_list(char **files, int file_cnt)
             {
                 snprintf(
                     fullpathname, sizeof(fullpathname), "%s/%s", fulldir, sp);
-                snprintf(
-                    locpathname, sizeof(locpathname), "%s/%s", locdir, sp);
+                snprintf(locpathname, sizeof(locpathname), "%s/%s", locdir, sp);
             }
             else
             {
