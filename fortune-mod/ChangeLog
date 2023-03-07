@@ -1,7 +1,15 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
-February 22, 2022 (fortune-mod 3.16.0)
+March 7, 2023 (fortune-mod 3.18.0)
+
+	Ascertain rinutils' presence
+	https://github.com/shlomif/fortune-mod/issues/76
+
+	Re-implement BSD-style -o suffix support
+	https://github.com/shlomif/fortune-mod/pull/78
+
+February 22, 2023 (fortune-mod 3.16.0)
 
 	Fix respecting LOCALDIR and COOKIEDIR
 	https://github.com/shlomif/fortune-mod/pull/69
