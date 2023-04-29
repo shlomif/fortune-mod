@@ -20,7 +20,7 @@ my %do_not_check = (
         )
 );
 
-my @cr_results;
+my @cr_or_backspace_results;
 my @trailing_whitespace_results;
 my @tabs_results;
 while ( my $r = $tree->next_obj() )
@@ -39,7 +39,7 @@ while ( my $r = $tree->next_obj() )
 
             if ( $contents =~ /[\b\r]/ )
             {
-                push @cr_results, $fn;
+                push @cr_or_backspace_results, $fn;
             }
             elsif ( $contents =~ /[ \t]$/ms )
             {
@@ -61,7 +61,8 @@ while ( my $r = $tree->next_obj() )
 }
 
 # TEST
-eq_or_diff( \@cr_results, [], "Files containing carriage returns." );
+eq_or_diff( \@cr_or_backspace_results, [],
+    "Files containing carriage returns or \"\\b\"s." );
 
 # TEST
 eq_or_diff( \@trailing_whitespace_results,
