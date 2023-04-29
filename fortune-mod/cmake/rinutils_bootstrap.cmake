@@ -3,7 +3,7 @@ MACRO(RINUTILS_SET_UP_FLAGS)
     SET (rinutils_dir "rinutils")
     SET (rinutils_dir_absolute "${CMAKE_CURRENT_SOURCE_DIR}/${rinutils_dir}")
     SET (rinutils_inc_dir "${rinutils_dir_absolute}/rinutils/include")
-    SET (rinutils_git_tag "0.6.0")
+    SET (rinutils_git_tag "0.10.2")
 
     IF (NOT EXISTS "${rinutils_inc_dir}")
         EXECUTE_PROCESS(
