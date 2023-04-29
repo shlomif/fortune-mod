@@ -682,7 +682,7 @@ An elephant is a mouse with an operating system.
 %
 An engineer is someone who does list processing in FORTRAN.
 %
-An interpretation _I satisfies a sentence in the table language if and only
+An interpretation I satisfies a sentence in the table language if and only
 if each entry in the table designates the value of the function designated by
 the function constant in the upper-left corner applied to the objects
 designated by the corresponding row and column labels.
@@ -983,11 +983,11 @@ public, private, or protected parts of a class.  Members declared in the
 public parts are visible to all clients; members declared in the private
 parts are fully encapsulated; and members declared in the protected parts
 are visible only to the class itself and its subclasses.  C++ also supports
-the notion of *_______friends*: cooperative classes that are
+the notion of *friends*: cooperative classes that are
 permitted to see each other's private parts.
 		-- Grady Booch, "Object Oriented Design with Applications"
 %
-Calm down, it's *____only* ones and zeroes.
+Calm down, it's *only* ones and zeroes.
 %
 Can't open /usr/share/games/fortunes/fortunes.  Lid stuck on cookie jar.
 %
@@ -1524,7 +1524,7 @@ bend a disk.
 Everybody needs a little love sometime; stop hacking and fall in love!
 %
 Everyone can be taught to sculpt: Michelangelo would have had to be
-taught how ___not to.  So it is with the great programmers.
+taught how not to.  So it is with the great programmers.
 %
 Evolution is a million line computer program falling into place by accident.
 %
@@ -1810,7 +1810,7 @@ Hug me now, you mad, impetuous fool!!
 		I'm a computer, and you're a person.  It would never work out.
 			Never mind.
 %
-I *____knew* I had some reason for not logging you off... If I could just
+I *knew* I had some reason for not logging you off... If I could just
 remember what it was.
 %
 I am a computer. I am dumber than any human and smarter than any
@@ -1937,7 +1937,7 @@ I'm a Lisp variable -- bind me!
 %
 I'm all for computer dating, but I wouldn't want one to marry my sister.
 %
-I'm not even going to *______bother* comparing C to BASIC or FORTRAN.
+I'm not even going to *bother* comparing C to BASIC or FORTRAN.
 		-- L. Zolman, creator of BDS C
 %
 I'm still waiting for the advent of the computer science groupie.
@@ -1976,7 +1976,7 @@ If a 6600 used paper tape instead of core memory, it would use up tape
 at about 30 miles/second.
 		-- Grishman, Assembly Language Programming
 %
-If a group of _N persons implements a COBOL compiler, there will be _N-1
+If a group of persons implements a COBOL compiler, there will be N-1
 passes.  Someone in the group has to be the manager.
 		-- T. Cheatham
 %
@@ -2396,7 +2396,7 @@ by the preservation of the old institutions and merely lukewarm defenders
 in those who would gain by the new ones.
 		-- Niccolo Machiavelli, 1513
 %
-"It runs like _x, where _x is something unsavory"
+"It runs like x, where x is something unsavory"
 		-- Prof. Romas Aleliunas, CS 435
 %
 	It took 300 years to build and by the time it was 10% built,
@@ -2489,7 +2489,7 @@ that it already has more than four hundred users, three years before
 the first prototypes are ready.  Asked whether he was worried about the
 foreign influence in an expensive American Dream, the vice president
 said, ``Finland?  Oh, we've already bought them, but we haven't told
-anyone yet.  They're great at building model airplanes as well.  And _I
+anyone yet.  They're great at building model airplanes as well.  And I
 can spell potato.''  House representatives are not mollified, however,
 wanting to see the terms of the deal first, fearing another Alaska.
 	Rumors about the SAG release have imbalanced the American stock
@@ -3300,7 +3300,7 @@ computer, except perhaps a Correctness Verification Aid package.
 Real software engineers don't like the idea of some inexplicable and
 greasy hardware several aisles away that may stop working at any
 moment.  They have a great distrust of hardware people, and wish that
-systems could be virtual at *___all* levels.  They would like personal
+systems could be virtual at *all* levels.  They would like personal
 computers (you know no one's going to trip over something and kill your
 DFA in mid-transit), except that they need 8 megabytes to run their
 Correctness Verification Aid packages.
@@ -3553,7 +3553,7 @@ Staff meeting in the conference room in %d minutes.
 Staff meeting in the conference room in 3 minutes.
 %
 Standards are crucial.  And the best thing about standards is: there are
-so ____many to choose from!
+so many to choose from!
 %
 Still a few bugs in the system... Someday I have to tell you about Uncle
 Nahum from Maine, who spent years trying to cross a jellyfish with a shad
@@ -4658,7 +4658,7 @@ the insufficient present, and the absolutely perfect future.
 Trying to be happy is like trying to build a machine for which the only
 specification is that it should run noiselessly.
 %
-Trying to establish voice contact ... please ____yell into keyboard.
+Trying to establish voice contact ... please yell into keyboard.
 %
 Two hundred years ago today, Irma Chine of White Plains, New York, was
 performing her normal housekeeping routines.  She was interrupted by
@@ -4877,7 +4877,7 @@ attack shark at which point we relented.
 We don't really understand it, so we'll give it to the programmers.
 %
 We don't understand the software, and sometimes we don't understand the
-hardware, but we can *___see* the blinking lights!
+hardware, but we can *see* the blinking lights!
 %
 "We invented a new protocol and called it Kermit, after Kermit the Frog,
 star of "The Muppet Show." [3]

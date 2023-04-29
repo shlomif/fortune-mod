@@ -729,7 +729,7 @@ sees in it.  I have no hope that this practice will ever be adopted.
 Everyone knows that dragons don't exist.  But while this simplistic
 formulation may satisfy the layman, it does not suffice for the scientific
 mind.  The School of Higher Neantical Nillity is in fact wholly unconcerned
-with what ____does exist.  Indeed, the banality of existence has been
+with what does exist.  Indeed, the banality of existence has been
 so amply demonstrated, there is no need for us to discuss it any further
 here.  The brilliant Cerebron, attacking the problem analytically,
 discovered three distinct kinds of dragon: the mythical, the chimerical,
@@ -1034,7 +1034,7 @@ reached the conclusion that a praiseworthy ordering of one's life is to
 devote it to research in mathematics.
 		-- Sir Edmund Whittaker, "Scientific American", Vol. 183
 %
-"I don't think so," said Ren'e Descartes.  Just then, he vanished.
+"I don't think so," said Rene Descartes.  Just then, he vanished.
 %
 I had a feeling once about mathematics -- that I saw it all.  Depth beyond
 depth was revealed to me -- the Byss and the Abyss. I saw -- as one might
@@ -1099,7 +1099,7 @@ I tell them to turn to the study of mathematics, for it is only there that
 they might escape the lusts of the flesh.
 		-- Thomas Mann, "The Magic Mountain"
 %
-"I think it is true for all _n.  I was just playing it safe with _n >= 3
+"I think it is true for all n.  I was just playing it safe with n >= 3
 because I couldn't remember the proof."
 		-- Baker, Pure Math 351a
 %
@@ -1155,8 +1155,8 @@ If a camel is a horse designed by a committee, then a consensus forecast is a
 camel's behind.
 		-- Edgar R. Fiedler
 %
-If A equals success, then the formula is _A = _X + _Y + _Z.  _X is
-work.  _Y is play.  _Z is keep your mouth shut.
+If A equals success, then the formula is A = X + Y + Z.  X is
+work.  Y is play.  Z is keep your mouth shut.
 		-- Albert Einstein
 %
 If all else fails, immortality can always be assured by spectacular error.
@@ -1294,7 +1294,7 @@ human and change is sometimes painful.  But it happens every day.  I cannot
 recall the last time something like that happened in politics or religion.
 		-- Carl Sagan, 1987 CSICOP keynote address
 %
-"In short, _N is Richardian if, and only if, _N is not Richardian."
+"In short, N is Richardian if, and only if, N is not Richardian."
 %
 In specifications, Murphy's Law supersedes Ohm's.
 %
@@ -1465,7 +1465,7 @@ Life is a whim of several billion cells to be you for a while.
 %
 Life is difficult because it is non-linear.
 %
-Logic is a little bird, sitting in a tree; that smells *_____awful*.
+Logic is a little bird, sitting in a tree; that smells *awful*.
 %
 Logic is a pretty flower that smells bad.
 %
@@ -1842,17 +1842,17 @@ Progress means replacing a theory that is wrong with one more subtly wrong.
 %
 Proof techniques #1: Proof by Induction.
 
-This technique is used on equations with "_n" in them.  Induction
+This technique is used on equations with "n" in them.  Induction
 techniques are very popular, even the military used them.
 
 SAMPLE: Proof of induction without proof of induction.
 
-	We know it's true for _n equal to 1.  Now assume that it's true
-for every natural number less than _n.  _N is arbitrary, so we can take _n
-as large as we want.  If _n is sufficiently large, the case of _n+1 is
-trivially equivalent, so the only important _n are _n less than _n.  We
-can take _n = _n (from above), so it's true for _n+1 because it's just
-about _n.
+	We know it's true for n equal to 1.  Now assume that it's true
+for every natural number less than n.  N is arbitrary, so we can take n
+as large as we want.  If n is sufficiently large, the case of n+1 is
+trivially equivalent, so the only important n are n less than n.  We
+can take n = n (from above), so it's true for n+1 because it's just
+about n.
 	QED.	(QED translates from the Latin as "So what?")
 %
 ... proper attention to Earthly needs of the poor, the depressed and the
@@ -1951,7 +1951,7 @@ discord.
 %
 Science is built up of facts, as a house is with stones.  But a collection
 of facts is no more a science than a heap of stones is a house.
-		-- Jules Henri Poincar'e
+		-- Jules Henri Poincare
 %
 Science is what happens when preconception meets verification.
 %
@@ -2371,7 +2371,7 @@ back by years.
 %
 The study of non-linear physics is like the study of non-elephant biology.
 %
-"The subspace _W inherits the other 8 properties of _V. And there aren't
+"The subspace W inherits the other 8 properties of V. And there aren't
 even any property taxes."
 		-- J. MacKay, Mathematics 134b
 %
@@ -2449,7 +2449,7 @@ not to crash.
 Theory is gray, but the golden tree of life is green.
 		-- Goethe
 %
-There *__is* no such thing as a civil engineer.
+There *is* no such thing as a civil engineer.
 %
 There are no data that cannot be plotted on a straight line if the axis
 are chosen correctly.

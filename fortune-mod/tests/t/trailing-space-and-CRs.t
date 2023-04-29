@@ -37,7 +37,7 @@ while ( my $r = $tree->next_obj() )
         {
             my $contents = path($fn)->slurp_raw;
 
-            if ( $contents =~ /\r/ )
+            if ( $contents =~ /[\b\r]/ )
             {
                 push @cr_results, $fn;
             }
