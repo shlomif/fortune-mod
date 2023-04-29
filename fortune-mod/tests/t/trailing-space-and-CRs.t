@@ -27,10 +27,11 @@ while ( my $r = $tree->next_obj() )
 {
     if ( $r->is_file )
     {
+        my $bn = $r->basename;
         my $fn = $r->path;
         if (
-            not(   $r->basename =~ /\A\..*?\.swp\z/
-                or $r->basename =~ /\.(?:dat|o|valgrind-log)\z/
+            not(   $bn =~ /\A\..*?\.swp\z/
+                or $bn =~ /\.(?:dat|o|valgrind-log)\z/
                 or
                 exists( $do_not_check{ join '/', @{ $r->full_components } } ) )
             )
@@ -45,7 +46,7 @@ while ( my $r = $tree->next_obj() )
             {
                 push @trailing_whitespace_results, $fn;
             }
-            elsif ( $r->basename =~ /\.[ch]\z/ and $contents =~ /\t/ )
+            elsif ( $bn =~ /\.[ch]\z/ and $contents =~ /\t/ )
             {
                 push @tabs_results, $fn;
             }
