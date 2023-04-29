@@ -30,7 +30,7 @@ while ( my $r = $tree->next_obj() )
         my $fn = $r->path;
         if (
             not(   $r->basename =~ /\A\..*?\.swp\z/
-                or $r->basename =~ /\.(o|dat|valgrind-log)\z/
+                or $r->basename =~ /\.(?:dat|o|valgrind-log)\z/
                 or
                 exists( $do_not_check{ join '/', @{ $r->full_components } } ) )
             )
