@@ -18,8 +18,19 @@ ADD_CUSTOM_COMMAND(
     OUTPUT "${crfull}"
     COMMAND "sh" "${script}" "${SOURCE}" "${crfull}"
     DEPENDS "${script}" "${SOURCE}"
-    VERBATIM
 )
+if()
+    SET(cr "rules-of-acquisition2")
+    SET(crfull "${CMAKE_CURRENT_SOURCE_DIR}/${cr}")
+    SET(SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/data/rules-of-acquisition.csv")
+    SET(script "${CMAKE_CURRENT_SOURCE_DIR}/data/rules-of-acquisition-gen.pl")
+    SET(PATH_PERL ${PERL_EXECUTABLE})
+    ADD_CUSTOM_COMMAND(
+        OUTPUT "${crfull}"
+        COMMAND ${PATH_PERL} "${script}" "${SOURCE}" "${crfull}"
+        DEPENDS "${script}" "${SOURCE}"
+    )
+endif()
 FOREACH(c ${COOKIES})
     SET(DEST "${c}.dat")
     SET(SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/${c}")
