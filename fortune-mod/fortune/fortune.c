@@ -1211,12 +1211,12 @@ static void getargs(int argc, char **argv)
                 "(Sorry)\n");
             exit(0);
 #else             /* NO_REGEX */
+        case 'i': /* case-insensitive match */
+            ignore_case = true;
+            break;
         case 'm': /* dump out the fortunes */
             Match = true;
             pat = optarg;
-            break;
-        case 'i': /* case-insensitive match */
-            ignore_case = true;
             break;
 #endif            /* NO_REGEX */
         case 'u': /* Don't recode the fortune */
