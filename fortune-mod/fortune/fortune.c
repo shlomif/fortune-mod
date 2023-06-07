@@ -1157,11 +1157,7 @@ static void getargs(int argc, char **argv)
 #define DEBUG_GETOPT
 #endif
 
-#ifdef NO_OFFENSIVE
-#define OFFENSIVE_GETOPT
-#else
 #define OFFENSIVE_GETOPT "o"
-#endif
 
     while ((ch = getopt(argc, argv,
                 "ac" DEBUG_GETOPT "efhilm:n:" OFFENSIVE_GETOPT "suvw")) != EOF)
@@ -1189,11 +1185,17 @@ static void getargs(int argc, char **argv)
         case 'n':
             SLEN = atoi(optarg);
             break;
-#ifndef NO_OFFENSIVE
         case 'o': /* offensive ones only */
+#ifndef NO_OFFENSIVE
             Offend = true;
-            break;
+#else
+            (void)fprintf(stderr, "%s",
+                "fortune: this fortune was built with -D NO_OFFENSIVE=1"
+                " so the -o flag is unavailable "
+                "(Sorry)\n");
+            exit(1);
 #endif
+            break;
         case 's': /* short ones only */
             Short_only = true;
             Long_only = false;
