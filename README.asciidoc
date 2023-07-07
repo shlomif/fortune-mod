@@ -1,4 +1,0 @@
-== fortune-mod Clone
-
-The original repository for the time being is:
-https://github.com/shlomif/fortune-mod .
