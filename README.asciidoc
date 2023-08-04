@@ -2,3 +2,6 @@
 
 The original repository for the time being is:
 https://github.com/shlomif/fortune-mod .
+
+The master-Branch is a copy of shlomif/fortune-mod. The main-Branch is
+stripped down to the datfiles.
