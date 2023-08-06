@@ -104,7 +104,11 @@
 #endif
 
 #ifdef HAVE_REGEX_H
+#ifdef HAVE_PCRE2
+#include <pcre2posix.h>
+#else
 #include <regex.h>
+#endif
 #endif
 
 #define MINW 6   /* minimum wait if desired */

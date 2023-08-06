@@ -63,42 +63,52 @@ def generate(output_path, is_act):
         return ret
     with open("./.travis.yml", "rt") as infh:
         data = yaml.safe_load(infh)
-    steps = []
-    steps.append({
-        "uses": ("actions/checkout@v2"),
-        "with": {
-            "submodules": "true",
-        },
-    })
-    if 0:
+    jobs = {}
+    for (job, pcre) in [('test-fc-solve', False), ('pcre2', True)]:
+        steps = []
         steps.append({
-            "run":
-            ("cd workflow ; (ls -lrtA ; false)"), })
-    elif 0:
+            "uses": ("actions/checkout@v2"),
+            "with": {
+                "submodules": "true",
+            },
+        })
+        if 0:
+            steps.append({
+                "run":
+                ("cd workflow ; (ls -lrtA ; false)"), })
+        elif 0:
+            steps.append({
+                "run":
+                ("cd . ; (ls -lrtA ; false)"), })
+        steps.append({"run": ("sudo apt-get update -qq"), })
         steps.append({
-            "run":
-            ("cd . ; (ls -lrtA ; false)"), })
-    steps.append({"run": ("sudo apt-get update -qq"), })
-    steps.append({
-        "run": ("sudo apt-get --no-install-recommends install -y " +
-                " ".join(["eatmydata"])
-                ),
-        }
-    )
-    steps.append({
-        "run": ("sudo eatmydata apt-get --no-install-recommends install -y " +
-                " ".join(data['addons']['apt']['packages'])
-                ),
-        }
-    )
-    local_lib_shim = 'local_lib_shim() { eval "$(perl ' + \
-        '-Mlocal::lib=$HOME/' + \
-        'perl_modules)"; } ; local_lib_shim ; '
-    for arr in ['before_install', 'install', 'script']:
-        steps += [{"run": local_lib_shim + x} for x in data[arr]]
-    job = 'test-fc-solve'
-    o = {'jobs': {job: {'runs-on': 'ubuntu-latest',
-         'steps': steps, }},
+            "run": ("sudo apt-get --no-install-recommends install -y " +
+                    " ".join(["eatmydata"])
+                    ),
+            }
+        )
+        steps.append({
+            "run": ("sudo eatmydata apt-get " +
+                    "--no-install-recommends install -y " +
+                    " ".join(data['addons']['apt']['packages'] +
+                             (['libpcre2-dev'] if pcre else [])
+                             )
+                    ),
+            }
+        )
+        local_lib_shim = 'local_lib_shim() { eval "$(perl ' + \
+            '-Mlocal::lib=$HOME/' + \
+            'perl_modules)"; } ; local_lib_shim ; '
+        for arr in ['before_install', 'install', 'script']:
+            for x in data[arr]:
+                if pcre:
+                    if x == ("perl CI-testing/"
+                             "continuous-integration-testing.pl"):
+                        x += " --pcre"
+
+                steps += [{"run": local_lib_shim + x}]
+        jobs[job] = {'runs-on': 'ubuntu-latest', 'steps': steps, }
+    o = {'jobs': jobs,
          'name': 'use-github-actions', 'on': ['push', ], }
     if 'matrix' in data:
         if 'include' in data['matrix']:

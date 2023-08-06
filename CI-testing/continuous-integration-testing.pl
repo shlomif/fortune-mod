@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use autodie;
 
-use Path::Tiny qw/ path cwd /;
+use Path::Tiny   qw/ path cwd /;
 use Getopt::Long qw/ GetOptions /;
 
 sub do_system
@@ -28,7 +28,8 @@ my $SEP  = $IS_WIN ? "\\" : '/';
 my $SUDO = $IS_WIN ? ''   : 'sudo';
 
 my $cmake_gen;
-GetOptions( 'gen=s' => \$cmake_gen, )
+my $pcre;
+GetOptions( 'gen=s' => \$cmake_gen, 'pcre' => \$pcre, )
     or die 'Wrong options';
 
 local $ENV{RUN_TESTS_VERBOSE} = 1;
@@ -44,13 +45,15 @@ sub _transform
 mkdir('B');
 chdir('B');
 
-my $cmake_common_args = ""
-    . ( defined($cmake_gen) ? qq# -G "$cmake_gen" # : "" )
-    . (
+my $cmake_common_args =
+    "" . ( defined($cmake_gen) ? qq# -G "$cmake_gen" # : "" ) . (
     defined( $ENV{CMAKE_MAKE_PROGRAM} )
     ? " -DCMAKE_MAKE_PROGRAM=$ENV{CMAKE_MAKE_PROGRAM} "
     : ""
-    ) . ( $IS_WIN ? " -DCMAKE_BUILD_TYPE=Debug " : "" );
+
+    )
+    . ( $pcre   ? " -D USE_PCRE=TRUE "         : "" )
+    . ( $IS_WIN ? " -DCMAKE_BUILD_TYPE=Debug " : "" );
 
 if ( !$ENV{SKIP_RINUTILS_INSTALL} )
 {
