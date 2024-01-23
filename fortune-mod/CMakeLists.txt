@@ -352,6 +352,7 @@ SET (COOKIES
     sports
     startrek
     tao
+    the-x-files-taglines
     translate-me
     wisdom
     work
