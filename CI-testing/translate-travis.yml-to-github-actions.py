@@ -174,10 +174,19 @@ def generate_windows_yaml(plat, output_path, is_act):
     steps.append(cpanm_step)
     # if True:  # plat == 'x86':
     # if plat == 'x86':
-    if True:
+    if False:
         mingw = {
             "name": "Set up MinGW",
             "uses": "egor-tensin/setup-mingw@v2",
+            "with": {
+                "platform": plat,
+            },
+        }
+        steps.append(mingw)
+    elif True:
+        mingw = {
+            "name": "Set up MinGW",
+            "uses": "e-t-l/setup-mingw@patch-1",
             "with": {
                 "platform": plat,
             },
