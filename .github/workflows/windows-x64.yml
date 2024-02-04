@@ -67,13 +67,20 @@ jobs:
                 c:\msys64\usr\bin\bash -lc "pacman --noconfirm -Sy mingw-w64-x86_64-libsystre"
                 || ( echo Failed & exit /B 1 )
 
+                IF NOT EXIST C:\strawberry ( echo "strawberryperl is not installed.
+                Please fix appveyor.yml" exit 1 ) || ( echo Failed & exit /B 1 )
+
                 c:\msys64\usr\bin\bash -lc "pacman --noconfirm -Syuu" || ( echo Failed
                 & exit /B 1 )
+
+                SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
 
                 perl -v || ( echo Failed & exit /B 1 )
 
                 IF NOT EXIST C:\Perl5 mkdir C:\Perl5 || ( echo Failed & exit /B 1
                 )
+
+                SET PATH=C:\msys64\mingw64\bin;C:\msys64\bin;C:\Perl5\bin;C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
 
                 SET PERL5LIB=%PERL5LIB%;C:/Perl5/lib/perl5
 
@@ -96,6 +103,8 @@ jobs:
 
                 perl -v || ( echo Failed & exit /B 1 )
 
+                set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe
+
                 git clone https://github.com/shlomif/rinutils rinutils || ( echo Failed
                 & exit /B 1 )
 
@@ -103,8 +112,10 @@ jobs:
 
                 cd rinutils\b || ( echo Failed & exit /B 1 )
 
-                cmake -G "MinGW Makefiles" -DWITH_TEST_SUITE=OFF  -DCMAKE_INSTALL_PREFIX=C:\libtap
-                .. || ( echo Failed & exit /B 1 )
+                set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe
+
+                cmake -G "MinGW Makefiles" -DWITH_TEST_SUITE=OFF -DCMAKE_MAKE_PROGRAM=%CMAKE_MAKE_PROGRAM%
+                -DCMAKE_INSTALL_PREFIX=C:\libtap .. || ( echo Failed & exit /B 1 )
 
                 echo %PATH% || ( echo Failed & exit /B 1 )
 
@@ -118,8 +129,9 @@ jobs:
 
                 cd ..\b32 || ( echo Failed & exit /B 1 )
 
-                cmake -G "MinGW Makefiles" -DWITH_TEST_SUITE=OFF  -DCMAKE_INSTALL_PREFIX=C:\libtap32
-                .. || ( echo Failed & exit /B 1 )
+                cmake -G "MinGW Makefiles" -DWITH_TEST_SUITE=OFF -DCMAKE_MAKE_PROGRAM=%CMAKE_MAKE_PROGRAM%
+                -DCMAKE_INSTALL_PREFIX=C:\libtap32 .. || ( echo Failed & exit /B 1
+                )
 
                 echo %PATH% || ( echo Failed & exit /B 1 )
 
@@ -130,6 +142,8 @@ jobs:
                 SET PATH=%MYOLDPATH_%
 
                 cd ..\..\ || ( echo Failed & exit /B 1 )
+
+                set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe
 
                 set CPATH=c:\mingw64\include;c:\msys64\mingw64\include
 
