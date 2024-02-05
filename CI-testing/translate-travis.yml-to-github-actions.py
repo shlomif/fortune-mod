@@ -244,7 +244,8 @@ def generate_windows_yaml(plat, output_path, is_act):
                 else:
                     cmd = cmd.replace(
                         "cpanm --notest",
-                        "C:\\strawberry\\perl\\bin\\cpan -i",
+                        # "C:\\strawberry\\perl\\bin\\cpan -i",
+                        "C:\\strawberry\\perl\\bin\\cpanm --notest",
                         1,
                     )
             if re.search("copy.*?python\\.exe", cmd):
