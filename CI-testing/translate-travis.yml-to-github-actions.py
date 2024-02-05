@@ -72,14 +72,6 @@ def generate(output_path, is_act):
                 "submodules": "true",
             },
         })
-        if 0:
-            steps.append({
-                "run":
-                ("cd workflow ; (ls -lrtA ; false)"), })
-        elif 0:
-            steps.append({
-                "run":
-                ("cd . ; (ls -lrtA ; false)"), })
         steps.append({"run": ("sudo apt-get update -qq"), })
         steps.append({
             "run": ("sudo apt-get --no-install-recommends install -y " +
@@ -155,14 +147,8 @@ def generate_windows_yaml(plat, output_path, is_act):
         steps.pop()
 
     step = {
-        "run": "git config --global core.autocrlf input",
-    }
-    if 0:
-        steps.append(step)
-    step = {
         "uses": "cygwin/cygwin-install-action@master",
         "with": {
-            # .split(" "),
             "packages": "docbook-xml docbook-xsl doxygen libxml2 libxslt",
         },
     }
@@ -172,8 +158,6 @@ def generate_windows_yaml(plat, output_path, is_act):
         "uses": "perl-actions/install-with-cpanm@v1",
     }
     steps.append(cpanm_step)
-    # if True:  # plat == 'x86':
-    # if plat == 'x86':
     if False:
         mingw = {
             "name": "Set up MinGW",
@@ -239,37 +223,15 @@ def generate_windows_yaml(plat, output_path, is_act):
                         dw.append(w)
                 nonlocal cpanm_step
                 cpanm_step['with'] = {"install": "\n".join(dw), }
-                if 0:
-                    continue
-                else:
-                    cmd = cmd.replace(
-                        "cpanm --notest",
-                        # "C:\\strawberry\\perl\\bin\\cpan -i",
-                        "call C:\\strawberry\\perl\\bin\\cpanm --notest",
-                        1,
-                    )
+                cmd = cmd.replace(
+                    "cpanm --notest",
+                    "call C:\\strawberry\\perl\\bin\\cpanm --notest",
+                    1,
+                )
             if re.search("copy.*?python\\.exe", cmd):
                 continue
-            if 0:
-                if "strawberry" in cmd:
-                    continue
-                cmd = re.sub("\\S*CMAKE_MAKE_PROGRAM\\S*", "", cmd)
             if "choco install strawberryperl" not in cmd:
-                if 0:
-                    r = re.sub(
-                        "curl\\s+-o\\s+(\\S+)\\s+(\\S+)",
-                        "lwp-download \\2 \\1",
-                        cmd)
-                elif plat == 'x86':
-                    if cmd.startswith("perl ../source/run-tests.pl"):
-                        continue
-                    r = re.sub(
-                        "--dbm=kaztree",
-                        "--dbm=none",
-                        cmd
-                    )
-                else:
-                    r = cmd
+                r = cmd
                 # See:
                 # https://serverfault.com/questions/157173
                 shim = ''
@@ -278,9 +240,6 @@ def generate_windows_yaml(plat, output_path, is_act):
                 batch += r + shim + "\n"
         return batch
 
-    if 0:
-        steps.append({'name': "install code", "run": _calc_batch_code(
-            cmds=data['install']), "shell": "cmd", })
     steps.append({
         'name': "install and test_script code",
         "run": _calc_batch_code(
@@ -289,9 +248,6 @@ def generate_windows_yaml(plat, output_path, is_act):
         "shell": "cmd",
     })
 
-    def _myfilt(path):
-        is32 = ("\\pkg-build\\" in path)
-        return (is32 if plat == 'x86' else (not is32))
     skel['name'] = ("windows-x86" if plat == 'x86' else 'windows-x64')
     skel['on'] = ['push']
     _write(output_path=output_path, data=skel, )
