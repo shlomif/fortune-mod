@@ -239,7 +239,14 @@ def generate_windows_yaml(plat, output_path, is_act):
                         dw.append(w)
                 nonlocal cpanm_step
                 cpanm_step['with'] = {"install": "\n".join(dw), }
-                continue
+                if 0:
+                    continue
+                else:
+                    cmd = cmd.replace(
+                        "cpanm",
+                        "C:\\strawberry\\perl\\bin\\cpan -i",
+                        1,
+                    )
             if re.search("copy.*?python\\.exe", cmd):
                 continue
             if 0:

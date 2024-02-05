@@ -90,6 +90,12 @@ jobs:
 
                 SET PERL_MM_OPT=INSTALL_BASE=C:/Perl5
 
+                C:\strawberry\perl\bin\cpan -i --notest App::Docmake Code::TidyAll::Plugin::ClangFormat
+                Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount File::Find::Object
+                List::Util Path::Tiny Perl::Critic Perl::Tidy Test::Code::TidyAll
+                Test::Differences Test::RunValgrind Test::TrailingSpace Test::Trap
+                || ( echo Failed & exit /B 1 )
+
                 if not exist C:\libtap mkdir C:\libtap || ( echo Failed & exit /B
                 1 )
 
