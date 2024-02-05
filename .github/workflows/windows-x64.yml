@@ -109,8 +109,6 @@ jobs:
 
                 perl -v || ( echo Failed & exit /B 1 )
 
-                set CMAKE_MAKE_PROGRAM=C:\strawberry\c\bin\gmake.exe
-
                 git clone https://github.com/shlomif/rinutils rinutils || ( echo Failed
                 & exit /B 1 )
 
