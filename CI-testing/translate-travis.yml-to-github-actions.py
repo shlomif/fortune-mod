@@ -243,7 +243,7 @@ def generate_windows_yaml(plat, output_path, is_act):
                     continue
                 else:
                     cmd = cmd.replace(
-                        "cpanm",
+                        "cpanm --notest",
                         "C:\\strawberry\\perl\\bin\\cpan -i",
                         1,
                     )

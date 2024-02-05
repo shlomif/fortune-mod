@@ -90,7 +90,7 @@ jobs:
 
                 SET PERL_MM_OPT=INSTALL_BASE=C:/Perl5
 
-                C:\strawberry\perl\bin\cpan -i --notest App::Docmake Code::TidyAll::Plugin::ClangFormat
+                C:\strawberry\perl\bin\cpan -i App::Docmake Code::TidyAll::Plugin::ClangFormat
                 Code::TidyAll::Plugin::Flake8 Code::TidyAll::Plugin::TestCount File::Find::Object
                 List::Util Path::Tiny Perl::Critic Perl::Tidy Test::Code::TidyAll
                 Test::Differences Test::RunValgrind Test::TrailingSpace Test::Trap
