@@ -46,7 +46,7 @@
 #include "getopt.h"
 #define random(x) rand(x)
 #define srandom(x) srand(x)
-#define sleep(n) Sleep((n)*1000)
+#define sleep(n) Sleep((n) * 1000)
 #else
 #include <arpa/inet.h>
 #include <unistd.h>
