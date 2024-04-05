@@ -5,6 +5,7 @@
 /fortune-mod/fortune/fortune_with_offensive.template.man
 /fortune-mod/fortune/fortune_without_offensive.docbook5.xml
 /fortune-mod/fortune/fortune_without_offensive.template.man
+/fortune-mod/rinutils/
 /fortune-mod/tests/t/valgrind0*.t
 /fortune-mod/util/randstr.man
 /fortune-mod/util/strfile.man
