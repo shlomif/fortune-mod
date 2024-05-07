@@ -1,0 +1,107 @@
+'\" t
+.\"     Title: RANDSTR
+.\"    Author: [FIXME: author] [see http://www.docbook.org/tdg5/en/html/author]
+.\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
+.\"      Date: 05/07/2024
+.\"    Manual: Linux hackery
+.\"    Source: October 1995
+.\"  Language: English
+.\"
+.TH "RANDSTR" "1" "05/07/2024" "October 1995" "Linux hackery"
+.\" -----------------------------------------------------------------
+.\" * Define some portability stuff
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" http://bugs.debian.org/507673
+.\" http://lists.gnu.org/archive/html/groff/2009-02/msg00013.html
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+
+
+
+
+.SH "NAME"
+randstr \- fetch a random text string from a specified file
+
+
+.SH "SYNOPIS"
+.PP
+\fBrandstr \fR\fIfilename\fR
+
+
+.SH "DESCRIPTION"
+.PP
+In essence,
+\fBrandstr\fR
+is a stripped\-down, minimalist version of the popular
+\fBfortune\fR(6)
+program\&.
+
+.PP
+It reads files with the same structure as the fortunes databases, and displays a random string\&.
+
+.SS "Usage"
+.PP
+\fBrandstr\fR
+might be used, with a database of signatures created with a text editor and the
+\fBstrfile\fR(8)
+and
+\fBunstr\fR(8)
+utilities, to randomly change the
+\fI$HOME/\&.signature\fR
+file\&. To do so, create the necessary database as, for example,
+\fIsignatures\fR
+and
+\fIsignatures\&.dat\fR
+in the home directory, and add the following line to
+\fB\&.profile\fR
+or
+\fB\&.login\fR:
+
+  
+.PP
+\fBrandstr \fR\fIsignatures\fR
+>\fB\&.signature\fR
+ 
+.PP
+As superuser, a similar sort of thing could be placed in the
+\fBPnews\fR(1)
+or
+\fBRnmail\fR(1)
+scripts, although it should certainly test to be certain that the files exist, and creating the files of signatures might require a good deal of help for a lot of users\&.
+
+.PP
+Also as superuser, one might use
+\fBrandstr\fR
+with a shell or
+\fBPerl\fR
+script to read the
+\fIetc/passwd\fR
+database and create a
+\fIstrfile\fR
+type database, and use this database to run a monthly lottery\&.
+
+
+
+.SH "BUGS"
+.PP
+None known\&.
+
+
+.SH "SEE ALSO"
+.PP
+\fBfortune\fR(6),
+\fBstrfile\fR(1)
+
+

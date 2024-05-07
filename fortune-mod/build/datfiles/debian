@@ -1,0 +1,406 @@
+I think it's a little fantastic to try to form a picture in people's
+minds of the Debian archive administration team huddled over their
+terminals, their faces lit only by a CRT with a little root shell
+prompt and the command
+"/project/org/ftp.debian.org/cabal/s3kr1t/nuke-non-free.pl" all keyed
+in and ready to go, their fingers poised over the enter key, a sweat of
+lustful anticipated beading on their upper lips."
+		-- Branden Robinson in
+		   <20031104211846.GK13131@deadbeast.net> discussing
+		   his draft Social Contract amendment
+%
+If you are going to run a rinky-dink distro made by a couple of
+volunteers, why not run a rinky-dink distro made by a lot of volunteers?
+		-- Jaldhar H. Vyas on debian-devel
+%
+Packages should build-depend on what they should build-depend.
+		-- Santiago Vila on debian-devel
+%
+There are 3 types of guys -- the ones who hate nerds (all nerds, that
+is; girls aren't let off the hook); the ones who are scared off by girls
+who are slightly more intelligent than average; and the guys who are
+also somewhat more intelligent than average, but are so shy that they
+can't put 2 words together when they're within 20 feet of a girl.
+		-- Vikki Roemer on debian-curiosa
+%
+Debian is the Jedi operating system: "Always two there are, a master and
+an apprentice".
+		-- Simon Richter on debian-devel
+%
+This is Unix we're talking about, remember.  It's not supposed to be
+nice for the applications programmer.
+		-- Matthew Danish on debian-devel
+%
+... but hey, this is Linux, isn't it meant to do infinite loops in 5
+seconds?
+		-- Jonathan Oxer in the apt-cacher ChangeLog
+%
+I'm personally quite happy with one stable release every two years, and
+am of the opinion that trying to release more will mean we'll have to
+rename the distro from "stable" to "wobbly".
+		-- Scott James Remnant on debian-devel
+%
+< Keybuk> Perl 6 scares me
+< doogie> you can name your operators anything.  the name here is the
+          string '~|_|~'
+* Lo-lan-2 runs away screaming
+< Keybuk> it looks like a diagram of a canal lock :)
+< jaybonci> japanese smiley operators?
+< nickr> ^_^
+		-- in #debian-devel
+%
+< sam> /.ing an issue is like asking an infinite number of monkeys for
+       advice
+		-- in #debian-devel
+%
+< DanielS> still, throne of blood sounds like a movie about overfiend
+           and virgins or some crap
+		-- in #debian-devel
+%
+< jaybonci> actually d-i stands for "divine intervention" ;)
+		-- in #debian-devel
+%
+< doogie> asuffield: how do you think dpkg was originally written?  :|
+< asuffield> by letting iwj get dangerously near a computer
+		-- in #debian-devel
+%
+< asuffield> a workstation is anything you can stick on somebodies desk
+             and con them into using
+		-- in #debian-devel
+%
+<joshk> joshk@influx:/etc/logrotate.d> sh -n *
+<joshk> apache: line 14: syntax error near unexpected token `}'
+<joshk> apache: line 14: `}'
+<joshk> the plot thickens
+<asuffield> those aren't shell scripts
+<erich> this wasn't chicken.
+		-- in #debian-devel
+%
+I was attacked by dselect as a small child and have since avoided
+debian.
+		-- Andrew Morton
+%
+* joeyh installs debian using only his big toe, for a change of pace
+		-- in #debian-boot
+%
+* liiwi takes the whip and eyes pasc
+< pasc> ohh!!! kinky!
+< pasc> how convenient, I was just about to call in sick at work ;-)
+		-- in #debian-devel
+%
+<dark> Turns out that grep returns error code 1 when there are no matches.
+       I KNEW that.  Why did it take me half an hour?
+		-- Seen on #Debian
+%
+It's simply unbelievable how much energy and creativity people have
+invested into creating contradictory, bogus and stupid licenses...
+		-- - Sven Rudolph about licences in debian/non-free.
+%
+<Overfiend> partycle: I seriously do need a vacation from this
+            package.  I actually had a DREAM about introducing a
+            stupid new bug into xbase-preinst last night.  That's a
+            Bad Sign.
+		-- Seen on #Debian shortly before the release of Debian 2.0
+%
+<dark> Looks like the channel is back to normal :)
+<jim> You mean it's not scrolling faster than anyone can read? :)
+		-- Seen on #Debian after the release of Debian 2.0
+%
+Just to expand on what Ross said, it is undoubtedly too much to expect
+of any distribution that it automatically detect whether or not the
+person installing it can read simple English directions, and if he
+can't, proceed without his input.  That way lies madness.
+		-- Shawn McMahon on debian-curiosa@l.d.o
+%
+<zedboy> dackel: in general the *only* way to use a computer program
+         is to execute it. have you *ever* known a system utility whose
+         documentation recommended either deleting it, or throwing it
+         at a farm animal?
+<dackel> zedboy: Ummm... yes
+<zedboy> dackel: install the manpages package. it should be there
+         already tho.
+<zedboy> dackel: example of such a bovine utility?
+* greycat wants a video of dackel throwing /usr/bin/file at a cow
+%
+<elmo> Joy: thanks, joy
+<doogie> elmo: that's redundant, elmo
+<elmo> doogie: go play in traffic
+<doogie> ah, the elmo we know and love
+%
+<doogie> joy/elmo: why can't the same ip be used?  was this fire so
+         great that it burned the ip address?
+%
+<donnerjack> Nothing says "I enjoy living with you" like the gift of
+             3rd degree burns...
+<Mephron> except, of course, turning his bed into a trebuchet.
+<Ladegard> That much effort must mean some sort of affection.
+%
+<Flimsy> Anyone here knowledgable in matters of water fowl?  If you
+         walk through a park, and a goose starts following you... and
+         ends up following you more than half a mile until you reach
+         your car... at 11pm.  Is the goose rabid or something?
+%
+<wolfgang> the problem with the 'go find a real girl' admonition is
+           that so few of them actually have naked transformation
+           sequences
+<reality> Dude, my girlfriend changes like four times a day
+%
+<Z-Gryphon> If Unicron had a tech spec card, his motto would be "That
+            which does not become part of the One shall become Void."
+<Z-Gryphon> which is sort of a grand-scale, apocalyptic version of "I
+            am what I eat." :)
+%
+<liiwi> udp - universal dropping of an pigeon
+%
+<lilo> I've always wanted to have a web site with a big picture of a carrot on
+it
+%
+<bdale> Bdale is a contraction of Barksdale.
+<Lo-lan-do> Hm.  It's definItely not something I'll ever remember.
+<Lo-lan-do> Mind if I call you Wensleydale instead?
+%
+<luca> and those that say: fibre cables have a minimum bend radius and
+       pull tension? bah! *yank*
+<Culus> IT'S FIBER YOU FREAKS :P
+<luca> culus, you hoser, it's fibre. am I gonna have to come over the
+       mountains and give you a wedgie?
+%
+<maswan> Joy: Lets fork cat! :)
+<maswan> Joy: imagine a big pitchfork and a dead kitten on top of
+         it.. with blood running down..
+%
+<mjg59> Damnit. I've got a month to write a paper. This involves
+        actually writing the chunks of code I'm going to be talking
+        about.
+<asuffield> find a bunch of students and give it to them as an exercise
+<mjg59> asuffield: I'm surrounded by a bunch of students. Last time I
+        let them touch code, I came back and found they'd rewritten
+        all the C++ code in C and all the C code in C++
+<asuffield> mwahaha
+<mjg59> AND BROKE THE BUILD
+%
+<moshez> what I like about Manoj is his desire for simple and small
+         solutions. like EMACS. or dvt.
+<Manoj> well, dvt was _supposed_ to be simple
+<Manoj> it only took 2 weeks to write
+<moshez> Manoj: It requires a *diagram* to explain what each part does.
+%
+<moshez> ok, I will not marry Jo-Con-El's cow.
+%
+<Overfiend> penis jokes are okay in mixed company.  VMS is NOT!!!
+%
+<Overfiend> ltd: Fine, go through life just pointing and grunting at
+            what you mean.  Works for Mac users.
+%
+revision 1.17.2.7
+date: 2001/05/31 21:32:44;  author: branden;  state: Exp;  lines: +1 -1
+ARRRRGH!!  GOT THE G** D*** SENSE OF A F******* TEST BACKWARDS!
+%
+<Overfiend_> Overfiend's First Law of Package Quality: If the
+             maintainer likes to spell part or all of his name in
+             CAPS, the package will suck.
+%
+<Overfiend_> Intel.  Bringing you the cutting-edge technology of 1979
+             for 22 years now.
+%
+<Overfiend> the key to proper French pronunciation is to pull the
+            corners of your mouth down as far as they can possibly go,
+            and then groan like you're constipated
+<Overfiend> you'll really nail the vowel sounds that way
+%
+<-- Overfiend has quit ("venturing forth to destroy strange new
+                         worlds, and eat life and new civilizations")
+%
+<Overfiend> the kind of landscape that laughs at "AWD" vehicles and
+            sends them tumbling into ravines
+%
+<Overfiend> Joy: Hey, I'm an asshole.  Assholes emit odious gas.
+            That's what we do.
+%
+<Overfiend> as aj would say, waiting always works
+<Overfiend> either what you want happens, or you die and cannot be
+            perturbed anymore
+<Overfiend> the trouble with this philosophy is that aj sincerely
+            believes it
+%
+* doogie is turning into manoj
+<Overfiend> doogie: eventually, we all turn into Manoj
+<Overfiend> Manoj is Debian's iron
+<Overfiend> ultimately, we all decay to Manoj
+%
+<Overfiend> but look at the French.  You could spell every word in
+            their language phonetically using only about 6 letters
+<Overfiend> 4 consonants and 2 vowels
+<Overfiend> c, f, r, l.  And the vowels?  Well, one is the sound you
+            make when you have constipation; the other when you have
+            diarrhea
+<Overfiend> what do you expect from that diet of snails and frogs?
+%
+X-Manoj-Position-Advisory: Please note that Manoj Srivastava likely doubts
+    any facts posited and opposes any conclusions reached in this message.
+
+		-- Seen in the headers of a mail from Branden Robinson
+%
+<sangr> home is where the highest bandwidth is
+%
+<sangr> no more perl ... it's depressing ...
+<sangr> i think perl and i need some time from each other
+<sangr> we made beautiful music together about a year ago ...
+<sangr> but times have change, we changed ..
+%
+<StevenK> I can usually supress the feelings that tell me to crash
+          tackle a girl into the bushes
+%
+<wiggy> bwah, vodka in my mouse
+%
+<wiggy> in a stunning new move I actually tested this upload
+%
+<wiggyWork> 3990 N   Apr 15 Cute Girlfriend (  45) Erotic Amateur Girlfriends
+<wiggyWork> I wasn't aware you had professional girlfriends as well
+%
+However, my enthusiasm for the modular tree is tempered by some parts of
+it not existing.
+		-- Daniel Stone on debian-{x,devel}, commenting on the
+		   future of X
+%
+Does she think we just want to sit around painting debian swirls on our
+toenails?
+		-- Erinn Clark, referring to the Debian-women project
+%
+modconf (0.2.37) stable unstable; urgency=medium
+  [...]
+  * Eduard Bloch:
+    - fixed Makefile broken Marcin Owsiany a while ago. The default manpage
+      has been overwritten with the polish translation. I still wonder why
+      nobody noticed this before. Closes: #117474
+  [...]
+		-- Eduard Bloch <blade@debian.org>  Sun, 28 Oct 2001 12:53:27 +0100
+%
+<|ryan|> I don't use deb
+<netgod> u poor man
+<Disconnect> netgod: heh
+<Kingsqueak> apt-get install task-p0rn
+%
+(It is an old Debian tradition to leave at least twice a year ...)
+		-- Sven Rudolph
+%
+<Joey> gorgo: *lol*
+<gorgo> joey: what's so funny? :)
+<Culus> shh, joey is losing all sanity from lack of sleep
+<Culus> 'yes joey, very funny'
+<Culus> Humor him :>
+		-- Seen on #Debian
+%
+* SynrG notes that the number of configuration questions to answer in sendmail
+  is NON-TRIVIAL
+		-- Seen on #Debian
+%
+* JHM wonders what Joey did to earn "I'd just like to say, for the record,
+  that Joey rules."
+		-- Seen on #Debian
+%
+Do people like check the Debian website every 5 minutes to check it hasn't
+morphed into another one? Not that I'm one to talk, but some people seriously
+need to get a life.
+		-- james on #Debian
+%
+* james would be more impressed if netgod's magic powers could stop the
+  splits in the first place...
+* netgod notes debian developers are notoriously hard to impress
+		-- Seen on #Debian
+%
+   * In anticipation of 2.10.02 release, updated to patchlevel
+     +ircu2.10.01+.config6-7.config7-8.lgline3.iwho.limit.glibc.motdcache2.
+     trace.whois1-2.config8-9.statsw.sprintf2-3.msgtree2.memleak1-2+.
+     msgtree2-3.gline8-9.gline9-10.invite2.rbr.stats.numclients.
+     whisper.whisper1-2.stats1-2.nokick1-2.chroot.config9-11.snomask7-8.
+     limi+t1-3.userip1-3.userip3-4.config11-12.config12-13.umode2-3.
+     akillsbt.who4-5.kn.kn1-2.freebsdcore2.msgtree3-5.y2k.glibc1-2.
+     rmfunc.msgf+lags2.who5-6.nickchange2.glibc2-3.modeless3
+		-- From the annoucement of ircd 2.10.01-3 for Debian GNU/Linux
+%
+* Joey should not write changelog entries at 5:30am
+<Joey>    * DFSC Free cgi library
+<Joey> What's that? DFSC?
+<jim> Debian Free Software mroooooCows
+		-- Seen on #Debian
+%
+<james> abuse me.  I'm so lame I sent a bug report to debian-devel-changes
+		-- Seen on #Debian
+%
+<dark> eat Depends: cook | eat-out.
+       But eat-out is non-free so that's out.
+       And cook Recommends: clean-pans.
+		-- Seen on #Debian
+%
+You will not censor me through bug terrorism.
+		-- James Troup
+%
+<doogie> Thinking is dangerous.  It leads to ideas.
+		-- Seen on #Debian
+%
+<james> Are we going to make an emacs out of apt?
+        APT - Debian in a program.  It even does your laundry
+		-- Seen on #Debian
+%
+Debian is like Suse with yast turned off, just better. :)
+		-- Goswin Brederlow
+%
+Charles Briscoe-Smith <cpbs@debian.org>:
+  After all, the gzip package is called `gzip', not `libz-bin'...
+
+James Troup <troup@debian.org>:
+  Uh, probably because the gzip binary doesn't come from the
+  non-existent libz package or the existent zlib package.
+		-- debian-bugs-dist
+%
+<jim> Lemme make sure I'm not wasting time here... bcwhite will remove
+      pkgs that havent been fixed that have outstanding bugs of severity
+      "important".  True or false?
+<JHM> jim: "important" or higher.  True.
+<jim> Then we're about to lose ftp.debian.org and dpkg :)
+* netgod will miss dpkg -- it was occasionally useful
+<Joey> We still have rpm....
+		-- Seen on #Debian
+%
+Being overloaded is the sign of a true Debian maintainer.
+		-- JHM on #Debian
+%
+I am amazed that no-one's based a commercial distribution on Debian
+yet - it is by far the most solid UNIX-like OS I've ever installed,
+and I've played with HP/UX, Solaris, FreeBSD, BSDi, and SCO (not to
+mention OS/2, Novell, Win95/NT)
+		-- Nathan E. Norman
+%
+> <magical +3 sigh of hyperbole deflection>
+
+The branden dodges your magical sigh. The branden attacks you with a
+slew of words! The branden misses!
+
+		-- Henning Makholm in <yahsmr7dk9k.fsf@pc-043.diku.dk>
+%
+I don't think 'It's better than hurling yourself into a meat grinder'
+is a good rationale for doing something.
+		-- Andrew Suffield in
+		   <20030905221055.GA22354@doc.ic.ac.uk> on debian-devel
+%
+< Overfiend> whew.
+< Overfiend> I really need to get some sleep.
+< Overfiend> but it sure was fun talking guitars, politics, and lesbians.
+%
+Whoever asked if the debian organization was dead isn't reading
+debian-devel. 66 messages in one day, and it's not over. I find it
+difficult to keep up.
+		-- Bruce Perens
+%
+< asuffield> fibre in the US is such a joke. in the civilized parts of
+             the world, DSL *starts* at the speeds where US fibre lets off
+< joshk> asuffield: australia is a nation full of savages?
+< asuffield> joshk: they've got about one 9600 modem between the whole
+             damn country
+		-- in #debian-devel
+%
+< nobse> bleh... last night I had a dream... someone NMU'ed vim...
+         nightmare
+		-- in #debian-devel
+%

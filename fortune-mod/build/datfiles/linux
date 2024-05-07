@@ -1,0 +1,1945 @@
+"How do you pronounce SunOS?"  "Just like you hear it, with a big SOS"
+		-- dedicated to Roland Kaltefleiter
+%
+finlandia:~> apropos win
+win: nothing appropriate.
+%
+C:\> WIN
+Bad command or filename
+
+C:\> LOSE
+Loading Microsoft Windows ...
+%
+Linux ext2fs has been stable for a long time, now it's time to break it
+	-- Linux-Kongress '95 in Berlin
+%
+The state of some commercial Un*x is more unsecure than any Linux box
+without a root password...
+	-- Bernd Eckenfels
+%
+Less is more or less more
+	-- Y_Plentyn on #LinuxGER
+%
+Let's call it an accidental feature.
+	--Larry Wall
+%
+.........    Escape the 'Gates' of Hell
+  `:::'                  .......  ......
+   :::  *                  `::.    ::'
+   ::: .::  .:.::.  .:: .::  `::. :'
+   :::  ::   ::  ::  ::  ::    :::.
+   ::: .::. .::  ::.  `::::. .:'  ::.
+...:::.....................::'   .::::..
+	-- William E. Roadcap
+%
+Win95 is not a virus; a virus does something.
+	-- unknown source
+%
+Machine Always Crashes, If Not, The Operating System Hangs (MACINTOSH)
+	-- Topic on #Linux
+%
+Except for Great Britain. According to ISO 9166 and Internet reality
+Great Britain's toplevel domain should be _gb_.  Instead, Great Britain
+and Nortern Ireland (the United Kingdom) use the toplevel domain _uk_.
+They drive on the wrong side of the road, too.
+	-- PERL book (or DNS and BIND book)
+%
+Save yourself from the 'Gates' of hell, use Linux."  -- like that one.
+	-- The_Kind @ LinuxNet
+%
+I did this 'cause Linux gives me a woody.  It doesn't generate revenue.
+	-- Dave '-ddt->` Taylor, announcing DOOM for Linux
+%
+Feel free to contact me (flames about my english and the useless of this
+driver will be redirected to /dev/null, oh no, it's full...).
+	-- Michael Beck, describing the PC-speaker sound device
+%
+    if (argc > 1 && strcmp(argv[1], "-advice") == 0) {
+	printf("Don't Panic!\n");
+	exit(42);
+    }
+
+	-- Arnold Robbins in the LJ of February '95, describing RCS
+%
+lp1 on fire
+	-- One of the more obfuscated kernel messages
+%
+A Linux machine!  Because a 486 is a terrible thing to waste!
+	-- Joe Sloan, jjs@wintermute.ucr.edu
+%
+Microsoft is not the answer.
+Microsoft is the question.
+NO (or Linux) is the answer.
+	-- Taken from a .signature from someone from the UK, source unknown
+%
+In most countries selling harmful things like drugs is punishable.
+Then how come people can sell Microsoft software and go unpunished?
+	-- Hasse Skrifvars, hasku@rost.abo.fi,
+%
+Fatal Error: Found [MS-Windows] System -> Repartitioning Disk for Linux...
+(By cbbrown@io.org, Christopher Browne)
+%
+Windows without the X is like making love without a partner.
+	-- MaDsen Wikholm, mwikholm@at8.abo.fi
+%
+Sex, Drugs & Linux Rules
+	-- MaDsen Wikholm, mwikholm@at8.abo.fi
+%
+win-nt from the people who invented edlin.
+	-- MaDsen Wikholm, mwikholm@at8.abo.fi
+%
+Apples  have  meant  trouble  since  eden.
+	-- MaDsen Wikholm, mwikholm@at8.abo.fi
+%
+Linux, the way to get rid of boot viruses
+	-- MaDsen Wikholm, mwikholm@at8.abo.fi
+%
+This  message was brought to  you by Linux, the free  unix.
+Windows without the X is like making love without a partner.
+Sex, Drugs & Linux Rules
+win-nt from the people who invented edlin
+apples  have  meant  trouble  since  eden
+Linux, the way to get rid of boot viruses
+
+	-- MaDsen Wikholm, mwikholm@at8.abo.fi
+%
+Once upon a time there was a DOS user who saw Unix, and saw that it was
+good.  After typing cp on his DOS machine at home, he downloaded GNU's
+unix tools ported to DOS and installed them.  He rm'd, cp'd, and mv'd
+happily for many days, and upon finding elvis, he vi'd and was happy.  After
+a long day at work (on a Unix box) he came home, started editing a file,
+and couldn't figure out why he couldn't suspend vi (w/ ctrl-z) to do
+a compile.
+		-- Erik Troan, ewt@tipper.oit.unc.edu
+%
+We are MicroSoft.  You will be assimilated.  Resistance is futile.
+		-- Attributed to B.G., Gill Bates
+%
+Avoid the Gates of Hell.  Use Linux
+		-- Unknown source
+%
+Intel engineering seem to have misheard Intel marketing strategy.  The
+phrase was "Divide and conquer" not "Divide and cock up"
+		-- Alan Cox, iialan@www.linux.org.uk
+%
+Linux!  Guerrilla UNIX Development     Venimus, Vidimus, Dolavimus.
+		-- Mark A. Horton KA4YBR, mah@ka4ybr.com
+%
+----==-- _                     / /  \
+---==---(_)__  __ ____  __    / / /\ \
+--==---/ / _ \/ // /\ \/ /   / /_/\ \ \
+-=====/_/_//_/\_,_/ /_/\_\  /______\ \ \
+A proud member of TeamLinux \_________\/
+		-- CHaley (HAC), haley@unm.edu, ch008cth@pi.lanl.gov)
+%
+"Who is General Failure and why is he reading my hard disk?"
+Microsoft spel chekar vor sail, worgs grate !!
+		-- Felix von Leitner, leitner@inf.fu-berlin.de
+%
+Personally, I think my choice in the mostest-superlative-computer wars has to
+be the HP-48 series of calculators.  They'll run almost anything.  And if they
+can't, while I'll just plug a Linux box into the serial port and load up the
+HP-48 VT-100 emulator.
+		-- Jeff Dege, jdege@winternet.com
+%
+/*
+ * Oops. The kernel tried to access some bad page. We'll have to
+ * terminate things with extreme prejudice.
+*/
+die_if_kernel("Oops", regs, error_code);
+		-- From linux/arch/i386/mm/fault.c
+%
+Linux: because a PC is a terrible thing to waste
+		-- ksh@cis.ufl.edu put this on Tshirts in '93
+%
+Linux: the choice of a GNU generation
+		-- ksh@cis.ufl.edu put this on Tshirts in '93
+%
+There are two types of Linux developers - those who can spell, and
+those who can't.  There is a constant pitched battle between the two.
+		-- From one of the post-1.1.54 kernel update messages posted to c.o.l.a
+%
+> > Other than the fact Linux has a cool name, could someone explain why I
+> > should use Linux over BSD?
+>
+> No.  That's it.  The cool name, that is.  We worked very hard on
+> creating a name that would appeal to the majority of people, and it
+> certainly paid off: thousands of people are using linux just to be able
+> to say "OS/2? Hah.  I've got Linux.  What a cool name".  386BSD made the
+> mistake of putting a lot of numbers and weird abbreviations into the
+> name, and is scaring away a lot of people just because it sounds too
+> technical.
+		-- Linus Torvalds' follow-up to a question about Linux
+%
+> The day people think linux would be better served by somebody else (FSF
+> being the natural alternative), I'll "abdicate".  I don't think that
+> it's something people have to worry about right now - I don't see it
+> happening in the near future.  I enjoy doing linux, even though it does
+> mean some work, and I haven't gotten any complaints (some almost timid
+> reminders about a patch I have forgotten or ignored, but nothing
+> negative so far).
+>
+> Don't take the above to mean that I'll stop the day somebody complains:
+> I'm thick-skinned (Lasu, who is reading this over my shoulder commented
+> that "thick-HEADED is closer to the truth") enough to take some abuse.
+> If I weren't, I'd have stopped developing linux the day ast ridiculed me
+> on c.o.minix.  What I mean is just that while linux has been my baby so
+> far, I don't want to stand in the way if people want to make something
+> better of it (*).
+>
+>                 Linus
+>
+> (*) Hey, maybe I could apply for a saint-hood from the Pope.  Does
+> somebody know what his email-address is? I'm so nice it makes you puke.
+		-- Taken from Linus's reply to someone worried about the future of Linux
+%
+> : Any porters out there should feel happier knowing that DEC is shipping
+> : me an AlphaPC that I intend to try getting linux running on: this will
+> : definitely help flush out some of the most flagrant unportable stuff.
+> : The Alpha is much more different from the i386 than the 68k stuff is, so
+> : it's likely to get most of the stuff fixed.
+>
+> It's posts like this that almost convince us non-believers that there
+> really is a god.
+	-- Anthony Lovell, to Linus's remarks about porting
+%
+When you say "I wrote a program that crashed Windows", people just stare at
+you blankly and say "Hey, I got those with the system, *for free*".
+	-- Linus Torvalds
+%
+We come to bury DOS, not to praise it.
+	-- Paul Vojta, vojta@math.berkeley.edu
+    ( paraphrasing a quote of Shakespeare)
+%
+Be warned that typing \fBkillall \fIname\fP may not have the desired
+effect on non-Linux systems, especially when done by a privileged user.
+	-- From the killall manual page
+%
+Note that if I can get you to "su and say" something just by asking,
+you have a very serious security problem on your system and you should
+look into it.
+	-- Paul Vixie, vixie-cron 3.0.1 installation notes
+%
+How should I know if it works?  That's what beta testers are for.  I
+only coded it.
+
+	-- Attributed to Linus Torvalds, somewhere in a posting
+%
+I develop for Linux for a living, I used to develop for DOS.
+Going from DOS to Linux is like trading a glider for an F117.
+	-- Lawrence Foard, entropy@world.std.com
+%
+Absolutely nothing should be concluded from these figures except that
+no conclusion can be drawn from them.
+	-- Joseph L. Brothers, Linux/PowerPC Project)
+%
+If the future navigation system [for interactive networked services on
+the NII] looks like something from Microsoft, it will never work.
+	-- Chairman of Walt Disney Television & Telecommunications
+%
+Problem solving under Linux has never been the circus that it is under
+AIX.
+	-- Pete Ehlke in comp.unix.aix
+%
+I don't know why, but first C programs tend to look a lot worse than
+first programs in any other language (maybe except for fortran, but then
+I suspect all fortran programs look like `firsts')
+	-- Olaf Kirch
+%
+On a normal ascii line, the only safe condition to detect is a 'BREAK'
+- everything else having been assigned functions by Gnu EMACS.
+	-- Tarl Neustaedter
+%
+By golly, I'm beginning to think Linux really *is* the best thing since
+sliced bread.
+	-- Vance Petree, Virginia Power
+%
+I'd crawl over an acre of 'Visual This++' and 'Integrated Development
+That' to get to gcc, Emacs, and gdb.  Thank you.
+	-- Vance Petree, Virginia Power
+%
+Oh, I've seen copies [of Linux Journal] around the terminal room at The Labs.
+	-- Dennis Ritchie
+%
+If you want to travel around the world and be invited to speak at a lot
+of different places, just write a Unix operating system.
+	-- Linus Torvalds
+%
+...and scantily clad females, of course.  Who cares if it's below zero
+outside.
+	-- Linus Torvalds
+%
+...you might as well skip the Xmas celebration completely, and instead
+sit in front of your linux computer playing with the all-new-and-improved
+linux kernel version.
+	-- Linus Torvalds
+%
+Besides, I think Slackware sounds better than 'Microsoft,' don't you?
+	-- Patrick Volkerding
+%
+All language designers are arrogant. Goes with the territory...
+	-- Larry Wall
+%
+And the next time you consider complaining that running Lucid Emacs
+19.05 via NFS from a remote Linux machine in Paraguay doesn't seem to
+get the background colors right, you'll know who to thank.
+	-- Matt Welsh
+%
+Are Linux users lemmings collectively jumping off of the cliff of
+reliable, well-engineered commercial software?
+	-- Matt Welsh
+%
+Even more amazing was the realization that God has Internet access.  I
+wonder if He has a full newsfeed?
+	-- Matt Welsh
+%
+I once witnessed a long-winded, month-long flamewar over the use of
+mice vs. trackballs... It was very silly.
+	-- Matt Welsh
+%
+Linux poses a real challenge for those with a taste for late-night
+hacking (and/or conversations with God).
+	-- Matt Welsh
+%
+What you end up with, after running an operating system concept through
+these many marketing coffee filters, is something not unlike plain hot
+water.
+	-- Matt Welsh
+%
+...Deep Hack Mode -- that mysterious and frightening state of
+consciousness where Mortal Users fear to tread.
+	-- Matt Welsh
+%
+...Unix, MS-DOS, and Windows NT (also known as the Good, the Bad, and
+the Ugly).
+	-- Matt Welsh
+%
+...very few phenomena can pull someone out of Deep Hack Mode, with two
+noted exceptions: being struck by lightning, or worse, your *computer*
+being struck by lightning.
+	-- Matt Welsh
+%
+..you could spend *all day* customizing the title bar.  Believe me.  I
+speak from experience.
+	-- Matt Welsh
+%
+[In 'Doctor' mode], I spent a good ten minutes telling Emacs what I
+thought of it.  (The response was, 'Perhaps you could try to be less
+abusive.')
+	-- Matt Welsh
+%
+I would rather spend 10 hours reading someone else's source code than
+10 minutes listening to Musak waiting for technical support which isn't.
+	-- Dr. Greg Wettstein, Roger Maris Cancer Center
+%
+...[Linux's] capacity to talk via any medium except smoke signals.
+	-- Dr. Greg Wettstein, Roger Maris Cancer Center
+%
+Whip me.  Beat me.  Make me maintain AIX.
+	-- Stephan Zielinski
+%
+Your job is being a professor and researcher: That's one hell of a good excuse
+for some of the brain-damages of minix.
+	-- Linus Torvalds to Andrew Tanenbaum
+%
+I still maintain the point that designing a monolithic kernel in 1991 is a
+fundamental error.  Be thankful you are not my student.  You would not get a
+high grade for such a design :-)
+	-- Andrew Tanenbaum to Linus Torvalds
+%
+We use Linux for all our mission-critical applications.  Having the source code
+means that we are not held hostage by anyone's support department.
+	-- Russell Nelson, President of Crynwr Software
+%
+Linux is obsolete
+	-- Andrew Tanenbaum
+%
+Dijkstra probably hates me.
+	-- Linus Torvalds, in kernel/sched.c
+%
+And 1.1.81 is officially BugFree(tm), so if you receive any bug-reports
+on it, you know they are just evil lies.
+	-- Linus Torvalds
+%
+We are Pentium of Borg.  Division is futile.  You will be approximated.
+	-- seen in someone's .signature
+%
+Linux: the operating system with a CLUE... Command Line User Environment.
+	-- seen in a posting in comp.software.testing
+%
+quit   When the quit statement is read, the  bc  processor
+       is  terminated, regardless of where the quit state-
+       ment is found.  For example, "if  (0  ==  1)  quit"
+       will cause bc to terminate.
+	-- seen in the manpage for "bc". Note the "if" statement's logic
+%
+Sic transit discus mundi
+	-- From the System Administrator's Guide, by Lars Wirzenius
+%
+Sigh.  I like to think it's just the Linux people who want to be on
+the "leading edge" so bad they walk right off the precipice.
+	-- Craig E. Groeschel
+%
+We all know Linux is great... it does infinite loops in 5 seconds.
+	- Linus Torvalds about the superiority of Linux on the Amsterdam Linux
+    Symposium
+%
+Waving away a cloud of smoke, I look up, and am blinded by a bright, white
+light.  It's God. No, not Richard Stallman, or Linus Torvalds, but God. In
+a booming voice, He says: "THIS IS A SIGN. USE LINUX, THE FREE UNIX SYSTEM
+FOR THE 386.
+	-- Matt Welsh
+%
+The chat program is in public domain.  This is not the GNU public license.
+If it breaks then you get to keep both pieces.
+	-- Copyright notice for the chat program
+%
+'Mounten' wird für drei Dinge benutzt: 'Aufsitzen' auf Pferde, 'einklinken'
+von Festplatten in Dateisysteme, und, nun, 'besteigen' beim Sex.
+
+'Mounting' is used for three things: climbing on a horse, linking in a
+hard disk unit in data systems, and, well, mounting during sex.
+
+	-- Christa Keil
+%
+Manchmal stehe nachts auf und installier's mir einfach...
+	-- H0arry @ IRC
+%
+We are using Linux daily to UP our productivity - so UP yours!
+	-- Adapted from Pat Paulsen by Joe Sloan
+%
+But what can you do with it?
+	-- ubiquitous cry from Linux-user partner
+    -- (Submitted by Andy Pearce, ajp@hpopd.pwd.hp.com)
+%
+/*
+ * [...] Note that 120 sec is defined in the protocol as the maximum
+ * possible RTT.  I guess we'll have to use something other than TCP
+ * to talk to the University of Mars.
+ * PAWS allows us longer timeouts and large windows, so once implemented
+ * ftp to mars will work nicely.
+ */
+	-- from /usr/src/linux/net/inet/tcp.c, concerning RTT [round trip time]
+%
+DOS: n., A small annoying boot virus that causes random spontaneous system
+     crashes, usually just before saving a massive project.  Easily cured by
+     UNIX.  See also MS-DOS, IBM-DOS, DR-DOS.
+	-- David Vicker's .plan
+%
+MSDOS didn't get as bad as it is overnight -- it took over ten years
+of careful development.
+	-- dmeggins@aix1.uottawa.ca
+%
+LILO, you've got me on my knees!
+	-- David Black, dblack@pilot.njin.net, with apologies to Derek and the
+       Dominos, and Werner Almsberger
+%
+I've run DOOM more in the last few days than I have the last few
+months.  I just love debugging ;-)
+	-- Linus Torvalds
+%
+Microsoft Corp., concerned by the growing popularity of the free 32-bit
+operating system for Intel systems, Linux, has employed a number of top
+programmers from the underground world of virus development.  Bill Gates stated
+yesterday: "World domination, fast -- it's either us or Linus".  Mr. Torvalds
+was unavailable for comment ...
+	-- Robert Manners, rjm@swift.eng.ox.ac.uk, in comp.os.linux.setup
+%
+The only "intuitive" interface is the nipple.  After that, it's all learned.
+	-- Bruce Ediger, bediger@teal.csn.org, on X interfaces in c.o.l.misc
+%
+After watching my newly-retired dad spend two weeks learning how to make a new
+folder, it became obvious that "intuitive" mostly means "what the writer or
+speaker of intuitive likes".
+    -- Bruce Ediger, bediger@teal.csn.org, on X the intuitiveness of a Mac
+    interface on comp.os.linux.misc.
+%
+Now I know someone out there is going to claim, "Well then, UNIX is intuitive,
+because you only need to learn 5000 commands, and then everything else follows
+from that! Har har har!"
+	-- Andy Bates on "intuitive interfaces", slightly defending Macs
+%
+> No manual is ever necessary.
+May I politely interject here: BULLSHIT.  That's the biggest Apple lie of all!
+	-- Discussion in comp.os.linux.misc on the intuitiveness of interfaces
+%
+How do I type "for i in *.dvi do xdvi $i done" in a GUI?
+	-- Discussion in comp.os.linux.misc on the intuitiveness of interfaces
+%
+>Ever heard of .cshrc?
+That's a city in Bosnia.  Right?
+	-- Discussion in comp.os.linux.misc on the intuitiveness of commands
+%
+Now, it we had this sort of thing:
+  yield -a     for yield to all traffic
+  yield -t     for yield to trucks
+  yield -f     for yield to people walking (yield foot)
+  yield -d t*  for yield on days starting with t
+
+...you'd have a lot of dead people at intersections, and traffic jams you
+wouldn't believe...
+		-- Discussion on the intuitiveness of commands, comp.os.linux.misc
+%
+Not me, guy.  I read the Bash man page each day like a Jehovah's Witness reads
+the Bible.  No wait, the Bash man page IS the bible.  Excuse me...
+		-- More on confusing aliases, taken from comp.os.linux.misc
+%
+On the Internet, no one knows you're using Windows NT
+		-- Submitted by Ramiro Estrugo, restrugo@fateware.com
+%
+> I'm an idiot..  At least this [bug] took about 5 minutes to find..
+Disquieting ...
+		-- Gonzalo Tornaria in response to Linus Torvalds's
+%
+> I'm an idiot..  At least this [bug] took about 5 minutes to find..
+We need to find some new terms to describe the rest of us mere mortals
+then.
+		-- Craig Schlenter in response to Linus Torvalds's
+%
+> I'm an idiot..  At least this [bug] took about 5 minutes to find..
+Surely, Linus is talking about the kind of idiocy that others aspire to :-).
+		-- Bruce Perens in response to Linus Torvalds's
+%
+Never make any mistaeks.
+		-- Anonymous, in a mail discussion about a kernel bug report
+%
++#if defined(__alpha__) && defined(CONFIG_PCI)
++       /*
++        * The meaning of life, the universe, and everything. Plus
++        * this makes the year come out right.
++        */
++       year -= 42;
++#endif
+	-- From the patch for 1.3.2: (kernel/time.c), submitted by Marcus Meissner
+%
+As usual, this being a 1.3.x release, I haven't even compiled this
+kernel yet.  So if it works, you should be doubly impressed.
+	-- Linus Torvalds, announcing kernel 1.3.3 on LKML
+%
+People disagree with me.  I just ignore them.
+	-- Linus Torvalds, regarding the use of C++ for the Linux kernel
+%
+It's now the GNU Emacs of all terminal emulators.
+    -- Linus Torvalds, regarding the fact that Linux started off as a terminal
+    emulator
+%
+Audience: What will become of Linux when the Hurd is ready?
+Eric Youngdale: Err... is Richard Stallman here?
+	-- From the Linux conference in spring '95, Berlin
+%
+Linux: The OS people choose without $200,000,000 of persuasion.
+	-- Mike Coleman
+%
+The memory management on the PowerPC can be used to frighten small children.
+	-- Linus Torvalds
+%
+... faster BogoMIPS calculations (yes, it now boots 2 seconds faster than
+it used to: we're considering changing the name from "Linux" to "InstaBOOT"
+	-- Linus, in the announcement for 1.3.26
+%
+... of course, this probably only happens for tcsh which uses wait4(),
+which is why I never saw it.  Serves people who use that abomination
+right 8^)
+	-- Linus Torvalds, about a patch that fixes getrusage for 1.3.26
+%
+It's a bird..
+It's a plane..
+No, it's KernelMan, faster than a speeding bullet, to your rescue.
+Doing new kernel versions in under 5 seconds flat..
+	-- Linus, in the announcement for 1.3.27
+%
+Eh, that's it, I guess.  No 300 million dollar unveiling event for this
+kernel, I'm afraid, but you're still supposed to think of this as the
+"happening of the century" (at least until the next kernel comes along).
+	-- Linus, in the announcement for 1.3.27
+%
+Oh, and this is another kernel in that great and venerable "BugFree(tm)"
+series of kernels.  So be not afraid of bugs, but go out in the streets
+and deliver this message of joy to the masses.
+	-- Linus, in the announcement for 1.3.27
+%
+When you say 'I wrote a program that crashed Windows', people just stare at
+you blankly and say 'Hey, I got those with the system, *for free*'.
+	-- Linus Torvalds
+%
+Never trust an operating system you don't have sources for. ;-)
+	-- Unknown source
+%
+> Linux is not user-friendly.
+It _is_ user-friendly.  It is not ignorant-friendly and idiot-friendly.
+	-- Seen somewhere on the net
+%
+Keep me informed on the behaviour of this kernel..  As the "BugFree(tm)"
+series didn't turn out too well, I'm starting a new series called the
+"ItWorksForMe(tm)" series, of which this new kernel is yet another
+shining example.
+	-- Linus, in the announcement for 1.3.29
+%
+Seriously, the way I did this was by using a special /sbin/loader binary
+with debugging hooks that I made ("dd" is your friend: binary editors
+are for wimps).
+	-- Linus Torvalds, in an article on a dnserver
+%
+(I tried to get some documentation out of Digital on this, but as far as
+I can tell even _they_ don't have it ;-)
+	-- Linus Torvalds, in an article on a dnserver
+%
+Q: Why shouldn't I simply delete the stuff I never use, it's just taking up
+   space?
+A: This question is in the category of Famous Last Words..
+	-- From the Frequently Unasked Questions
+%
+Q: What's the big deal about rm, I have been deleting stuff for years?  And
+   never lost anything.. oops!
+A: ...
+	-- From the Frequently Unasked Questions
+%
+Linux is addictive, I'm hooked!
+	-- MaDsen Wikholm's .sig
+%
+panic("Foooooooood fight!");
+	-- In the kernel source aha1542.c, after detecting a bad segment list
+%
+Convention organizer to Linus Torvalds: "You might like to come with us
+to some licensed[1] place, and have some pizza."
+
+Linus: "Oh, I did not know that you needed a license to eat pizza".
+
+[1] Licensed - refers in Australia to a restaurant which has government
+licence to sell liquor.
+	-- Linus at a talk at the Melbourne University
+%
+Footnotes are for things you believe don't really belong in LDP manuals,
+but want to include anyway.
+	-- Joel N. Weber II discussing the 'make' chapter of LPG
+%
+Eh, that's it, I guess.  No 300 million dollar unveiling event for this
+kernel, I'm afraid, but you're still supposed to think of this as the
+"happening of the century" (at least until the next kernel comes along).
+Oh, and this is another kernel in that great and venerable "BugFree(tm)"
+series of kernels. So be not afraid of bugs, but go out in the streets
+and deliver this message of joy to the masses.
+	-- Linus Torvalds, on releasing 1.3.27
+%
+Ok, I'm just uploading the new version of the kernel, v1.3.33, also
+known as "the buggiest kernel ever".
+	-- Linus Torvalds
+%
+Go not unto the Usenet for advice, for you will be told both yea and nay (and
+quite a few things that just have nothing at all to do with the question).
+	-- seen in a .sig somewhere
+%
+Those who don't understand Linux are doomed to reinvent it, poorly.
+	-- unidentified source
+%
+Look, I'm about to buy me a double barreled sawed off shotgun and show
+Linus what I think about backspace and delete not working.
+	-- some anonymous .signature
+%
+I forgot to mention an important fact in the 1.3.67 announcement. In order to
+get a fully working kernel, you have to follow the steps below:
+ - Walk around your computer widdershins 3 times, chanting "Linus is
+   overworked, and he makes lousy patches, but we love him anyway". Get
+   your spuouse to do this too for extra effect.  Children are optional.
+ - Apply the patch included in this mail
+ - Call your system "Super-67", and don't forget to unapply the patch
+   before you later applying the official 1.3.68 patch.
+ - reboot
+	-- Linus Torvalds, announcing another kernel patch
+%
+We apologize for the inconvenience, but we'd still like yout to test out
+this kernel.
+	-- Linus Torvalds, announcing another kernel patch
+%
+The new Linux anthem will be "He's an idiot, but he's ok", as performed by
+Monthy Python.  You'd better start practicing.
+	-- Linus Torvalds, announcing another kernel patch
+%
+How do you power off this machine?
+    -- Linus, when upgrading linux.cs.helsinki.fi, and after using the machine
+    for several months
+%
+Excusing bad programming is a shooting offence, no matter _what_ the
+circumstances.
+	-- Linus Torvalds, to the linux-kernel list
+%
+Linus?  Whose that?
+	-- clueless newbie on #Linux
+%
+N: Phil Lewis
+E: beans@bucket.ualr.edu
+D: Promised to send money if I would put his name in the source tree.
+S: PO Box 371
+S: North Little Rock, Arkansas 72115
+S: US
+	-- /usr/src/linux/CREDITS
+%
+> You know you are "there" when you are known by your first name, and
+> are recognized.
+> Lemmie see, there is Madonna, and Linus, and ..... help me out here!
+Bill ? ;-)
+	-- From some postings on comp.os.linux.misc
+%
+Whoa...I did a 'zcat /vmlinuz > /dev/audio' and I think I heard God...
+	-- mikecd on #Linux
+%
+Some people have told me they don't think a fat penguin really embodies the
+grace of Linux, which just tells me they have never seen a angry penguin
+charging at them in excess of 100mph.  They'd be a lot more careful about what
+they say if they had.
+	-- Linus Torvalds, announcing Linux v2.0
+%
+MS-DOS, you can't live with it, you can live without it.
+	-- from Lars Wirzenius' .sig
+%
+> If you don't need X then little VT-100 terminals are available for real
+> cheap.  Should be able to find decent ones used for around $40 each.
+> For that price, they're a must for the kitchen, den, bathrooms, etc.. :)
+You're right. Can you explain this to my wife?
+	-- Seen on c.o.l.development.system, on the subject of extra terminals
+%
+.. I used to get in more fights with SCO than I did my girlfriend, but
+now, thanks to Linux, she has more than happily accepted her place back at
+number one antagonist in my life..
+	-- Jason Stiefel, krypto@s30.nmex.com
+%
+I mean, well, if it were not for Linux I might be roaming the streets looking
+for drugs or prostitutes or something.  Hannu and Linus have my highest
+admiration (apple polishing mode off).
+	-- Phil Lewis, plewis@nyx.nyx.net
+%
+> What does ELF stand for (in respect to Linux?)
+ELF is the first rock group that Ronnie James Dio performed with back in
+the early 1970's.  In contrast, a.out is a misspelling of the French word
+for the month of August.  What the two have in common is beyond me, but
+Linux users seem to use the two words together.
+	-- seen on c.o.l.misc
+%
+"Linux was made by foreign terrorists to take money from true US companies
+like Microsoft." - Some AOL'er.
+"To this end we dedicate ourselves..." -Don
+	-- From the sig of "Don", don@cs.byu.edu
+%
+Shoot me again.
+Just proving that the quickest way to solve the problem is to post a
+whine to the newsgroups: within moments the solution presents itself to
+me, and meanwhile my ass is hanging out on the Net... *sigh*...
+	-- Dave Phillips, dlphilp@bright.net, about problem solving via news
+%
+> Is there any hope for me? Am I just thick? Does anyone remember the
+> Rubiks Cube, it was easier!
+I found that the Rubiks cube and Linux are alike. Looks real confusing
+until you read the right book. :-)
+	-- seen on c.o.l.misc, about the "Linux Learning Curve"
+%
+> I've hacked the Xaw3d library to give you a Win95 like interface and it
+> is named Xaw95. You can replace your Xaw3d library.
+Oh God, this is so disgusting!
+	-- seen on c.o.l.development.apps, about the "Win95 look-alike"
+%
+Besides, its really not worthwhile to use more than two times your physical
+ram in swap (except in a select few situations). The performance of the system
+becomes so abysmal you'd rather heat pins under your toenails while reciting
+Windows95 source code and staring at porn flicks of Bob Dole than actually try
+to type something.
+	-- seen on c.o.l.development.system, about the size of the swap space
+%
+> I get the following error messages at bootup, could anyone tell me
+> what they mean?
+> fcntl_setlk() called by process 51 (lpd) with broken flock() emulation
+They mean that you have not read the documentation when upgrading the
+kernel.
+	-- seen on c.o.l.misc
+%
+Only wimps use tape backup: _real_ men just upload their important stuff
+on ftp, and let the rest of the world mirror it ;)
+	-- Linus Torvalds, about his failing hard drive on linux.cs.helsinki.fi
+%
+One of the things that hamper Linux's climb to world domination is the
+shortage of bad Computer Role Playing Games, or CRaPGs. No operating system
+can be considered respectable without one.
+	-- Brian O'Donnell, odonnllb@tcd.ie
+%
+The game, anoraks.2.0.0.tgz, will be available from sunsite until somebody
+responsible notices it and deletes it, and shortly from
+ftp.mee.tcd.ie/pub/Brian, though they don't know that yet.
+	-- Brian O'Donnell, odonnllb@tcd.ie
+%
+'Ooohh.. "FreeBSD is faster over loopback, when compared to Linux
+over the wire". Film at 11.'
+	-- Linus Torvalds
+%
+Q: Would you like to see the WINE list?
+A: What's on it, anything expensive?
+Q: No, just Solitaire and MineSweeper for now, but the WINE is free.
+	-- Kevin M. Bealer, about the WINdows Emulator
+%
+So in the future, one 'client' at a time or you'll be spending CPU time with
+lots of little 'child processes'.
+	-- Kevin M. Bealer, commenting on the private life of a Linux nerd
+%
+By the way, I can hardly feel sorry for you... All last night I had to listen
+to her tears, so great they were redirected to a stream.  What?  Of _course_
+you didn't know.  You and your little group no longer have any permissions
+around here.  She changed her .lock files, too.
+	-- Kevin M. Bealer, commenting on the private life of a Linux nerd
+%
+We should start referring to processes which run in the background by their
+correct technical name... paenguins.
+	-- Kevin M. Bealer, commenting on the penguin Linux logo
+%
+We can use symlinks of course... syslogd would be a symlink to syslogp and
+ftpd and ircd would be linked to ftpp and ircp... and of course the
+point-to-point protocal paenguin.
+	-- Kevin M. Bealer, commenting on the penguin Linux logo
+%
+This is a logical analogy too... anyone who's been around, knows the world is
+run by paenguins.  Always a paenguin behind the curtain, really getting things
+done.  And paenguins in politics--who can deny it?
+	-- Kevin M. Bealer, commenting on the penguin Linux logo
+%
+Linux: Where Don't We Want To Go Today?
+	-- Submitted by Pancrazio De Mauro, paraphrasing some well-known sales talk
+%
+The most important design issue... is the fact that Linux is supposed to
+be fun...
+	-- Linus Torvalds at the First Dutch International Symposium on Linux
+%
+In short, at least give the penguin a fair viewing. If you still don't
+like it, that's ok: that's why I'm boss. I simply know better than you do.
+	-- Linus "what, me arrogant?" Torvalds, on c.o.l.advocacy
+%
+<SomeLamer> what's the difference between chattr and chmod?
+<SomeGuru> SomeLamer: man chattr > 1; man chmod > 2; diff -u 1 2 | less
+	-- Seen on #linux on irc
+%
+The linuX Files -- The Source is Out There.
+	-- Sent in by Craig S. Bell, goat@aracnet.com
+%
+"... being a Linux user is sort of like living in a house inhabited
+by a large family of carpenters and architects. Every morning when
+you wake up, the house is a little different. Maybe there is a new
+turret, or some walls have moved. Or perhaps someone has temporarily
+removed the floor under your bed." - Unix for Dummies, 2nd Edition
+	-- found in the .sig of Rob Riggs, rriggs@tesser.com
+%
+C is quirky, flawed, and an enormous success
+	-- Dennis M. Ritchie
+%
+If Bill Gates is the Devil then Linus Torvalds must be the Messiah.
+	-- Unknown source
+%
+Vini, vidi, Linux!
+	-- Unknown source
+%
+Checking host system type...
+i586-unknown-linux
+configure: error: sorry, this is the gnu os, not linux
+	-- Topic on #Linux
+%
+It's easy to get on the internet and forget you have a life
+	-- Topic on #LinuxGER
+%
+To kick or not to kick...
+	-- Somewhere on IRC, inspired by Shakespeare
+%
+Linux - Where do you want to fly today?
+	-- Unknown source
+%
+The easiest way to get the root password is to become system admin.
+	-- Unknown source
+%
+The good thing about standards is that there are so many to choose from.
+	-- Andrew S. Tanenbaum
+%
+The primary difference [...] is that the Java program will reliably and
+obviously crash, whereas the C Program will do something obscure
+	-- Java Language Tutorial
+%
+LOAD "LINUX",8,1
+	-- Topic on #LinuxGER
+%
+Old MacLinus had a stack/l-i-n-u-x/and on this stack he had a trace/l-i-n-u-x
+with an Oops-Oops here and an Oops-Oops there
+here an Oops, there an Oops, everywhere an Oops-Oops.
+	-- tjimenez@site.gmu.edu, linux.dev.kernel
+%
+Also another major deciding factor is availability of source code.
+It just gives everybody a warm fuzzy feeling knowing that there is
+source code available to the product you are using.  It allows everybody
+to improve on the product and fix bugs etc. sooner than the author(s)
+would get the time/chance to.
+	-- Atif Khan
+%
+> Also another major deciding factor is availability of source code.
+> It just gives everybody a warm fuzzy feeling knowing that there is
+> source code available to the product you are using.  It allows everybody
+> to improve on the product and fix bugs etc. sooner than the author(s)
+> would get the time/chance to.
+
+I think this is one the really BIG reasons for the snowball/onslaught
+of Linux and the wealth of stuff available that gets enhanced faster
+than the real vendors can keep up.
+	-- Norman
+%
+Not only Guinness - Linux is good for you, too.
+	-- Banzai on IRC
+%
+> NE-2000 clone.  Pentium optimizing gcc (pentium gcc pl8 I think).
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Build a kernel with the proper gcc. Reports with a non standard compiler
+are useless.
+	-- Alan Cox
+%
+BTW: I have a better name for the software .... Microsoft Internet
+Exploder.
+	-- George Bonser <grep@cris.com>
+%
+Well, since MS can't be sure of the username of someone downloading
+things, they are going to play it safe and have everything downloaded
+and executed by Explorer as suid root. That way, it will run on ANY
+system anywhere. :)
+	-- George Bonser <grep@cris.com>
+%
+If you really want pure ASCII, save it as text... or browse
+it with your favorite browser...
+	-- Alexandre Maret <amaret@infomaniak.ch>
+%
+Sorry for mailing this article, I've obviously made a typo (168!=186)
+that's the price for being up all night and doing some "quick"
+checks before you go to bed ....
+	-- Herbert Rosmanith <herp@wildsau.idv.uni-linz.ac.at>
+%
+Just to remind everyone.  Today, Sept 17, is Linux's 5th birthday.  So
+happy birthday to all on the list.  Thanks go out to Linus and all the
+other hard-working maintainers for 5 wonderful fast paced years!
+	-- William E. Roadcap <roadcapw@cfw.com>
+%
+Exporting beer from Finnland doesn't seem to be that much of a hassle,
+as the Lenigrad Cowboys brought a lot of their brew to the concerts in
+Austria.
+	-- Otmar Lendl <lendl@cosy.sbg.ac.at>
+%
+Beeping is cute, if you are in the office ;)
+	-- Alan Cox
+%
+>  Where in the US is Linus?
+
+He was in the "Promise Land".
+	-- David S. Miller <davem@caip.rutgers.edu>
+%
+>       Yeah, Linus is in the US.
+>
+>       His source trees are in Finland.
+
+        OK, someone give him access -fast- ...... ;-)
+	-- babydr@nwrain.net, because of problems with the kernel
+%
+Subject: Linux box finds it hard to wake up in the morning
+
+I've heard of dogs being like their owners, but Linux boxen?
+	-- Peter Hunter <peter.hunter@blackfriars.oxford.ac.uk>
+%
+Win 95 is simplified for the user:
+
+User: What does this configuration thing do?
+You: It allows you to modify your settings, for networking,
+        hardware, protocols, ...
+User: Whoa! Layman's terms, please!
+You:  It changes stuff.
+User: That's what I'm looking for!  What can it change?
+You:  This part changes IP forwarding.  It allows ...
+User: Simplify, simplify!  What can it do for ME?
+You:  Nothing, until you understand it.
+User: Well it makes me uncomfortable.  It looks so technical;
+      Get rid of it, I want a system *I* can understand.
+You:  But...
+User: Hey, whose system is this anyway?
+You:  (... rm this, rm that, rm /etc/* ...) "All done."
+	-- Kevin M. Bealer <kmb203@psu.edu>
+%
+*** PUBLIC flooding detected from erikyyy
+<lewnie> THAT's an erik, pholx.... ;)
+	-- Seen on #LinuxGER
+%
+I've no idea when Linus is going to release 2.0.24, but if he takes
+too long Im going to release a 2.0.24unoff and he can sound off all
+he likes.
+	-- Alan Cox
+%
+All the existing 2.0.x kernels are too buggy for 2.1.x to be the
+main goal.
+	-- Alan Cox
+%
+Computers are useless.  They can only give you answers.
+	-- Pablo Picasso
+%
+martin@bdsi.com (no longer valid - where are you now, Martin?)
+	-- from /usr/src/linux/drivers/cdrom/mcd.c
+%
+[...] or some clown changed the chips on a board and not its name.
+(Don't laugh!  Look at the SMC etherpower for that.)
+	-- from /usr/src/linux/MAINTAINERS
+%
+REST:
+P:      Linus Torvalds
+S:      Buried alive in email
+	-- from /usr/src/linux/MAINTAINERS
+%
+         Why use Windows, when you can have air conditioning?
+         Why use Windows, when you can leave through the door?
+	-- Konrad Blum
+%
+Netscape is not a newsreader, and probably never shall be.
+	-- Tom Christiansen
+%
+I think it's time to remove Qt and Qt-derived applications from the
+distribution.  By distributing it, we only encourage authors to create
+restrictive licenses.
+	-- Bruce Perens
+%
+If someone can point me to a good and _FREE_ backup software that keeps
+track of which files get stored on which tape, we can change to it.
+	-- Mike Neuffer, admin of i-Connect Corp.
+%
+Whoa, first contact!
+
+[...]
+
+Welcome, from the people of Terra (Sol III). We extend our hands in
+friendship, and sincerely hope you shall do the same with your
+hand-equivelents.
+		-- Jason Burrell about a russian posting
+%
+> Whoa, first contact!
+
+Nope, 'fraid not, Linux is still primarily used on planet Earth, I'm
+afraid.
+
+Our friend here sent a message in Russian (KOI8-R encoding).
+		-- Aleksey Kliger, explaining a russian posting
+%
+There is, however, a strange, musty smell in the air that reminds me of
+something...hmm...yes...I've got it...there's a VMS nearby, or I'm a Blit.
+		-- Larry Wall in Configure from the perl distribution
+%
+1648 files (84%) out of the files that I mirror disappeared.  Since
+my delete threshold was set at 90%, all those files are now missing
+from my hard drive.  It's going to take a loooong time to fetch those
+again via 14.4kbps!
+		-- Brian C. White
+%
+>    What is the status of Linux' Unicode implementation. Will Linux
+>    be prepared for the first contact?
+
+We have full klingon console support just in case
+		-- Alan Cox on linux-kernel
+%
+"You, sir, are nothing but a pathetically lame salesdroid!
+I fart in your general direction!"
+		-- Randseed on #Linux
+%
+* Jes wonders why so many people in here uses fooZZZZZ and foo_sleeping nicks
+<peter> Jes: Because they are sleeping?
+		-- Seen on #Linux
+%
+* gb notes that fdisk thinks his cdrom can store one terabyte
+		-- Seen on #Linux
+%
+Check it out, send me comments, and dance joyously in the streets,
+		-- Linus Torvalds announcing 2.0.27
+%
+AP/STT.  Helsinki, Dec 5th, 6:22 AM.  For immediate release.
+
+In order to allay fears about the continuity of the Linux project, Linus
+Torvalds together with his manager Tove Monni have released "Linus
+v2.0", affectionately known as "Kernel Hacker - The Next Generation".
+
+Linux stock prices on Wall Street rose sharply after the announcement;
+as one well-known analyst who wishes to remain anonymous says - "It
+shows a long-term commitment, and while we expect a short-term decrease
+in productivity, we feel that this solidifies the development in the
+long run".
+
+Other analysts downplay the importance of the event, and claim that just
+about anybody could have done it.  "I'm glad somebody finally told them
+about the birds and the bees" one sceptic comments cryptically.  But
+even the skeptics agree that it is an interesting turn of events.
+
+Others bring up other issues with the new version - "I'm especially
+intrigued by the fact that the new version is female, and look forward
+to seeing what the impact of that will be on future development.  Will
+"Red Hat Linux" change to "Pink Hat Linux", for example?"
+	-- Linus Torvalds announcing that he became father of a girl
+%
+Sex dumps core
+(Sex is a Simple editor for X11)
+	-- Seen on debian bugtracking
+%
+I tried the clone syscall on me, but it didn't work.
+	-- Mike Neuffer trying to fix a serious time problem
+%
+-  long    f_ffree;    /* free file nodes in fs */
++  long    f_ffree;    /* freie Dateiknoten im Dateisystem */
+	-- Seen in a translation
+%
+* Phaedrus wishes he could get a machine that consists of Sparc IO,
+  Alpha Processors and sleek design of an SGI
+<pp> And intel prices
+	-- Seen on #Linux
+%
+<Tazman> damn my office is cold.
+<Tazman> need a hot secretary to warm it up.
+	-- Seen on #Linux
+%
+This is a scsi driver, scraes the shit out of me, therefore I tapdanced
+and wrote a unix clone around it (C) by linus
+	-- Somewhere in the kernel tree
+%
+ *  This is complicated.  Has to do with interrupts.  Thus, I am
+ *  scared witless.  Therefore I refuse to write this function. :-P
+	-- From the maclinux patch
+%
+Yes I have a Machintosh, please don't scream at me.
+	-- Larry Blumette on linux-kernel
+%
+<miguel> any new sendmail hole I have to fix before going on vacations?
+	-- Seen on #Linux
+%
+AUTHOR
+FvwmAuto just appeared one day, nobody knows how.
+	-- FvwmAuto(1x)
+%
+<lilo> Fairlight: udp is the light margarine of tcp/ip transport protocols :)
+	-- Seen on #Linux
+%
+I don't even know if it makes sense at all :) This is an experimental patch
+for an experimental kernel :))
+	-- Ingo Molnar on linux-kernel
+%
+Linux - Das System fuer schlaue Maedchen ;)
+	-- banshee
+%
+If loving linux is wrong, I don't wanna be right.
+	-- Topic for #LinuxGER
+%
+>>> FreeOS is an english-centric name
+
+Have you all been stuck in email, or have any of you tried
+*pronouncing* that? free-oh-ess? free-ows? fritos? :-)
+	-- Mark Eichin
+%
+The documentation is in Japanese.  Good luck.
+	-- Rich $alz
+%
+People are going to scream bloody murder about that.
+	-- Seen on linux-kernel
+%
+>   1. is qmail as secure as they say?
+
+Depends on what they were saying, but most likely yes.
+	-- Seen on debian-devel
+%
+NEVER RESPOND TO CRITICAL PRESS.  IT IS A GAME YOU CAN ONLY LOSE, AND IT
+MAKES US LOOK BAD.
+	-- Bruce Perens
+%
+A feature is nothing more than a bug with seniority.
+	-- Unknown source
+%
+Winnuke in one line?  No problem:
+perl -MIO::Socket -e \
+'IO::Socket::INET->new(PeerAddr=>"bad.dude.com:139")->send("bye",MSG_OOB)'
+
+And formatted so it's a little easier to read:
+
+        #!/usr/bin/perl
+        use IO::Socket;
+        IO::Socket::INET
+                ->new(PeerAddr=>"bad.dude.com:139")
+                ->send("bye", MSG_OOB);
+
+		-- Randal Schwartz
+%
+If a 'train station' is where a train stops, what's a 'workstation'?
+%
+Computers are not intelligent.  They only think they are.
+%
+"We don't do a new version to fix bugs." - Bill Gates
+"The new version - it's not there to fix bugs." - Bill Gates
+	-- Retranslated from Focus 43/1995, pp. 206-212
+%
+The POP3 server service depends on the SMTP server service, which
+failed to start because of the following error:
+The operation completed successfully.
+	-- Windows NT Server v3.51
+%
+Software is like sex; it's better when it's free.
+	-- Linus Torvalds
+%
+vi is [[13~^[[15~^[[15~^[[19~^[[18~^ a
+muk[^[[29~^[[34~^[[26~^[[32~^ch better editor than this emacs. I know
+I^[[14~'ll get flamed for this but the truth has to be
+said. ^[[D^[[D^[[D^[[D ^[[D^[^[[D^[[D^[[B^
+exit ^X^C quit :x :wq dang it :w:w:w :x ^C^C^Z^D
+	-- Jesper Lauridsen <rorschak@daimi.aau.dk> from alt.religion.emacs
+%
+oh okay. my mistake.
+
+Yafcot:atj(*),
+
+mark
+
+* Yet another fool coming over this: according to joey
+	-- mark@mail.novare.net
+%
+Sorry.  I just realized this sentance makes no sense :)
+	-- Ian Main
+%
+Stopping Apache webserver...sleeping...starting again...
+apache: dl-version.c:189:
+ _dl_check_map_versions: Assertion `needed != ((void *)0)' failed
+noooooooooooooooooooooooooooo
+	-- netgod on #Debian at LISC
+%
+Make it idiot-proof, and someone will breed a better idiot.
+	-- Oliver Elphick
+%
+#Debian makes me feel all warm and fuzzy inside. :)
+	-- HippieGuy on #Debian
+%
+<Myxie> I know. Unless htere is a cookie monster somewhere between us tat
+muches the amil.
+<Myxie> amil/mail
+<Myxie> muches/munches tat/that htere/there
+<HippieGuy> heheh
+<HippieGuy> problems? :)
+* Myxie needs an ircii addon that pipes teh command line through ispell :)
+	-- Seen on #Debian
+%
+ECRC hat keine lynx komp. seiten, sowas MUSS ja pleite gehen ;-)=
+	-- Getty on #LinuxGER
+%
+Uh... deity is a word, and diety isn't.
+
+Or is it supposed to be one of those recursive acronyms?  Diety Is
+Excellent To You.  Deity Eats Icecream That's Yellow.  Diety Is
+Eloping To Yokohama.  I'll stop now.
+	-- Guy Maor
+%
+Why are there always boycotts?  Shouldn't there be girlcotts too?
+	-- argon on #Linux
+%
+<sct> Anyone want the new supermount? :)
+<klogd> whats new about it
+<sct> klogd: It cleans whiter than white. :)
+	-- Seen on #Linux
+%
+Und die Tastaturabrdücke auf Ihrer Wange unterstreichen seeeeeehr
+vorteilhaft ihr unterschütterliches Vertrauen in die moderene
+Technologie
+	-- Agent Gully in "Die eXakten"
+%
+- DDD no longer requires the librx library.  Consequently, librx
+  errors can no more cause DDD to crash.
+	-- DDD
+%
+snafu = Situation Normal All F%$*ed up
+%
+It's computer hardware, of course it's worth having <g>
+	-- Espy on #Debian
+%
+Alan E. Davis: Some files at llug.sep.bnl.gov/pub/debian/Incoming are
+stamped on 10 January 1998.  As I write, nowhere on Earth is it now 10 January.
+
+Craig Sanders: That just proves how advanced debian is, doesn't it :-)
+	-- debian-devel
+%
+Computers are like air conditioners.  Both stop working, if you open windows.
+	-- Adam Heath
+%
+I am NOT a kludge!  I am a computer!
+	-- tts
+%
+<Joey> gorgo: *lol*
+<gorgo> joey: what's so funny? :)
+<Culus> shh, joey is losing all sanity from lack of sleep
+<Culus> 'yes joey, very funny'
+<Culus> Humor him :>
+	-- Seen on #Debian
+%
+* SynrG notes that the number of configuration questions to answer in sendmail
+  is NON-TRIVIAL
+	-- Seen on #Debian
+%
+My apologies if I sound angry.  I feel like I'm talking to a void.
+	-- Avery Pennarun
+%
+RIP is irrelevant.  Spoofing is futile.  Your routes will be aggregated.
+	-- Alex Yuriev
+%
+After 14 non-maintainer releases, I'm the S-Lang non-maintainer.
+	-- Ray Dassen
+%
+BREAKFAST.COM Halted... Cereal Port Not Responding.
+%
+* JHM wonders what Joey did to earn "I'd just like to say, for the record,
+  that Joey rules."
+	-- Seen on #Debian
+%
+Steal my cash, car and TV - but leave the computer!
+	-- Soenke Lange <soenke@escher.north.de>
+%
+The only really good reason I can think to not release specs is
+embarrassment on just how crappy some hardware out there is, or just how
+buggy it is.
+	-- Chris Wedgwood <cw@ix.net.nz>
+%
+> Alan Cox wrote:
+[..]
+
+No I didn't.  Someone else wrote that.  Please keep attributions
+straight.
+	-- From linux-kernel
+%
+Do people like check the Debian website every 5 minutes to check it hasn't
+morphed into another one?
+Not that I'm one to talk, but some people seriously need to get a life
+	-- james on #Debian
+%
+... Linux und seine Programme sind damit so etwas wie ein real existierender
+Sozialismus der besseren Art ...
+	-- Christian Seel in der Berliner Morgenpost v. 9.3.1997
+%
+* james would be more impressed if netgod's magic powers could stop the splits
+in the first place...
+* netgod notes debian developers are notoriously hard to impress
+	-- Seen on #Debian
+%
+   * In anticipation of 2.10.02 release, updated to patchlevel
+     +ircu2.10.01+.config6-7.config7-8.lgline3.iwho.limit.glibc.motdcache2.
+     trace.whois1-2.config8-9.statsw.sprintf2-3.msgtree2.memleak1-2+.
+     msgtree2-3.gline8-9.gline9-10.invite2.rbr.stats.numclients.whisper.
+     whisper1-2.stats1-2.nokick1-2.chroot.config9-11.snomask7-8.limi+t1-3.
+     userip1-3.userip3-4.config11-12.config12-13.umode2-3.akillsbt.who4-5.
+     kn.kn1-2.freebsdcore2.msgtree3-5.y2k.glibc1-2.rmfunc.msgf+lags2.
+     who5-6.nickchange2.glibc2-3.modeless3
+	-- From the annoucement of ircd 2.10.01-3 for Debian GNU/Linux
+%
+* Joey should not write changelog entries at 5:30am
+<Joey>    * DFSC Free cgi library
+<Joey> What's that? DFSC?
+<jim> Debian Free Software mroooooCows
+	-- Seen on #Debian
+%
+<posix> this guy _is_ crazy
+<stargazer> posix: from the looks of Enlightenment he's on LSD
+<posix> LSD is nothing compared to what this guy's on..
+	-- Seen on #Unix
+%
+On Netscape GPLing their browser: ``How can you trust a browser that
+ANYONE can hack? For the secure choice, choose Microsoft.''
+	-- <oryx@pobox.com> in a comment on slashdot.org
+%
+Turn right here. No! NO! The OTHER right!
+%
+#define FALSE   0               /* This is the naked Truth */
+#define TRUE    1               /* and this is the Light */
+	-- mailto.c
+%
+<Stealth> How do I bind a computer to an NIS server?
+<Joey> Use a rope?
+	-- Seen on #Debian
+%
+Try to remove the color-problem by restarting your computer several times.
+	-- Microsoft-Internet Explorer README.TXT
+%
+Does biff in bo work
+coz it biffin doesn't beep
+an if biff in bo is broke
+then biff in bo I will delete
+
+I've tried biff in bo with 'y'
+I've tried biff in bo with '-y'
+no biffin output does it show
+so poor wee biff is gonna go.
+	-- John Spence <jspence@lynx.net.au> on debian-user
+%
+Real Men don't make backups.  They upload it via ftp and let the world mirror
+it.
+	-- Linus Torvalds
+%
+One tree to rule them all,
+One tree to find them,
+One tree to bring them all,
+and to itself bind them.
+	-- Gavin Koch <gavin@cygnus.com>
+%
+As I currently don't have a floppy drive in my computer, I'd like to
+make an `emergency cdrom' ;)
+	-- Eugene Crosser <crosser@average.org>
+%
+Alan Cox wrote:
+>> On any procmail new enough not to be full of security holes you set
+>Brain on, Imeant majordomo of course 8)
+You got me worried there for a brief (very brief) moment :-).
+	-- Stephen R. van den Berg (AKA BuGless)
+%
+<grin> seen jhm
+<dpkg> jhm is Sarek, and jhm is on the channel right now!
+* JHM wonders why dpkg remembers that particular nick.
+<grin> dpkg: Sarek? ermm, sure, and I am Khan
+	-- Seen on #Debian
+%
+When you have 200 programmers trying to write code for one
+product, like Win95 or NT, what you get is a multiple personality
+program.  By definition, the real problem is that these programs are
+psychotic by nature and make people crazy when they use them.
+	-- Joan Brewer on alt.destroy.microsoft
+%
+<igor> Hah! we have 2 Johnie Ingrams in the channel :)
+<igor> Hey all btw :)
+%
+I just uploaded xtoolplaces-1.6. It fixes all bugs but one: It still
+coredumps instead of doing something useful.  The upstream author's
+e-mail address bounces, Redhat doesn't provide it and I never used it.
+	-- Sven Rudolph <sr1@os.inf.tu-dresden.de>
+%
+> I thing you're missing the capability of Makefiles.
+
+        It takes several _hours_ to do `make' a second time on my
+machine with the latest glibc sources (and no files are recompiled a
+second time).  I think I'll remove `build' after changing one file if
+I want to recompile it.
+		-- Juan Cespedes <cespedes@debian.org>
+%
+<Culus> aIIIIIIIIIII!!!!!!!!!!!!!!!11
+<Culus> MY LIGHT JUST DIED
+<Culus> I AM SO SAD
+<Culus> I'm blind! I'm blind!
+<dark> Light?
+<dark> Turn all your xterms to black-on-white :)  Plenty of light that way.
+	-- Seen on #Debian
+%
+| |-sshd---tcsh-+-dpkg-buildpacka---rules---sh---make---make---sh
+---make---sh---make---sh---make---sh---make---sh---make
+	-- While packaging XFree86 for Debian GNU/Linux
+%
+/*
+ *     Please skip to the bottom of this file if you ate lunch recently
+ *                             -- Alan
+ */
+	-- from Linux kernel pre-2.1.91-1
+%
+#if _FP_W_TYPE_SIZE < 64
+#error "Only stud muffins allowed, schmuck."
+#endif
+	-- linux/arch/sparc64/quad.c
+%
+#if _FP_W_TYPE_SIZE < 32
+#error "Here's a nickel kid.  Go buy yourself a real computer."
+#endif
+	-- linux/arch/sparc64/double.h
+%
+<dark> eat Depends: cook | eat-out.
+       But eat-out is non-free so that's out.
+       And cook Recommends: clean-pans.
+	-- Seen on #Debian
+%
+* Linux Viruscan.....
+  Windows 95 found.  Remove it? (Y/y)
+	-- Unknown source
+%
+<sel> need help: my first packet to my provider gets lost :-(
+<netgod> sel:  don't send the first one, start with #2
+* netgod is kidding
+%
+These download files are in Microsoft Word 6.0 format. After
+unzipping, these files can be viewed in any text editor, including
+all versions of Microsoft Word, WordPad, and Microsoft Word Viewer
+		-- From Micro$oft
+%
+Ooh, mommy, mommy, what I have now doesn't work in this extremely
+unlikely circumstance, so I'll just throw it away and write something
+completely new.
+		-- Linus Torvalds
+%
+#ifdef __SMP__
+#error "Me no hablo Alpha SMP"
+#else
+#define irq_enter(cpu, irq)     (++local_irq_count[cpu])
+#define irq_exit(cpu, irq)      (--local_irq_count[cpu])
+#endif
+	-- from kernel 2.1.90, arch/alpha/kernel/irc.c
+%
+Linus Torvalds:
+> This is the special Easter release of linux, more mundanely called 1.3.84
+Winfried Truemper:
+> Umh, oh. What do you mean by "special easter release"?. Will it quit
+> working today and rise on easter?
+%
+I never thought that I'd see the day where Netscape is free software and
+X11 is proprietary.  We live in interesting times.
+	-- Matt Kimball <mkimball@xmission.com>
+%
+Because I don't need to worry about finances I can ignore Microsoft
+and take over the (computing) world from the grassroots.
+	-- Linus Torvalds
+%
+/*
+ * Buddy system. Hairy. You really aren't expected to understand this
+ *
+ */
+	-- From /usr/src/linux/mm/page_alloc.cA
+%
+baz bat bamus batis bant.
+	-- James Troup
+%
+Just go ahead and write your own multitasking multiuser os!
+Worked for me all the times.
+	-- Linus Torvalds
+%
+I've seen people with new children before, they go from ultra happy to
+looking like something out of a zombie film in about a week.
+	-- Alan Cox about Linus after his 2nd daughter
+%
+I expect that no one has objections.  However, if I'd only add these entries
+to the list because `I think it's the right thing to do', I'd get a lot of
+flames afterwards :)
+	-- Christian Schwarz
+%
+Various documentation updates and bugfixes (the best way to know that a
+stable kernel is approaching is to notice that somebody starts to
+spellcheck the kernel - it has so far never failed)
+	-- Linus Torvalds in the annoucement for pre-2.1.99-3
+%
+You will not censor me through bug terrorism.
+	-- James Troup
+%
+<doogie> Thinking is dangerous.  It leads to ideas.
+	-- Seen on #Debian
+%
+<james> Are we going to make an emacs out of apt?
+        APT - Debian in a program.  It even does your laundry
+	-- Seen on #Debian
+%
+<joost> Do you mean to say that I can read mail with vi too? ;-)
+<Joey> Didn't you know that?
+<Joey> :r /var/spool/mail/jk
+	-- debian-mentors
+%
+Charles Briscoe-Smith <cpbs@debian.org>:
+  After all, the gzip package is called `gzip', not `libz-bin'...
+
+James Troup <troup@debian.org>:
+  Uh, probably because the gzip binary doesn't come from the
+  non-existent libz package or the existent zlib package.
+	-- debian-bugs-dist
+%
+Debian is like Suse with yast turned off, just better. :)
+	-- Goswin Brederlow
+%
+Arnold's Laws of Documentation:
+	(1) If it should exist, it doesn't.
+	(2) If it does exist, it's out of date.
+	(3) Only documentation for useless programs transcends the
+	    first two laws.
+%
+The truth is not free.  It's that simple.  If you change the truth, it is no
+longer true - so the truth is not free!
+	-- Jules Bean about freeness of documentation
+%
+<jim> Lemme make sure I'm not wasting time here... bcwhite will remove
+      pkgs that havent been fixed that have outstanding bugs of severity
+      "important".  True or false?
+<JHM> jim: "important" or higher.  True.
+<jim> Then we're about to lose ftp.debian.org and dpkg :)
+* netgod will miss dpkg -- it was occasionally useful
+<Joey> We still have rpm....
+	-- Seen on #Debian
+%
+* JHM wonders what Joey did to earn "I'd just like to say, for the record,
+  that Joey rules."
+	-- Seen on #Debian
+%
+The problem here (as someon else stated) is that when multiple dists
+use the same package format it only gives a "false sense of compatibility".
+	-- Stephen Carpenter <sjc@delphi.com>
+%
+*** Rince is wagner@schizo.DAINet.de (We have Joey, we have Fun, we have Linux
+on a Sun)
+	-- Seen on #Debian
+%
+... Linux und seine Programme sind damit
+so etwas wie ein real existierender Sozialismus der besseren Art...
+	-- Christian Seel in der Berliner Morgenpost v. 9.3.1997
+%
+The most effective has probably been Linux/8086 - that was a joke
+that got out of hand.  So far out of hand in fact its almost approaching
+usability because other folks thought it worth doing - Alistair Riddoch
+especially.
+	-- Alan Cox
+%
+The only other people who might benefit from Linux8086 would be owners
+of PDP/11's and other roomsized computers from the same era.
+	-- Alan Cox
+%
+Ha. I say let them try -- even vi+perl couldn't match the power of an
+editor which is, after all, its own OS.  ;-)
+	-- Johnie Ingram on debian-devel, about linking vim with libperl.so
+%
+Being overloaded is the sign of a true Debian maintainer.
+	-- JHM on #Debian
+%
+<alaint> joey--very clever !!!
+<alaint> joey--no wonder that Debian is a good distrib with coder like you
+	-- Seen on #Debian (referring to my RAID article for the LJ)
+%
+There are 3 kinds of people: those who can count & those who can't.
+	-- Unknown source
+%
+Despite the best efforts of a quantum bigfoot drive (yes I know everyone
+told me they suck, now I know they were right) 2.1.109ac1 is now available
+	-- Alan Cox announcing Linux 2.1.109ac1
+%
+<dark> Turns out that grep returns error code 1 when there are no matches.
+       I KNEW that.  Why did it take me half an hour?
+	-- Seen on #Debian
+%
+It's simply unbelievable how much energy and creativity people have
+invested into creating contradictory, bogus and stupid licenses...
+	--- Sven Rudolph about licences in debian/non-free.
+%
+<Overfiend> partycle: I seriously do need a vacation from this
+            package.  I actually had a DREAM about introducing a
+            stupid new bug into xbase-preinst last night.  That's a
+            Bad Sign.
+	-- Seen on #Debian shortly before the release of Debian 2.0
+%
+<core> i'm glad Debian finally got into
+        polar-deep-freeze-we-arent-shitting-you state finally.
+	-- Seen on #Debian shortly before the release of Debian 2.0
+%
+<dark> Looks like the channel is back to normal :)
+<jim> You mean it's not scrolling faster than anyone can read? :)
+	-- Seen on #Debian after the release of Debian 2.0
+%
+Alex Buell:
+Or how about a Penguin logo painted in really really trippy
+colours, and emblazoned with the word LSD. :o)
+
+Geert Uytterhoeven:
+We already had that one, but unfortunately Russell King fixed that nasty
+palette bug in drivers/video/fbcon.c :-)
+	-- linux-kernel
+%
+Writing non-free software is not an ethically legitimate activity,
+so if people who do this run into trouble, that's good!  All businesses
+based on non-free software ought to fail, and the sooner the better.
+	-- Richard Stallman
+%
+Außerdem noch [..] die Distribution für Puristen, denen technische
+Eleganz und Qualität und philosophisch reine Lehre der `freien Software'
+über totale Einfachheit geht (Debian) und viele mehr.
+	-- Anselm Lingnau in de.comp.os.unix.discussion
+%
+Fehlermeldung von StarOffice:
+
+Das Dokument wurde fuer den Drucker Generic PostScript Printer formatiert.
+Der Drucker ist nicht vorhanden.  Soll der Standarddrucker Generic
+PostScript Printer verwendet werden?
+
+Ob Programme schizophren werden koennen?
+	-- Oliver Bedford <O.Bedford@uni-koeln.de>
+%
+No, that's wrong too.  Now there's a race condition between the rm and
+the mv.  Hmm, I need more coffee.
+	-- Guy Maor on Debian Bug#25228
+%
+Perhaps the RBLing (Realtime Black Hole) of msn.com recently, which
+prevented a large amount of mail going out for about 4 days, has had a
+positive influence in Redmond.  They did agree to work on their anti-relay
+capabilities at their POPs to get the RBL lifted.
+	-- Bill Campbell on Smail3-users
+%
+Microsoft DNS service terminates abnormally when it receives a response
+to a DNS query that was never made.  Fix Information: Run your DNS
+service on a different platform.
+	-- bugtraq
+%
+I am amazed that no-one's based a commercial distribution on Debian
+yet - it is by far the most solid UNIX-like OS I've ever installed,
+and I've played with HP/UX, Solaris, FreeBSD, BSDi, and SCO (not to
+mention OS/2, Novell, Win95/NT)
+	-- Nathan E. Norman
+%
+Jim>   http://www.novare.net/~eam/kaffe/
+Joey>                           ^
+Joey> And now we all learn how to write Ean's name and the URL is complete.
+Jim> Hah!  I noticed that the instead I sent it, and I tried to hit ^g, but
+     I was too slow.  :-)
+	--- debian-devel
+%
+Die TeX-Artikel [..] aber doch inzwischen wohl nicht mehr an den
+Fingern zweier Hände abzählbar (außer vielleicht von Informatikern,
+die bekanntlich mit den Fingern bis 1023 zählen können.
+	-- Anselm Lingnau
+%
+And Bruce is effectively building BruceIX
+	-- Alan Cox
+%
+<Culus-> I will be known as Ian Black, Ean can be Ian Red, Netgod Ian Blue,
+         Che gets Ian Yellow, CQ is Ian Purple and Joey is Ian Indigo
+	-- Some #Debian channel
+%
+When a float occurs on the same page as the start of a supertabular
+you can expect unexpected results.
+	-- Documentation of supertabular.sty
+%
+From: Ean Schuessler <ean@novare.net>
+The unrecognized minister of propaganda,
+E
+	-- Debian, joking
+%
+* liw prefers not to have Linus run Debian, because then /me would
+  have to run Red Hat, just to keep the power balance :)
+	-- #Debian
+%
+<\\swing> and if we're playing old distributions... whatever happened to
+Yggdrasil? :)
+<joost> \\swing: everybody who tried to pronounce it got their tongue in a knot
+and choked
+	-- #Debian
+%
+I'm telling you that the kernel is stable not because it's a kernel,
+but because I refuse to listen to arguments like this.
+	-- Linus Torvalds
+%
+> Tut mir Leid, Jost, aber Du bist ein unertraeglicher Troll.
+Was soll das? Du *beleidigst* die Trolle!
+	-- de.comp.os.unix.linux.misc
+%
+Wenn also die KDE-Arbeit nochmal gemacht wird bei GNOME, hat das die
+Entwicklungszeit für ein freies Desktop-System verkürzt.  Hast Du auch
+irgendwo die passende Algebra zu der Rechnung?
+	-- Sascha Ziemann in de.comp.os.unix.linux.misc
+%
+* dpkg ponders: 'C++' should have been called 'D'
+	-- #Debian
+%
+<rm_-rf_> The real value of KDE is that they inspired and push the
+          development of GNOME :-)
+	-- #Debian
+%
+* dpkg hands stu a huge glass of vbeer
+* Joey takes the beer from stu, you're too young ;)
+* Cylord takes the beer from Joey, you're too drunk.
+* Cylord gives the beer to muggles.
+	-- #Debian, celebrating the 5th anniversary
+%
+<stu> Stupid nick highlighting
+<stu> Whenever someone starts with "stupid" it highlights the nick.  Hmm.
+	-- #Debian
+%
+<netgod> And once Diziet/CQ make the formal announcment that LSA
+         sucks, we can even reduce the Crisis Level rating and move
+         on to linuxfoundation.org.
+	-- #Debian
+%
+* LG loves czech girls.
+<vincent> LG: do they have additional interesting "features" other girls don't
+have? ;)
+	-- #Debian
+%
+The first is to ensure your partner understands that nature has root
+privileges - nature doesn't have to make sense.
+	-- Telsa Gwynne
+%
+As to house maintenance, does it involve problem solfing?  If so,
+your hacker can safely be left to deall with the panning (for the
+musement value, if nothering ese).
+	-- Telsa Gwynne
+%
+Remember: While root can do most everything, there are certain
+privileges that only a partner can grant.
+	-- Telsa Gwynne
+%
+<Skyhook> Where is 'bavaria' proper?  I thought it was austria.
+	-- Seen on #Linux
+%
+Day X+4 months: Microsoft ships NT 5.0 for Intel.with a big media
+                event on TV. IBM begins to ship Debian 4.6 as the
+                standard OS on all machines from mainframe to PC
+                and announces the move on Slashdot.
+	-- Christoph Lameter
+%
+How many chunks could checkchunk check if checkchunk could check chunks?
+	-- Alan Cox
+%
+Q: How does a Unix guru have sex?
+A: unzip;strip;touch;finger;mount;fsck;more;yes;umount;sleep
+	-- unknown source
+%
+Someone on IRC was very sad about the uptime of his machine wrapping
+from 497 days to 0.
+	-- linux-kernel
+%
+<doogie> netgod:  8:42pm is not late.
+<netgod> doogie: its 2:42am in Joeyland
+	-- #Debian
+%
+We knew from experience that the essence of communal computing, as
+supplied by remote-access, time-shared machines, is not just to type
+programs into a terminal instead of a keypunch, but to encourage close
+communication.
+	-- Dennis Ritchie
+%
+modconf (0.2.37) stable unstable; urgency=medium
+  [...]
+  * Eduard Bloch:
+    - fixed Makefile broken Marcin Owsiany a while ago. The default manpage
+      has been overwritten with the polish translation. I still wonder why
+      nobody noticed this before. Closes: #117474
+  [...]
+ -- Eduard Bloch <blade@debian.org>  Sun, 28 Oct 2001 12:53:27 +0100
+%
+<|ryan|> I don't use deb
+<netgod> u poor man
+<Disconnect> netgod: heh
+<Kingsqueak> apt-get install task-p0rn
+%
+%
+Could somebody drag the Irix team kicking and screaming into the 1980's,
+please?
+
+I realize it might be quite painful for them, but maybe you could buy them
+a disco tape, so they'd feel a little bit more at home.
+
+		-- Linus "Stayin' alive, stayin' alive" Torvalds
+%
+> <magical +3 sigh of hyperbole deflection>
+
+The branden dodges your magical sigh. The branden attacks you with a
+slew of words! The branden misses!
+
+	-- Henning Makholm in <yahsmr7dk9k.fsf@pc-043.diku.dk>
+%
+I don't think 'It's better than hurling yourself into a meat grinder'
+is a good rationale for doing something.
+		-- Andrew Suffield in
+		   <20030905221055.GA22354@doc.ic.ac.uk> on debian-devel
+%
+< Overfiend> whew.
+< Overfiend> I really need to get some sleep.
+< Overfiend> but it sure was fun talking guitars, politics, and lesbians.
+%
+<<<
+Why Eclipse doesn't belong to the "right" tools? My naive understanding is
+that Eclipse is the Emacs of the 21st century – it is open source, customizable
+etc., similar to Emacs; in addition to being graphical.
+>>>
+
+Thank you! I was wondering why I hated Eclipse so much, and you have put your
+finger on it. It's exactly like a 21st century Emacs.
+
+    -- Shachar Shemesh
+    -- Re: [Haifux] [W2L] Call for lecturer + "Linux guru"
+       ( https://is.gd/PbULJR )
+%
+Emacs is a nice operating system, but what it lacks, in order to compete with
+Linux, is a good text editor.
+    — based on https://en.wikiquote.org/wiki/Emacs
+%
+> > You can easily install the binary distribution of Mozilla (from
+> > mozilla.org) on a different prefix, possibly under your home directory.
+> > Please install it and use it instead of Mozilla 1.1, at least when
+> > verifying if problems indeed exist. I do not wish to tolerate any more
+> > reports of problems when using Mozilla 1.1, because I can't tell if it's a
+> > bug that was fixed by then, or if it's an actual issue with Mozilla.
+> >
+> > On a slightly different note: my machine crashed the other day when
+> > using it with kernel 2.6.0. Can anyone help?
+>
+> I do not wish to tolerate any reports of problems when using kernel
+> 2.6.0, because I can't tell if it's a bug that was fixed by then, or
+> if it's an actual issue with the kernel.
+
+My Commodore 64 is suffering from slowness and insufficiency of memory;
+and its display device is grievously short of pixels. Can anyone help?
+
+    -- Shlomi Fish, Muli Ben Yehuda and Omer Zak on discussions@hamakor.org.il.
+    -- https://is.gd/tAZmZD
+%
+Who wants to remember that escape-x-alt-control-left shift-b puts you into
+super-edit-debug-compile mode?
+
+    -- Discussion in comp.os.linux.misc on the intuitiveness of commands,
+       especially Emacs.
+%
+I've heard a Jew and a Muslim argue in a Damascus cafe with less passion
+than the emacs wars."
+		-- Ronald Florence <ron@18james.com> in
+		   <ueu1c4mbrc.fsf@auda.18james.com>
+%
+World domination.  Fast
+
+    -- Linus Torvalds ( Unsourced )
+%
+Actually, typing random strings in the Finder does the equivalent of
+filename completion.
+    -- Discussion in comp.os.linux.misc on the intuitiveness of commands: file
+       completion vs. the Mac Finder.
+%
+Anyone who thinks UNIX is intuitive should be forced to write 5000 lines of
+code using nothing but vi or emacs. AAAAACK!
+(Discussion in comp.os.linux.misc on the intuitiveness of commands, especially
+Emacs.)
+%
+It's God.  No, not Richard Stallman, or Linus Torvalds, but God.
+
+    -- Matt Welsh
+%
+There are no threads in a.b.p.erotica,  so there's no  gain in using a
+threaded news reader.
+
+    -- Unknown source
+%
+Running Windows on a Pentium is like having a brand new Porsche but only
+be able to drive backwards with the handbrake on.
+
+    -- Unknown source
+%
+The nice thing about Windows is - It does not just crash, it displays a
+dialog box and lets you press 'OK' first.
+
+    -- Arno Schaefer's .sig
+%
+What's this script do?
+    unzip ; touch ; finger ; mount ; gasp ; yes ; umount ; sleep
+Hint for the answer: not everything is computer-oriented. Sometimes you're
+in a sleeping bag, camping out.
+
+    -- (Contributed by Frans van der Zande.)
+%
+Linux: Because Software Problems Should Not Cost Money.
+
+    -- Shlomi Fish
+    -- https://www.shlomifish.org/art/linux_banner/
+%
+My friend Botje from freenode noted that some people on its #osdev chatroom,
+have implemented kernels from scratch, which supported enough of POSIX to
+bootstrap a GNU ( https://gnu.org/ ) system (as I suspected).
+
+Now try this with CSS2.1...
+
+    -- Shlomi Fish
+    -- https://twitter.com/shlomif/status/1542047869989011457
+%
+You know who's dumb? It's me. I'm dumb.
+I couldn't eject the tape.
+Because there was no tape.
+And I was looking at the slot cover.
+
+    -- Jason B.
+%

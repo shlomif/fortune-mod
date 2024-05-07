@@ -1,0 +1,1 @@
+/sbin/cc  -std=gnu11 CMakeFiles/strfile.dir/util/strfile.c.o -o strfile  -Wl,-rpath,::::::::::::::

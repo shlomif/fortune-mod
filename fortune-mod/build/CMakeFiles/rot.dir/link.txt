@@ -1,0 +1,1 @@
+/sbin/cc  -std=gnu11 CMakeFiles/rot.dir/util/rot.c.o -o rot  -Wl,-rpath,::::::::::::::

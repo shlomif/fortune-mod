@@ -998,10 +998,18 @@ static int form_file_list(char **files, int file_cnt)
             }
             if (*sp == '.')
             {
-                fprintf(stderr, "%s", "percentages must be integers\n");
-                ErrorMessage = true;
-                return false;
-            }
+                char* c = sp + 1;
+                while (1) {
+                    if (!*c) {
+                        fprintf(stderr, "%s", "percentages must be integers\n");
+                        ErrorMessage = true;
+                        return false;
+                    }
+                    if (!isdigit(*c++)) {
+                        break;
+                    }
+                }
+           }
             /*
              * If the number isn't followed by a '%', then
              * it was not a percentage, just the first part

@@ -1,0 +1,1 @@
+/sbin/cc  -std=gnu11 CMakeFiles/fortune.dir/fortune/fortune.c.o -o fortune  -Wl,-rpath,:::::::::::::: -lrecode

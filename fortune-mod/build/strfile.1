@@ -1,0 +1,279 @@
+'\" t
+.\"     Title: STRFILE
+.\"    Author: [FIXME: author] [see http://www.docbook.org/tdg5/en/html/author]
+.\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
+.\"      Date: 05/07/2024
+.\"    Manual: 4th Berkeley Distribution
+.\"    Source: June 9, 1993 [Apr. 1997]
+.\"  Language: English
+.\"
+.TH "STRFILE" "1" "05/07/2024" "June 9, 1993 [Apr\&. 1997]" "4th Berkeley Distribution"
+.\" -----------------------------------------------------------------
+.\" * Define some portability stuff
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" http://bugs.debian.org/507673
+.\" http://lists.gnu.org/archive/html/groff/2009-02/msg00013.html
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.SH "NAME"
+strfile \- create a random access file for storing strings
+.br
+unstr \- dump strings in pointer order
+
+.SH "SYNOPSIS"
+.HP \w'\fBstrfile\fR\ 'u
+
+  \fBstrfile\fR     [\-iorsx]
+     [\-c\ \fIchar\fR]
+     \fIsourcefile\fR
+     [\fIoutputfile\fR]
+
+.HP \w'\fBunstr\fR\ 'u
+
+  \fBunstr\fR     [\-c\ \fIchar\fR]
+     \fIdatafile\&.[ext]\fR
+     [\fIoutputfile\fR]
+
+
+
+
+.SH "DESCRIPTION"
+.PP
+\fBstrfile\fR
+reads a file containing groups of lines separated by a line containing a single percent `%\*(Aq sign (or other specified delimiter character) and creates a data file which contains a header structure and a table of file offsets for each group of lines\&. This allows random access of the strings\&.
+
+.PP
+The output file, if not specified on the command line, is named
+\fIsourcefile\&.dat\fR\&.
+
+.PP
+The purpose of
+\fBunstr\fR
+is to undo the work of
+\fBstrfile\fR\&. It prints out the strings contained in the sourcefile, which is
+\fIdatafile\&.ext\fR
+without its extension, or
+\fIdatafile\fR
+if no extension is specified (in this case, the extension
+\fB\&.dat\fR
+is added to the name of the datafile) in the order that they are listed in the header file
+\fIdatafile\fR\&. If no
+\fIoutputfile\fR
+is specified, it prints to standard output; otherwise it prints to the file specified\&.
+\fBunstr\fR
+can also universally change the delimiter character in a strings file\&. It is possible to create sorted versions of input files by using
+\fBstrfile \-o\fR
+and then using
+\fBunstr\fR
+to dump them out in the table order\&.
+
+.SS "Options"
+.PP
+The options are as follows:
+
+
+
+  .PP
+\fB\-c \fR\fIchar\fR
+.RS 4
+
+  
+  
+Change the delimiting character from the percent sign to
+\fIchar\fR\&. This option is available for both
+\fBstrfile\fR
+and
+\fBunstr\fR\&.
+
+  
+  .RE
+  .PP
+\fB\-i\fR
+.RS 4
+
+  
+  
+Ignore case when ordering the strings\&.
+
+  
+  .RE
+  .PP
+\fB\-o\fR
+.RS 4
+
+  
+  
+Order the strings in alphabetical order\&. The offset table will be sorted in the alphabetical order of the groups of lines referenced\&. Any initial non\-alphanumeric characters are ignored\&. This option causes the STR_ORDERED bit in the header
+\fIstr_flags\fR
+field to be set\&. (It also now really does sort! It didn\*(Aqt used to)\&.
+
+  
+  .RE
+  .PP
+\fB\-r\fR
+.RS 4
+
+  
+  
+Randomize access to the strings\&. Entries in the offset table will be randomly ordered\&. This option causes the STR_RANDOM bit in the header
+\fIstr_flags\fR
+field to be set\&. (And really does randomize)
+
+  
+  .RE
+  .PP
+\fB\-s\fR
+.RS 4
+
+  
+  
+Run silently; don\*(Aqt give a summary message when finished\&.
+
+  
+  .RE
+  .PP
+\fB\-x\fR
+.RS 4
+
+  
+  
+Note that each alphabetic character in the groups of lines is rotated 13 positions in a simple caesar cypher\&. This option causes the STR_ROTATED bit in the header
+\fIstr_flags\fR
+field to be set\&. Note that it
+\fBdoes not\fR
+rotate the strings\-\-that operation must be performed separately\&.
+
+  
+  .RE
+
+
+.SS "Header"
+.PP
+The format of the header is:
+
+.PP
+#define VERSION 1
+unsigned long str_version; /* version number */
+unsigned long str_numstr; /* # of strings in the file */
+unsigned long str_longlen; /* length of longest string */
+unsigned long str_shortlen; /* shortest string length */
+#define STR_RANDOM 0x1 /* randomized pointers */
+#define STR_ORDERED 0x2 /* ordered pointers */
+#define STR_ROTATED 0x4 /* rot\-13\*(Aqd text */
+unsigned long str_flags; /* bit field for flags */
+char str_delim; /* delimiting character */
+
+.PP
+All fields are written in network byte order\&.
+
+
+
+.SH "BUGS"
+.PP
+Fewer now, one hopes\&. However, fortunes (text strings) beginning with a blank line appear to be sorted between random letters\&. This includes ASCII art that contains no letters, and first lines that are solely non\-alphanumeric, apparently\&. I\*(Aqve no idea why this should be\&.
+
+
+.SH "OTHER USES"
+.PP
+What can you do with this besides printing sarcastic and obscene messages to the screens of lusers at login or logout?
+
+.PP
+There
+\fBare\fR
+some other possibilities\&. Source code for a sample program,
+\fBrandstr\fR, is included with this distribution: randstr splits the difference between
+\fBunstr\fR
+and
+\fBfortune\fR\&. It reads a single, specified file, and randomly selects a single text string\&.
+
+
+
+  .PP
+1
+.RS 4
+
+  
+  
+Include
+\fIstrfile\&.h\fR
+into a news reading/posting program, to generate random signatures\&.
+\fBTin\fR(1)
+does something similar, in a much more complex manner\&.
+
+  
+  .RE
+  .PP
+2
+.RS 4
+
+  
+  
+Include it in a game\&. While strfile doesn\*(Aqt support \*(Aqfields\*(Aq or \*(Aqrecords\*(Aq, there\*(Aqs no reason that the text strings can\*(Aqt be consistent: first line, a die roll; second line, a score; third and subsequent lines, a text message\&.
+
+  
+  .RE
+  .PP
+3
+.RS 4
+
+  
+  
+Use it to store your address book\&. Hell, some of the guys I know would be as well off using it to decide who to call on Friday nights (and for some, it wouldn\*(Aqt matter whether there were phone numbers in it or not)\&.
+
+  
+  .RE
+  .PP
+4
+.RS 4
+
+  
+  
+Use it in \*(Aqlottery\*(Aq situations\&. If you\*(Aqre an ISP, write a script to store login names and GECOS from
+/etc/passwd
+in strfile format, write another to send \*(Aqcongratulations, you\*(Aqve won\*(Aq to the lucky login selected\&. The prize might be a month\*(Aqs free service, or if you\*(Aqre AOL, a month free on a real service provider\&.
+
+  
+  .RE
+
+
+.SH "SEE ALSO"
+.PP
+\fBbyteorder\fR(3),
+\fBfortune\fR(6)
+
+
+.SH "HISTORY"
+.PP
+The
+\fBstrfile\fR
+utility first appeared in 4\&.4BSD\&. This version was heavily modified, much of it in ways peculiar to Linux\&. Work has since been done to make the code more generic, and has so far been tested to work with SunOS 4\&.x\&. More platforms are expected to be supported as work continues\&.
+
+

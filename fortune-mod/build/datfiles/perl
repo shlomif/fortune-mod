@@ -1,0 +1,1026 @@
+All language designers are arrogant.  Goes with the territory... :-)
+		-- Larry Wall in <1991Jul13.010945.19157@netlabs.com
+%
+Although the Perl Slogan is There's More Than One Way to Do It, I hesitate
+to make 10 ways to do something.  :-)
+		-- Larry Wall in <9695@jpl-devvax.JPL.NASA.GOV>
+%
+And don't tell me there isn't one bit of difference between null and space,
+because that's exactly how much difference there is.  :-)
+		-- Larry Wall in <10209@jpl-devvax.JPL.NASA.GOV>
+%
+"And I don't like doing silly things (except on purpose)."
+		-- Larry Wall in <1992Jul3.191825.14435@netlabs.com>
+%
+:        And it goes against the grain of building small tools.
+Innocent, Your Honor.  Perl users build small tools all day long.
+		-- Larry Wall in <1992Aug26.184221.29627@netlabs.com>
+%
+/* And you'll never guess what the dog had */
+/*   in its mouth... */
+		-- Larry Wall in stab.c from the perl source code
+%
+Because . doesn't match \n.  [\0-\377] is the most efficient way to match
+everything currently.  Maybe \e should match everything.  And \E would
+of course match nothing.   :-)
+		-- Larry Wall in <9847@jpl-devvax.JPL.NASA.GOV>
+%
+Be consistent.
+		-- Larry Wall in the perl man page
+%
+Besides, including <std_ice_cubes.h> is a fatal error on machines that
+don't have it yet.  Bad language design, there...  :-)
+		-- Larry Wall in <1991Aug22.220929.6857@netlabs.com>
+%
+Besides, it's good to force C programmers to use the toolbox occasionally.  :-)
+		-- Larry Wall in <1991May31.181659.28817@jpl-devvax.jpl.nasa.gov>
+%
+Besides, REAL computers have a rename() system call.    :-)
+		-- Larry Wall in <7937@jpl-devvax.JPL.NASA.GOV>
+%
+break;                          /* don't do magic till later */
+		-- Larry Wall in stab.c from the perl source code
+%
+But you have to allow a little for the desire to evangelize when you
+think you have good news.
+		-- Larry Wall in <1992Aug26.184221.29627@netlabs.com>
+%
+Chip Salzenberg sent me a complete patch to add System V IPC (msg, sem and
+shm calls), so I added them.  If that bothers you, you can always undefine
+them in config.sh.  :-) -- Larry Wall in <9384@jpl-devvax.JPL.NASA.GOV>
+%
+/* dbmrefcnt--;  */     /* doesn't work, rats */
+		-- Larry Wall in hash.c from the perl source code
+%
+#define NULL 0           /* silly thing is, we don't even use this */
+		-- Larry Wall in perl.c from the perl source code
+%
+#define SIGILL 6         /* blech */
+		-- Larry Wall in perl.c from the perl source code
+%
+Does the same as the system call of that name.
+If you don't know what it does, don't worry about it.
+		-- Larry Wall in the perl man page regarding chroot(2)
+%
+double value;                /* or your money back! */
+short changed;               /* so triple your money back! */
+		-- Larry Wall in cons.c from the perl source code
+%
+Down that path lies madness.  On the other hand, the road to hell is
+paved with melting snowballs.
+		-- Larry Wall in <1992Jul2.222039.26476@netlabs.com>
+%
+echo "Congratulations.  You aren't running Eunice."
+		-- Larry Wall in Configure from the perl distribution
+%
+echo "Hmmm...you don't have Berkeley networking in libc.a..."
+echo "but the Wollongong group seems to have hacked it in."
+		-- Larry Wall in Configure from the perl distribution
+%
+echo "ICK, NOTHING WORKED!!!  You may have to diddle the includes.";;
+		-- Larry Wall in Configure from the perl distribution
+%
+echo $package has manual pages available in source form.
+echo "However, you don't have nroff, so they're probably useless to you."
+		-- Larry Wall in Configure from the perl distribution
+%
+echo "Your stdio isn't very std."
+		-- Larry Wall in Configure from the perl distribution
+%
+#else /* !STDSTDIO */     /* The big, slow, and stupid way */
+		-- Larry Wall in str.c from the perl source code
+%
+[End of diatribe.  We now return you to your regularly scheduled
+programming...]
+		-- Larry Wall in Configure from the perl distribution
+%
+Even if you aren't in doubt, consider the mental welfare of the person who
+has to maintain the code after you, and who will probably put parens in
+the wrong place.  -- Larry Wall in the perl man page
+%
+"Help save the world!"              -- Larry Wall in README
+%
+Hey, I had to let awk be better at *something*...  :-)
+		-- Larry Wall in <1991Nov7.200504.25280@netlabs.com>1
+%
+I already have too much problem with people thinking the efficiency of
+a perl construct is related to its length.  On the other hand, I'm
+perfectly capable of changing my mind next week...  :-) --lwall
+%
+I don't know if it's what you want, but it's what you get.  :-)
+		-- Larry Wall in <10502@jpl-devvax.JPL.NASA.GOV>
+%
+I dunno, I dream in Perl sometimes...
+		-- Larry Wall in  <8538@jpl-devvax.JPL.NASA.GOV>
+%
+If I allowed "next $label" then I'd also have to allow "goto $label",
+and I don't think you really want that...  :-)
+		-- Larry Wall in <1991Mar11.230002.27271@jpl-devvax.jpl.nasa.gov>
+%
+If I don't document something, it's usually either for a good reason,
+or a bad reason.  In this case it's a good reason.  :-)
+		-- Larry Wall in <1992Jan17.005405.16806@netlabs.com>
+%
+"I find this a nice feature but it is not according to the documentation.
+Or is it a BUG?"
+"Let's call it an accidental feature. :-)"
+		-- Larry Wall in <6909@jpl-devvax.JPL.NASA.GOV>
+%
+if (instr(buf,sys_errlist[errno]))  /* you don't see this */
+		-- Larry Wall in eval.c from the perl source code
+%
+if (rsfp = mypopen("/bin/mail root","w")) {     /* heh, heh */
+		-- Larry Wall in perl.c from the perl source code
+%
+If you consistently take an antagonistic approach, however, people are
+going to start thinking you're from New York.   :-)
+		-- Larry Wall to Dan Bernstein in <10187@jpl-devvax.JPL.NASA.GOV>
+%
+If you want to program in C, program in C.  It's a nice language.  I
+use it occasionally...   :-)
+		-- Larry Wall in <7577@jpl-devvax.JPL.NASA.GOV>
+%
+If you want to see useful Perl examples, we can certainly arrange to have
+comp.lang.misc flooded with them, but I don't think that would help the
+advance of civilization.  :-)
+		-- Larry Wall in <1992Mar5.180926.19041@netlabs.com>
+%
+If you want your program to be readable, consider supplying the argument.
+		-- Larry Wall in the perl man page
+%
+I know it's weird, but it does make it easier to write poetry in perl.    :-)
+		-- Larry Wall in <7865@jpl-devvax.JPL.NASA.GOV>
+%
+I'll say it again for the logic impaired.
+		-- Larry Wall
+%
+I might be able to shoehorn a reference count in on top of the numeric
+value by disallowing multiple references on scalars with a numeric value,
+but it wouldn't be as clean.  I do occasionally worry about that. --lwall
+%
+I'm sure that that could be indented more readably, but I'm scared of
+the awk parser.
+		-- Larry Wall in <6849@jpl-devvax.JPL.NASA.GOV>
+%
+In general, if you think something isn't in Perl, try it out, because it
+usually is.  :-)
+		-- Larry Wall in <1991Jul31.174523.9447@netlabs.com>
+%
+In general, they do what you want, unless you want consistency.
+		-- Larry Wall in the perl man page
+%
+Interestingly enough, since subroutine declarations can come anywhere,
+you wouldn't have to put BEGIN {} at the beginning, nor END {} at the
+end.  Interesting, no?  I wonder if Henry would like it. :-) --lwall
+%
+I think it's a new feature.  Don't tell anyone it was an accident.  :-)
+		-- Larry Wall on s/foo/bar/eieio in <10911@jpl-devvax.JPL.NASA.GOV>
+%
+"It is easier to port a shell than a shell script."
+		-- Larry Wall
+%
+It is, of course, written in Perl.  Translation to C is left as an
+exercise for the reader.  :-)  -- Larry Wall in <7448@jpl-devvax.JPL.NASA.GOV>
+%
+It's all magic.  :-)
+		-- Larry Wall in <7282@jpl-devvax.JPL.NASA.GOV>
+%
+It's documented in The Book, somewhere...
+		-- Larry Wall in <10502@jpl-devvax.JPL.NASA.GOV>
+%
+> (It's sorta like sed, but not.  It's sorta like awk, but not.  etc.)
+Guilty as charged.  Perl is happily ugly, and happily derivative.
+		-- Larry Wall in <1992Aug26.184221.29627@netlabs.com>
+%
+It's there as a sop to former Ada programmers.  :-)
+		-- Larry Wall regarding 10_000_000 in <11556@jpl-devvax.JPL.NASA.GOV>
+%
+It won't be covered in the book.  The source code has to be useful for
+something, after all...  :-)
+		-- Larry Wall in <10160@jpl-devvax.JPL.NASA.GOV>
+%
+:  I've heard that there is a shell (bourne or csh) to perl filter, does
+:  anyone know of this or where I can get it?
+Yeah, you filter it through Tom Christiansen.  :-)  -- Larry Wall
+%
+:       I've tried (in vi) "g/[a-z]\n[a-z]/s//_/"...but that doesn't
+: cut it.  Any ideas?  (I take it that it may be a two-pass sort of solution).
+In the first pass, install perl. :-)
+		-- Larry Wall <6849@jpl-devvax.JPL.NASA.GOV>
+%
+I won't mention any names, because I don't want to get sun4's into
+trouble...  :-)     -- Larry Wall in <11333@jpl-devvax.JPL.NASA.GOV>
+%
+Just don't compare it with a real language, or you'll be unhappy...  :-)
+		-- Larry Wall in <1992May12.190238.5667@netlabs.com>
+%
+Just don't create a file called -rf.  :-)
+		-- Larry Wall in <11393@jpl-devvax.JPL.NASA.GOV>
+%
+last|perl -pe '$_ x=/(..:..)...(.*)/&&"'$1'"ge$1&&"'$1'"lt$2'
+That's gonna be tough for Randal to beat...  :-)
+		-- Larry Wall in  <1991Apr29.072206.5621@jpl-devvax.jpl.nasa.gov>
+%
+Let's say the docs present a simplified view of reality...    :-)
+		-- Larry Wall in  <6940@jpl-devvax.JPL.NASA.GOV>
+%
+Let us be charitable, and call it a misleading feature  :-)
+		-- Larry Wall in <2609@jato.Jpl.Nasa.Gov>
+%
+Lispers are among the best grads of the Sweep-It-Under-Someone-Else's-Carpet
+School of Simulated Simplicity.  [Was that sufficiently incendiary?  :-)]
+		-- Larry Wall in <1992Jan10.201804.11926@netlabs.com
+%
+No, I'm not going to explain it.  If you can't figure it out, you didn't
+want to know anyway...  :-)
+		-- Larry Wall in <1991Aug7.180856.2854@netlabs.com>
+%
+/* now make a new head in the exact same spot */
+		-- Larry Wall in cons.c from the perl source code
+%
+OK, enough hype.
+		-- Larry Wall in the perl man page
+%
+OOPS!  You naughty creature!  You didn't run Configure with sh!
+I will attempt to remedy the situation by running sh for you...
+		-- Larry Wall in Configure from the perl distribution
+%
+Perl is designed to give you several ways to do anything, so
+consider picking the most readable one.
+		-- Larry Wall in the perl man page
+%
+Perl itself is usually pretty good about telling you what you shouldn't
+do. :-)
+		-- Larry Wall in <11091@jpl-devvax.JPL.NASA.GOV>
+%
+Perl programming is an *empirical* science!
+		-- Larry Wall in <10226@jpl-devvax.JPL.NASA.GOV>
+%
+pos += screamnext[pos]  /* does this goof up anywhere? */
+		-- Larry Wall in util.c from the perl source code
+%
+Q. Why is this so clumsy?
+A. The trick is to use Perl's strengths rather than its weaknesses.
+		-- Larry Wall in <8225@jpl-devvax.JPL.NASA.GOV>
+%
+Randal said it would be tough to do in sed.  He didn't say he didn't
+understand sed.  Randal understands sed quite well.  Which is why he
+uses Perl.   :-)  -- Larry Wall in <7874@jpl-devvax.JPL.NASA.GOV>
+%
+Real programmers can write assembly code in any language.   :-)
+		-- Larry Wall in  <8571@jpl-devvax.JPL.NASA.GOV>
+%
+Remember though that
+THERE IS NO GENERAL RULE FOR CONVERTING A LIST INTO A SCALAR.
+		-- Larry Wall in the perl man page
+%
+s = (char*)(long)retval;                /* ouch */
+		-- Larry Wall in doio.c from the perl source code
+%
+signal(i, SIG_DFL); /* crunch, crunch, crunch */
+		-- Larry Wall in doarg.c from the perl source code
+%
+Sorry.  My testing organization is either too small, or too large, depending
+on how you look at it.  :-)
+		-- Larry Wall in <1991Apr22.175438.8564@jpl-devvax.jpl.nasa.gov>
+%
+stab_val(stab)->str_nok = 1;    /* what a wonderful hack! */
+		-- Larry Wall in stab.c from the perl source code
+%
+str->str_pok |= SP_FBM;                     /* deep magic */
+s = (unsigned char*)(str->str_ptr);         /* deeper magic */
+		-- Larry Wall in util.c from the perl source code
+%
+Tactical?  TACTICAL!?!?  Hey, buddy, we went from kilotons to megatons
+several minutes ago.  We don't need no stinkin' tactical nukes.
+(By the way, do you have change for 10 million people?) --lwall
+%
+That means I'll have to use $ans to suppress newlines now.
+Life is ridiculous.
+		-- Larry Wall in Configure from the perl distribution
+%
+The autodecrement is not magical.
+		-- Larry Wall in the perl man page
+%
+The only disadvantage I see is that it would force everyone to get Perl.
+Horrors.  :-)
+		-- Larry Wall in  <8854@jpl-devvax.JPL.NASA.GOV>
+%
+*** The previous line contains the naughty word "$&".\n
+if /(ibm|apple|awk)/;      # :-)
+		-- Larry Wall in the perl man page
+%
+There ain't nothin' in this world that's worth being a snot over.
+		-- Larry Wall in <1992Aug19.041614.6963@netlabs.com>
+%
+There are many times when you want it to ignore the rest of the string just
+like atof() does.  Oddly enough, Perl calls atof().  How convenient.  :-)
+		-- Larry Wall in <1991Jun24.231628.14446@jpl-devvax.jpl.nasa.gov>
+%
+There are probably better ways to do that, but it would make the parser
+more complex.  I do, occasionally, struggle feebly against complexity...  :-)
+		-- Larry Wall in <7886@jpl-devvax.JPL.NASA.GOV>
+%
+There are still some other things to do, so don't think if I didn't fix
+your favorite bug that your bug report is in the bit bucket.  (It may be,
+but don't think it.  :-)  Larry Wall in <7238@jpl-devvax.JPL.NASA.GOV>
+%
+There is, however, a strange, musty smell in the air that reminds me of
+something...hmm...yes...I've got it...there's a VMS nearby, or I'm a Blit.
+		-- Larry Wall in Configure from the perl distribution
+%
+"The road to hell is paved with melting snowballs."
+		-- Larry Wall in  <1992Jul2.222039.26476@netlabs.com>
+%
+/* This bit of chicanery makes a unary function followed by
+a parenthesis into a function with one argument, highest precedence. */
+		-- Larry Wall in toke.c from the perl source code
+%
+"...this does not mean that some of us should not want, in a rather
+dispassionate sort of way, to put a bullet through csh's head."
+Larry Wall in <1992Aug6.221512.5963@netlabs.com>
+%
+> This made me wonder, suddenly: can telnet be written in perl?
+Of course it can be written in Perl.  Now if you'd said nroff,
+that would be more challenging...   -- Larry Wall
+%
+Though I'll admit readability suffers slightly...
+		-- Larry Wall in <2969@jato.Jpl.Nasa.Gov>
+%
+tmps_base = tmps_max;                /* protect our mortal string */
+		-- Larry Wall in stab.c from the perl source code
+%
+Unix is like a toll road on which you have to stop every 50 feet to
+pay another nickel.  But hey!  You only feel 5 cents poorer each time.
+		-- Larry Wall in <1992Aug13.192357.15731@netlabs.com>
+%
+"We all agree on the necessity of compromise.  We just can't agree on
+when it's necessary to compromise."
+		-- Larry Wall in  <1991Nov13.194420.28091@netlabs.com>
+%
+/* we have tried to make this normal case as abnormal as possible */
+		-- Larry Wall in cmd.c from the perl source code
+%
+What about WRITING it first and rationalizing it afterwords?  :-)
+		-- Larry Wall in <8162@jpl-devvax.JPL.NASA.GOV>
+%
+: 1.  What is the possibility of this being added in the future?
+In the near future, the probability is close to zero.  In the distant
+future, I'll be dead, and posterity can do whatever they like...  :-) --lwall
+%
+"What is the sound of Perl?  Is it not the sound of a wall that
+people have stopped banging their heads against?"
+		-- Larry Wall in <1992Aug26.184221.29627@netlabs.com>
+%
+When in doubt, parenthesize.  At the very least it will let some
+poor schmuck bounce on the % key in vi.
+		-- Larry Wall in the perl man page
+%
+"You can't have filenames longer than 14 chars.
+You can't even think about them!"
+		-- Larry Wall in Configure from the perl distribution
+%
+You have to admit that it's difficult to misplace the Perl sources.  :-)
+		-- Larry Wall in <1992Aug26.184221.29627@netlabs.com>
+%
+Your csh still thinks true is false.  Write to your vendor today and tell
+them that next year Configure ought to "rm /bin/csh" unless they fix their
+blasted shell. :-)   -- Larry Wall in Configure from the perl distribution
+%
+You want it in one line?  Does it have to fit in 80 columns?   :-)
+		-- Larry Wall in <7349@jpl-devvax.JPL.NASA.GOV>
+%
+Well, enough clowning around.  Perl is, in intent, a cleaned up and
+summarized version of that wonderful semi-natural language known as
+"Unix".
+		-- Larry Wall in <1994Apr6.184419.3687@netlabs.com>
+%
+Anyway, there's plenty of room for doubt.  It might seem easy enough,
+but computer language design is just like a stroll in the park.
+
+Jurassic Park, that is.
+		-- Larry Wall in <1994Jun15.074039.2654@netlabs.com>
+%
+I want to see people using Perl to glue things together creatively, not
+just technically but also socially.
+		-- Larry Wall in <199702111730.JAA28598@wall.org>
+%
+The whole history of computers is rampant with cheerleading at best and
+bigotry at worst.
+		-- Larry Wall in <199702111730.JAA28598@wall.org>
+%
+Unix weanies are as bad at this as anyone.
+		-- Larry Wall in <199702111730.JAA28598@wall.org>
+%
+If someone stinks, view it as a reason to help them, not a reason to
+avoid them.
+		-- Larry Wall in <199702111730.JAA28598@wall.org>
+%
+As usual, I'm overstating the case to knock a few neurons loose, but the
+truth is usually somewhere in the muddle, uh, middle.
+		-- Larry Wall in <199702111639.IAA28425@wall.org>
+%
+Odd that we think definitions are definitive.   :-)
+		-- Larry Wall in <199702221943.LAA20388@wall.org>
+%
+: But for some things, Perl just isn't the optimal choice.
+
+(yet)   :-)
+		-- Larry Wall in <199702221943.LAA20388@wall.org>
+%
+I don't like this official/unofficial distinction.  It sound, er, officious.
+		-- Larry Wall in <199702221943.LAA20388@wall.org>
+%
+If you write something wrong enough, I'll be glad to make up a new
+witticism just for you.
+		-- Larry Wall in <199702221943.LAA20388@wall.org>
+%
+Perl 5 introduced everything else, including the ability to introduce
+everything else.
+		-- Larry Wall in <199702252152.NAA28845@wall.org>
+%
+So far we've managed to avoid turning Perl into APL.  :-)
+		-- Larry Wall in <199702251904.LAA28261@wall.org>
+%
+Not that I have anything much against redundancy.  But I said that already.
+		-- Larry Wall in <199702271735.JAA04048@wall.org>
+%
+They can always run stderr through uniq.  :-)
+		-- Larry Wall in <199704012331.PAA16535@wall.org>
+%
+I'd put my money where my mouth is, but my mouth keeps moving.
+		-- Larry Wall in <199704051723.JAA28035@wall.org>
+%
+Of course, I reserve the right to make wholly stupid changes to Perl
+if I think they improve the language.  :-)
+		-- Larry Wall in <199704251604.JAA27300@wall.org>
+%
+Call me bored, but don't call me boring.
+		-- Larry Wall in <199705101952.MAA00756@wall.org>
+%
+I think $[ is more like a coelacanth than a mastadon.
+		-- Larry Wall in <199705101952.MAA00756@wall.org>
+%
+: I used to think that this was just another demonstration of Larry's
+: enormous skill at pulling off what other people would fail or balk at.
+
+Well, everyone else knew it was impossible, so they didn't try.  :-)
+		-- Larry Wall in <199705101952.MAA00756@wall.org>
+%
+We question most of the mantras around here periodically, in case
+you hadn't noticed.  :-)
+		-- Larry Wall in <199705101952.MAA00756@wall.org>
+%
+(Presuming for the sake of argument that it's even *possible* to design
+better code in Perl than in C.  :-)
+		-- Larry Wall on core code vs. module code design
+%
+: The hierarchy is excessive.
+
+So is the anarchy.  :-)
+		-- Larry Wall in <199705101952.MAA00756@wall.org>
+%
+That could certainly be done, but I don't want to fall into the Forth
+trap, where every running Forth implementation is really a different
+language.
+		-- Larry Wall in <199705101952.MAA00756@wall.org>
+%
+Tcl long ago fell into the Forth trap, and is now trying desperately to
+extricate itself (with some help from Sun's marketing department).
+		-- Larry Wall in <199705101952.MAA00756@wall.org>
+%
+The core is not frozen, but slushy.
+		-- Larry Wall in <199705101952.MAA00756@wall.org>
+%
+The whole intent of Perl 5's module system was to encourage the growth
+of Perl culture rather than the Perl core.
+		-- Larry Wall in <199705101952.MAA00756@wall.org>
+%
+Randal can write one-liners again.  Everyone is happy, and peace spreads
+over the whole Earth.
+		-- Larry Wall in <199705101952.MAA00756@wall.org>
+%
+Life gets boring, someone invents another necessity, and once again we
+turn the crank on the screwjack of progress hoping that nobody gets
+screwed.
+		-- Larry Wall in <199705101952.MAA00756@wall.org>
+%
+No prisoner's dilemma here.  Over the long term, symbiosis is more
+useful than parasitism.  More fun, too.  Ask any mitochondria.
+		-- Larry Wall in <199705102042.NAA00851@wall.org>
+%
+Obviously I was either onto something, or on something.
+		-- Larry Wall on the creation of Perl
+%
+It's the Magic that counts.
+		-- Larry Wall on Perl's apparent ugliness
+%
+May you do Good Magic with Perl.
+		-- Larry Wall's blessing
+%
+P.S. Perl's master plan (or what passes for one) is to take over the
+world like English did.  Er, *as* English did...
+		-- Larry Wall in <199705201832.LAA28393@wall.org>
+%
+You can prove anything by mentioning another computer language.  :-)
+
+		-- Larry Wall in <199706242038.NAA29853@wall.org>
+%
+I think you didn't get a reply because you used the terms "correct" and
+"proper", neither of which has much meaning in Perl culture.  :-)
+		-- Larry Wall in <199706251602.JAA01786@wall.org>
+%
+I'm sure a mathematician would claim that 0 and 1 are both very
+interesting numbers.  :-)
+		-- Larry Wall in <199707300650.XAA05515@wall.org>
+%
+True, it returns "" for false, but "" is an even more interesting
+number than 0.
+		-- Larry Wall in <199707300650.XAA05515@wall.org>
+%
+Any false value is gonna be fairly boring in Perl, mathematicians
+notwithstanding.
+		-- Larry Wall in <199707300650.XAA05515@wall.org>
+%
+We didn't put in ^^ because then we'd have to keep telling people what
+it means, and then we'd have to keep telling them why it doesn't short
+circuit.  :-/
+		-- Larry Wall in <199707300650.XAA05515@wall.org>
+%
+Anybody want a binary telemetry frame editor written in Perl?
+		-- Larry Wall in <199708012226.PAA22015@wall.org>
+%
+Most places distinguish them merely by using the appropriate value.
+Hooray for context...
+		-- Larry Wall in <199708040319.UAA16213@wall.org>
+%
+But then it's a bit odd to think that declaring something int could
+actually slow down the program, if it ended up forcing more conversions
+back to string.
+		-- Larry Wall in <199708040319.UAA16213@wall.org>
+%
+It's possible that I'm just an idiot, and don't recognize a sleepy
+slavemaster when I see one.
+		-- Larry Wall in <199708040319.UAA16213@wall.org>
+%
+Perhaps I'm missing the gene for making enemies.  :-)
+		-- Larry Wall in <199708040319.UAA16213@wall.org>
+%
+Perl has a long tradition of working around compilers.
+		-- Larry Wall in <199708252256.PAA00105@wall.org>
+%
+Personally, I like to defiantly split my infinitives.  :-)
+		-- Larry Wall in <199708271551.IAA10211@wall.org>
+%
+Real theology is always rather shocking to people who already
+think they know what they think.  I'm still shocked myself.  :-)
+		-- Larry Wall in <199708261932.MAA05218@wall.org>
+%
+But maybe we don't really need that...
+		-- Larry Wall in <199709011851.LAA07101@wall.org>
+%
+The computer should be doing the hard work.  That's what it's paid to do,
+after all.
+		-- Larry Wall in <199709012312.QAA08121@wall.org>
+%
+The following two statements are usually both true:
+
+There's not enough documentation.
+
+There's too much documentation.
+		-- Larry Wall in <199709020026.RAA08431@wall.org>
+%
+I don't think I'm gonna agree with that.  Way too much visual confusion...
+		-- Larry Wall in <199709021627.JAA11966@wall.org>
+%
+There's certainly precedent for that already too.  (Not claiming it's
+*good* precedent, mind you. :-)
+		-- Larry Wall in <199709021744.KAA12428@wall.org>
+%
+Of course, this being Perl, we could always take both approaches.  :-)
+		-- Larry Wall in <199709021744.KAA12428@wall.org>
+%
+For the run-time caching, I was going to suggest "cached" (doh!), but
+perhaps "once" is more meaningful to ordinary people.
+		-- Larry Wall in <199709021812.LAA12571@wall.org>
+%
+The random quantum fluctuations of my brain are historical accidents that
+happen to have decided that the concepts of dynamic scoping and lexical
+scoping are orthogonal and should remain that way.
+		-- Larry Wall in <199709021854.LAA12794@wall.org>
+%
+At many levels, Perl is a "diagonal" language.
+		-- Larry Wall in <199709021854.LAA12794@wall.org>
+%
+I'm serious about thinking through all the possibilities before we
+settle on anything.  All things have the advantages of their
+disadvantages, and vice versa.
+		-- Larry Wall in <199709032332.QAA21669@wall.org>
+%
+Part of language design is purturbing the proposed feature in various
+directions to see how it might generalize in the future.
+		-- Larry Wall in <199709032332.QAA21669@wall.org>
+%
+Sometimes we choose the generalization.  Sometimes we don't.
+		-- Larry Wall in <199709032332.QAA21669@wall.org>
+%
+I wouldn't ever write the full sentence myself, but then, I never use
+goto either.
+		-- Larry Wall in <199709032332.QAA21669@wall.org>
+%
+It's appositival, if it's there.  And it doesn't have to be there.
+And it's really obvious that it's there when it's there.
+		-- Larry Wall in <199709032332.QAA21669@wall.org>
+%
+Oh, get ahold of yourself.  Nobody's proposing that we parse English.
+		-- Larry Wall in <199709032332.QAA21669@wall.org>
+%
+As with all the other proposals, it's basically just a list of words.
+You can deal with that... :-)
+		-- Larry Wall in <199709032332.QAA21669@wall.org>
+%
+I hope I'm not getting so famous that I can't think out load [sic] anymore.
+		-- Larry Wall in <199709032332.QAA21669@wall.org>
+%
+It would be possible to optimize some forms of goto, but I haven't
+bothered.
+		-- Larry Wall in <199709041935.MAA27136@wall.org>
+%
+A "goto" in Perl falls into the category of hard things that should be
+possible, not easy things that should be easy.
+		-- Larry Wall in <199709041935.MAA27136@wall.org>
+%
+How do Crays and Alphas handle the POSIX problem?
+		-- Larry Wall in <199709050042.RAA29379@wall.org>
+%
+One of the reasons Perl is faster than certain other unnamed interpreted
+languages is that it binds variable names to a particular package (or
+scope) at compile time rather than at run time.
+		-- Larry Wall in <199709050035.RAA29328@wall.org>
+%
+Well, that's more-or-less what I was saying, though obviously addition
+is a little more cosmic than the bitwise operators.
+		-- Larry Wall in <199709051808.LAA01780@wall.org>
+%
+You tell it that it's indicative by appending $!.  That's why we made $!
+such a short variable name, after all.  :-)
+		-- Larry Wall in <199709081801.LAA20629@wall.org>
+%
+The choice of approaches could be made the responsibility of the
+programmer.
+		-- Larry Wall in <199709081901.MAA20863@wall.org>
+%
+As someone pointed out, you could have an attribute that says "optimize
+the heck out of this routine", and your definition of heck would be a
+parameter to the optimizer.
+		-- Larry Wall in <199709081854.LAA20830@wall.org>
+%
+I guess what I'm saying is that the croak in question is requiring
+agreement (in the linguistic sense) that isn't buying us anything.
+		-- Larry Wall in <199709241628.JAA08908@wall.org>
+%
+If you're going to define a shortcut, then make it the base [sic] darn
+shortcut you can.
+		-- Larry Wall in <199709241628.JAA08908@wall.org>
+%
+It is my job in life to travel all roads, so that some may take the road
+less travelled, and others the road more travelled, and all have a
+pleasant day.
+		-- Larry Wall in <199709241628.JAA08908@wall.org>
+%
+It's getting harder and harder to think out loud.  One of these days
+someone's gonna go off and kill Thomas a'Becket for me...
+		-- Larry Wall in <199709242015.NAA10312@wall.org>
+%
+I was about to say, "Avoid fame like the plague," but you know, they can
+cure the plague with penicillin these days.
+		-- Larry Wall in <199709242015.NAA10312@wall.org>
+%
+But the possibility of abuse may be a good reason for leaving
+capabilities out of other computer languages, it's not a good reason for
+leaving capabilities out of Perl.
+		-- Larry Wall in <199709251614.JAA15718@wall.org>
+%
+Oh, wait, that was Randal...nevermind...
+		-- Larry Wall in <199709261754.KAA23761@wall.org>
+%
+:-) your own self.
+		-- Larry Wall in <199709261754.KAA23761@wall.org>
+%
+P.S.  I suppose I really should be nicer to people today, considering
+I'll be singing in Billy Graham's choir tonight...   :-)
+		-- Larry Wall in <199709261754.KAA23761@wall.org>
+%
+Magically turning people's old scalar contexts into list contexts is a
+recipe for several kinds of disaster.
+		-- Larry Wall in <199709291631.JAA08648@wall.org>
+%
+: The following (relative to AutoSplit 1.03) attempts to please everyone
+: and perhaps pleases no one:
+
+I think that's way cool.
+		-- Larry Wall in <199709292015.NAA09627@wall.org>
+%
+And we can always supply them with a program that makes identical files
+into links to a single file.
+		-- Larry Wall in <199709292012.NAA09616@wall.org>
+%
+I wasn't recommending that we make the links for them, only provide them
+with the tools to do so if they want to take the gamble (or the gambol).
+		-- Larry Wall in <199709292259.PAA10407@wall.org>
+%
+This has been planned for some time.  I guess we'll just have to find
+someone with an exceptionally round tuit.
+		-- Larry Wall in <199709302338.QAA17037@wall.org>
+%
+    switch (ref $@) {
+    OverflowError =>
+
+warn "Dam needs to be drained";
+    DomainError =>
+
+warn "King needs to be trained";
+    NuclearWarError =>
+
+die;
+    }
+		-- Larry Wall in <199709302338.QAA17037@wall.org>
+%
+I surely do hope that's a syntax error.
+		-- Larry Wall in <199710011752.KAA21624@wall.org>
+%
+Soitainly.  I was assuming that came with the OO-ness of it.
+		-- Larry Wall in <199710011802.LAA21692@wall.org>
+%
+Because the demand for it is low enough that it would be best handled
+as an XSUB, and the demand for it is low enough that nobody has
+bothered to write it as an XSUB.
+		-- Larry Wall on in-place Perl sorting
+%
+But that looks a little too much like a declaration for my tastes, when
+in fact it isn't one.  So forget I mentioned it.
+		-- Larry Wall in <199710011704.KAA21395@wall.org>
+%
+I'm not sure whether that's actually useful...
+		-- Larry Wall in <199710011704.KAA21395@wall.org>
+%
+Anyway, my money is still on use strict vars . . .
+		-- Larry Wall in <199710011704.KAA21395@wall.org>
+%
+By rule #1, 5.005 should always allow localization of lexical @_ . . .
+		-- Larry Wall in <199710011704.KAA21395@wall.org>
+%
+I *know* it's weird, but strict vars already comes very, very close to
+partitioning the crowd into those who can deal with local lexicals and
+those who can't.
+		-- Larry Wall in <199710050130.SAA04762@wall.org>
+%
+If you remove stricture from a large Perl program currently, you're just
+installing delayed bugs, whereas with this feature, you're installing an
+instant bug that's easily fixed.  Whoopee.
+		-- Larry Wall in <199710050130.SAA04762@wall.org>
+%
+The reason I like hitching a ride on strict vars is that it cuts down
+the number of rarely used pragmas people have to remember, yet provides
+a way to get to the point where we might, just maybe, someday, make
+local lexicals the default for everyone, without having useless pragmas
+wandering around various programs, or using up another bit in $^H.
+		-- Larry Wall in <199710050130.SAA04762@wall.org>
+%
+I don't think it's worth washing hogs over.
+		-- Larry Wall in <199710060253.TAA09723@wall.org>
+%
+It's certainly easy to calculate the average attendance for Perl
+conferences.
+		-- Larry Wall in <199710071721.KAA19014@wall.org>
+%
+Tcl tends to get ported to weird places like routers.
+		-- Larry Wall in <199710071721.KAA19014@wall.org>
+%
+Historically Tcl has always stored all intermediate results as strings.
+(With 8.0 they're rethinking that.  Of course, Perl rethought that from
+the start.)
+		-- Larry Wall in <199710071721.KAA19014@wall.org>
+%
+I knew I'd hate COBOL the moment I saw they'd used "perform" instead of
+"do".
+		-- Larry Wall on a not-so-popular programming language
+%
+Just don't make the '9' format pack/unpack numbers...  :-)
+		-- Larry Wall in <199710091434.HAA00838@wall.org>
+%
+I think that's easier to read.  Pardon me.  Less difficult to read.
+		-- Larry Wall in <199710120226.TAA06867@wall.org>
+%
+That wouldn't be good enough.
+		-- Larry Wall in <199710131621.JAA14907@wall.org>
+%
+To ordinary folks, conversion is not always automatic.  It's something
+that may or may not require explicit assistance.  See Billy Graham.  :-)
+		-- Larry Wall in <199710141738.KAA22289@wall.org>
+%
+The prayer of serenity applies here.  To both of us.  :-)
+		-- Larry Wall in <199710141802.LAA22443@wall.org>
+%
+Well, you can implement a Perl peek() with unpack('P',...).  Once you
+have that, there's only security through obscurity.  :-)
+		-- Larry Wall in <199710161537.IAA07828@wall.org>
+%
+It may be possible to get this condition from within Perl if a signal
+handler runs at just the wrong moment.  Another point for Chip...  :-)
+		-- Larry Wall in <199710161546.IAA07885@wall.org>
+%
+As pointed out in a followup, Real Perl Programmers prefer things to be
+visually distinct.
+		-- Larry Wall in <199710161841.LAA13208@wall.org>
+%
+The Harvard Law states:  Under controlled conditions of light, temperature,
+humidity, and nutrition, the organism will do as it damn well pleases.
+		-- Larry Wall in <199710161841.LAA13208@wall.org>
+%
+That should probably be written:
+    no !@#$%^&*:@!semicolon
+		-- Larry Wall in <199710161841.LAA13208@wall.org>
+%
+That gets us out of deciding how to spell Reg[eE]xp?|RE . . .
+Of course, then we have to decide what ref $re returns...  :-)
+		-- Larry Wall in <199710171838.LAA24968@wall.org>
+%
+Depends on how you define "always".  :-)
+		-- Larry Wall in <199710211647.JAA17957@wall.org>
+%
+'Course, that doesn't work when 'a' contains parentheses.
+		-- Larry Wall in <199710211647.JAA17957@wall.org>
+%
+I was trying not to mention backtracking.  Which, of course, means that
+yours is "righter" than mine, in a theoretical sense.
+		-- Larry Wall in <199710211624.JAA17833@wall.org>
+%
+Not that I'm against sneaking some notions into people's heads upon
+occasion.  (Or blasting them in outright.)
+		-- Larry Wall in <199710211624.JAA17833@wall.org>
+%
+(To the extent that anyone but a Prolog programmer can understand \X totally.
+(And to the extent that a Prolog programmer can understand "cut". :-))
+		-- Larry Wall in <199710211624.JAA17833@wall.org>
+%
+But you'll notice Perl has a goto.
+		-- Larry Wall in <199710211624.JAA17833@wall.org>
+%
+Suppose you're working on an optimizer to render \X unnecessary (or
+rather, redundant, which isn't the same thing in my book).
+		-- Larry Wall in <199710211624.JAA17833@wall.org>
+%
+Wow, I'm being shot at from both sides.  That means I *must* be right.  :-)
+		-- Larry Wall in <199710211959.MAA18990@wall.org>
+%
+You don't have to wait--you can have it in 5.004_54 or so.  :-)
+		-- Larry Wall in <199710221740.KAA24455@wall.org>
+%
+There's something to be said for returning the whole syntax tree.
+		-- Larry Wall in <199710221833.LAA24741@wall.org>
+%
+It's not really a rule--it's more like a trend.
+		-- Larry Wall in <199710221721.KAA24321@wall.org>
+%
+Double *sigh*.  _04 is going onto thousands of CDs even as we speak,
+so to speak.
+		-- Larry Wall in <199710221718.KAA24299@wall.org>
+%
+The code also assumes that it's difficult to misspell "a" or "b".  :-)
+		-- Larry Wall in <199710221731.KAA24396@wall.org>
+%
+Well, hey, let's just make everything into a closure, and then we'll
+have our general garbage collector, installed by "use less memory".
+		-- Larry Wall in <199710221744.KAA24484@wall.org>
+%
+No, that'd be silly.
+		-- Larry Wall in <199710221710.KAA24242@wall.org>
+%
+People who understand context would be steamed to have someone else
+dictating how they can call it.
+		-- Larry Wall in <199710221710.KAA24242@wall.org>
+%
+For the sake of argument I'll ignore all your fighting words.
+		-- Larry Wall in <199710221710.KAA24242@wall.org>
+%
+Think of prototypes as a funny markup language--the interpretation is
+left up to the rendering engine.
+		-- Larry Wall in <199710221710.KAA24242@wall.org>
+%
+Either approach may give birth to various sorts of monstrosities.
+		-- Larry Wall in <199710221950.MAA25210@wall.org>
+%
+The way these things go, there are probably 6 or 8 kludgey ways to do
+it, and a better way that involves rethinking something that hasn't
+been rethunk yet.
+		-- Larry Wall in <199710221859.LAA24889@wall.org>
+%
+Obviously your filters are throwing away mail from Randal.  :-)
+		-- Larry Wall in <199710221937.MAA25131@wall.org>
+%
+Beauty?  What's that?
+		-- Larry Wall in <199710221937.MAA25131@wall.org>
+%
+Oh yeah.  Forgot about those.  Getting senile, I guess...
+		-- Larry Wall in <199710261551.HAA17791@wall.org>
+%
+'Course, I haven't weighed in yet.  :-)
+		-- Larry Wall in <199710281816.KAA29614@wall.org>
+%
+I'm afraid my gut level reaction is basically, "'proceed' is cute, but
+cute doesn't cut it in the emergency room."
+		-- Larry Wall in <199710281816.KAA29614@wall.org>
+%
+I suppose one could claim that an undocumented feature has no
+semantics.  :-(
+		-- Larry Wall in <199710290036.QAA01818@wall.org>
+%
+: How would you disambiguate these situations?
+
+By shooting the person who did the latter.
+		-- Larry Wall in <199710290235.SAA02444@wall.org>
+%
+Yes, we have consensus that we need 64 bit support.  :-)
+		-- Larry Wall in <199710291922.LAA07101@wall.org>
+%
+:  - cut in regexps
+
+I don't think we reached consensus on that.  We're still backtracking...
+		-- Larry Wall in <199710291922.LAA07101@wall.org>
+%
+Maybe it's time to break that.
+		-- Larry Wall in <199710311718.JAA19082@wall.org>
+%
+Boss: You forgot to assign the result of your map!
+
+Hacker: Dang, I'm always forgetting my assignations...
+
+Boss: And what's that "goto" doing there?!?
+
+Hacker: Er, I guess my finger slipped when I was typing "getservbyport"...
+
+Boss: Ah well, accidents will happen.  Maybe we should have picked APL.
+		-- Larry Wall in <199710311732.JAA19169@wall.org>
+%
+Perhaps they will have to outlaw sending random lists of words.  fee fie
+foe foo [sic]
+		-- Larry Wall in <199710311916.LAA19760@wall.org>
+%
+Hey, if pi == 3, and three == 0, does that make pi == 0?  :-)
+		-- Larry Wall in <199711011926.LAA25557@wall.org>
+%
+I think you're letting your knowledge of internals interfere with your
+linguistic judgement here.
+		-- Larry Wall in <199711011949.LAA25651@wall.org>
+%
+(Never thought I'd be telling Malcolm and Ilya the same thing... :-)
+		-- Larry Wall in <199711071819.KAA29909@wall.org>
+%
+And other operators aren't so special syntactically, but weird
+in other ways, like "scalar", and "goto".
+		-- Larry Wall in <199711071749.JAA29751@wall.org>
+%
+Portability should be the default.
+		-- Larry Wall in <199711072201.OAA01123@wall.org>
+%
+Actually, it also looks like we should optimize (13,2,42,8,'hike') into
+a pp_padav copy as well.
+		-- Larry Wall in <199711081945.LAA06315@wall.org>
+%
+If this were Ada, I suppose we'd just constant fold 1/0 into
+
+    die "Illegal division by zero"
+		-- Larry Wall in <199711100226.SAA12549@wall.org>
+%
+Are you perchance running on a 64-bit machine?
+		-- Larry Wall in <199711102149.NAA16878@wall.org>
+%
+Almost nothing in Perl serves a single purpose.
+		-- Larry Wall in <199712040054.QAA13811@wall.org>
+%
+There's some entertainment value in watching people juggle nitroglycerin.
+		-- Larry Wall in <199712041747.JAA18908@wall.org>
+%
+Reserve your abuse for your true friends.
+		-- Larry Wall in <199712041852.KAA19364@wall.org>
+%
+Er, Tom, I hate to be the one to point this out, but your fix list
+is starting to resemble a feature list.  You must be human or something.
+		-- Larry Wall in <199801081824.KAA29602@wall.org>
+%
+It's hard to tune heavily tuned code.  :-)
+		-- Larry Wall in <199801141725.JAA07555@wall.org>
+%
+Perl will always provide the null.
+		-- Larry Wall in <199801151818.KAA14538@wall.org>
+%
+It's easy to solve the halting problem with a shotgun.   :-)
+		-- Larry Wall in <199801151836.KAA14656@wall.org>
+%
+Well, I think Perl should run faster than C.  :-)
+		-- Larry Wall in <199801200306.TAA11638@wall.org>
+%
+To Perl, or not to Perl, that is the kvetching.
+		-- Larry Wall in <199801200310.TAA11670@wall.org>
+%

@@ -1,0 +1,293 @@
+'\" t
+.\"     Title: FORTUNE
+.\"    Author: [FIXME: author] [see http://www.docbook.org/tdg5/en/html/author]
+.\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
+.\"      Date: 19 April 94 [May. 97]
+.\"    Manual: UNIX Reference Manual
+.\"    Source: BSD Experimental
+.\"  Language: English
+.\"
+.TH "FORTUNE" "6" "19 April 94 [May\&. 97]" "BSD Experimental" "UNIX Reference Manual"
+.\" -----------------------------------------------------------------
+.\" * Define some portability stuff
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" http://bugs.debian.org/507673
+.\" http://lists.gnu.org/archive/html/groff/2009-02/msg00013.html
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+
+.SH "NAME"
+fortune \- print a random, hopefully interesting, adage
+
+.SH "SYNOPSIS"
+.HP \w'\fBfortune\fR\ 'u
+
+  \fBfortune\fR     [\-acefilosw]
+     [\-n\ \fIlength\fR]
+     [\-m\ \fIpattern\fR]
+     [[\fIn%\fR]\ \fIfile/dir/all\fR]
+
+.SH "DESCRIPTION"
+.PP
+When
+\fBfortune\fR
+is run with no arguments it prints out a random epigram\&. Epigrams are divided into several categories, where each category is sub\-divided into those which are potentially offensive and those which are not\&.
+
+.SS "Options"
+.PP
+The options are as follows:
+
+.PP
+\fB\-a\fR
+.RS 4
+
+Choose from all lists of maxims, both offensive and not\&. (See the
+\fB\-o\fR
+option for more information on offensive fortunes\&.)
+
+.RE
+.PP
+\fB\-c\fR
+.RS 4
+
+Show the cookie file from which the fortune came\&.
+
+.RE
+.PP
+\fB\-e\fR
+.RS 4
+
+Consider all fortune files to be of equal size (see discussion below on multiple files)\&.
+
+.RE
+.PP
+\fB\-f\fR
+.RS 4
+
+Print out the list of files which would be searched, but don\*(Aqt print a fortune\&.
+
+.RE
+.PP
+\fB\-l\fR
+.RS 4
+
+Long dictums only\&. See
+\fB\-n\fR
+on how \(lqlong\(rq is defined in this sense\&.
+
+.RE
+.PP
+\fB\-m \fR\fIpattern\fR
+.RS 4
+
+Print out all fortunes which match the basic regular expression
+\fIpattern\fR\&. The syntax of these expressions depends on how your system defines
+\fBre_comp\fR(3)
+or
+\fBregcomp\fR(3), but it should nevertheless be similar to the syntax used in
+\fBgrep\fR(1)\&.
+
+The fortunes are output to standard output, while the names of the file from which each fortune comes are printed to standard error\&. Either or both can be redirected; if standard output is redirected to a file, the result is a valid fortunes database file\&. If standard error is
+\fIalso\fR
+redirected to this file, the result is
+\fIstill valid\fR,
+\fBbut there will be \(lqbogus\(rq\fR
+\fBfortunes\fR, i\&.e\&. the filenames themselves, in parentheses\&. This can be useful if you wish to remove the gathered matches from their original files, since each filename\-record will precede the records from the file it names\&.
+
+.RE
+.PP
+\fB\-n \fR\fIlength\fR
+.RS 4
+
+Set the longest fortune length (in characters) considered to be \(lqshort\(rq (the default is 160)\&. All fortunes longer than this are considered \(lqlong\(rq\&. Be careful! If you set the length too short and ask for short fortunes, or too long and ask for long ones, fortune goes into a never\-ending thrash loop\&.
+
+.RE
+
+.PP
+\fB\-o\fR Choose only from potentially offensive aphorisms\&. The \-o option is ignored if a fortune directory is specified\&.
+.RS 4
+
+\fBPlease, please, please request a potentially\fR
+\fBoffensive fortune if and only if\fR
+\fByou believe, deep in your heart,\fR
+\fBthat you are willing to be\fR
+\fBoffended\&. (And that you\*(Aqll just quit\fR
+\fBusing\fR
+\-o
+\fBrather\fR
+\fBthan give us grief about it,\fR
+\fBokay?)\fR
+
+\&.\&.\&. let us keep in mind the basic governing philosophy of The Brotherhood, as handsomely summarized in these words: we believe in healthy, hearty laughter \-\- at the expense of the whole human race, if needs be\&. Needs be\&.
+
+\-\-H\&. Allen Smith, "Rude Jokes"
+
+.RE
+
+.PP
+\fB\-s\fR
+.RS 4
+
+Short apothegms only\&. See
+\fB\-n\fR
+on which fortunes are considered \(lqshort\(rq\&.
+
+.RE
+.PP
+\fB\-i\fR
+.RS 4
+
+Ignore case for
+\fB\-m\fR
+patterns\&.
+
+.RE
+.PP
+\fB\-w\fR
+.RS 4
+
+Wait before termination for an amount of time calculated from the number of characters in the message\&. This is useful if it is executed as part of the logout procedure to guarantee that the message can be read before the screen is cleared\&.
+
+.RE
+
+.PP
+The user may specify alternate sayings\&. You can specify a specific file, a directory which contains one or more files, or the special word
+\fIall\fR
+which says to use all the standard databases\&. Any of these may be preceded by a percentage, which is a number
+\fIn\fR
+between 0 and 100 inclusive, followed by a
+\fI%\fR\&. If it is, there will be a
+\fIn\fR
+percent probability that an adage will be picked from that file or directory\&. If the percentages do not sum to 100, and there are specifications without percentages, the remaining percent will apply to those files and/or directories, in which case the probability of selecting from one of them will be based on their relative sizes\&.
+
+.PP
+As an example, given two databases
+\fIfunny\fR
+and
+\fInot\-funny\fR, with
+\fIfunny\fR
+twice as big (in number of fortunes, not raw file size), saying
+
+.PP
+\fBfortune\fR
+\fIfunny not\-funny\fR
+
+.PP
+will get you fortunes out of
+\fIfunny\fR
+two\-thirds of the time\&. The command
+
+.PP
+\fBfortune\fR
+90%
+\fIfunny\fR
+10%
+\fInot\-funny\fR
+
+.PP
+will pick out 90% of its fortunes from
+\fIfunny\fR
+(the \(lq10% not\-funny\(rq is unnecessary, since 10% is all that\*(Aqs left)\&.
+
+.PP
+The
+\fB\-e\fR
+option says to consider all files equal; thus
+
+.PP
+\fBfortune \-e\fR
+\fIfunny not\-funny\fR
+
+.PP
+is equivalent to
+
+.PP
+\fBfortune\fR
+50%
+\fIfunny\fR
+50%
+\fInot\-funny\fR
+
+.PP
+This fortune also supports the BSD method of appending \(lq\-o\(rq to database names to specify offensive fortunes\&. However this is
+\fBnot\fR
+how fortune stores them: offensive fortunes are stored in a separate directory without the \(lq\-o\(rq infix\&. A plain name (i\&.e\&., not a path to a file or directory) that ends in \(lq\-o\(rq will be assumed to be an offensive database, and will have its suffix stripped off and be searched in the offensive directory (even if the neither of the
+\fB\-a\fR
+or
+\fB\-o\fR
+options were specified)\&. This feature is not only for backwards\-compatibility, but also to allow users to distinguish between inoffensive and offensive databases of the same name\&.
+
+.PP
+For example, assuming there is a database named
+\fIdefinitions\fR
+in both the inoffensive and potentially offensive collections, then the following command will select an inoffensive definition 90% of the time, and a potentially offensive definition for the remaining 10%:
+
+.PP
+\fBfortune\fR
+90%
+\fIdefinitions definitions\-o\fR
+
+.SH "FILES"
+.PP
+Note: these are the defaults as defined at compile time\&.
+
+.PP
+\fI/usr/local/share/games/fortunes\fR
+Directory for innoffensive fortunes\&.
+
+.PP
+\fI/usr/local/share/games/fortunes/off\fR
+Directory for offensive fortunes\&.
+
+.PP
+If a particular set of fortunes is particularly unwanted, there is an easy solution: delete the associated
+\fB\&.dat\fR
+file\&. This leaves the data intact, should the file later be wanted, but since
+\fBfortune\fR
+no longer finds the pointers file, it ignores the text file\&.
+
+.SH "BUGS"
+.PP
+The division of fortunes into offensive and non\-offensive by directory, rather than via the `\-o\*(Aq file infix, is not 100% compatible with original BSD fortune\&. Although the `\-o\*(Aq infix is recognised as referring to an offensive database, the offensive database files still need to be in a separate directory\&. The workaround, of course, is to move the `\-o\*(Aq files into the offensive directory (with or without renaming), and to use the
+\fB\-a\fR
+option\&.
+
+.PP
+The supplied fortune databases have been attacked, in order to correct orthographical and grammatical errors, and particularly to reduce redundancy and repetition and redundancy\&. But especially to avoid repetitiousness\&. This has not been a complete success\&. In the process, some fortunes may also have been lost\&.
+
+.PP
+The fortune databases are now divided into a larger number of smaller files, some organized by format (poetry, definitions), and some by content (religion, politics)\&. There are parallel files in the main directory and in the offensive files directory (e\&.g\&., fortunes/definitions and fortunes/off/definitions)\&. Not all the potentially offensive fortunes are in the offensive fortunes files, nor are all the fortunes in the offensive files potentially offensive, probably, though a strong attempt has been made to achieve greater consistency\&. Also, a better division might be made\&.
+
+.SH "HISTORY"
+.PP
+This version of fortune is based on the NetBSD fortune 1\&.4, but with a number of bug fixes and enhancements\&.
+
+.PP
+The original fortune/strfile format used a single file; strfile read the text file and converted it to null\-delimited strings, which were stored after the table of pointers in the \&.dat file\&. By NetBSD fortune 1\&.4, this had changed to two separate files: the \&.dat file was only the header (the table of pointers, plus flags; see
+\fIstrfile\&.h\fR), and the text strings were left in their own file\&. The potential problem with this is that text file and header file may get out of synch, but the advantage is that the text files can be easily edited without resorting to unstr, and there is a potential savings in disk space (on the assumption that the sysadmin kept both \&.dat file with strings and the text file)\&.
+
+.PP
+Many of the enhancements made over the NetBSD version assumed a Linux system, and thus caused it to fail under other platforms, including BSD\&. The source code has since been made more generic, and currently works on SunOS 4\&.x as well as Linux, with support for more platforms expected in the future\&. Note that some bugs were inadvertently discovered and fixed during this process\&.
+
+.PP
+At a guess, a great many people have worked on this program, many without leaving attributions\&.
+
+.SH "SEE ALSO"
+.PP
+\fBre_comp\fR(3),
+\fBregcomp\fR(3),
+\fBstrfile\fR(1),
+\fBunstr\fR(1)
+
