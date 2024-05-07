@@ -998,16 +998,18 @@ static int form_file_list(char **files, int file_cnt)
             }
             if (*sp == '.')
             {
-                char* c = sp + 1;
-                while (1) {
-                    if (!*c) {
-                        fprintf(stderr, "%s", "percentages must be integers\n");
-                        ErrorMessage = true;
-                        return false;
-                    }
-                    if (!isdigit(*c++)) {
-                        break;
-                    }
+                /* Get to null character of string */
+                char* c = sp;
+                while (*++c);
+                /* 
+                 * Check if the last character in the string is a '%'.
+                 * If so we know they are trying to use a non-integer percentage
+                 * and so we must warn them that the program doesn't support that.
+                 */
+                if (*(c-1) == '%') { 
+                    fprintf(stderr, "%s", "percentages must be integers\n");
+                    ErrorMessage = true;
+                    return false;
                 }
            }
             /*
