@@ -338,7 +338,7 @@ static char *conv_pat(const char *const orig_str)
     char *new_buf;
 
     size_t cnt = 1; /* allow for '\0' */
-    for (sp = orig_str; *sp != '\0'; sp++)
+    for (sp = orig_str; *sp != '\0'; ++sp)
     {
         const size_t prev_cnt = cnt;
         if (isalpha(*sp))
@@ -412,9 +412,7 @@ static void *do_malloc(const size_t size)
  */
 static FILEDESC *new_fp(void)
 {
-    FILEDESC *fp;
-
-    fp = do_malloc(sizeof *fp);
+    FILEDESC *const fp = do_malloc(sizeof *fp);
     fp->datfd = -1;
     fp->pos = POS_UNKNOWN;
     fp->inf = NULL;
@@ -589,7 +587,6 @@ static int add_file(int percent, const char *file, const char *dir,
     FILEDESC *fp;
     int fd = -1;
     char *path;
-    char *sp;
     struct stat statbuf;
 
     if (!dir)
@@ -1889,7 +1886,7 @@ static void free_desc(FILEDESC *ptr)
             fclose(ptr->inf);
             ptr->inf = NULL;
         }
-        FILEDESC *next = ptr->next;
+        FILEDESC *const next = ptr->next;
         free(ptr);
         ptr = next;
     }
