@@ -1,6 +1,17 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+July 2, 2024 (fortune-mod 3.22.0)
+
+	Add the the-x-files-taglines collection.
+	https://github.com/shlomif/fortune-mod/pull/92
+
+	Add the -D USE_PCRE=1 option to use the PCRE2 library for regexes.
+
+	GitHub Actions , .act-github , appveyor , cleanups and fixes.
+
+	Remove duplicates.
+
 June 12, 2023 (fortune-mod 3.20.0)
 
 	Handle NO_OFFENSIVE more gracefully.
