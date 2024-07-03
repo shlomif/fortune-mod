@@ -5716,3 +5716,17 @@ sales are growing steadily. The People won’t stop buying it.
     -- Joel Spolsky, "Rub a dub dub"
     -- http://www.joelonsoftware.com/articles/fog0000000348.html
 %
+After giving a talk on unit testing in C, Benno Rice was asked
+the following question:
+
+        "You mentioned compiling with optimization off [...].
+        What about cases, when the optimizer does something, that is
+        completely legitimate, but a behaviour you weren't assuming?
+        How do you test those cases?"
+
+To which he replied:
+
+        "Hmm... In production."
+
+(Source: https://www.youtube.com/watch?v=z-uWt5wVVkU (around 22:04))
+%
