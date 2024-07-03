@@ -18,4 +18,6 @@ If possible, please create a dedicated branch for any changes. This
 isn't a deal breaker though, as it is an easy fix with git. Moreover, every
 atomic change should preferably be in its own git commit.
 
+Moreover, note that new fortunes should preferably include source URLs or references for citation. This is given https://www.explainxkcd.com/wiki/index.php/285:_Wikipedian_Protester[Wikepedia’s citation policy] and https://en.wikiquote.org/w/index.php?title=Bill_Gates&oldid=3534967#Misattributed[Bill Gates’ complaint about misattributed].
+
 Happy hacking!
