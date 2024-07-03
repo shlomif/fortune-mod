@@ -4,13 +4,20 @@ Shlomi Fish <shlomif@cpan.org>
 :Date: 2021-04-01
 :Revision: $Id$
 
-All contributions are welcome, including small typo fixes.
-A list of current open tasks can be found in the
-https://github.com/shlomif/fortune-mod/README.md[README]
+All quality contributions are welcome, including small typo fixes.
+Note that we will review changesets, and may require amendments if we
+detect any problems.
 
-Pull requests through GitHub are accepted.
+A list of current open tasks can be found in the
+https://github.com/shlomif/fortune-mod/blob/master/README.asciidoc[README]
+
+Pull requests through GitHub are accepted. You can also send “diff -u”
+patches to https://www.shlomifish.org/me/contact-me/[Shlomi Fish].
 
 If possible, please create a dedicated branch for any changes. This
-isn't a deal breaker though, as it is an easy fix with git.
+isn't a deal breaker though, as it is an easy fix with git. Moreover, every
+atomic change should preferably be in its own git commit.
+
+Moreover, note that new fortunes should preferably include source URLs or references for citation. This is given https://www.explainxkcd.com/wiki/index.php/285:_Wikipedian_Protester[Wikepedia’s citation policy] and https://en.wikiquote.org/w/index.php?title=Bill_Gates&oldid=3534967#Misattributed[Bill Gates’ complaint about misattributed].
 
 Happy hacking!
