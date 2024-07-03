@@ -4,7 +4,10 @@ Shlomi Fish <shlomif@cpan.org>
 :Date: 2021-04-01
 :Revision: $Id$
 
-All contributions are welcome, including small typo fixes.
+All quality contributions are welcome, including small typo fixes.
+Note that we will review changesets, and may require amendments if we
+detect any problems.
+
 A list of current open tasks can be found in the
 https://github.com/shlomif/fortune-mod/blob/master/README.asciidoc[README]
 
@@ -12,6 +15,7 @@ Pull requests through GitHub are accepted. You can also send “diff -u”
 patches to https://www.shlomifish.org/me/contact-me/[Shlomi Fish].
 
 If possible, please create a dedicated branch for any changes. This
-isn't a deal breaker though, as it is an easy fix with git.
+isn't a deal breaker though, as it is an easy fix with git. Moreover, every
+atomic change should preferably be in its own git commit.
 
 Happy hacking!
