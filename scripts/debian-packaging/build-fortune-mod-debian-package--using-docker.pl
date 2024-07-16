@@ -45,7 +45,8 @@ my $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 apt-get -y update
 apt-get -y install eatmydata sudo
-sudo eatmydata apt -y install build-essential chrpath cmake git-buildpackage librecode-dev librinutils-dev perl recode
+# sudo eatmydata apt -y install build-essential chrpath cmake git-buildpackage librecode-dev librinutils-dev perl recode
+sudo apt -y install build-essential chrpath cmake git-buildpackage librecode-dev librinutils-dev perl recode
 sudo adduser --disabled-password --gecos '' "$USER"
 sudo usermod -a -G sudo "$USER"
 echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
