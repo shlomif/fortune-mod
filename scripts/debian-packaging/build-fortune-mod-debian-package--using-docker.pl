@@ -40,13 +40,27 @@ my $LOG_FN = "git-buildpackage-log.txt";
 
 my $BASH_SAFETY = "set -e -x ; set -o pipefail ; ";
 
+$obj->docker(
+    {
+        cmd => [
+            'cp',
+            ("debian-packaging/pbuilderrc"),
+            ( $obj->container() . ":/etc/pbuilderrc" )
+        ]
+    }
+);
+
 # $obj->docker( { cmd => [  'cp', "../scripts", "fcsfed:scripts", ] } );
 my $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 apt-get -y update
 apt-get -y install eatmydata sudo
-# sudo eatmydata apt -y install build-essential chrpath cmake git-buildpackage librecode-dev librinutils-dev perl recode
-sudo apt -y install build-essential chrpath cmake git-buildpackage librecode-dev librinutils-dev perl recode
+deps="build-essential chrpath cmake git-buildpackage librecode-dev librinutils-dev perl recode"
+deps="build-essential chrpath cmake git-buildpackage librecode-dev perl recode"
+ls -l /etc/pbuilderrc
+cat /etc/pbuilderrc
+# sudo apt-get -y install \$deps
+if true; then sudo eatmydata apt-get --no-install-recommends install -y \$deps ; fi
 sudo adduser --disabled-password --gecos '' "$USER"
 sudo usermod -a -G sudo "$USER"
 echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
