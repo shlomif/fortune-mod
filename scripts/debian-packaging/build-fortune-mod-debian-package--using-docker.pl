@@ -8,8 +8,15 @@ use autodie;
 use Path::Tiny qw/ cwd /;
 use Docker::CLI::Wrapper::Container v0.0.4 ();
 
-my $obj = Docker::CLI::Wrapper::Container->new(
-    { container => "fortune-mod--deb--test-build", sys => "debian:sid", } );
+my $UBUNTU = 1;
+my $obj    = Docker::CLI::Wrapper::Container->new(
+    $UBUNTU
+    ? {
+        container => "fortune-mod--ubuntu--test-build",
+        sys       => "ubuntu:24.04",
+        }
+    : { container => "fortune-mod--deb--test-build", sys => "debian:sid", }
+);
 
 my $USER    = "mygbp";
 my $HOMEDIR = "/home/$USER";
