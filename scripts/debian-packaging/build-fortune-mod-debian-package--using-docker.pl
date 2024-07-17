@@ -75,7 +75,7 @@ $obj->exe_bash_code(
     }
 );
 
-my $verrel = "3.10.0-0.1";
+my $verrel = "3.22.0-0.1";
 $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 cd "$HOMEDIR/$REPO"
