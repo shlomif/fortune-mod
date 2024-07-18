@@ -101,7 +101,14 @@ sudo dpkg -i ~/fortunes_"\$verrel"_all.deb
 f=/usr/games/fortune
 test -x "\$f"
 "\$f"
-sudo find / -type f -name '*.changes' -print
+sudo find / -type f -name '*.changes' -print || true
+cd ~
+is_ubuntu="${UBUNTU}"
+if test "\${is_ubuntu}" = "1"
+then
+    sudo eatmydata apt-get --no-install-recommends install -y "dput"
+    dput fortune-mod_"\$verrel"_source.changes
+fi
 EOSCRIPTTTTTTT
 
 $obj->exe_bash_code(
