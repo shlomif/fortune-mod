@@ -88,6 +88,12 @@ $BASH_SAFETY
 cd "$HOMEDIR/$REPO"
 git clean -dxf .
 (if ! gbp buildpackage 2>&1 ; then cat /tmp/fort*diff* ; exit 1 ; fi) | tee ~/"$LOG_FN"
+_generate_source_changes_package()
+{
+    # I just work here: https://help.launchpad.net/Packaging/PPA/BuildingASourcePackage
+    debuild -S -sa
+}
+_generate_source_changes_package
 verrel="$verrel"
 sudo dpkg -i ~/fortune-mod_"\$verrel"_amd64.deb
 sudo dpkg -i ~/fortunes-min_"\$verrel"_all.deb
@@ -95,6 +101,7 @@ sudo dpkg -i ~/fortunes_"\$verrel"_all.deb
 f=/usr/games/fortune
 test -x "\$f"
 "\$f"
+sudo find / -type f -name '*.changes' -print
 EOSCRIPTTTTTTT
 
 $obj->exe_bash_code(
