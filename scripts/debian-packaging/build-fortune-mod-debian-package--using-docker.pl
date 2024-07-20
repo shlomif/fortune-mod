@@ -76,6 +76,14 @@ $obj->exe_bash_code( { code => $script, } );
 
 $obj->docker(
     { cmd => [ 'cp', "./$REPO", $obj->container() . ":$HOMEDIR/$REPO", ] } );
+$obj->docker(
+    {
+        cmd => [
+            'cp', "$ENV{HOME}/.gnupg",
+            $obj->container() . ":$HOMEDIR/.gnupg",
+        ]
+    }
+);
 $obj->exe_bash_code(
     {
         code => "$BASH_SAFETY chown -R $USER:$USER $HOMEDIR",
@@ -107,7 +115,9 @@ is_ubuntu="${UBUNTU}"
 if test "\${is_ubuntu}" = "1"
 then
     sudo eatmydata apt-get --no-install-recommends install -y "dput"
-    dput fortune-mod_"\$verrel"_source.changes
+    changes_fn=fortune-mod_"\$verrel"_source.changes
+    debsign -k FC112D1F7E444BC8FF95904AFC43A6699C6D49B7 "\${changes_fn}"
+    dput "\${changes_fn}"
 fi
 EOSCRIPTTTTTTT
 
