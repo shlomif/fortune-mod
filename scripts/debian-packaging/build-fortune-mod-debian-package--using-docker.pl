@@ -62,7 +62,7 @@ my $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 apt-get -y update
 apt-get -y install eatmydata sudo
-deps="build-essential chrpath cmake debhelper debhelper-compat fakeroot git-buildpackage librecode-dev perl recode"
+deps="build-essential chrpath cmake debhelper debhelper-compat fakeroot git-buildpackage librecode-dev perl pinentry-tty recode"
 ls -l /etc/pbuilderrc
 cat /etc/pbuilderrc
 # sudo apt-get -y install \$deps
