@@ -114,8 +114,8 @@
 #define MINW 6   /* minimum wait if desired */
 #define CPERS 20 /* # of chars for each sec */
 
-#define POS_UNKNOWN ((int32_t)-1) /* pos for file unknown */
-#define NO_PROB (-1)              /* no prob specified for file */
+#define POS_UNKNOWN ((int32_t) - 1) /* pos for file unknown */
+#define NO_PROB (-1)                /* no prob specified for file */
 
 #ifdef DEBUG
 #define DPRINTF(l, x)                                                          \
