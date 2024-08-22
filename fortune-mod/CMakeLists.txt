@@ -111,7 +111,7 @@ INCLUDE ("${CMAKE_SOURCE_DIR}/cmake/rinutils_bootstrap.cmake")
 RINUTILS_SET_UP_FLAGS()
 
 IF ("$ENV{FCS_CLANG}")
-    SET (_kept_sorted_whitelists "-Wno-cast-align -Wno-cast-qual -Wno-comma -Wno-declaration-after-statement -Wno-disabled-macro-expansion -Wno-documentation -Wno-documentation-deprecated-sync -Wno-documentation-unknown-command -Wno-extra-semi-stmt -Wno-gnu-statement-expression -Wno-implicit-fallthrough -Wno-language-extension-token -Wno-padded -Wno-pass-failed -Wno-unused-parameter -Wno-used-but-marked-unused -Wno-vla")
+    SET (_kept_sorted_whitelists "-Wno-cast-align -Wno-cast-qual -Wno-comma -Wno-declaration-after-statement -Wno-disabled-macro-expansion -Wno-documentation -Wno-documentation-deprecated-sync -Wno-documentation-unknown-command -Wno-extra-semi-stmt -Wno-gnu-statement-expression -Wno-implicit-fallthrough -Wno-language-extension-token -Wno-padded -Wno-pass-failed -Wno-unsafe-buffer-usage -Wno-unused-parameter -Wno-used-but-marked-unused -Wno-vla")
     ADD_DEFINITIONS("-Weverything ${_kept_sorted_whitelists}")
     # ADD_DEFINITIONS("-Weverything")
 ENDIF ()

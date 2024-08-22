@@ -151,17 +151,15 @@ static void get_fort(STRFILE fp)
 
 static void display(FILE *fp, STRFILE table)
 {
-    char *p, ch;
     char line[BUFSIZ];
-    int i;
 
     fseek(fp, (long)Seekpts[0], SEEK_SET);
-    for (i = 0; fgets(line, sizeof line, fp) && !STR_ENDSTRING(line, table);
-         i++)
+    for (; fgets(line, sizeof line, fp) && !STR_ENDSTRING(line, table);)
     {
         if (table.str_flags & STR_ROTATED)
         {
-            for (p = line; (ch = *p); ++p)
+            char ch;
+            for (char *p = line; (ch = *p); ++p)
             {
                 if (isupper(ch))
                 {
