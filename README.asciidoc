@@ -109,8 +109,10 @@ they are today.
 
 Secondly, you can find some reimplementations of fortune here:
 
-* https://metacpan.org/pod/distribution/PerlPowerTools/bin/fortune[perl]
-* https://github.com/bmc/fortune[python]
+* https://metacpan.org/pod/distribution/PerlPowerTools/bin/fortune[Perl]
+* https://github.com/bmc/fortune[Python]
+* https://github.com/jvzantvoort/fortune[Go-Lang] (and not too serious)
+* https://github.com/cafkafk/fortune-kind[fortune-kind in Rust-Lang] (under AGPL and with filtered data)
 
 You may be able to get them to work with the data files of fortune-mod
 and other fortune collections, but note that we have not closely
@@ -120,7 +122,7 @@ Thirdly, most of the value (and relative data size) of the tarball is in
 the quotes collection.
 
 Fourthly, a native executable might still provide a
-https://tonsky.me/blog/disenchantment/[better user experience]. However,
+https://tonsky.me/blog/disenchantment/[better user-experience]. However,
 note that I have yet to perform a stresstest benchmark, and I doubt it will
 matter too much for “fortune”'s common use case.
 
