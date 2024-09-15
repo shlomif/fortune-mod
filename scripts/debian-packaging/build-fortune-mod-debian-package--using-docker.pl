@@ -93,9 +93,13 @@ $obj->exe_bash_code(
 my $verrel = "3.22.0-0.1";
 $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
+key_id="63E7F7D6651C25C2E8210DBF9A02DA5D5F67B701"
 cd "$HOMEDIR/$REPO"
 git clean -dxf .
-(if ! gbp buildpackage 2>&1 ; then cat /tmp/fort*diff* ; exit 1 ; fi) | tee ~/"$LOG_FN"
+export DEBUILD_DPKG_BUILDPACKAGE_OPTS="-k\${key_id}"
+printf "DEBUILD_DPKG_BUILDPACKAGE_OPTS=-k%s\\n" "\${key_id}" > "\$HOME/.devscripts"
+# (if ! gbp buildpackage --git-keyid="\${key_id}" 2>&1; then cat /tmp/fort*diff* ; exit 1 ; fi) | tee ~/"$LOG_FN"
+(if ! gbp buildpackage 2>&1; then cat /tmp/fort*diff* ; exit 1 ; fi) | tee ~/"$LOG_FN"
 _generate_source_changes_package()
 {
     # I just work here: https://help.launchpad.net/Packaging/PPA/BuildingASourcePackage
@@ -117,7 +121,7 @@ then
     sudo eatmydata apt-get --no-install-recommends install -y "dput"
     changes_fn=fortune-mod_"\$verrel"_source.changes
     # debsign -k FC112D1F7E444BC8FF95904AFC43A6699C6D49B7 "\${changes_fn}"
-    debsign -k 63E7F7D6651C25C2E8210DBF9A02DA5D5F67B701 "\${changes_fn}"
+    debsign -k "\${key_id}" "\${changes_fn}"
     if false
     then
         dput "\${changes_fn}"
@@ -134,7 +138,13 @@ $obj->exe_bash_code(
 $obj->docker(
     { cmd => [ 'cp', $obj->container() . ":$HOMEDIR/$LOG_FN", $LOG_FN, ] } );
 $obj->docker(
-    { cmd => [ 'cp', $obj->container() . ":$HOMEDIR", "ubuntu-docker-results-home-dir", ] } );
+    {
+        cmd => [
+            'cp', $obj->container() . ":$HOMEDIR",
+            "ubuntu-docker-results-home-dir",
+        ]
+    }
+);
 
 $obj->clean_up();
 
