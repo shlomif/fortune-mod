@@ -116,8 +116,12 @@ if test "\${is_ubuntu}" = "1"
 then
     sudo eatmydata apt-get --no-install-recommends install -y "dput"
     changes_fn=fortune-mod_"\$verrel"_source.changes
-    debsign -k FC112D1F7E444BC8FF95904AFC43A6699C6D49B7 "\${changes_fn}"
-    dput "\${changes_fn}"
+    # debsign -k FC112D1F7E444BC8FF95904AFC43A6699C6D49B7 "\${changes_fn}"
+    debsign -k 63E7F7D6651C25C2E8210DBF9A02DA5D5F67B701 "\${changes_fn}"
+    if false
+    then
+        dput "\${changes_fn}"
+    fi
 fi
 EOSCRIPTTTTTTT
 
@@ -129,6 +133,8 @@ $obj->exe_bash_code(
 );
 $obj->docker(
     { cmd => [ 'cp', $obj->container() . ":$HOMEDIR/$LOG_FN", $LOG_FN, ] } );
+$obj->docker(
+    { cmd => [ 'cp', $obj->container() . ":$HOMEDIR", "ubuntu-docker-results-home-dir", ] } );
 
 $obj->clean_up();
 
