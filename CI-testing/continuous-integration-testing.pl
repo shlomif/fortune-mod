@@ -133,4 +133,24 @@ if ($IS_WIN)
             ]
         }
     );
+    my $OUT_FN = "out.txt";
+    do_system(
+        {
+            cmd => [
+"$WIN32__DOUBLE_AMPERSAND__PROPER_HANDLING__NEEDED_PREFIX $gdb_prefix c:/foo/games/fortune.exe -m Wiker > $OUT_FN"
+            ]
+        }
+    );
+    my $content = path($OUT_FN)->slurp_utf8();
+    say $content;
+
+    if ( my @matches = $content =~ /Wiker/g )
+    {
+        my $count = @matches;
+        if ( $count != 1 )
+        {
+            die "Wrong \$count = '$count'!";
+        }
+    }
+
 }
