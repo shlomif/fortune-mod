@@ -19,6 +19,17 @@ sub do_system
         die "Running [@$cmd] failed!";
     }
 }
+
+sub do_system_without_check_for_failure
+{
+    my ($args) = @_;
+
+    my $cmd = $args->{cmd};
+    print "Running [@$cmd]\n";
+    system(@$cmd);
+    return;
+}
+
 my $cwd = cwd();
 
 my $IS_WIN = ( $^O eq "MSWin32" );
@@ -134,7 +145,7 @@ if ($IS_WIN)
         }
     );
     my $OUT_FN = "out.txt";
-    do_system(
+    do_system_without_check_for_failure(
         {
             cmd => [
 "$WIN32__DOUBLE_AMPERSAND__PROPER_HANDLING__NEEDED_PREFIX $gdb_prefix c:/foo/games/fortune.exe -m Wiker > $OUT_FN"
