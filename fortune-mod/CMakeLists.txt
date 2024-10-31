@@ -386,7 +386,6 @@ SET (OFFENSIVE_COOKIES
     sex
     songs-poems
     vulgarity
-    zippy
 )
 
 ADD_SUBDIRECTORY("datfiles")
