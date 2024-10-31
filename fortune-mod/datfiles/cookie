@@ -94,10 +94,6 @@ The life of a repo man is always intense.
 %
 If you're not careful, you're going to catch something.
 %
-That's the thing about people who think they hate computers.  What they
-really hate is lousy programmers.
-		-- Larry Niven and Jerry Pournelle in "Oath of Fealty"
-%
 Wherever you go...There you are.
 		-- Buckaroo Banzai
 %
@@ -116,12 +112,6 @@ decide a single human fate.
 Successful and fortunate crime is called virtue.
 		-- Seneca
 %
-When we jumped into Sicily, the units became separated, and I couldn't find
-anyone.  Eventually I stumbled across two colonels, a major, three captains,
-two lieutenants, and one rifleman, and we secured the bridge.  Never in the
-history of war have so few been led by so many.
-		-- General James Gavin
-%
 The only thing necessary for the triumph of evil is for good men to do
 nothing.
 		-- Edmund Burke
@@ -132,9 +122,6 @@ You may call me by my name, Wirth, or by my value, Worth.
 Give a man a fish, and you feed him for a day.
 Teach a man to fish, and he'll invite himself over for dinner.
 		-- Calvin Keegan
-%
-Prediction is very difficult, especially of the future.
-		-- Niels Bohr
 %
 The computer can't tell you the emotional story.  It can give you the exact
 mathematical design, but what's missing is the eyebrows.
@@ -174,12 +161,6 @@ programming language generating unreliable programs constitutes a far
 greater risk to our environment and to our society than unsafe cars, toxic
 pesticides, or accidents at nuclear power stations.
 		-- C. A. R. Hoare
-%
-Without coffee he could not work, or at least he could not have worked in the
-way he did.  In addition to paper and pens, he took with him everywhere as an
-indispensable article of equipment the coffee machine, which was no less
-important to him than his table or his white robe.
-		-- Stefan Zweigs, Biography of Balzac
 %
 "It was the Law of the Sea, they said.	Civilization ends at the waterline.
 Beyond that, we all enter the food chain, and not always right at the top."
@@ -376,14 +357,6 @@ Do not underestimate the value of print statements for debugging.
 Do not underestimate the value of print statements for debugging.
 Don't have aesthetic convulsions when using them, either.
 %
-As the system comes up, the component builders will from time to time appear,
-bearing hot new versions of their pieces -- faster, smaller, more complete,
-or putatively less buggy.  The replacement of a working component by a new
-version requires the same systematic testing procedure that adding a new
-component does, although it should require less time, for more complete and
-efficient test cases will usually be available.
-		-- Frederick Brooks Jr., "The Mythical Man Month"
-%
 Each team building another component has been using the most recent tested
 version of the integrated system as a test bed for debugging its piece.  Their
 work will be set back by having that test bed change under them.  Of course it
@@ -449,9 +422,6 @@ from beginning to end. -- Vernor Vinge, "The Peace War"
 %
 "It's like deja vu all over again."   -- Yogi Berra
 %
-The last thing one knows in constructing a work is what to put first.
-		-- Blaise Pascal
-%
 "Where shall I begin, please your Majesty?" he asked.  "Begin at the
 beginning," the King said, gravely, "and go on till you come to the end: then
 stop."
@@ -485,9 +455,6 @@ rocking a grown man in the cradle of an infant.  -- Edmund Burke
 %
 For every problem there is one solution which is simple, neat, and wrong.
 		-- H. L. Mencken
-%
-Don't tell me how hard you work.  Tell me how much you get done.
-		-- James J. Ling
 %
 One friend in a lifetime is much; two are many; three are hardly possible.
 Friendship needs a certain parallelism of life, a community of thought,
@@ -531,9 +498,6 @@ and that most such documented penetrations have been remarkably easy.
            System", Operating Systems Review, Vol. 14, No. 1, June 1980,
            pp. 7-20
 %
-A right is not what someone gives you; it's what no one can take from you.
-		-- Ramsey Clark
-%
 The price one pays for pursuing any profession, or calling, is an intimate
 knowledge of its ugly side.  -- James Baldwin
 %
@@ -545,9 +509,6 @@ tools is essential to meet ever increasing demands for software.
 %
 It is not best to swap horses while crossing the river.
 		-- Abraham Lincoln
-%
-Mirrors should reflect a little before throwing back images.
-		-- Jean Cocteau
 %
 Suppose for a moment that the automobile industry had developed at the same
 rate as computers and over the same period:  how much cheaper and more
@@ -710,8 +671,6 @@ Life.  Don't talk to me about life.
 On a clear disk you can seek forever.
 %
 The world is coming to an end--save your buffers!
-%
-grep me no patterns and I'll tell you no lines.
 %
 It is your destiny.
 		-- Darth Vader
@@ -971,9 +930,6 @@ America has been discovered before, but it has always been hushed up.
 Unix:  Some say the learning curve is steep, but you only have to climb it once.
 		-- Karl Lehenbauer
 %
-Sometimes, too long is too long.
-		-- Joe Crowe
-%
 When bad men combine, the good must associate; else they will fall one by one,
 an unpitied sacrifice in a contemptible struggle.
 		-- Edmund Burke
@@ -1090,12 +1046,6 @@ Humanity has the stars in its future, and that future is too important to be
 lost under the burden of juvenile folly and ignorant superstition.
 		-- Isaac Asimov
 %
-And the crowd was stilled.  One elderly man, wondering at the sudden silence,
-turned to the Child and asked him to repeat what he had said.  Wide-eyed,
-the Child raised his voice and said once again, "Why, the Emperor has no
-clothes!  He is naked!"
-		-- "The Emperor's New Clothes"
-%
 "Those who believe in astrology are living in houses with foundations of
 Silly Putty."
 		-- Dennis Rawlins, astronomer
@@ -1124,9 +1074,6 @@ Doubt is a pain too lonely to know that faith is his twin brother.
 %
 Doubt isn't the opposite of faith; it is an element of faith.
 		-- Paul Tillich, German theologian and historian
-%
-Doubt is not a pleasant condition, but certainty is absurd.
-		-- Voltaire
 %
 If only God would give me some clear sign!  Like making a large deposit
 in my name at a Swiss Bank.
@@ -1286,19 +1233,6 @@ they remain theological even when they are adduced by men who like to
 flatter themselves by believing that they are scientific gents....
 		-- H. L. Mencken
 %
-There is, in fact, no reason to believe that any given natural phenomenon,
-however marvelous it may seem today, will remain forever inexplicable.
-Soon or late the laws governing the production of life itself will be
-discovered in the laboratory, and man may set up business as a creator
-on his own account.  The thing, indeed, is not only conceivable; it is
-even highly probable.
-		-- H. L. Mencken, 1930
-%
-The best that we can do is to be kindly and helpful toward our friends and
-fellow passengers who are clinging to the same speck of dirt while we are
-drifting side by side to our common doom.
-		-- Clarence Darrow
-%
 We're here to give you a computer, not a religion.
 		-- attributed to Bob Pariseau, at the introduction of the Amiga
 %
@@ -1381,9 +1315,6 @@ eating paper and a policeman was at the door.  Now all you have to do is
 bend a disk."
 		-- an anonymous member of the outlawed Polish trade union, Solidarity,
   commenting on the benefits of using computers in support of their movement
-%
-Clothes make the man.  Naked people have little or no influence on society.
-		-- Mark Twain
 %
 The sooner all the animals are extinct, the sooner we'll find their money.
 		-- Ed Bluestone
@@ -1714,9 +1645,6 @@ skepticism, we will at least try to believe that you are imposed upon
 by your own bluster.
 		-- Leslie Stephen, "An agnostic's Apology", Fortnightly Review, 1876
 %
-Marriage is the only adventure open to the cowardly.
-		-- Voltaire
-%
 What is tolerance? -- it is the consequence of humanity.  We are all formed
 of frailty and error; let us pardon reciprocally each other's folly --
 that is the first law of nature.
@@ -1944,17 +1872,6 @@ reptile and not very much of a bird."
 %
 You need tender loving care once a week - so that I can slap you into shape.
 		-- Ellyn Mustard
-%
-"It may be that our role on this planet is not to worship God but to
- create him."
- -Arthur C. Clarke
-%
-"Why should we subsidize intellectual curiosity?"
- -Ronald Reagan
-%
-"There is nothing new under the sun, but there are lots of old things
- we don't know yet."
- -Ambrose Bierce
 %
 The Middle East is certainly the nexus of turmoil for a long time to come --
 with shifting players, but the same game: upheaval.  I think we will be
@@ -2847,9 +2764,6 @@ What to do in case of an alien attack:
 
 		-- The Firesign Theatre, _Everything you know is Wrong_
 %
-"Nuclear war would really set back cable."
-		-- Ted Turner
-%
 "You tweachewous miscweant!"
 		-- Elmer Fudd
 %
@@ -2859,8 +2773,6 @@ spoke. I mean, he could roll over and all that, but did that deserve a series?"
 %
 "Open Channel D..."
 		-- Napoleon Solo, The Man From U.N.C.L.E.
-%
-Save the whales.  Collect the whole set.
 %
 Support Mental Health.  Or I'll kill you.
 %
@@ -4725,9 +4637,6 @@ the exact opposite."
 dumb, and maybe even a little ugly on the side."
 		-- Frank Zappa
 %
-"It's not just a computer -- it's your ass."
-		-- Cal Keegan
-%
 "Let me guess, Ed.  Pentescostal, right?"
 		-- Starcap'n Ra, ra@asuvax.asu.edu
 
@@ -4755,8 +4664,6 @@ Richard Sexton, richard@gryphon.COM
 "Oh my!  An `inflammatory attitude' in alt.flame?  Never heard of such
 a thing..."
 		-- Allen Gwinn, allen@sulaco.Sigma.COM
-%
-(null cookie; hope that's ok)
 %
 "In Christianity neither morality nor religion come into contact with reality
 at any point."
@@ -4872,9 +4779,6 @@ of dissension and discord, of hate and enmity."
  religion, the more grievous the waywardness of the ungodly. This cannot but
  lead in the end to chaos and confusion."
 		-- Baha'u'llah, a selection from the Baha'i scripture
-%
-"Cogito ergo I'm right and you're wrong."
-		-- Blair Houghton
 %
 "...one of the main causes of the fall of the Roman Empire was that,
 lacking zero, they had no way to indicate successful termination of
@@ -5064,9 +4968,6 @@ Marriage is the sole cause of divorce.
 Marriage is the triumph of imagination over intelligence.  Second marriage is
 the triumph of hope over experience.
 %
-"The chain which can be yanked is not the eternal chain."
-		-- G. Fitch
-%
 "Go to Heaven for the climate, Hell for the company."
 		-- Mark Twain
 %
@@ -5233,10 +5134,6 @@ turning things around.  If you think something stinks, say so - don't say you
 don't think it's wonderful.   ...
 		-- D. J. McCarthy (dmccart@cadape.UUCP)
 %
-"They that can give up essential liberty to obtain a little temporary
-safety deserve neither liberty nor safety."
-		-- Benjamin Franklin, 1759
-%
 "I am, therefore I am."
 		-- Akira
 %
@@ -5249,13 +5146,6 @@ safety deserve neither liberty nor safety."
 %
 "It's what you learn after you know it all that counts."
 		-- John Wooden
-%
-#define BITCOUNT(x)	(((BX_(x)+(BX_(x)>>4)) & 0x0F0F0F0F) % 255)
-#define  BX_(x)		((x) - (((x)>>1)&0x77777777)			\
-			     - (((x)>>2)&0x33333333)			\
-			     - (((x)>>3)&0x11111111))
-
-		-- really weird C code to count the number of bits in a word
 %
 "If you can write a nation's stories, you needn't worry about who makes its
  laws.  Today, television tells most of the stories to most of the people
@@ -5408,8 +5298,6 @@ be using autocoder and running compile decks.
 
 		-- Peter da Silva and Karl Lehenbauer, a different perspective
 %
-To err is human, to moo bovine.
-%
 "America is a stronger nation for the ACLU's uncompromising effort."
 		-- President John F. Kennedy
 %
@@ -5500,11 +5388,6 @@ I tell 'em to pick two and call me back.
  other causes combined."
 		-- Fred Brooks, Jr., _The Mythical Man Month_
 %
-panic: kernel trap (ignored)
-%
-"Nuclear war can ruin your whole compile."
-		-- Karl Lehenbauer
-%
 "Remember, extremism in the nondefense of moderation is not a virtue."
 		-- Peter Neumann, about usenet
 %
@@ -5520,9 +5403,6 @@ panic: kernel trap (ignored)
 %
 "If you can, help others.  If you can't, at least don't hurt others."
 		-- the Dalai Lama
-%
-To the systems programmer, users and applications serve only to provide a
-test load.
 %
 "Just think, with VLSI we can have 100 ENIACS on a chip!"
 		-- Alan Perlis
@@ -5695,12 +5575,6 @@ learned there is little to be gained in fine-tuning the valve timing
 on a gasoline-powered internal combustion engine when the pistons
 and crankshaft are missing...
 		-- Valdis.Kletnieks@vt.edu on NANOG
-%
-It's always sad when the fleas leave, because that means your dog is dead.
-		-- Wesley T. Williams
-%
-It's always sad when the fleas leave, because that means your dog is dead.
-		-- Wesley T. Williams
 %
 You know, the very powerful and the very stupid have one thing in common:
 they don’t alter their views to fit the facts; they alter the facts to fit
