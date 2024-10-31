@@ -365,7 +365,6 @@ SET (OFFENSIVE_COOKIES
     astrology
     atheism
     black-humor
-    cookie
     debian
     definitions
     drugs
