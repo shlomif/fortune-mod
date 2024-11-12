@@ -1164,8 +1164,6 @@ And formatted so it's a little easier to read:
 %
 If a 'train station' is where a train stops, what's a 'workstation'?
 %
-Computers are not intelligent.  They only think they are.
-%
 "We don't do a new version to fix bugs." - Bill Gates
 "The new version - it's not there to fix bugs." - Bill Gates
 	-- Retranslated from Focus 43/1995, pp. 206-212
@@ -1540,12 +1538,6 @@ James Troup <troup@debian.org>:
 Debian is like Suse with yast turned off, just better. :)
 	-- Goswin Brederlow
 %
-Arnold's Laws of Documentation:
-	(1) If it should exist, it doesn't.
-	(2) If it does exist, it's out of date.
-	(3) Only documentation for useless programs transcends the
-	    first two laws.
-%
 The truth is not free.  It's that simple.  If you change the truth, it is no
 longer true - so the truth is not free!
 	-- Jules Bean about freeness of documentation
@@ -1557,10 +1549,6 @@ longer true - so the truth is not free!
 <jim> Then we're about to lose ftp.debian.org and dpkg :)
 * netgod will miss dpkg -- it was occasionally useful
 <Joey> We still have rpm....
-	-- Seen on #Debian
-%
-* JHM wonders what Joey did to earn "I'd just like to say, for the record,
-  that Joey rules."
 	-- Seen on #Debian
 %
 The problem here (as someon else stated) is that when multiple dists
@@ -1804,12 +1792,6 @@ modconf (0.2.37) stable unstable; urgency=medium
   [...]
  -- Eduard Bloch <blade@debian.org>  Sun, 28 Oct 2001 12:53:27 +0100
 %
-<|ryan|> I don't use deb
-<netgod> u poor man
-<Disconnect> netgod: heh
-<Kingsqueak> apt-get install task-p0rn
-%
-%
 Could somebody drag the Irix team kicking and screaming into the 1980's,
 please?
 
@@ -1824,15 +1806,6 @@ The branden dodges your magical sigh. The branden attacks you with a
 slew of words! The branden misses!
 
 	-- Henning Makholm in <yahsmr7dk9k.fsf@pc-043.diku.dk>
-%
-I don't think 'It's better than hurling yourself into a meat grinder'
-is a good rationale for doing something.
-		-- Andrew Suffield in
-		   <20030905221055.GA22354@doc.ic.ac.uk> on debian-devel
-%
-< Overfiend> whew.
-< Overfiend> I really need to get some sleep.
-< Overfiend> but it sure was fun talking guitars, politics, and lesbians.
 %
 <<<
 Why Eclipse doesn't belong to the "right" tools? My naive understanding is

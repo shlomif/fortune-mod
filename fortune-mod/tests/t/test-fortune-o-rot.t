@@ -28,9 +28,5 @@ plan tests => 1;
     my $text     = `$inst_bin -o`;
 
     # TEST
-    like(
-        $text,
-        qr/\A\"In order to see Christianity/,
-        'fortune -o was not rotated'
-    );
+    like( $text, qr/Rabin/ms, 'fortune -o was not rotated' );
 }
