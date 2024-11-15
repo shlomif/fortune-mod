@@ -39,45 +39,54 @@ python3 util/find_duplicate_fortunes.py \
 
 '''
 
-locations_by_text = {}
 
-for filename in sys.argv:
-    with open(filename) as fh:
-        text = ""
-        startlineno = 1
+def files_processing_transaction(filenames_list):
+    """docstring for files_processing_transaction"""
 
-        for lineno, line in enumerate(fh, 1):
-            if line == "%\n":
+    locations_by_text = {}
+
+    for filename in filenames_list:
+        with open(filename) as fh:
+            text = ""
+            startlineno = 1
+
+            for lineno, line in enumerate(fh, 1):
+                if line == "%\n":
+                    if text not in locations_by_text:
+                        locations_by_text[text] = []
+                    locations_by_text[text].append(
+                        (filename, startlineno, lineno)
+                    )
+                    text = ""
+                    startlineno = lineno + 1
+                else:
+                    text += line
+
+            if text:
                 if text not in locations_by_text:
                     locations_by_text[text] = []
                 locations_by_text[text].append((filename, startlineno, lineno))
-                text = ""
-                startlineno = lineno + 1
-            else:
-                text += line
 
-        if text:
-            if text not in locations_by_text:
-                locations_by_text[text] = []
-            locations_by_text[text].append((filename, startlineno, lineno))
+    byfn = {}
+    for text, locations in locations_by_text.items():
+        if len(locations) > 1:
+            print(f"Multiple occurrences of '{text.__repr__()[:60]}':")
+            for filename, startlineno, lineno in locations[1:]:
+                if filename not in byfn:
+                    byfn[filename] = []
+                byfn[filename].append((startlineno, lineno))
+                # print(f"{filename}:{startlineno}:{lineno}")
 
-byfn = {}
-for text, locations in locations_by_text.items():
-    if len(locations) > 1:
-        print(f"Multiple occurrences of '{text.__repr__()[:60]}':")
-        for filename, startlineno, lineno in locations[1:]:
-            if filename not in byfn:
-                byfn[filename] = []
-            byfn[filename].append((startlineno, lineno))
-            # print(f"{filename}:{startlineno}:{lineno}")
+    for filename, matches in byfn.items():
+        m = list(reversed(sorted(matches)))
+        print(filename, m)
+        with open(filename) as fh:
+            lines = fh.readlines()
+        for start, end in m:
+            lines = lines[:(start - 1)] + lines[(end+0):]
+        with open(filename, "wt") as fh:
+            for li in lines:
+                fh.write(li)
 
-for filename, matches in byfn.items():
-    m = list(reversed(sorted(matches)))
-    print(filename, m)
-    with open(filename) as fh:
-        lines = fh.readlines()
-    for start, end in m:
-        lines = lines[:(start - 1)] + lines[(end+0):]
-    with open(filename, "wt") as fh:
-        for li in lines:
-            fh.write(li)
+
+files_processing_transaction(filenames_list=sys.argv)
