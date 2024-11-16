@@ -5,6 +5,7 @@
 # Author: Shlomi Fish ( https://www.shlomifish.org/ )
 #
 
+import subprocess
 import sys
 
 '''
@@ -89,4 +90,15 @@ def files_processing_transaction(filenames_list):
                 fh.write(li)
 
 
-files_processing_transaction(filenames_list=sys.argv)
+if sys.argv[1:] == ['--fortune-mod-dwim']:
+    cmd = ("git ls ./datfiles/ | grep -vE 'CMa|/data/' |"
+           "perl -E '@l=(<>);sub aa{return shift()=~m#^datfiles/off#ms;};"
+           "@o=sort{(aa($a)<=>aa($b)) or ($a cmp $b)}@l;say@o;'")
+    outputbytes = subprocess.check_output(cmd, shell=True)
+    output = outputbytes.decode('utf-8')
+    filenames_list = output.split("\n")
+    # print(filenames_list)
+    filenames_list = [x for x in filenames_list if len(x) > 0]
+    files_processing_transaction(filenames_list=filenames_list)
+else:
+    files_processing_transaction(filenames_list=sys.argv)
