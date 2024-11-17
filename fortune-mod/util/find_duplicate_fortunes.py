@@ -33,7 +33,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 '''
 
 python3 util/find_duplicate_fortunes.py \
-    $(git ls ./datfiles/ | grep -vE 'CMa|/data/' |
+    $(git ls-files ./datfiles/ | grep -vE 'CMa|/data/' |
     perl -E '@l=(<>);sub aa{return shift()=~m#^datfiles/off#ms;};
     @o=sort{(aa($a)<=>aa($b)) or ($a cmp $b)}@l;say@o;'
     )
@@ -91,7 +91,7 @@ def files_processing_transaction(filenames_list):
 
 
 if sys.argv[1:] == ['--fortune-mod-dwim']:
-    cmd = ("git ls ./datfiles/ | grep -vE 'CMa|/data/' |"
+    cmd = ("git ls-files ./datfiles/ | grep -vE 'CMa|/data/' |"
            "perl -E '@l=(<>);sub aa{return shift()=~m#^datfiles/off#ms;};"
            "@o=sort{(aa($a)<=>aa($b)) or ($a cmp $b)}@l;say@o;'")
     outputbytes = subprocess.check_output(cmd, shell=True)
