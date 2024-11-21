@@ -5,6 +5,7 @@
 # Author: Shlomi Fish ( https://www.shlomifish.org/ )
 #
 
+import re
 import subprocess
 import sys
 
@@ -91,14 +92,20 @@ def files_processing_transaction(filenames_list):
 
 
 if sys.argv[1:] == ['--fortune-mod-dwim']:
-    cmd = ("git ls-files ./datfiles/ | grep -vE 'CMa|/data/' |"
-           "perl -E '@l=(<>);sub aa{return shift()=~m#^datfiles/off#ms;};"
-           "@o=sort{(aa($a)<=>aa($b)) or ($a cmp $b)}@l;say@o;'")
+    cmd = "git ls-files ./datfiles/"
     outputbytes = subprocess.check_output(cmd, shell=True)
     output = outputbytes.decode('utf-8')
     filenames_list = output.split("\n")
     # print(filenames_list)
+    filenames_list = [
+        x for x in filenames_list if not re.search('CMa|/data/', x)
+    ]
+
+    def _mykey(x):
+        is_off = True if re.search('datfiles/off', x) else False
+        return (is_off, x)
     filenames_list = [x for x in filenames_list if len(x) > 0]
+    filenames_list = sorted(filenames_list, key=_mykey)
     files_processing_transaction(filenames_list=filenames_list)
 else:
     files_processing_transaction(filenames_list=sys.argv)
