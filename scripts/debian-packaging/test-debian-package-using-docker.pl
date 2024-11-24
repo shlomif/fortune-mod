@@ -70,7 +70,13 @@ if true; then sudo eatmydata apt-get --no-install-recommends install -y \$deps ;
 ( cd /etc/apt/sources.list.d/ ; wget https://swee.codes/swee.list )
 apt-get -y update
 apt-get -y install fortune-mod
-bash -e -x -c "/usr/games/fortune"
+c=0
+while test "\$c" -lt 10
+do
+    printf "%i\\n" "\$c"
+    bash -e -x -c "/usr/games/fortune"
+    let ++c
+done
 if false
 then
 sudo adduser --disabled-password --gecos '' "$USER"
