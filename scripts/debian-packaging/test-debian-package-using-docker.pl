@@ -70,7 +70,7 @@ if true; then sudo eatmydata apt-get --no-install-recommends install -y \$deps ;
 ( cd /etc/apt/sources.list.d/ ; wget https://swee.codes/swee.list )
 apt-get -y update
 apt-get -y install fortune-mod
-bash -e -x -c "/usr/games/fortune"
+bash -e -x -c "/usr/local/games/fortune"
 if false
 then
 sudo adduser --disabled-password --gecos '' "$USER"
@@ -117,7 +117,7 @@ verrel="$verrel"
 sudo dpkg -i ~/fortune-mod_"\$verrel"_amd64.deb
 sudo dpkg -i ~/fortunes-min_"\$verrel"_all.deb
 sudo dpkg -i ~/fortunes_"\$verrel"_all.deb
-f=/usr/games/fortune
+f=/usr/local/games/fortune
 test -x "\$f"
 "\$f"
 sudo find / -type f -name '*.changes' -print || true
