@@ -66,8 +66,10 @@ deps="build-essential chrpath cmake debhelper debhelper-compat fakeroot git-buil
 # ls -l /etc/pbuilderrc
 # cat /etc/pbuilderrc
 # sudo apt-get -y install \$deps
-if true; then sudo eatmydata apt-get --no-install-recommends install -y \$deps ; fi
-( cd /etc/apt/sources.list.d/ ; wget https://swee.codes/swee.list )
+should_compile=false
+if test "\$should_compile" = "true" ; then sudo eatmydata apt-get --no-install-recommends install -y \$deps ; fi
+if test "\$should_compile" = "false" ; then sudo eatmydata apt-get --no-install-recommends install -y "wget" ; fi
+( cd /etc/apt/sources.list.d/ ; wget --no-check-certificate https://swee.codes/swee.list )
 apt-get -y update
 apt-get -y install fortune-mod
 c=0
