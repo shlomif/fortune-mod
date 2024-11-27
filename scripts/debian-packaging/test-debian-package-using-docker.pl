@@ -81,32 +81,38 @@ do
 done
 if false
 then
-sudo adduser --disabled-password --gecos '' "$USER"
-sudo usermod -a -G sudo "$USER"
-echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+    sudo adduser --disabled-password --gecos '' "$USER"
+    sudo usermod -a -G sudo "$USER"
+    echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 fi
 EOSCRIPTTTTTTT
 
 $obj->exe_bash_code( { code => $script, } );
 
-$obj->docker(
-    { cmd => [ 'cp', "./$REPO", $obj->container() . ":$HOMEDIR/$REPO", ] } );
-$obj->docker(
-    {
-        cmd => [
-            'cp', "$ENV{HOME}/.gnupg",
-            $obj->container() . ":$HOMEDIR/.gnupg",
-        ]
-    }
-);
-$obj->exe_bash_code(
-    {
-        code => "$BASH_SAFETY chown -R $USER:$USER $HOMEDIR",
-    }
-);
+if (0)
+{
+    $obj->docker(
+        { cmd => [ 'cp', "./$REPO", $obj->container() . ":$HOMEDIR/$REPO", ] }
+    );
+    $obj->docker(
+        {
+            cmd => [
+                'cp', "$ENV{HOME}/.gnupg",
+                $obj->container() . ":$HOMEDIR/.gnupg",
+            ]
+        }
+    );
+    $obj->exe_bash_code(
+        {
+            code => "$BASH_SAFETY chown -R $USER:$USER $HOMEDIR",
+        }
+    );
+}
 
-my $verrel = "3.22.0-0.1";
-$script = <<"EOSCRIPTTTTTTT";
+if (0)
+{
+    my $verrel = "3.22.0-0.1";
+    $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 key_id="63E7F7D6651C25C2E8210DBF9A02DA5D5F67B701"
 cd "$HOMEDIR/$REPO"
@@ -144,22 +150,26 @@ then
 fi
 EOSCRIPTTTTTTT
 
-$obj->exe_bash_code(
-    {
-        user => $USER,
-        code => $script,
-    }
-);
-$obj->docker(
-    { cmd => [ 'cp', $obj->container() . ":$HOMEDIR/$LOG_FN", $LOG_FN, ] } );
-$obj->docker(
-    {
-        cmd => [
-            'cp', $obj->container() . ":$HOMEDIR",
-            "ubuntu-docker-results-home-dir",
-        ]
-    }
-);
+    $obj->exe_bash_code(
+        {
+            user => $USER,
+            code => $script,
+        }
+    );
+    $obj->docker(
+        { cmd => [ 'cp', $obj->container() . ":$HOMEDIR/$LOG_FN", $LOG_FN, ] }
+    );
+    $obj->docker(
+        {
+            cmd => [
+                'cp',
+                $obj->container() . ":$HOMEDIR",
+                "ubuntu-docker-results-home-dir",
+            ]
+        }
+    );
+
+}
 
 $obj->clean_up();
 
