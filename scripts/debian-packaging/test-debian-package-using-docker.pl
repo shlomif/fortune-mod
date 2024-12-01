@@ -79,6 +79,17 @@ do
     bash -e -x -c "/usr/games/fortune"
     let ++c
 done
+c=0
+while test "\$c" -lt 3
+do
+    printf "%i\\n" "\$c"
+    if false
+    then
+        bash -e -x -c "/usr/games/fortune shlomif-fav"
+    fi
+    bash -e -x -c "/usr/games/fortune rules-of-acquisition"
+    let ++c
+done
 if false
 then
     sudo adduser --disabled-password --gecos '' "$USER"
