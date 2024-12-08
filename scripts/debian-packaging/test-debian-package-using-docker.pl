@@ -68,10 +68,17 @@ deps="build-essential chrpath cmake debhelper debhelper-compat fakeroot git-buil
 # sudo apt-get -y install \$deps
 should_compile=false
 if test "\$should_compile" = "true" ; then sudo eatmydata apt-get --no-install-recommends install -y \$deps ; fi
-if test "\$should_compile" = "false" ; then sudo eatmydata apt-get --no-install-recommends install -y "wget" ; fi
+if test "\$should_compile" = "false" ; then sudo eatmydata apt-get --no-install-recommends install -y "ca-certificates" "wget" ; fi
 ( cd /etc/apt/sources.list.d/ ; wget --no-check-certificate https://swee.codes/swee.list )
 apt-get -y update
-apt-get -y install fortune-mod
+pkgname="fortune-mod"
+if false
+then
+    true
+else
+    pkgname="fortune-mod-shlomif"
+fi
+apt-get -y install "\${pkgname}"
 c=0
 while test "\$c" -lt 10
 do
