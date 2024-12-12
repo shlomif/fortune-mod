@@ -40,18 +40,20 @@ sudo pacman -S fortune-mod
 
 On Debian, and derivatives (e.g: Ubuntu, Linux Mint):
 
-....
-sudo apt install fortune-mod
-....
 
-(Warning: may be an old version.)
-
-Optionally, you can setup https://swee.codes/linuxrepos[This apt repository] to make sure you have the latest version.
-```
+....
 curl -L https://swee.codes/swee.list | sudo tee /etc/apt/sources.list.d/swee.list
 sudo apt update
 sudo apt install fortune-mod-shlomif
-```
+....
+
+This setups https://swee.codes/linuxrepos[this apt repository] to make sure you have the latest version.
+
+If you are content using a very old version, you can use:
+
+....
+sudo apt install fortune-mod
+....
 
 === Release Tarballs
 
