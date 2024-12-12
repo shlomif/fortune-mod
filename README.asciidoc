@@ -46,6 +46,13 @@ sudo apt install fortune-mod
 
 (Warning: may be an old version.)
 
+Optionally, you can setup https://swee.codes/linuxrepos[This apt repository] to make sure you have the latest version.
+```
+curl -L https://swee.codes/swee.list | sudo tee /etc/apt/sources.list.d/swee.list
+sudo apt update
+sudo apt install fortune-mod-shlomif
+```
+
 === Release Tarballs
 
 Release tarballs can be found at
