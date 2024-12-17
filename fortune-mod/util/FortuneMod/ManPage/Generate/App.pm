@@ -48,15 +48,29 @@ sub run
         {
             $ENV{PATH} = $path_prefix . $ENV{PATH};
         }
-        __PACKAGE__->do_system(
-            {
-                cmd => [
-                    "docmake",
-                    "manpages",
-"${CMAKE_CURRENT_SOURCE_DIR}/${subdir}/${basename}.docbook5.xml",
-                ],
-            },
+        my @args = (
+            "manpages",
+            "${CMAKE_CURRENT_SOURCE_DIR}/${subdir}/${basename}.docbook5.xml",
         );
+        eval {
+            require App::Docmake;
+            local @ARGV = @args;
+            if ( App::Docmake->new( { argv => [@ARGV] } )->run() )
+            {
+                warn "could not invoke App::Docmake :: run() properly";
+                die;
+            }
+        };
+        my $Err = $@;
+        if ($Err)
+        {
+            warn "App::Docmake from CPAN malfunctioned. $@";
+            __PACKAGE__->do_system(
+                {
+                    cmd => [ "docmake", @args, ],
+                },
+            );
+        }
     }
 
     path("${CMAKE_CURRENT_SOURCE_DIR}/${subdir}/${dest_basename}.man")
