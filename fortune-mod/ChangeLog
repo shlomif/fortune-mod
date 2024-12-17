@@ -1,6 +1,20 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+December 17, 2024 (fortune-mod 3.24.0)
+
+	Improved the resilience of generating man pages using App::Docmake
+
+	Remove some exact duplicate fortune cookies using
+	util/find_duplicate_fortunes.py
+
+	Add new fortunes
+
+	Documentation improvements
+
+	Made progress in the testing scripts and continuous integration (CI)
+	scripts.
+
 July 2, 2024 (fortune-mod 3.22.0)
 
 	Add the the-x-files-taglines collection.
