@@ -1,7 +1,7 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
-December 17, 2024 (fortune-mod 3.24.0)
+December 18, 2024 (fortune-mod 3.24.0)
 
 	Improved the resilience of generating man pages using App::Docmake
 
