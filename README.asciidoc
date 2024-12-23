@@ -42,8 +42,7 @@ On Debian, and derivatives (e.g: Ubuntu, Linux Mint):
 
 
 ....
-curl -L https://swee.codes/swee.list | sudo tee /etc/apt/sources.list.d/swee.list
-sudo apt update
+curl -sL https://swee.codes/repo.sh | sudo bash
 sudo apt install fortune-mod-shlomif
 ....
 
