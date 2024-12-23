@@ -48,7 +48,7 @@ sudo apt install fortune-mod-shlomif
 
 This setups https://swee.codes/linuxrepos[this apt repository] to make sure you have the latest version.
 
-If you are content using a very old version, you can use:
+If you are content with using a very old version, you can use:
 
 ....
 sudo apt install fortune-mod
