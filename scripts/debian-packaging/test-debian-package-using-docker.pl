@@ -86,19 +86,26 @@ sudo apt-get -y install "\${pkgname}"
 c=0
 while test "\$c" -lt 10
 do
-    printf "%i\\n" "\$c"
+    printf "plain: %i\\n" "\$c"
     bash -e -x -c "/usr/games/fortune"
     let ++c
 done
 c=0
 while test "\$c" -lt 3
 do
-    printf "%i\\n" "\$c"
+    printf "acqui no. %i\\n" "\$c"
     if false
     then
         bash -e -x -c "/usr/games/fortune shlomif-fav"
     fi
     bash -e -x -c "/usr/games/fortune rules-of-acquisition"
+    let ++c
+done
+c=0
+while test "\$c" -lt 3
+do
+    printf "shlomif-fav no. %i\\n" "\$c"
+    bash -e -x -c "/usr/games/fortune shlomif-fav"
     let ++c
 done
 if false
