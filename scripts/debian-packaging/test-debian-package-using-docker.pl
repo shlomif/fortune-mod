@@ -68,7 +68,7 @@ deps="build-essential chrpath cmake debhelper debhelper-compat fakeroot git-buil
 # sudo apt-get -y install \$deps
 should_compile=false
 if test "\$should_compile" = "true" ; then sudo eatmydata apt-get --no-install-recommends install -y \$deps ; fi
-if test "\$should_compile" = "false" ; then sudo eatmydata apt-get --no-install-recommends install -y "ca-certificates" "wget" ; fi
+if test "\$should_compile" = "false" ; then sudo eatmydata apt-get --no-install-recommends install -y "ca-certificates" "curl" "wget" ; fi
 if false
 then
     ( cd /etc/apt/sources.list.d/ ; wget --no-check-certificate https://swee.codes/swee.list )
