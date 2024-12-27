@@ -62,26 +62,11 @@ my $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 apt-get -y update
 apt-get -y install eatmydata sudo
-deps="build-essential chrpath cmake debhelper debhelper-compat fakeroot git-buildpackage librecode-dev perl pinentry-tty recode wget"
-# ls -l /etc/pbuilderrc
-# cat /etc/pbuilderrc
-# sudo apt-get -y install \$deps
 should_compile=false
-if test "\$should_compile" = "true" ; then sudo eatmydata apt-get --no-install-recommends install -y \$deps ; fi
 if test "\$should_compile" = "false" ; then sudo eatmydata apt-get --no-install-recommends install -y "ca-certificates" "curl" "wget" ; fi
-if false
-then
-    ( cd /etc/apt/sources.list.d/ ; wget --no-check-certificate https://swee.codes/swee.list )
-fi
-sudo bash -c "curl -sL https://swee.codes/repo.sh | bash"
+sudo bash -e -x -c "curl -sL https://swee.codes/repo.sh | bash"
 sudo apt-get -y update
-pkgname="fortune-mod"
-if false
-then
-    true
-else
-    pkgname="fortune-mod-shlomif"
-fi
+pkgname="fortune-mod-shlomif"
 sudo apt-get -y install "\${pkgname}"
 c=0
 while test "\$c" -lt 10
@@ -108,12 +93,6 @@ do
     bash -e -x -c "/usr/games/fortune shlomif-fav"
     let ++c
 done
-if false
-then
-    sudo adduser --disabled-password --gecos '' "$USER"
-    sudo usermod -a -G sudo "$USER"
-    echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-fi
 EOSCRIPTTTTTTT
 
 $obj->exe_bash_code( { code => $script, } );
