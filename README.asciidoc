@@ -95,6 +95,14 @@ importing the unpacked source of the fortune-mod-1.99.1.tar tarball from
 the Mageia Linux .src.rpm into an empty git repository, and proceeding
 from there.
 
+=== Why does running "fortune" fails?
+
+There are several possible causes for that.
+
+One of them is the fact that the “fortune” executable was placed in
+an unusual path, for example +/usr/games/fortune+ rather than +/usr/bin/fortune+.
+If so, it sometimes need to be invoked using the full path.
+
 === What is the difference between fortune-mod and the "normal" fortune?
 
 fortune-mod (= "fortune modified") was the name of a fork of the
