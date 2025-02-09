@@ -33,7 +33,7 @@ jobs:
                 --pcre
         -   run: local_lib_shim() { eval "$(perl -Mlocal::lib=$HOME/perl_modules)";
                 } ; local_lib_shim ; rm -fr B
-    test-fc-solve:
+    test-fortune:
         runs-on: ubuntu-latest
         steps:
         -   uses: actions/checkout@v2

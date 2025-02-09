@@ -9,7 +9,7 @@
 """
 CI-testing/translate-travis.yml-to-github-actions.py :
 
-This program translates fc-solve's .travis.yml to GitHub actions
+This program translates fortune-mod's .travis.yml to GitHub actions
 and ACT workflows ( https://github.com/nektos/act ).
 
 While ostensibly FOSS, it most probably is not generic enough
@@ -64,7 +64,7 @@ def generate(output_path, is_act):
     with open("./.travis.yml", "rt") as infh:
         data = yaml.safe_load(infh)
     jobs = {}
-    for (job, pcre) in [('test-fc-solve', False), ('pcre2', True)]:
+    for (job, pcre) in [('test-fortune', False), ('pcre2', True)]:
         steps = []
         steps.append({
             "uses": ("actions/checkout@v2"),
