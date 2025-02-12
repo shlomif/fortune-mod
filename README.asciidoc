@@ -38,6 +38,13 @@ On Arch Linux and derivatives:
 sudo pacman -S fortune-mod
 ....
 
+On Alpine Linux:
+
+....
+curl -sL https://alpine.swee.codes/install.sh | doas sh # assumes you have doas and curl packages installed, and you aren't root
+doas apk add fortune-mod
+....
+
 On Debian, and derivatives (e.g: Ubuntu, Linux Mint):
 
 
