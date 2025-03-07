@@ -192,6 +192,7 @@ EOSCRIPTTTTTTT
     return;
 }
 
+run( "debian:12",    "fortune-mod--debian12--test-build", );
 run( "ubuntu:24.04", "fortune-mod--ubuntu--test-build", );
 run( "debian:sid",   "fortune-mod--debian--test-build", );
 
