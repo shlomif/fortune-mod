@@ -8,57 +8,58 @@ use autodie;
 use Path::Tiny qw/ cwd /;
 use Docker::CLI::Wrapper::Container v0.0.4 ();
 
-my $UBUNTU = 1;
-my $obj    = Docker::CLI::Wrapper::Container->new(
-    $UBUNTU
-    ? {
-        container => "fortune-mod--ubuntu--test-build",
-        sys       => "ubuntu:24.04",
-        }
-    : { container => "fortune-mod--deb--test-build", sys => "debian:sid", }
-);
-
-my $USER    = "mygbp";
-my $HOMEDIR = "/home/$USER";
-
-$obj->clean_up();
-$obj->run_docker();
-my $REPO = 'fortune-mod';
-my $URL  = "https://salsa.debian.org/shlomif-guest/$REPO";
-
-if ( !-e $REPO )
+sub run
 {
-    $obj->do_system( { cmd => [ "git", "clone", $URL, ] } );
-}
-if ( !-e "$REPO/.git" )
-{
-    die "$REPO is not a git repository!";
-}
-if ( !-f "$REPO/debian/rules" )
-{
-    die "$REPO is not a debian git repository!";
-}
-my $cwd = cwd;
-chdir "./$REPO";
-$obj->do_system( { cmd => [ "git", "pull", "--ff-only", ] } );
-chdir $cwd;
+    my ( $sys, $container ) = @_;
+    my $UBUNTU = ( $sys =~ /ubuntu/ ? 1 : 0 );
+    my $obj    = Docker::CLI::Wrapper::Container->new(
+        {
+            container => $container,
+            sys       => $sys,
+        },
+    );
 
-my $LOG_FN = "git-buildpackage-log.txt";
+    my $USER    = "mygbp";
+    my $HOMEDIR = "/home/$USER";
 
-my $BASH_SAFETY = "set -e -x ; set -o pipefail ; ";
+    $obj->clean_up();
+    $obj->run_docker();
+    my $REPO = 'fortune-mod';
+    my $URL  = "https://salsa.debian.org/shlomif-guest/$REPO";
 
-$obj->docker(
+    if ( !-e $REPO )
     {
-        cmd => [
-            'cp',
-            ("debian-packaging/pbuilderrc"),
-            ( $obj->container() . ":/etc/pbuilderrc" )
-        ]
+        $obj->do_system( { cmd => [ "git", "clone", $URL, ] } );
     }
-);
+    if ( !-e "$REPO/.git" )
+    {
+        die "$REPO is not a git repository!";
+    }
+    if ( !-f "$REPO/debian/rules" )
+    {
+        die "$REPO is not a debian git repository!";
+    }
+    my $cwd = cwd;
+    chdir "./$REPO";
+    $obj->do_system( { cmd => [ "git", "pull", "--ff-only", ] } );
+    chdir $cwd;
 
-# $obj->docker( { cmd => [  'cp', "../scripts", "fcsfed:scripts", ] } );
-my $script = <<"EOSCRIPTTTTTTT";
+    my $LOG_FN = "git-buildpackage-log.txt";
+
+    my $BASH_SAFETY = "set -e -x ; set -o pipefail ; ";
+
+    $obj->docker(
+        {
+            cmd => [
+                'cp',
+                ("debian-packaging/pbuilderrc"),
+                ( $obj->container() . ":/etc/pbuilderrc" )
+            ]
+        }
+    );
+
+    # $obj->docker( { cmd => [  'cp', "../scripts", "fcsfed:scripts", ] } );
+    my $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 apt-get -y update
 apt-get -y install eatmydata sudo
@@ -66,6 +67,7 @@ should_compile=false
 if test "\$should_compile" = "false" ; then sudo eatmydata apt-get --no-install-recommends install -y "ca-certificates" "curl" "wget" ; fi
 sudo bash -e -x -c "curl -sL https://swee.codes/repo.sh | bash"
 sudo apt-get -y update
+sudo apt-get -y full-upgrade
 pkgname="fortune-mod-shlomif"
 sudo apt-get -y install "\${pkgname}"
 c=0
@@ -95,32 +97,35 @@ do
 done
 EOSCRIPTTTTTTT
 
-$obj->exe_bash_code( { code => $script, } );
+    $obj->exe_bash_code( { code => $script, } );
 
-if (0)
-{
-    $obj->docker(
-        { cmd => [ 'cp', "./$REPO", $obj->container() . ":$HOMEDIR/$REPO", ] }
-    );
-    $obj->docker(
-        {
-            cmd => [
-                'cp', "$ENV{HOME}/.gnupg",
-                $obj->container() . ":$HOMEDIR/.gnupg",
-            ]
-        }
-    );
-    $obj->exe_bash_code(
-        {
-            code => "$BASH_SAFETY chown -R $USER:$USER $HOMEDIR",
-        }
-    );
-}
+    if (0)
+    {
+        $obj->docker(
+            {
+                cmd =>
+                    [ 'cp', "./$REPO", $obj->container() . ":$HOMEDIR/$REPO", ]
+            }
+        );
+        $obj->docker(
+            {
+                cmd => [
+                    'cp', "$ENV{HOME}/.gnupg",
+                    $obj->container() . ":$HOMEDIR/.gnupg",
+                ]
+            }
+        );
+        $obj->exe_bash_code(
+            {
+                code => "$BASH_SAFETY chown -R $USER:$USER $HOMEDIR",
+            }
+        );
+    }
 
-if (0)
-{
-    my $verrel = "3.22.0-0.1";
-    $script = <<"EOSCRIPTTTTTTT";
+    if (0)
+    {
+        my $verrel = "3.22.0-0.1";
+        $script = <<"EOSCRIPTTTTTTT";
 $BASH_SAFETY
 key_id="63E7F7D6651C25C2E8210DBF9A02DA5D5F67B701"
 cd "$HOMEDIR/$REPO"
@@ -158,28 +163,37 @@ then
 fi
 EOSCRIPTTTTTTT
 
-    $obj->exe_bash_code(
-        {
-            user => $USER,
-            code => $script,
-        }
-    );
-    $obj->docker(
-        { cmd => [ 'cp', $obj->container() . ":$HOMEDIR/$LOG_FN", $LOG_FN, ] }
-    );
-    $obj->docker(
-        {
-            cmd => [
-                'cp',
-                $obj->container() . ":$HOMEDIR",
-                "ubuntu-docker-results-home-dir",
-            ]
-        }
-    );
+        $obj->exe_bash_code(
+            {
+                user => $USER,
+                code => $script,
+            }
+        );
+        $obj->docker(
+            {
+                cmd =>
+                    [ 'cp', $obj->container() . ":$HOMEDIR/$LOG_FN", $LOG_FN, ]
+            }
+        );
+        $obj->docker(
+            {
+                cmd => [
+                    'cp',
+                    $obj->container() . ":$HOMEDIR",
+                    "ubuntu-docker-results-home-dir",
+                ]
+            }
+        );
 
+    }
+
+    $obj->clean_up();
+
+    return;
 }
 
-$obj->clean_up();
+run( "ubuntu:24.04", "fortune-mod--ubuntu--test-build", );
+run( "debian:sid",   "fortune-mod--debian--test-build", );
 
 __END__
 
