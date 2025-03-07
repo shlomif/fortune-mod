@@ -1,12 +1,22 @@
 #! /usr/bin/env perl
 
+BEGIN
+{
+
+    die <<"EOF";
+Use of this script is DISCOURAGED due to it being non-functional. There is a debian/ubuntu
+package on https://github.com/shlomif/fortune-mod courtesy of swee.codes .
+EOF
+
+}
+
 use strict;
 use warnings;
 use 5.014;
 use autodie;
 
-use Path::Tiny qw/ cwd /;
-use Docker::CLI::Wrapper::Container v0.0.4 ();
+# use Path::Tiny qw/ cwd /;
+# use Docker::CLI::Wrapper::Container v0.0.4 ();
 
 my $UBUNTU = 1;
 my $obj    = Docker::CLI::Wrapper::Container->new(
