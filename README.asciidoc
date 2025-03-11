@@ -61,6 +61,10 @@ If you are content with using a very old version, you can use:
 sudo apt install fortune-mod
 ....
 
+==== Building from Sources
+
+See https://github.com/shlomif/fortune-mod/blob/master/fortune-mod/INSTALL.asciidoc[the INSTALL.asciidoc file]. You might also wish to consult the GitHub Actions-based Continuous Integration procedures
+
 === Release Tarballs
 
 Release tarballs can be found at
