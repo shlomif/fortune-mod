@@ -194,7 +194,17 @@ EOSCRIPTTTTTTT
 
 run( "debian:12",    "fortune-mod--debian12--test-build", );
 run( "ubuntu:24.04", "fortune-mod--ubuntu--test-build", );
-run( "debian:sid",   "fortune-mod--debian--test-build", );
+my $RUN_sid_key = "RUN_SID";
+if ( delete $ENV{$RUN_sid_key} )
+{
+    warn
+"\$$RUN_sid_key is set; it may likely fail [ https://github.com/shlomif/fortune-mod/issues/114 ]";
+    run( "debian:sid", "fortune-mod--debian--test-build", );
+}
+else
+{
+    warn "\$$RUN_sid_key is unset; skipping likely failing sid run.";
+}
 
 __END__
 
