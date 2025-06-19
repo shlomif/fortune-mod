@@ -114,7 +114,7 @@
 #define MINW 6   /* minimum wait if desired */
 #define CPERS 20 /* # of chars for each sec */
 
-#define POS_UNKNOWN ((int32_t) - 1) /* pos for file unknown */
+#define POS_UNKNOWN ((int32_t)(-1)) /* pos for file unknown */
 #define NO_PROB (-1)                /* no prob specified for file */
 
 #ifdef DEBUG
@@ -1526,7 +1526,7 @@ static FILEDESC *pick_child(FILEDESC *parent)
         DPRINTF(1, (stderr, "    choice = %d (of %ld)\n", choice,
                        parent->tbl.str_numstr));
         for (fp = parent->child; choice >= (int)fp->tbl.str_numstr;
-             fp = fp->next)
+            fp = fp->next)
         {
             choice -= fp->tbl.str_numstr;
             DPRINTF(1, (stderr, "\tskip %s, %ld (choice = %d)\n", fp->name,
@@ -1814,7 +1814,7 @@ static void display(FILEDESC *fp)
     }
     for (Fort_len = 0; fgets((char *)line, sizeof line, fp->inf) &&
                        !STR_ENDSTRING(line, fp->tbl);
-         Fort_len++)
+        Fort_len++)
     {
         if (fp->tbl.str_flags & STR_ROTATED)
         {
