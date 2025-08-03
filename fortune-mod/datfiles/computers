@@ -5724,3 +5724,10 @@ To which he replied:
 
 (Source: https://www.youtube.com/watch?v=z-uWt5wVVkU (around 22:04))
 %
+Many people advocate "just use vanilla JavaScript, you don't need jQuery".
+Well, I don't need many things that are nontheless nice to have. I don’t need
+jQuery, but it sure is nice!
+
+    -- Martin Tournoij, "Why I’m still using jQuery in 2019"
+    -- https://www.arp242.net/jquery.html
+%
