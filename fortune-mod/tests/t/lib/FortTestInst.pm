@@ -26,16 +26,19 @@ my $BASE_PATH_PREFIX = "TEMP-DIR-";
 
 sub install
 {
-    my ($basebasepath) = @_;
-    my $basepath       = $BASE_PATH_PREFIX . $basebasepath;
-    my $cwd            = cwd->absolute;
-    my $build_dir      = $cwd->child("$basepath-build-dir");
-    my $inst_dir       = $cwd->child("$basepath-INST_DIR");
+    my ( $basebasepath, $args ) = @_;
+    $args //= +{};
+    my $basepath  = $BASE_PATH_PREFIX . $basebasepath;
+    my $cwd       = cwd->absolute;
+    my $build_dir = $cwd->child("$basepath-build-dir");
+    my $inst_dir  = $cwd->child("$basepath-INST_DIR");
     rmtree( $build_dir, 0, 0 );
     rmtree( $inst_dir,  0, 0 );
     mkpath($build_dir);
     chdir $build_dir;
     my $KEY = 'CMAKE_GEN';
+    my $LOCALDIR_suffix =
+        ( $args->{LOCALDIR_suffix} // "share/games/fortunes" );
     do_system(
         {
             cmd => [
@@ -47,7 +50,7 @@ sub install
                     : ()
                 ),
                 "-DCMAKE_INSTALL_PREFIX=$inst_dir",
-                "-DLOCALDIR=$inst_dir/share/games/fortunes",
+                "-DLOCALDIR=$inst_dir/$LOCALDIR_suffix",
                 ( $IS_WIN ? ("-DCMAKE_BUILD_TYPE=Debug") : () ),
                 $ENV{SRC_DIR}
             ]

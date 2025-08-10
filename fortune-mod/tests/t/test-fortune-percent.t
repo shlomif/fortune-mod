@@ -7,7 +7,9 @@ use 5.014;
 use FindBin;
 use lib "$FindBin::Bin/lib";
 use FortTestInst ();
-use Test::More tests => 2;
+
+use Path::Tiny qw/ cwd path tempdir tempfile /;
+use Test::More tests => 4;
 use Test::Trap
     qw( trap $trap :flow:stderr(systemsafe):stdout(systemsafe):warn );
 
@@ -32,4 +34,63 @@ use Test::Trap
 
     # TEST
     unlike( $trap->stderr(), qr/-[0-9]/, "negative integer" );
+}
+
+{
+    my $LOCALDIR_suffix = "local/foo";
+    my $inst_dir        = FortTestInst::install(
+        "fortune-percent-LOCALDIR",
+        +{
+            LOCALDIR_suffix => $LOCALDIR_suffix,
+        }
+    );
+    my $local_dir = path("$inst_dir/$LOCALDIR_suffix");
+    $local_dir->mkdir();
+    my $cookiefile_bn = "jokkkkkkkkkkkes";
+    my $datfile_bn    = "$cookiefile_bn.dat";
+    my $cookiefile    = $local_dir->child($cookiefile_bn);
+    my $datfile       = $local_dir->child($datfile_bn);
+    my $text          = <<"EOF";
+This statement is false.
+%
+The diff between theory and practice is that, in theory, there isn't a diff
+between theory and practice, while, in practice, there is.
+%
+EOF
+    $cookiefile->spew_utf8($text);
+    {
+        my @cmd = ( $inst_dir->child( 'bin', 'strfile' ), $cookiefile, );
+
+        print "Running [@cmd]\n";
+        trap
+        {
+            system(@cmd);
+        };
+
+        # TEST
+        like( $trap->stderr(), qr/\A\r?\n?\z/, "right error." );
+
+    }
+    my $IS_WIN = ( $^O eq "MSWin32" );
+    {
+        my @cmd = ( $inst_dir->child( 'games', 'fortune' ), "70%", "all" );
+
+        print "Running [@cmd]\n";
+        trap
+        {
+            system(@cmd);
+        };
+
+    TODO:
+        {
+            local $TODO = "Not fixed yet.";
+
+            # TEST
+            unlike(
+                $trap->stderr(),
+                qr/[pP]robabilities sum to 140\%/,
+"percent overflow: https://github.com/shlomif/fortune-mod/issues/79 [all percent when local+system dirs have fortunes]"
+            );
+        }
+    }
 }
