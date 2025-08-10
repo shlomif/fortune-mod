@@ -9,14 +9,33 @@ use lib "$FindBin::Bin/lib";
 use FortTestInst ();
 
 use Path::Tiny qw/ cwd path tempdir tempfile /;
-use Test::More tests => 7;
+use Test::More tests => 9;
 use Test::Trap
     qw( trap $trap :flow:stderr(systemsafe):stdout(systemsafe):warn );
 
 {
     my $inst_dir = FortTestInst::install("fortune-percent-overflow");
     my $IS_WIN   = ( $^O eq "MSWin32" );
-    my @cmd      = (
+
+    {
+        my @cmd = ( $inst_dir->child( 'games', 'fortune' ), "art" );
+
+        print "Running [@cmd]\n";
+        trap
+        {
+            system(@cmd);
+        };
+
+        {
+            # TEST
+            like( $trap->stdout(), qr/\S/ms, "basic test", );
+
+            # TEST
+            like( $trap->stderr(), qr/\A\r?\n?\z/ms, "basic test: stderr", );
+        }
+    }
+
+    my @cmd = (
         $inst_dir->child( 'games', 'fortune' ),
         "999999999999999%", "songs-poems"
     );

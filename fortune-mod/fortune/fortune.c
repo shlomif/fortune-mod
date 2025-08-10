@@ -1126,28 +1126,42 @@ static int form_file_list(char **files, int file_cnt)
             }
             if (!local_list)
             {
-                system_dir_tail->percent = percent;
-                File_tail = system_dir_tail;
-                File_list = system_dir_list;
+                if (system_dir_tail)
+                {
+                    system_dir_tail->percent = percent;
+                    File_tail = system_dir_tail;
+                    File_list = system_dir_list;
+                }
+                else
+                {
+                    ret = 1;
+                }
             }
             else if (strncmp(fullpathname, locpathname, sizeof(fullpathname)) &&
                      strcmp(sp, "all") == 0)
             {
-                FILEDESC *parent_node = new_fp();
-                parent_node->percent = percent;
-                parent_node->child = system_dir_list;
-                system_dir_list->next = local_list;
-                if (local_list)
+                if (system_dir_list)
                 {
-                    local_list->prev = system_dir_list;
+                    FILEDESC *parent_node = new_fp();
+                    parent_node->percent = percent;
+                    parent_node->child = system_dir_list;
+                    system_dir_list->next = local_list;
+                    if (local_list)
+                    {
+                        local_list->prev = system_dir_list;
+                    }
+                    system_dir_list->parent = parent_node;
+                    if (local_list)
+                    {
+                        local_list->parent = parent_node;
+                    }
+                    File_tail = File_list = parent_node;
+                    ret = 1;
                 }
-                system_dir_list->parent = parent_node;
-                if (local_list)
+                else
                 {
-                    local_list->parent = parent_node;
+                    ret = 0;
                 }
-                File_tail = File_list = parent_node;
-                ret = 1;
             }
             if (!ret)
             {
