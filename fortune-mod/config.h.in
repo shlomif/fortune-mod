@@ -12,9 +12,9 @@ extern "C" {
 /* Version number of package */
 #define VERSION "${VERSION}"
 #define LOCOFFDIR "${LOCALODIR}"
-#define LOCFORTDIR "${LOCALDIR}"
+#define FORTUNE_LOCAL_INOFFENSIVE_FORTUNES_DIR "${LOCALDIR}"
 #define OFFDIR "${OCOOKIEDIR}"
-#define FORTDIR "${COOKIEDIR}"
+#define FORTUNE_SYSTEM_INOFFENSIVE_FORTUNES_DIR "${COOKIEDIR}"
 
 /* Defined if you have recode */
 #cmakedefine HAVE_RECODE_H

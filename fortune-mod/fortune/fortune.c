@@ -644,13 +644,17 @@ static int add_file(int percent, const char *file, const char *dir,
                     {
                         *p++ = '\0';
                     }
-                    snprintf(langdir, sizeof(langdir), "%s/%s", FORTDIR, lang);
+                    snprintf(langdir, sizeof(langdir), "%s/%s",
+                        FORTUNE_SYSTEM_INOFFENSIVE_FORTUNES_DIR, lang);
 
                     if (strncmp(path, lang, 2) == 0)
                     {
                         ret = 1;
                     }
-                    else if (strncmp(path, langdir, strlen(FORTDIR) + 3) == 0)
+                    else if (strncmp(path, langdir,
+                                 strlen(
+                                     FORTUNE_SYSTEM_INOFFENSIVE_FORTUNES_DIR) +
+                                     3) == 0)
                     {
                         ret = 1;
                     }
@@ -834,7 +838,7 @@ static int add_dir(FILEDESC *const fp)
          * allowed to be empty.
          *  - Brian Bassett (brianb@debian.org) 1999/07/31
          */
-        if (strcmp(LOCFORTDIR, fp->path) == 0 ||
+        if (strcmp(FORTUNE_LOCAL_INOFFENSIVE_FORTUNES_DIR, fp->path) == 0 ||
             strcmp(LOCOFFDIR, fp->path) == 0)
         {
             return true;
@@ -866,9 +870,10 @@ static int cond_top_level__add_file(
     return top_level__add_file(dirpath);
 }
 
-static int cond_top_level__LOCFORTDIR(void)
+static int cond_top_level__FORTUNEMOD_LOCAL_INOFFENSIVE_FORTUNES_DIR(void)
 {
-    return cond_top_level__add_file(FORTDIR, LOCFORTDIR);
+    return cond_top_level__add_file(FORTUNE_SYSTEM_INOFFENSIVE_FORTUNES_DIR,
+        FORTUNE_LOCAL_INOFFENSIVE_FORTUNES_DIR);
 }
 
 static int cond_top_level__OFFDIR(void)
@@ -876,9 +881,10 @@ static int cond_top_level__OFFDIR(void)
     return cond_top_level__add_file(OFFDIR, LOCOFFDIR);
 }
 
-static int top_level_LOCFORTDIR(void)
+static int top_level_FORTUNEMOD_LOCAL_INOFFENSIVE_FORTUNES_DIR(void)
 {
-    return (top_level__add_file(LOCFORTDIR) | cond_top_level__LOCFORTDIR());
+    return (top_level__add_file(FORTUNE_LOCAL_INOFFENSIVE_FORTUNES_DIR) |
+            cond_top_level__FORTUNEMOD_LOCAL_INOFFENSIVE_FORTUNES_DIR());
 }
 
 static int form_file_list(char **files, int file_cnt)
@@ -892,9 +898,11 @@ static int form_file_list(char **files, int file_cnt)
     {
         if (All_forts)
         {
-            return (top_level__add_file(LOCFORTDIR) |
-                    top_level__add_file(LOCOFFDIR) |
-                    cond_top_level__LOCFORTDIR() | cond_top_level__OFFDIR());
+            return (
+                top_level__add_file(FORTUNE_LOCAL_INOFFENSIVE_FORTUNES_DIR) |
+                top_level__add_file(LOCOFFDIR) |
+                cond_top_level__FORTUNEMOD_LOCAL_INOFFENSIVE_FORTUNES_DIR() |
+                cond_top_level__OFFDIR());
         }
         else if (Offend)
         {
@@ -945,12 +953,12 @@ static int form_file_list(char **files, int file_cnt)
                     lang = p;
                 }
                 /* default */
-                return top_level_LOCFORTDIR();
+                return top_level_FORTUNEMOD_LOCAL_INOFFENSIVE_FORTUNES_DIR();
             }
             else
             {
                 /* no locales available, use default */
-                return top_level_LOCFORTDIR();
+                return top_level_FORTUNEMOD_LOCAL_INOFFENSIVE_FORTUNES_DIR();
             }
         }
     }
@@ -1030,8 +1038,10 @@ static int form_file_list(char **files, int file_cnt)
             offensive = true;
         }
 
-        const char *fulldir = offensive ? OFFDIR : FORTDIR;
-        const char *locdir = offensive ? LOCOFFDIR : LOCFORTDIR;
+        const char *fulldir =
+            offensive ? OFFDIR : FORTUNE_SYSTEM_INOFFENSIVE_FORTUNES_DIR;
+        const char *locdir =
+            offensive ? LOCOFFDIR : FORTUNE_LOCAL_INOFFENSIVE_FORTUNES_DIR;
 
         if (strcmp(sp, "all") == 0)
         {
@@ -1039,7 +1049,8 @@ static int form_file_list(char **files, int file_cnt)
             snprintf(locpathname, sizeof(locpathname), "%s", locdir);
         }
         /* if it isn't an absolute path or relative to . or ..
-           make it an absolute path relative to FORTDIR */
+           make it an absolute path relative to
+           FORTUNE_SYSTEM_INOFFENSIVE_FORTUNES_DIR */
         else
         {
             if (strncmp(sp, "/", 1) != 0 && strncmp(sp, "./", 2) != 0 &&
