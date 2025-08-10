@@ -42,9 +42,10 @@
  *    fortune with any other parameters, or none, and which forced
  *    the program to read only one file (named 'fortunes')
  * 3: removed the unnecessary print_file_list()
- * 4: Added "OFFDIR" to pathnames.h as the directory in which offensive
- *    fortunes are kept.  This considerably simplifies our life by
- *    permitting us to dispense with a lot of silly tests for the string
+ * 4: Added "FORTUNE_SYSTEM_OFFENSIVE_FORTUNES_DIR" to pathnames.h as the
+ * directory in which offensive fortunes are kept.  This considerably simplifies
+ * our life by permitting us to dispense with a lot of silly tests for the
+ * string
  *    "-o" at the end of a filename.
  * 5: I think the problems with trying to find filenames were fixed by
  *    the change in the way that offensive files are defined.  Two birds,
@@ -839,7 +840,7 @@ static int add_dir(FILEDESC *const fp)
          *  - Brian Bassett (brianb@debian.org) 1999/07/31
          */
         if (strcmp(FORTUNE_LOCAL_INOFFENSIVE_FORTUNES_DIR, fp->path) == 0 ||
-            strcmp(LOCOFFDIR, fp->path) == 0)
+            strcmp(FORTUNE_LOCAL_OFFENSIVE_FORTUNES_DIR, fp->path) == 0)
         {
             return true;
         }
@@ -876,9 +877,10 @@ static int cond_top_level__FORTUNEMOD_LOCAL_INOFFENSIVE_FORTUNES_DIR(void)
         FORTUNE_LOCAL_INOFFENSIVE_FORTUNES_DIR);
 }
 
-static int cond_top_level__OFFDIR(void)
+static int cond_top_level__FORTUNE_SYSTEM_OFFENSIVE_FORTUNES_DIR(void)
 {
-    return cond_top_level__add_file(OFFDIR, LOCOFFDIR);
+    return cond_top_level__add_file(FORTUNE_SYSTEM_OFFENSIVE_FORTUNES_DIR,
+        FORTUNE_LOCAL_OFFENSIVE_FORTUNES_DIR);
 }
 
 static int top_level_FORTUNEMOD_LOCAL_INOFFENSIVE_FORTUNES_DIR(void)
@@ -900,13 +902,14 @@ static int form_file_list(char **files, int file_cnt)
         {
             return (
                 top_level__add_file(FORTUNE_LOCAL_INOFFENSIVE_FORTUNES_DIR) |
-                top_level__add_file(LOCOFFDIR) |
+                top_level__add_file(FORTUNE_LOCAL_OFFENSIVE_FORTUNES_DIR) |
                 cond_top_level__FORTUNEMOD_LOCAL_INOFFENSIVE_FORTUNES_DIR() |
-                cond_top_level__OFFDIR());
+                cond_top_level__FORTUNE_SYSTEM_OFFENSIVE_FORTUNES_DIR());
         }
         else if (Offend)
         {
-            return (top_level__add_file(LOCOFFDIR) | cond_top_level__OFFDIR());
+            return (top_level__add_file(FORTUNE_LOCAL_OFFENSIVE_FORTUNES_DIR) |
+                    cond_top_level__FORTUNE_SYSTEM_OFFENSIVE_FORTUNES_DIR());
         }
         else
         {
@@ -1038,10 +1041,11 @@ static int form_file_list(char **files, int file_cnt)
             offensive = true;
         }
 
-        const char *fulldir =
-            offensive ? OFFDIR : FORTUNE_SYSTEM_INOFFENSIVE_FORTUNES_DIR;
-        const char *locdir =
-            offensive ? LOCOFFDIR : FORTUNE_LOCAL_INOFFENSIVE_FORTUNES_DIR;
+        const char *fulldir = offensive
+                                  ? FORTUNE_SYSTEM_OFFENSIVE_FORTUNES_DIR
+                                  : FORTUNE_SYSTEM_INOFFENSIVE_FORTUNES_DIR;
+        const char *locdir = offensive ? FORTUNE_LOCAL_OFFENSIVE_FORTUNES_DIR
+                                       : FORTUNE_LOCAL_INOFFENSIVE_FORTUNES_DIR;
 
         if (strcmp(sp, "all") == 0)
         {
