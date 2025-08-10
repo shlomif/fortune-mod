@@ -969,6 +969,7 @@ static int form_file_list(char **files, int file_cnt)
     for (i = 0; i < file_cnt; i++)
     {
         percent = NO_PROB;
+        sp = NULL;
         if (!isdigit(files[i][0]))
         {
             sp = files[i];
@@ -1111,22 +1112,42 @@ static int form_file_list(char **files, int file_cnt)
                 lang = p;
             }
             /* default */
+            FILEDESC *system_dir_list = NULL, *local_list = NULL;
+            FILEDESC *system_dir_tail = NULL, *local_tail = NULL;
             if (!ret)
             {
-                ret = add_file(
-                    percent, fullpathname, NULL, &File_list, &File_tail, NULL);
+                ret = add_file(100, fullpathname, NULL, &system_dir_list,
+                    &system_dir_tail, NULL);
             }
-            if (!ret &&
-                strncmp(fullpathname, locpathname, sizeof(fullpathname)))
-            {
-                ret = add_file(
-                    percent, locpathname, NULL, &File_list, &File_tail, NULL);
-            }
-            if (strncmp(fullpathname, locpathname, sizeof(fullpathname)) &&
-                strcmp(sp, "all") == 0)
+            if (strncmp(fullpathname, locpathname, sizeof(fullpathname)))
             {
                 add_file(
-                    percent, locpathname, NULL, &File_list, &File_tail, NULL);
+                    100, locpathname, NULL, &local_list, &local_tail, NULL);
+            }
+            if (!local_list)
+            {
+                system_dir_tail->percent = percent;
+                File_tail = system_dir_tail;
+                File_list = system_dir_list;
+            }
+            else if (strncmp(fullpathname, locpathname, sizeof(fullpathname)) &&
+                     strcmp(sp, "all") == 0)
+            {
+                FILEDESC *parent_node = new_fp();
+                parent_node->percent = percent;
+                parent_node->child = system_dir_list;
+                system_dir_list->next = local_list;
+                if (local_list)
+                {
+                    local_list->prev = system_dir_list;
+                }
+                system_dir_list->parent = parent_node;
+                if (local_list)
+                {
+                    local_list->parent = parent_node;
+                }
+                File_tail = File_list = parent_node;
+                ret = 1;
             }
             if (!ret)
             {

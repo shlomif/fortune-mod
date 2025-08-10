@@ -9,7 +9,7 @@ use lib "$FindBin::Bin/lib";
 use FortTestInst ();
 
 use Path::Tiny qw/ cwd path tempdir tempfile /;
-use Test::More tests => 4;
+use Test::More tests => 7;
 use Test::Trap
     qw( trap $trap :flow:stderr(systemsafe):stdout(systemsafe):warn );
 
@@ -81,9 +81,13 @@ EOF
             system(@cmd);
         };
 
-    TODO:
         {
-            local $TODO = "Not fixed yet.";
+            # TEST
+            like(
+                $trap->stderr(),
+                qr/fortune: no place to put residual probability/ms,
+"percent overflow: https://github.com/shlomif/fortune-mod/issues/79 [all percent when local+system dirs have fortunes]"
+            );
 
             # TEST
             unlike(
@@ -91,6 +95,24 @@ EOF
                 qr/[pP]robabilities sum to 140\%/,
 "percent overflow: https://github.com/shlomif/fortune-mod/issues/79 [all percent when local+system dirs have fortunes]"
             );
+        }
+    }
+
+    {
+        my @cmd = ( $inst_dir->child( 'games', 'fortune' ), "art" );
+
+        print "Running [@cmd]\n";
+        trap
+        {
+            system(@cmd);
+        };
+
+        {
+            # TEST
+            like( $trap->stdout(), qr/\S/ms, "basic test", );
+
+            # TEST
+            like( $trap->stderr(), qr/\A\r?\n?\z/ms, "basic test: stderr", );
         }
     }
 }
