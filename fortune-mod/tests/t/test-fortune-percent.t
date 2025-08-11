@@ -9,9 +9,39 @@ use lib "$FindBin::Bin/lib";
 use FortTestInst ();
 
 use Path::Tiny qw/ cwd path tempdir tempfile /;
-use Test::More tests => 13;
+use Test::More tests => 17;
 use Test::Trap
     qw( trap $trap :flow:stderr(systemsafe):stdout(systemsafe):warn );
+
+# TEST:$_common_tests=2;
+sub _common_tests
+{
+    my ( $blurb_base, $inst_dir ) = @_;
+
+    {
+        my @cmd = (
+            $inst_dir->child( 'games', 'fortune' ),
+            qw/ 70% all 30% computers /,
+        );
+
+        print "Running [@cmd]\n";
+        trap
+        {
+            system(@cmd);
+        };
+
+        # TEST*$_common_tests
+        like( $trap->stdout(), qr/\S/ms,
+            "$blurb_base : 70/30 percentages : stdout was used",
+        );
+
+        # TEST*$_common_tests
+        like( $trap->stderr(), qr/\A\r?\n?\z/ms,
+            "$blurb_base : 70/30 percentages : stderr is empty. ",
+        );
+    }
+    return;
+}
 
 {
     my $inst_dir = FortTestInst::install("fortune-percent-overflow");
@@ -57,6 +87,8 @@ use Test::Trap
             );
         }
     }
+
+    _common_tests( "local-dir == system-dir", $inst_dir, );
 
     my @cmd = (
         $inst_dir->child( 'games', 'fortune' ),
@@ -180,4 +212,6 @@ EOF
 "[ local+system paths have fortunes ] error message for No fortunes found",
         );
     }
+
+    _common_tests( "local-dir is populated and not system-dir", $inst_dir, );
 }

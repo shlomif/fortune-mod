@@ -429,7 +429,9 @@ static FILEDESC *new_fp(void)
     fp->tbl.stuff[1] = 0;
     fp->tbl.stuff[2] = 0;
     fp->tbl.stuff[3] = 0;
+    fp->name = NULL;
     fp->next = NULL;
+    fp->path = NULL;
     fp->prev = NULL;
     fp->child = NULL;
     fp->parent = NULL;
@@ -1129,8 +1131,18 @@ static int form_file_list(char **files, int file_cnt)
                 if (system_dir_tail)
                 {
                     system_dir_tail->percent = percent;
-                    File_tail = system_dir_tail;
-                    File_list = system_dir_list;
+                    if (File_tail)
+                    {
+                        FILEDESC *old = File_tail;
+                        system_dir_list->prev = File_list;
+                        old->next = system_dir_list;
+                        File_tail = system_dir_tail;
+                    }
+                    else
+                    {
+                        File_tail = system_dir_tail;
+                        File_list = system_dir_list;
+                    }
                 }
                 else
                 {
@@ -1567,7 +1579,6 @@ static FILEDESC *pick_child(FILEDESC *parent)
             continue;
         }
         DPRINTF(1, (stderr, "    using %s\n", fp->name));
-        return fp;
     }
     else
     {
@@ -1584,8 +1595,8 @@ static FILEDESC *pick_child(FILEDESC *parent)
         }
         DPRINTF(
             1, (stderr, "    using %s, %ld\n", fp->name, fp->tbl.str_numstr));
-        return fp;
     }
+    return (fp->child ? (pick_child(fp)) : fp);
 }
 
 /*
@@ -1686,7 +1697,9 @@ static void get_fort(void)
     {
         DPRINTF(1, (stderr, "%s", "picking child\n"));
         fp = pick_child(fp);
+        assert(!fp->child);
     }
+    assert(!fp->child);
     Fortfile = fp;
     get_pos(fp);
     open_dat(fp);
