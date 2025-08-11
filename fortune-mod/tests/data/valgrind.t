@@ -10,7 +10,7 @@ if ( $^O eq "MSWin32" )
 {
     plan skip_all => 'valgrind is not available on Windows';
 }
-plan tests => 8;
+plan tests => 11;
 
 my $obj = Test::RunValgrind->new( {} );
 
@@ -51,6 +51,36 @@ $obj->run(
         prog   => './fortune',
         argv   => [qw/-i -m foobarbazINGAMINGATONGALKIYRE/],
         blurb  => 'fortune -i -m valgrind test',
+    }
+);
+
+# TEST
+$obj->run(
+    {
+        log_fn => './fortune--5-percent.valgrind-log',
+        prog   => './fortune',
+        argv   => [qw/all/],
+        blurb  => 'fortune all valgrind test',
+    }
+);
+
+# TEST
+$obj->run(
+    {
+        log_fn => './fortune--6-percent.valgrind-log',
+        prog   => './fortune',
+        argv   => [qw/ 100% all /],
+        blurb  => 'fortune all valgrind test',
+    }
+);
+
+# TEST
+$obj->run(
+    {
+        log_fn => './fortune--7-percent.valgrind-log',
+        prog   => './fortune',
+        argv   => [qw/ 30% all 70% songs-poems /],
+        blurb  => 'fortune all valgrind test',
     }
 );
 
