@@ -9,7 +9,7 @@ use lib "$FindBin::Bin/lib";
 use FortTestInst ();
 
 use Path::Tiny qw/ cwd path tempdir tempfile /;
-use Test::More tests => 17;
+use Test::More tests => 25;
 use Test::Trap
     qw( trap $trap :flow:stderr(systemsafe):stdout(systemsafe):warn );
 
@@ -38,6 +38,52 @@ sub _common_tests
         # TEST*$_common_tests
         like( $trap->stderr(), qr/\A\r?\n?\z/ms,
             "$blurb_base : 70/30 percentages : stderr is empty. ",
+        );
+    }
+
+    {
+        my @cmd = (
+            $inst_dir->child( 'games', 'fortune' ),
+            qw/ 99% all 1% computers /,
+        );
+
+        print "Running [@cmd]\n";
+        trap
+        {
+            system(@cmd);
+        };
+
+        # TEST*$_common_tests
+        like( $trap->stdout(), qr/\S/ms,
+            "$blurb_base : 99 percentages : stdout was used",
+        );
+
+        # TEST*$_common_tests
+        like( $trap->stderr(), qr/\A\r?\n?\z/ms,
+            "$blurb_base : 99 percentages : stderr is empty. ",
+        );
+    }
+
+    {
+        my @cmd = (
+            $inst_dir->child( 'games', 'fortune' ),
+            qw/ 1% all 99% computers /,
+        );
+
+        print "Running [@cmd]\n";
+        trap
+        {
+            system(@cmd);
+        };
+
+        # TEST*$_common_tests
+        like( $trap->stdout(), qr/\S/ms,
+            "$blurb_base : 1percent-vs-99 percentages : stdout was used",
+        );
+
+        # TEST*$_common_tests
+        like( $trap->stderr(), qr/\A\r?\n?\z/ms,
+            "$blurb_base : 1percent-vs-99 percentages : stderr is empty. ",
         );
     }
     return;
