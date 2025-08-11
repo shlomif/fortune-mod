@@ -13,17 +13,10 @@ use Test::More tests => 25;
 use Test::Trap
     qw( trap $trap :flow:stderr(systemsafe):stdout(systemsafe):warn );
 
-my $IS_WIN = ( $^O eq "MSWin32" );
-
 # TEST:$_common_tests=2;
 sub _common_tests
 {
     my ( $blurb_base, $inst_dir ) = @_;
-
-    my $sys = sub {
-        my @cmd = @_;
-        return system( $IS_WIN ? ( map { s/%/%%/gmrs } @cmd ) : @cmd );
-    };
 
     {
         my @cmd = (
@@ -34,7 +27,7 @@ sub _common_tests
         print "Running [@cmd]\n";
         trap
         {
-            $sys->(@cmd);
+            system(@cmd);
         };
 
         # TEST*$_common_tests
@@ -57,7 +50,7 @@ sub _common_tests
         print "Running [@cmd]\n";
         trap
         {
-            $sys->(@cmd);
+            system(@cmd);
         };
 
         # TEST*$_common_tests
@@ -80,7 +73,7 @@ sub _common_tests
         print "Running [@cmd]\n";
         trap
         {
-            $sys->(@cmd);
+            system(@cmd);
         };
 
         # TEST*$_common_tests
@@ -98,6 +91,7 @@ sub _common_tests
 
 {
     my $inst_dir = FortTestInst::install("fortune-percent-overflow");
+    my $IS_WIN   = ( $^O eq "MSWin32" );
 
     {
         my @cmd = ( $inst_dir->child( 'games', 'fortune' ), "art" );
@@ -197,6 +191,7 @@ EOF
         like( $trap->stderr(), qr/\A\r?\n?\z/, "right error." );
 
     }
+    my $IS_WIN = ( $^O eq "MSWin32" );
     {
         my @cmd = ( $inst_dir->child( 'games', 'fortune' ), "70%", "all" );
 
