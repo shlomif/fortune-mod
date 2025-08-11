@@ -1134,7 +1134,7 @@ static int form_file_list(char **files, int file_cnt)
                 }
                 else
                 {
-                    ret = 1;
+                    ret = 0;
                 }
             }
             else if (strncmp(fullpathname, locpathname, sizeof(fullpathname)) &&

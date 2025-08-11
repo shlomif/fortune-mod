@@ -9,7 +9,7 @@ use lib "$FindBin::Bin/lib";
 use FortTestInst ();
 
 use Path::Tiny qw/ cwd path tempdir tempfile /;
-use Test::More tests => 9;
+use Test::More tests => 11;
 use Test::Trap
     qw( trap $trap :flow:stderr(systemsafe):stdout(systemsafe):warn );
 
@@ -32,6 +32,29 @@ use Test::Trap
 
             # TEST
             like( $trap->stderr(), qr/\A\r?\n?\z/ms, "basic test: stderr", );
+        }
+    }
+
+    {
+        my @cmd =
+            ( $inst_dir->child( 'games', 'fortune' ), "notexisttttttttttt" );
+
+        print "Running [@cmd]\n";
+        trap
+        {
+            system(@cmd);
+        };
+
+        {
+            # TEST
+            unlike( $trap->stdout(), qr/\S/ms, "No fortunes found", );
+
+            # TEST
+            like(
+                $trap->stderr(),
+                qr/\ANo fortunes found/ms,
+                "error message for No fortunes found",
+            );
         }
     }
 
