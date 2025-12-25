@@ -371,13 +371,13 @@ int main(int argc, char **argv)
     bool len_was_set = false;
 
     getargs(argc, argv); /* evalute arguments */
-    if (!(inf = fopen(input_filename, "r")))
+    if (!(inf = fopen(input_filename, "rb")))
     {
         perror(input_filename);
         exit(1);
     }
 
-    if (!(outf = fopen(output_filename, "w")))
+    if (!(outf = fopen(output_filename, "wb")))
     {
         perror(output_filename);
         exit(1);
