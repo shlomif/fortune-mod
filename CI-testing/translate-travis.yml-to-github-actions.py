@@ -137,7 +137,7 @@ def generate_windows_yaml(plat, output_path, is_act):
             ret[key] = val
             env_keys.add(key)
         return ret
-    with open("./.appveyor.yml", "rt") as infh:
+    with open("./.moved-away--appveyor.yml", "rt") as infh:
         data = yaml.safe_load(infh)
     with open("./CI-testing/gh-actions--" +
               "windows-yml--from-p5-UV.yml", "rt") as infh:
