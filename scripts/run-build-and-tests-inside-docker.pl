@@ -10,28 +10,32 @@ use Docker::CLI::Wrapper::Container v0.0.4 ();
 
 my $FEDORA_SYS_WITH_A_NEW_ENUF_pysol_cards = "fedora:43";
 my $SYS       = $FEDORA_SYS_WITH_A_NEW_ENUF_pysol_cards;
-my $CONTAINER = "fcsolve_buildproc_fedora";
+my $CONTAINER = "fortunemod_buildproc_fedora";
 my $obj       = Docker::CLI::Wrapper::Container->new(
     { container => $CONTAINER, sys => $SYS, }, );
 
-my @deps = map { /^BuildRequires:\s*(\S+)/ ? ("'$1'") : () }
-    path("freecell-solver.spec.in")->lines_utf8;
+my @deps;
+@deps = (qw/ cmake /);
+if (0)
+{
+    @deps = map { /^BuildRequires:\s*(\S+)/ ? ("'$1'") : () }
+        path("freecell-solver.spec.in")->lines_utf8;
+}
 $obj->clean_up();
 $obj->run_docker();
-$obj->exe_bash_code(
-    { code => "set -e -x ; mkdir -p /root/fc-solve/fc-solve/", } );
-foreach my $suf (
-    ".perltidyrc",   ".tidyallrc", "root-tests", "fc-solve/scripts",
-    "fc-solve/site", "fc-solve/source",
-    )
+$obj->exe_bash_code( { code => "set -e -x ; mkdir -p /root/fortune-mod/", } );
+foreach my $suf ( "fortune-mod", "CI-testing", )
 {
     $obj->docker(
-        { cmd => [ 'cp', "../../$suf", "${CONTAINER}:root/fc-solve/$suf", ] } );
+        {
+            cmd => [ 'cp', "$suf", "${CONTAINER}:root/fortune-mod/$suf", ]
+        }
+    );
 }
 
 my $script = <<"EOSCRIPTTTTTTT";
 set -e -x
-cd ~/fc-solve/fc-solve
+cd ~/fortune-mod/fortune-mod
 sudo dnf -y upgrade --refresh
 sudo dnf -y install cmake gcc gcc-c++ git glibc-devel libcmocka-devel make perl-autodie perl-Path-Tiny python3-pip @deps
 sudo pip3 install --prefix=/usr freecell_solver
