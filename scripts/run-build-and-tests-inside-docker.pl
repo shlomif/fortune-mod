@@ -24,7 +24,7 @@ if (0)
 $obj->clean_up();
 $obj->run_docker();
 $obj->exe_bash_code( { code => "set -e -x ; mkdir -p /root/fortune-mod/", } );
-foreach my $suf ( "fortune-mod", "CI-testing", )
+foreach my $suf ( "CI-testing", "scripts", "fortune-mod", )
 {
     $obj->docker(
         {
@@ -38,8 +38,11 @@ set -e -x
 cd ~/fortune-mod/fortune-mod
 sudo dnf -y upgrade --refresh
 sudo dnf -y install cmake gcc gcc-c++ git glibc-devel libcmocka-devel make perl-autodie perl-Path-Tiny python3-pip @deps
-sudo pip3 install --prefix=/usr freecell_solver
-pip3 install --user freecell_solver
+if false
+then
+    sudo pip3 install --prefix=/usr freecell_solver
+    pip3 install --user freecell_solver
+fi
 mkdir b
 cd b
 perl ../scripts/Tatzer
