@@ -45,7 +45,7 @@ then
 fi
 mkdir b
 cd b
-perl ../scripts/Tatzer
+perl ../../scripts/Tatzer
 make
 # export HARNESS_VERBOSE=1
 # FCS_TEST_BUILD=1 perl ../source/run-tests.pl --execute="perl `pwd`/../source/t/t/build*.t"
