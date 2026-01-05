@@ -28,7 +28,6 @@ my @deps;
         gcc-c++
         git
         glibc-devel
-        libcmocka-devel
         libxslt-devel
         make
         perl-File-Find-Object
