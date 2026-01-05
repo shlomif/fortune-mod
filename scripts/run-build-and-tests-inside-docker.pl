@@ -49,6 +49,7 @@ my @deps;
         perl-core
         perl-devel
         python3-pip
+        recode-devel
         valgrind
         /
 );
