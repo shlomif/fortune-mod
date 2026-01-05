@@ -18,7 +18,7 @@ Document how to run the tests.
 use Path::Tiny qw/ path /;
 use Docker::CLI::Wrapper::Container v0.0.4 ();
 
-my $FEDORA_SYS_WITH_A_NEW_ENUF_pysol_cards = "fedora:43";
+my $FEDORA_SYS_WITH_A_NEW_ENUF_pysol_cards = "fedora:44";
 my $SYS       = $FEDORA_SYS_WITH_A_NEW_ENUF_pysol_cards;
 my $CONTAINER = "fortunemod_buildproc_fedora";
 my $obj       = Docker::CLI::Wrapper::Container->new(
