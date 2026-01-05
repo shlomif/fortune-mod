@@ -5,6 +5,16 @@ use warnings;
 use 5.014;
 use autodie;
 
+=encoding utf8
+
+=head1 ABOUT
+
+See L<https://github.com/shlomif/fortune-mod/issues/121> .
+
+Document how to run the tests.
+
+=cut
+
 use Path::Tiny qw/ path /;
 use Docker::CLI::Wrapper::Container v0.0.4 ();
 
