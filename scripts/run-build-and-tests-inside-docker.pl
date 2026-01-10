@@ -18,6 +18,7 @@ Document how to run the tests.
 use Path::Tiny qw/ path /;
 use Docker::CLI::Wrapper::Container v0.0.4 ();
 
+my $FALSE                                  = 0;
 my $FEDORA_SYS_WITH_A_NEW_ENUF_pysol_cards = "fedora:44";
 my $SYS       = $FEDORA_SYS_WITH_A_NEW_ENUF_pysol_cards;
 my $CONTAINER = "fortunemod_buildproc_fedora";
@@ -54,7 +55,7 @@ my @deps;
         /
 );
 
-if (0)
+if ($FALSE)
 {
     @deps = map { /^BuildRequires:\s*(\S+)/ ? ("'$1'") : () }
         path("freecell-solver.spec.in")->lines_utf8;
@@ -77,11 +78,6 @@ cd ~/fortune-mod/fortune-mod
 sudo dnf -y upgrade --refresh
 sudo dnf -y install @deps
 sudo cpanm -v App::Docmake
-if false
-then
-    sudo pip3 install --prefix=/usr freecell_solver
-    pip3 install --user freecell_solver
-fi
 mkdir ../../b
 cd ../../b
 perl ../fortune-mod/scripts/Tatzer
