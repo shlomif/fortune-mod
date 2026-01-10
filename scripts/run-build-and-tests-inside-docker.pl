@@ -88,16 +88,6 @@ perl ../fortune-mod/scripts/Tatzer
 gmake VERBOSE=1
 gmake VERBOSE=1 check
 gmake VERBOSE=1 install
-# export HARNESS_VERBOSE=1
-# FCS_TEST_BUILD=1 perl ../run-tests.pl --execute="perl `pwd`/../t/t/build*.t"
-# FCS_TEST_BUILD=1 perl ../run-tests.pl --glob='build*.t'
-# FCS_TEST_BUILD=1 perl ../run-tests.pl --glob='build*.t'
-if false
-then
-    sudo dnf -y install clang clang-devel cpanminus perl-Code-TidyAll perl-LWP-Protocol-https nodejs nodejs-npm ocl-icd-devel opencl-headers pocl pocl-devel wget
-    sudo cpanm Docker::CLI::Wrapper::Container Text::Sprintf::Named Perl::Tidy
-    ( cd ../site/wml && bash bin/install-npm-deps.sh )
-fi
 EOSCRIPTTTTTTT
 
 $obj->exe_bash_code( { code => $script, } );
