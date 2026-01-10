@@ -63,11 +63,14 @@ if ($FALSE)
 $obj->clean_up();
 $obj->run_docker();
 $obj->exe_bash_code( { code => "set -e -x ; mkdir -p /root/fortune-mod/", } );
-foreach my $suf ( "CI-testing", "scripts", "fortune-mod", )
+foreach my $subdir_name ( "CI-testing", "scripts", "fortune-mod", )
 {
     $obj->docker(
         {
-            cmd => [ 'cp', "$suf", "${CONTAINER}:root/fortune-mod/$suf", ]
+            cmd => [
+                'cp', "$subdir_name",
+                "${CONTAINER}:root/fortune-mod/$subdir_name",
+            ]
         }
     );
 }
