@@ -1,6 +1,20 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+January 18, 2026 (fortune-mod 3.26.0)
+
+	Add new list of Terry Pratchett quotes. ( Thanks to @samfreund .)
+
+	Specifying percentage for "all" breaks if both FORTDIR and LOCFORTDIR have
+	fortunes. ( Thanks to @ralismark .)
+	https://github.com/shlomif/fortune-mod/issues/79
+
+	Fix functionality on Windows: text-mode / etc. ( Thanks to Jimmy Cassis .)
+
+	Add	Docker-based build+test programs to the Git repository.
+
+	New fortune cookies, and corrections.
+
 December 18, 2024 (fortune-mod 3.24.0)
 
 	Improved the resilience of generating man pages using App::Docmake
