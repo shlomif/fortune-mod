@@ -10,7 +10,7 @@ use strict;
 use warnings;
 
 use Getopt::Long qw/ GetOptions /;
-use Path::Tiny qw/path/;
+use Path::Tiny qw/ path /;
 
 my %BOOL_OPTS_WITH_FALSE_DEFAULTS =
     ( 'omit-frame' => 'OPTIMIZATION_OMIT_FRAME_POINTER', );
