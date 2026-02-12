@@ -1,6 +1,13 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+February 12, 2026 (fortune-mod 3.26.1)
+
+	Include generated files ( docbook man / etc. ) in the source tarballs.
+	Remember to run "make" before "make package_source".
+
+	Typo corrections.
+
 January 18, 2026 (fortune-mod 3.26.0)
 
 	Add new list of Terry Pratchett quotes. ( Thanks to @samfreund .)
