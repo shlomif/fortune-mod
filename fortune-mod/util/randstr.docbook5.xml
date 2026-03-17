@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- lifted from man+troff by doclifter -->
-<refentry xmlns='http://docbook.org/ns/docbook' version='5.0' xml:lang='en' xml:id='randstrman'>
+<refentry version='5.0' xml:lang='en' xml:id='randstrman'>
 
 <!-- Randstr: grab a random text string from a specified text file
 Amy A. Lewis, October, 1995 -->
