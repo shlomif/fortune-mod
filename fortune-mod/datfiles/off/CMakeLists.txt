@@ -55,4 +55,5 @@ ADD_CUSTOM_TARGET(
 INSTALL(
     FILES ${_install_rotated_cookies}
     DESTINATION "${OCOOKIEDIR}"
+    COMPONENT ArchitectureIndependent
 )

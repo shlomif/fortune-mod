@@ -10,6 +10,7 @@ CMAKE_POLICY(SET CMP0054 NEW)
 # see: https://cmake.org/cmake/help/latest/variable/CMAKE_CROSSCOMPILING.html
 SET (IS_CROSS "${CMAKE_CROSSCOMPILING}")
 
+include(CPack)
 INCLUDE(FindPkgConfig)
 include(GNUInstallDirs)
 
@@ -148,6 +149,11 @@ ENDIF ()
 # So it can find config.h
 INCLUDE_DIRECTORIES(BEFORE "${CMAKE_CURRENT_BINARY_DIR}")
 
+cpack_add_component(ArchitectureDependent
+    DISPLAY_NAME "Architecture dependent files"
+    DESCRIPTION "Build and install executables and manual pages"
+)
+
 MACRO(my_exe exe c_file dir)
     SET(_files "${c_file}")
     if (WIN32)
@@ -169,7 +175,11 @@ MACRO(my_exe exe c_file dir)
     endif()
     TARGET_LINK_LIBRARIES("${exe}" ${_libs})
     if (NOT ("${dir}" STREQUAL "null"))
-        INSTALL(TARGETS "${exe}" RUNTIME DESTINATION "${dir}")
+        INSTALL(
+            TARGETS "${exe}"
+            RUNTIME DESTINATION "${dir}"
+            COMPONENT ArchitectureDependent
+        )
     endif()
 ENDMACRO()
 
@@ -230,6 +240,9 @@ MACRO(_fortune__generate_manpage _my_man_page_dir basename section installed)
         install(
             FILES "${_my_man_page}"
             DESTINATION "${CMAKE_INSTALL_MANDIR}/man${section}"
+            COMPONENT ArchitectureDependent
+            # The manual pages do not really depend on the architecture
+            # but should be installed with the executables.
         )
     endif()
 ENDMACRO()
@@ -246,6 +259,9 @@ ADD_CUSTOM_TARGET(
 install(
     FILES fortune.desktop
     DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications"
+    # The desktop file does not really depend on the architecture
+    # but should be installed with the executable.
+    COMPONENT ArchitectureDependent
 )
 
 INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/util")
@@ -380,5 +396,3 @@ CONFIGURE_FILE(
     ${CMAKE_CURRENT_SOURCE_DIR}/config.h.in
     ${CMAKE_CURRENT_BINARY_DIR}/config.h
 )
-
-INCLUDE(CPack)
