@@ -113,7 +113,7 @@ notice and these conditions appear intact. -->
 <!-- body begins here -->
 <refsynopsisdiv xml:id='synopsis'>
 <cmdsynopsis>
-  <command>fortune</command>    <arg choice='opt'>-acefilosw </arg>
+  <command>fortune</command>    <arg choice='opt'>-acefilosuw </arg>
     <arg choice='opt'><arg choice='plain'>-n </arg><arg choice='plain'><replaceable>length</replaceable></arg></arg>
     <arg choice='opt'><arg choice='plain'>-m </arg><arg choice='plain'><replaceable>pattern</replaceable></arg></arg>
     <arg choice='opt'><arg choice='opt'><replaceable>n%</replaceable></arg><arg choice='plain'><replaceable>file/dir/all</replaceable></arg></arg>
@@ -293,6 +293,13 @@ patterns.</para>
 number of characters in the message.  This is useful if it is executed
 as part of the logout procedure to guarantee that the message can be
 read before the screen is cleared.</para>
+  </listitem>
+  </varlistentry>
+  <varlistentry>
+  <term><emphasis role='strong' remap='B'>-u</emphasis></term>
+  <listitem>
+<para>Don't translate UTF-8 fortunes to the locale when searching or
+translating.</para>
   </listitem>
   </varlistentry>
 </variablelist>
