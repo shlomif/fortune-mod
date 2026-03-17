@@ -62,7 +62,9 @@
 #ifndef MAXPATHLEN
 #define MAXPATHLEN 1024
 #endif /* MAXPATHLEN */
-#include <rinutils/count.h>
+
+#define COUNT(arr) (sizeof(arr) / sizeof(arr[0]))
+#define LAST(arr) (arr)[COUNT(arr) - 1]
 
 #ifndef FORTUNE_EXCLUDE_SRANDOM
 static void call_srandom(void)
