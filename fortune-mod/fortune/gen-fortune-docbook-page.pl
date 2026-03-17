@@ -49,7 +49,7 @@ open my $out, '>:raw:encoding(utf-8)', $output_fn;
 $out->print(<<'END_OF_STRING');
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- lifted from man+troff by doclifter -->
-<refentry xmlns='http://docbook.org/ns/docbook' version='5.0' xml:lang='en' xml:id='fortune'>
+<refentry version='5.0' xml:lang='en' xml:id='fortune'>
 <!-- $NetBSD: fortune.6,v 1.4 1995/03/23 08:28:37 cgd Exp $ -->
 
 <!-- Copyright (c) 1985, 1991, 1993
