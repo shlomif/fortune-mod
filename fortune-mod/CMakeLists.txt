@@ -11,6 +11,7 @@ CMAKE_POLICY(SET CMP0054 NEW)
 SET (IS_CROSS "${CMAKE_CROSSCOMPILING}")
 
 INCLUDE(FindPkgConfig)
+include(GNUInstallDirs)
 
 SET (PKGDATADIR_SUBDIR "fortune-mod")
 SET (RELATIVE_PKGDATADIR "${RELATIVE_DATADIR}/${PKGDATADIR_SUBDIR}")
@@ -277,6 +278,11 @@ _fortune__generate_manpage("randstr")
 ADD_CUSTOM_TARGET(
     generate_man_page
     ALL DEPENDS ${_my_man_pages_list}
+)
+
+install(
+    FILES fortune.desktop
+    DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications"
 )
 
 INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/util")
