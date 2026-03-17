@@ -63,7 +63,6 @@
 #define MAXPATHLEN 1024
 #endif /* MAXPATHLEN */
 #include <rinutils/count.h>
-#include <rinutils/unused.h>
 
 #ifndef FORTUNE_EXCLUDE_SRANDOM
 static void call_srandom(void)

@@ -176,7 +176,7 @@ static void display(FILE *fp, STRFILE table)
     fflush(stdout);
 }
 
-int main(int argc GCC_UNUSED, char **argv)
+int main(int, char **argv)
 {
     static STRFILE tbl; /* description table */
 
