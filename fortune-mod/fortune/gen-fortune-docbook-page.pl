@@ -471,6 +471,11 @@ EOF
 $out->print(<<'END_OF_STRING');
 
 </para>
+<para>
+When passing files to fortune, directories must be specified by absolute
+pathnames, and filenames starting with a dot are ignored. See:
+http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=241888
+</para>
 
 </refsect1>
 
