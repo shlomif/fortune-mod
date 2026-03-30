@@ -559,6 +559,15 @@ static int is_fortfile(const char *const file, char **datp)
     return true;
 }
 
+static bool path_has_explicit_prefix(const char *const path)
+{
+    return (strncmp(path, "./", 2) == 0 || strncmp(path, "../", 3) == 0
+#ifdef _WIN32
+            || strncmp(path, ".\\", 2) == 0 || strncmp(path, "..\\", 3) == 0
+#endif
+    );
+}
+
 static bool path_is_absolute(const char *const path)
 {
     if (path[0] == '/')
@@ -566,12 +575,18 @@ static bool path_is_absolute(const char *const path)
         return true;
     }
 #ifdef _WIN32
-    if (isalpha(path[0]) && path[1] == ':' && path[2] == '/')
+    if (isalpha((unsigned char)path[0]) && path[1] == ':' &&
+        (path[2] == '/' || path[2] == '\\'))
     {
         return true;
     }
 #endif
     return false;
+}
+
+static bool path_is_explicit(const char *const path)
+{
+    return (path_is_absolute(path) || path_has_explicit_prefix(path));
 }
 
 static int open4read(const char *const path)
@@ -622,7 +637,7 @@ static int add_file(int percent, const char *file, const char *dir,
             (!isdir) &&
 #endif
             ((fd = open4read(path)) < 0)) ||
-        !path_is_absolute(path))
+        !path_is_explicit(path))
     {
         debugprint("check file fd=%d path=<%s> dir=<%s> file=<%s> percent=%d\n",
             fd, path, dir, file, percent);
@@ -1060,8 +1075,7 @@ static int form_file_list(char **files, int file_cnt)
            FORTUNE_SYSTEM_INOFFENSIVE_FORTUNES_DIR */
         else
         {
-            if (strncmp(sp, "/", 1) != 0 && strncmp(sp, "./", 2) != 0 &&
-                strncmp(sp, "../", 3) != 0)
+            if (!path_is_explicit(sp))
             {
                 snprintf(
                     fullpathname, sizeof(fullpathname), "%s/%s", fulldir, sp);
