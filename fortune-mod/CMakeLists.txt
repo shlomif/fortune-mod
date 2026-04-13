@@ -10,7 +10,9 @@ CMAKE_POLICY(SET CMP0054 NEW)
 # see: https://cmake.org/cmake/help/latest/variable/CMAKE_CROSSCOMPILING.html
 SET (IS_CROSS "${CMAKE_CROSSCOMPILING}")
 
+include(CPack)
 INCLUDE(FindPkgConfig)
+include(GNUInstallDirs)
 
 SET (PKGDATADIR_SUBDIR "fortune-mod")
 SET (RELATIVE_PKGDATADIR "${RELATIVE_DATADIR}/${PKGDATADIR_SUBDIR}")
@@ -147,6 +149,11 @@ ENDIF ()
 # So it can find config.h
 INCLUDE_DIRECTORIES(BEFORE "${CMAKE_CURRENT_BINARY_DIR}")
 
+cpack_add_component(ArchitectureDependent
+    DISPLAY_NAME "Architecture dependent files"
+    DESCRIPTION "Build and install executables and manual pages"
+)
+
 MACRO(my_exe exe c_file dir)
     SET(_files "${c_file}")
     if (WIN32)
@@ -168,7 +175,11 @@ MACRO(my_exe exe c_file dir)
     endif()
     TARGET_LINK_LIBRARIES("${exe}" ${_libs})
     if (NOT ("${dir}" STREQUAL "null"))
-        INSTALL(TARGETS "${exe}" RUNTIME DESTINATION "${dir}")
+        INSTALL(
+            TARGETS "${exe}"
+            RUNTIME DESTINATION "${dir}"
+            COMPONENT ArchitectureDependent
+        )
     endif()
 ENDMACRO()
 
@@ -198,85 +209,59 @@ my_exe(
     "bin"
 )
 
-SET (_my_man_page_dir "${CMAKE_CURRENT_BINARY_DIR}/manpages")
-SET (_my_man_page "${_my_man_page_dir}/fortune.6")
-SET (_my_man_gen "${CMAKE_CURRENT_SOURCE_DIR}/fortune/process-fortune-man-template.pl")
-SET (_my_args)
-LIST(APPEND _my_args "--cookiedir" "${COOKIEDIR}" "--ocookiedir" "${OCOOKIEDIR}" "--output" "${_my_man_page}")
+SET (_my_man_page "${CMAKE_CURRENT_BINARY_DIR}/fortune.docbook5.xml")
+SET (_my_man_gen "${CMAKE_CURRENT_SOURCE_DIR}/fortune/gen-fortune-docbook-page.pl")
 IF (NO_OFFENSIVE)
-    LIST(APPEND _my_args "--without-offensive")
-    SET(_MY_IN "${CMAKE_CURRENT_SOURCE_DIR}/fortune/fortune_without_offensive.template.man")
+    SET (ocd "")
 ELSE()
-    SET(_MY_IN "${CMAKE_CURRENT_SOURCE_DIR}/fortune/fortune_with_offensive.template.man")
+    SET (ocd "${OCOOKIEDIR}")
 ENDIF()
-LIST(APPEND _my_args "--input" "${_MY_IN}")
 
 ADD_CUSTOM_COMMAND(
     OUTPUT "${_my_man_page}"
-    COMMAND "${PERL_EXECUTABLE}"
-    ARGS "${_my_man_gen}" ${_my_args}
-    DEPENDS "${_my_man_gen}" "${_MY_IN}"
+    COMMAND "sh" "${_my_man_gen}" "${COOKIEDIR}" "${ocd}" ">" "${_my_man_page}"
+    DEPENDS "${_my_man_gen}"
 )
 SET (_my_man_pages_list)
 
-LIST(APPEND _my_man_pages_list "${_my_man_page}")
+MACRO(_fortune__generate_manpage _my_man_page_dir basename section installed)
 
-INSTALL_RENAME_MAN("fortune.6" "6" "fortune" "${_my_man_page_dir}")
-
-SET (_util_dir "${CMAKE_CURRENT_SOURCE_DIR}/util")
-MACRO(_fortune__generate_docbook basename offensive_flags)
-
-    SET (_my_man_page_dir "${CMAKE_CURRENT_SOURCE_DIR}/fortune")
-    SET (_dest_basename "${basename}.template")
-    SET (_my_man_page "${_my_man_page_dir}/${_dest_basename}.man")
+    SET (_my_man_page "${CMAKE_CURRENT_BINARY_DIR}/${basename}.${section}")
     SET (_my_man_docbook "${_my_man_page_dir}/${basename}.docbook5.xml")
-    SET (_my_man_prog "${_my_man_page_dir}/gen-fortune-docbook-page.pl")
-    SET (_my_args "${_my_man_prog}" "--output" "${_my_man_docbook}" --cookiedir "[[cookiedir_placeholder]]" --ocookiedir "[[ocookiedir_placeholder]]" ${offensive_flags})
-    ADD_CUSTOM_COMMAND(
-        OUTPUT "${_my_man_docbook}"
-        COMMAND "${PERL_EXECUTABLE}"
-        ARGS ${_my_args}
-        DEPENDS "${_my_man_prog}"
-    )
-
-    LIST(APPEND _my_man_pages_list "${_my_man_docbook}")
-    SET (_my_args "-I${_util_dir}" "${_util_dir}/fortmod_gen_manpage.pl" "--src-dir" "${CMAKE_CURRENT_SOURCE_DIR}" "--basename=${basename}" "--dest-basename=${_dest_basename}" "--out-section=6" "--out-basename=fortune" "--subdir=fortune")
     ADD_CUSTOM_COMMAND(
         OUTPUT "${_my_man_page}"
-        COMMAND "${PERL_EXECUTABLE}"
-        ARGS ${_my_args}
+        COMMAND "docbook2x-man" "${_my_man_docbook}" "--to-stdout"
+                ">" "${_my_man_page}"
         DEPENDS "${_my_man_docbook}"
     )
 
     LIST(APPEND _my_man_pages_list "${_my_man_page}")
+    if(${installed})
+        install(
+            FILES "${_my_man_page}"
+            DESTINATION "${CMAKE_INSTALL_MANDIR}/man${section}"
+            COMPONENT ArchitectureDependent
+            # The manual pages do not really depend on the architecture
+            # but should be installed with the executables.
+        )
+    endif()
 ENDMACRO()
 
-_fortune__generate_docbook("fortune_with_offensive" "")
-_fortune__generate_docbook("fortune_without_offensive" "--without-offensive")
-
-MACRO(_fortune__generate_manpage basename)
-
-    SET (_my_man_page_dir "${CMAKE_CURRENT_SOURCE_DIR}/util")
-    SET (_my_man_page "${_my_man_page_dir}/${basename}.man")
-    SET (_my_man_docbook "${_my_man_page_dir}/${basename}.docbook5.xml")
-    SET (_my_args "-I${_util_dir}" "${_util_dir}/fortmod_gen_manpage.pl" "--src-dir" "${CMAKE_CURRENT_SOURCE_DIR}" "--basename=${basename}")
-    ADD_CUSTOM_COMMAND(
-        OUTPUT "${_my_man_page}"
-        COMMAND "${PERL_EXECUTABLE}"
-        ARGS ${_my_args}
-        DEPENDS "${_my_man_docbook}"
-    )
-
-    LIST(APPEND _my_man_pages_list "${_my_man_page}")
-ENDMACRO()
-
-_fortune__generate_manpage("strfile")
-INSTALL_RENAME_MAN("strfile.man" "1" "strfile" "${_my_man_page_dir}")
-_fortune__generate_manpage("randstr")
+_fortune__generate_manpage("${CMAKE_CURRENT_BINARY_DIR}" fortune 6 ON)
+_fortune__generate_manpage("${CMAKE_CURRENT_SOURCE_DIR}/util" strfile 1 ON)
+_fortune__generate_manpage("${CMAKE_CURRENT_SOURCE_DIR}/util" randstr 1 OFF)
 
 ADD_CUSTOM_TARGET(
     generate_man_page
     ALL DEPENDS ${_my_man_pages_list}
+)
+
+install(
+    FILES fortune.desktop
+    DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications"
+    # The desktop file does not really depend on the architecture
+    # but should be installed with the executable.
+    COMPONENT ArchitectureDependent
 )
 
 INCLUDE_DIRECTORIES("${CMAKE_CURRENT_SOURCE_DIR}/util")
@@ -411,5 +396,3 @@ CONFIGURE_FILE(
     ${CMAKE_CURRENT_SOURCE_DIR}/config.h.in
     ${CMAKE_CURRENT_BINARY_DIR}/config.h
 )
-
-INCLUDE(CPack)

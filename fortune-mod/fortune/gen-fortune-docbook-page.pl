@@ -1,52 +1,13 @@
-#!/usr/bin/perl
+#!/usr/bin/sh
+set -Cefu
+if [ $# < 1 -o 2 < $# ]; then
+    echo "$0: bad argument count: $#" 2>&1
+    exit 1
+fi
+cookiedir="$1"
+ocookiedir="${2:-}"
 
-use strict;
-use warnings;
-use autodie;
-use utf8;
-
-use File::Basename qw / dirname /;
-use File::Path     qw / mkpath /;
-use Getopt::Long   qw/ GetOptions /;
-
-my $output_fn;
-my $cookiedir;
-my $ocookiedir;
-my $no_offensive = 0;
-GetOptions(
-    '--cookiedir=s'        => \$cookiedir,
-    '--ocookiedir=s'       => \$ocookiedir,
-    '--without-offensive!' => \$no_offensive,
-    '--output=s'           => \$output_fn,
-) or die "Wrong options - $!";
-
-if ( !defined($output_fn) )
-{
-    die "Please specify --output";
-}
-
-if ( !defined($cookiedir) )
-{
-    die "Please specify cookiedir";
-}
-
-my $OFF = ( !$no_offensive );
-
-if ( $OFF and !defined($ocookiedir) )
-{
-    die "Please specify ocookiedir";
-}
-
-my $dirname = dirname($output_fn);
-if ( $dirname and ( !-e $dirname ) )
-{
-    mkpath($dirname);
-}
-
-# The :raw is to prevent CRs on Win32/etc.
-open my $out, '>:raw:encoding(utf-8)', $output_fn;
-
-$out->print(<<'END_OF_STRING');
+cat <<'END_OF_STRING'
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- lifted from man+troff by doclifter -->
 <refentry xmlns='http://docbook.org/ns/docbook' version='5.0' xml:lang='en' xml:id='fortune'>
@@ -125,16 +86,15 @@ notice and these conditions appear intact. -->
 <para>When
 <emphasis role='strong' remap='B'>fortune</emphasis>
 is run with no arguments it prints out a random epigram. Epigrams are
+divided into several categories.
 END_OF_STRING
 
-$out->print(
-    $OFF
-    ? "divided into several categories, where each category is sub-divided
-into those which are potentially offensive and those which are not."
-    : "divided into several categories."
-);
+[ -n "$ocookiedir" ] || cat <<'EOF'
+In each category, epigrams are sub-divided into those which are
+potentially offensive and those which are not.
+EOF
 
-$out->print(<<'END_OF_STRING');
+cat <<'END_OF_STRING'
 </para>
 
 <refsect2 xml:id='options'><title>Options</title>
@@ -144,21 +104,17 @@ $out->print(<<'END_OF_STRING');
   <term><emphasis role='strong' remap='B'>-a</emphasis></term>
   <listitem>
 
+<para>Choose from all lists of maxims.
 END_OF_STRING
 
-$out->print(
-    $OFF
-    ? <<'EOF'
-<para>Choose from all lists of maxims, both offensive and not.  (See the
+[ -n "$ocookiedir" ] || cat <<'EOF'
+The list contains both offensive and not offensive cookies (see the
 <emphasis role='strong' remap='B'>-o</emphasis>
-option for more information on offensive fortunes.)</para>
+option for more information on offensive fortunes).
 EOF
-    : <<'EOF'
-<para>Choose from all lists of maxims.</para>
-EOF
-);
 
-$out->print(<<'END_OF_STRING');
+cat <<'END_OF_STRING'
+</para>
   </listitem>
   </varlistentry>
   <varlistentry>
@@ -229,9 +185,7 @@ into a never-ending thrash loop.</para>
 
 END_OF_STRING
 
-if ($OFF)
-{
-    $out->print(<<'END_OF_STRING');
+[ -n "$ocookiedir" ] || cat <<'END_OF_STRING'
 
   <varlistentry>
   <term>
@@ -264,9 +218,8 @@ needs be.  Needs be.</para>
   </varlistentry>
 
 END_OF_STRING
-}
 
-$out->print(<<'END_OF_STRING');
+cat <<'END_OF_STRING'
   <varlistentry>
   <term>
   <emphasis role='strong' remap='B'>-s</emphasis>
@@ -353,9 +306,7 @@ option says to consider all files equal; thus</para>
   </para></blockquote> <!-- remap='RE' -->
 END_OF_STRING
 
-if ($OFF)
-{
-    $out->print(<<'END_OF_STRING');
+[ -n "$ocookiedir" ] || cat <<'END_OF_STRING'
 
 
 <para>This fortune also supports the BSD method of appending “-o” to
@@ -384,9 +335,8 @@ and a potentially offensive definition for the remaining 10%:</para>
   </para></blockquote> <!-- remap='RE' -->
 
 END_OF_STRING
-}
 
-$out->print(<<"END_OF_STRING");
+cat <<END_OF_STRING
 
 </refsect2>
 </refsect1>
@@ -401,16 +351,13 @@ Directory for innoffensive fortunes.</para>
 
 END_OF_STRING
 
-if ($OFF)
-{
-    $out->print(<<"EOF");
+[ -n "$ocookiedir" ] || cat <<EOF
 
 <para><emphasis remap='I'>${ocookiedir}</emphasis>
 Directory for offensive fortunes.</para>
 EOF
-}
 
-$out->print(<<'END_OF_STRING');
+cat <<'END_OF_STRING'
 <!-- PD -->
 
 <para>If a particular set of fortunes is particularly unwanted, there is an
@@ -425,9 +372,7 @@ no longer finds the pointers file, it ignores the text file.</para>
 <refsect1 xml:id='bugs'><title>BUGS</title>
 END_OF_STRING
 
-if ($OFF)
-{
-    $out->print(<<'END_OF_STRING');
+[ -n "$ocookiedir" ] || cat <<'END_OF_STRING'
 <para>The division of fortunes into offensive and non-offensive by directory,
 rather than via the `-o' file infix, is not 100% compatible with
 original BSD fortune. Although the `-o' infix is recognised as referring
@@ -439,9 +384,8 @@ use the
 option.</para>
 
 END_OF_STRING
-}
 
-$out->print(<<'END_OF_STRING');
+cat <<'END_OF_STRING'
 <para>The supplied fortune databases have been attacked, in order to correct
 orthographical and grammatical errors, and particularly to reduce
 redundancy and repetition and redundancy.  But especially to avoid
@@ -450,12 +394,11 @@ some fortunes may also have been lost.</para>
 
 <para>The fortune databases are now divided into a larger number of smaller
 files, some organized by format (poetry, definitions), and some by
+content (religion, politics).
 END_OF_STRING
 
-$out->print(
-    $OFF
-    ? <<'EOF'
-content (religion, politics).  There are parallel files in the main
+[ -n "$ocookiedir" ] || cat <<'EOF'
+There are parallel files in the main
 directory and in the offensive files directory (e.g., fortunes/definitions and
 fortunes/off/definitions).  Not all the potentially offensive fortunes are in
 the offensive fortunes files, nor are all the fortunes in the offensive
@@ -463,12 +406,8 @@ files potentially offensive, probably, though a strong attempt has been
 made to achieve greater consistency.  Also, a better division might be
 made.
 EOF
-    : <<'EOF'
-content (religion, politics).
-EOF
-);
 
-$out->print(<<'END_OF_STRING');
+cat <<'END_OF_STRING'
 
 </para>
 
@@ -509,5 +448,3 @@ leaving attributions.</para>
 </refentry>
 
 END_OF_STRING
-
-close($out);

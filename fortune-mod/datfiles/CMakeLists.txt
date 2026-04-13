@@ -77,9 +77,14 @@ ADD_CUSTOM_TARGET(
     plain_cookies ALL
     DEPENDS ${_unrot_cookies}
 )
+cpack_add_component(ArchitectureIndependent
+    DISPLAY_NAME "Architecture independent files"
+    DESCRIPTION "Build and install cookie files"
+)
 INSTALL(
     FILES ${_install_unrot_cookies}
     DESTINATION "${COOKIEDIR}"
+    COMPONENT ArchitectureIndependent
 )
 
 IF (NOT NO_OFFENSIVE)
