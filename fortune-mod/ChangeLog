@@ -1,6 +1,16 @@
 (Note: this file has been re-arranged to be in reverse chronological
 order, which is The Right Thing for ChangeLogs - DLC)
 
+May 27, 2026 (fortune-mod 3.28.0)
+
+	Avoid depending on rinutils .
+
+	Add more Terry Pratchett quotes.
+
+	Add util/fortune-clean.py .
+
+	Fix Windows absolute and relative paths. ( Thanks to Master-Hash .)
+
 February 12, 2026 (fortune-mod 3.26.1)
 
 	Include generated files ( docbook man / etc. ) in the source tarballs.
