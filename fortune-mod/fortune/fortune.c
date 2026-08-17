@@ -1151,7 +1151,7 @@ static int form_file_list(char **files, int file_cnt)
                     if (File_tail)
                     {
                         FILEDESC *old = File_tail;
-                        system_dir_list->prev = File_list;
+                        system_dir_list->prev = old;
                         old->next = system_dir_list;
                         File_tail = system_dir_tail;
                     }
@@ -1215,7 +1215,7 @@ static int form_file_list(char **files, int file_cnt)
             }
         }
         else if (!add_file(
-                     percent, fullpathname, NULL, &File_list, &File_tail, NULL))
+                     percent, fullpathname, NULL, &File_tail, &File_tail, NULL))
         {
             return false;
         }
