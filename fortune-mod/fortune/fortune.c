@@ -906,6 +906,9 @@ static int top_level_FORTUNEMOD_LOCAL_INOFFENSIVE_FORTUNES_DIR(void)
             cond_top_level__FORTUNEMOD_LOCAL_INOFFENSIVE_FORTUNES_DIR());
 }
 
+char *my_pwd = NULL;
+char my_pwd_buffer[PATH_MAX] = "";
+
 static int form_file_list(char **files, int file_cnt)
 {
     int i, percent;
@@ -1196,11 +1199,15 @@ static int form_file_list(char **files, int file_cnt)
                     // restore -o suffix
                     sp[sp_len - 2] = '-';
                 }
-                snprintf(locpathname, sizeof(locpathname), "%s/%s",
-                    getenv("PWD"), sp);
+                if (my_pwd)
+                {
+                    /* code */
+                    snprintf(
+                        locpathname, sizeof(locpathname), "%s/%s", my_pwd, sp);
 
-                ret = add_file(
-                    percent, locpathname, NULL, &File_list, &File_tail, NULL);
+                    ret = add_file(percent, locpathname, NULL, &File_list,
+                        &File_tail, NULL);
+                }
             }
             if (!ret)
             {
@@ -1969,11 +1976,31 @@ static void free_desc(FILEDESC *ptr)
     }
 }
 
+static void initialize_my_pwd(void)
+{
+    my_pwd = getcwd(my_pwd_buffer, sizeof(my_pwd_buffer));
+    if (!my_pwd)
+    {
+        const char *const pwd = getenv("PWD");
+        if (pwd)
+        {
+            const size_t len = 1 + strlen(pwd);
+            if (len <= sizeof(my_pwd_buffer))
+            {
+                strncpy(my_pwd_buffer, pwd, len);
+                LAST(my_pwd_buffer) = '\0';
+                my_pwd = my_pwd_buffer;
+            }
+        }
+    }
+}
+
 int main(int argc, char *argv[])
 {
 #ifdef WITH_RECODE
     const char *ctype;
 #endif
+    initialize_my_pwd();
 
     int exit_code = 0;
     env_lang = getenv("LC_ALL");
