@@ -1979,19 +1979,22 @@ static void free_desc(FILEDESC *ptr)
 static void initialize_my_pwd(void)
 {
     my_pwd = getcwd(my_pwd_buffer, sizeof(my_pwd_buffer));
-    if (!my_pwd)
+    if (my_pwd)
     {
-        const char *const pwd = getenv("PWD");
-        if (pwd)
-        {
-            const size_t len = 1 + strlen(pwd);
-            if (len <= sizeof(my_pwd_buffer))
-            {
-                strncpy(my_pwd_buffer, pwd, len);
-                LAST(my_pwd_buffer) = '\0';
-                my_pwd = my_pwd_buffer;
-            }
-        }
+        return;
+    }
+
+    const char *const pwd = getenv("PWD");
+    if (!pwd)
+    {
+        return;
+    }
+
+    const size_t len = 1 + strlen(pwd);
+    if (len <= sizeof(my_pwd_buffer))
+    {
+        memcpy(my_pwd_buffer, pwd, len);
+        my_pwd = my_pwd_buffer;
     }
 }
 
