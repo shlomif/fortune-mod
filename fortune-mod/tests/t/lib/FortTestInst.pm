@@ -59,7 +59,7 @@ sub install
     do_system( { cmd => [ $MAKE, 'install', ] } );
     chdir($cwd);
 
-    return $inst_dir;
+    return $inst_dir->absolute;
 }
 
 1;
