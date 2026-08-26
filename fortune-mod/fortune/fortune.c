@@ -1214,8 +1214,20 @@ static int form_file_list(char **files, int file_cnt)
                 return false;
             }
         }
-        else if (!add_file(
+        /*
+         * NOTE: the tests suite still passes if we replace File_list here
+         * with File_tail . I.e:
+         *
+         * (!add_file(
                      percent, fullpathname, NULL, &File_tail, &File_tail, NULL))
+
+                     but - why?
+
+https://en.wikipedia.org/w/index.php?title=Code_coverage&oldid=1355385285
+
+         * */
+        else if (!add_file(
+                     percent, fullpathname, NULL, &File_list, &File_tail, NULL))
         {
             return false;
         }
