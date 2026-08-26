@@ -1225,6 +1225,8 @@ static int form_file_list(char **files, int file_cnt)
 
 https://en.wikipedia.org/w/index.php?title=Code_coverage&oldid=1355385285
 
+            UPDATE: this else-if gets invoked only when env_lang is absent,
+            which is rare on many modern systems.
          * */
         else if (!add_file(
                      percent, fullpathname, NULL, &File_list, &File_tail, NULL))
