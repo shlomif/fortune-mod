@@ -1231,7 +1231,16 @@ https://en.wikipedia.org/w/index.php?title=Code_coverage&oldid=1355385285
         else if (!add_file(
                      percent, fullpathname, NULL, &File_list, &File_tail, NULL))
         {
-            return false;
+            if (!add_file(
+                    percent, locpathname, NULL, &File_list, &File_tail, NULL))
+            {
+#if 0
+                fprintf(stderr,
+                    "add_file locpathname=<%s> fullpathname=<%s> \n",
+                    locpathname, fullpathname);
+#endif
+                return false;
+            }
         }
     }
     return true;

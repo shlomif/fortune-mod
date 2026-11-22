@@ -18,8 +18,10 @@ sub _chdir_run
     my ( $DIR_PATH_NAME, $cb ) = @_;
 
     my $CWD = Path::Tiny->cwd->absolute;
+    diag("oldd CWD = <$CWD>");
     chdir($DIR_PATH_NAME);
     my $NEWCWD = Path::Tiny->cwd->absolute;
+    diag("new CWD = <$NEWCWD>");
     $ENV{'PWD'} = $NEWCWD;
     $cb->();
     chdir($CWD);
