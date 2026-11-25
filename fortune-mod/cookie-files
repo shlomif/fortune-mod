@@ -33,6 +33,7 @@ food            : Recipes, diets, and more about food.
 fortunes        : Yes, the old file name, but this contains predictions,
                   evaluations of character, and the kind of stuff that you
                   actually expect to get when you want to know your fortune.
+futurama        : Captions from the opening sequence of the famous TV show
 goedel          : Meta-fortunes.  Incomplete, of course.  :-)
 humorists       : Stand-up comedians, and people like Dave Barry.  Especially
                   stuff that doesn't fit into another category (almost anything

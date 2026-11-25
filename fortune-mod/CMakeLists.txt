@@ -327,6 +327,7 @@ SET (COOKIES
     ethnic
     food
     fortunes
+    futurama
     goedel
     humorists
     kids

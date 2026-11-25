@@ -31,6 +31,27 @@ if()
         DEPENDS "${script}" "${SOURCE}"
     )
 endif()
+SET(cr "futurama")
+SET(crfull "${CMAKE_CURRENT_SOURCE_DIR}/${cr}")
+SET(SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/data/futurama-opening-captions.csv")
+SET(script "${CMAKE_CURRENT_SOURCE_DIR}/data/futurama-opening-captions-gen.sh")
+ADD_CUSTOM_COMMAND(
+    OUTPUT "${crfull}"
+    COMMAND "sh" "${script}" "${SOURCE}" "${crfull}"
+    DEPENDS "${script}" "${SOURCE}"
+)
+if()
+    SET(cr "futurama2")
+    SET(crfull "${CMAKE_CURRENT_SOURCE_DIR}/${cr}")
+    SET(SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/data/futurama-opening-captions.csv")
+    SET(script "${CMAKE_CURRENT_SOURCE_DIR}/data/futurama-opening-captions-gen.pl")
+    SET(PATH_PERL ${PERL_EXECUTABLE})
+    ADD_CUSTOM_COMMAND(
+        OUTPUT "${crfull}"
+        COMMAND ${PATH_PERL} "${script}" "${SOURCE}" "${crfull}"
+        DEPENDS "${script}" "${SOURCE}"
+    )
+endif()
 FOREACH(c ${COOKIES})
     SET(DEST "${c}.dat")
     SET(SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/${c}")
